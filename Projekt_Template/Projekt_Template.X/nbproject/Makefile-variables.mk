@@ -1,0 +1,14 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# XC16_dsPIC33EP512MU810 configuration
+CND_ARTIFACT_DIR_XC16_dsPIC33EP512MU810=dist/XC16_dsPIC33EP512MU810/production
+CND_ARTIFACT_NAME_XC16_dsPIC33EP512MU810=Projekt_Template.X.production.hex
+CND_ARTIFACT_PATH_XC16_dsPIC33EP512MU810=dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.hex
+# Simulation_dsPIC33_XC16 configuration
+CND_ARTIFACT_DIR_Simulation_dsPIC33_XC16=dist/Simulation_dsPIC33_XC16/production
+CND_ARTIFACT_NAME_Simulation_dsPIC33_XC16=Projekt_Template.X.production.hex
+CND_ARTIFACT_PATH_Simulation_dsPIC33_XC16=dist/Simulation_dsPIC33_XC16/production/Projekt_Template.X.production.hex
