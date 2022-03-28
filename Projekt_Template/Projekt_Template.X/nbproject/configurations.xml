@@ -516,6 +516,18 @@
         <property key="voltagevalue" value="3.25"/>
       </Tool>
       <item path="main_less.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
       </item>
     </conf>
     <conf name="Simulation_dsPIC33_XC16" type="2">

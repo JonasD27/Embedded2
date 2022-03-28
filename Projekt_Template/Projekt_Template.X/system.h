@@ -27,3 +27,6 @@ go here. */
 //System Prototypen
 void ConfigureOscillator(void); /* Handles clock switching/osc initialization */
 
+void init_timer1(void);
+void init_ms_t4(void);
+

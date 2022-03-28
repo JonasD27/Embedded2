@@ -90,18 +90,19 @@ void ConfigureOscillator(void)
 }
 
 
-void init_ms_t1(void){
+//Timer1
+void init_timer1(){
+    __builtin_write_OSCCONL(0b00000011); //SOSC aktivieren
     T1CONbits.TON = 0; // Disable Timer
-    T1CONbits.TCS = 0; // Select internal clock
-    //T1CONbits.TSYNC = 0; // Disable Synchronization -> Asynchron
-    T1CONbits.TCKPS = 0b10; // Select 1:64 Prescaler
+    T1CONbits.TCS = 1; // Select external clock
+    T1CONbits.TSYNC = 0; // Disable Synchronization
+    T1CONbits.TCKPS = 0b00; // Select 1:1 Prescaler
     TMR1 = 0x00; // Clear timer register
-    PR1 = (FCY/64000)-1; // Load the period value hier 1ms
-   /*
-    IPC0bits.T1IP = 0x01; // Set Timer 1 Interrupt Priority Level
+    PR1 = 32767; // Load the period value, Quarztakt
+    
+    IPC0bits.T1IP = 2; // Set Timer 1 Interrupt Priority Level
     IFS0bits.T1IF = 0; // Clear Timer 1 Interrupt Flag
     IEC0bits.T1IE = 1; // Enable Timer1 interrupt
-   */
     T1CONbits.TON = 1; // Start Timer
 }
 

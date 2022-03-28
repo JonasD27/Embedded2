@@ -48,7 +48,7 @@ typedef void *(*StateFunc)();
 
 
 /*Prototypes*******************************************************************/
-void init_ms_t4(void);
+
 
 int16_t putsUART(const char *str);
 int16_t getcFIFO_TX(volatile uint16_t *c);
@@ -68,8 +68,8 @@ void Temp_FSM2(void);
 /*Funktionen*******************************************************************/
 
 /**
- * Test 123 sadlkjasjkld
- * @param milliseconds
+ * Verzögerungsfunktion, blockierend
+ * @param milliseconds Anzahl der zu verzögernden Millisekunden
  */
 void delay_ms(uint16_t milliseconds) {    
     uint32_t i=0;
@@ -193,22 +193,6 @@ int16_t putsUART(const char *str) {
         erfolg *= -1;
     _U1TXIF = 1; //Interuppt Routine Starten um FIFO-Inhalt zu senden
     return erfolg;
-}
-
-//Timer1
-void init_timer1(){
-    __builtin_write_OSCCONL(0b00000011); //SOSC aktivieren
-    T1CONbits.TON = 0; // Disable Timer
-    T1CONbits.TCS = 1; // Select external clock
-    T1CONbits.TSYNC = 0; // Disable Synchronization
-    T1CONbits.TCKPS = 0b00; // Select 1:1 Prescaler
-    TMR1 = 0x00; // Clear timer register
-    PR1 = 32767; // Load the period value, Quarztakt
-    
-    IPC0bits.T1IP = 2; // Set Timer 1 Interrupt Priority Level
-    IFS0bits.T1IF = 0; // Clear Timer 1 Interrupt Flag
-    IEC0bits.T1IE = 1; // Enable Timer1 interrupt
-    T1CONbits.TON = 1; // Start Timer
 }
 
 //I2C
@@ -366,7 +350,7 @@ int16_t main(void)
     /* Configure the oscillator for the device */
     ConfigureOscillator();
     /* Initialize IO ports and peripherals */
-    InitApp();
+    //InitApp();
     initUART();
     init_timer1();
     init_ms_t4();
@@ -387,7 +371,6 @@ int16_t main(void)
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
-    /* TODO <INSERT USER APPLICATION CODE HERE> */
     
     while(1)
     {
