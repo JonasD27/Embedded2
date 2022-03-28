@@ -1,0 +1,56 @@
+\hypertarget{configuration__bits_8c_source}{}\doxysection{configuration\+\_\+bits.\+c}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00002}00002 \textcolor{comment}{// DSPIC33EP512MU810 Configuration Bit Settings}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00004}00004 \textcolor{comment}{// 'C' source line config statements}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00006}00006 \textcolor{comment}{// FGS}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00007}00007 \textcolor{preprocessor}{\#pragma config GWRP = OFF               }\textcolor{comment}{// General Segment Write-\/Protect bit (General Segment may be written)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00008}00008 \textcolor{preprocessor}{\#pragma config GSS = OFF                }\textcolor{comment}{// General Segment Code-\/Protect bit (General Segment Code protect is disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00009}00009 \textcolor{preprocessor}{\#pragma config GSSK = OFF               }\textcolor{comment}{// General Segment Key bits (General Segment Write Protection and Code Protection is Disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00011}00011 \textcolor{comment}{// FOSCSEL}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00012}00012 \textcolor{preprocessor}{\#pragma config FNOSC = FRCDIVN          }\textcolor{comment}{// Initial Oscillator Source Selection Bits (Internal Fast RC (FRC) Oscillator with postscaler)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00013}00013 \textcolor{preprocessor}{\#pragma config IESO = ON                }\textcolor{comment}{// Two-\/speed Oscillator Start-\/up Enable bit (Start up device with FRC, then switch to user-\/selected oscillator source)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00015}00015 \textcolor{comment}{// FOSC}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00016}00016 \textcolor{preprocessor}{\#pragma config POSCMD = XT              }\textcolor{comment}{// Primary Oscillator Mode Select bits (XT Crystal Oscillator Mode)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00017}00017 \textcolor{preprocessor}{\#pragma config OSCIOFNC = OFF           }\textcolor{comment}{// OSC2 Pin Function bit (OSC2 is clock output)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00018}00018 \textcolor{preprocessor}{\#pragma config IOL1WAY = ON             }\textcolor{comment}{// Peripheral pin select configuration (Allow only one reconfiguration)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00019}00019 \textcolor{preprocessor}{\#pragma config FCKSM = CSECMD           }\textcolor{comment}{// Clock Switching Mode bits (Clock switching is enabled,Fail-\/safe Clock Monitor is disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00021}00021 \textcolor{comment}{// FWDT}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00022}00022 \textcolor{preprocessor}{\#pragma config WDTPOST = PS32768        }\textcolor{comment}{// Watchdog Timer Postscaler Bits (1:32,768)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00023}00023 \textcolor{preprocessor}{\#pragma config WDTPRE = PR128           }\textcolor{comment}{// Watchdog Timer Prescaler bit (1:128)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00024}00024 \textcolor{preprocessor}{\#pragma config PLLKEN = ON              }\textcolor{comment}{// PLL Lock Wait Enable bit (Clock switch to PLL source will wait until the PLL lock signal is valid.)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00025}00025 \textcolor{preprocessor}{\#pragma config WINDIS = OFF             }\textcolor{comment}{// Watchdog Timer Window Enable bit (Watchdog Timer in Non-\/Window mode)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00026}00026 \textcolor{preprocessor}{\#pragma config FWDTEN = ON              }\textcolor{comment}{// Watchdog Timer Enable bit (Watchdog timer always enabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00028}00028 \textcolor{comment}{// FPOR}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00029}00029 \textcolor{preprocessor}{\#pragma config FPWRT = PWR128           }\textcolor{comment}{// Power-\/on Reset Timer Value Select bits (128ms)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00030}00030 \textcolor{preprocessor}{\#pragma config BOREN = ON               }\textcolor{comment}{// Brown-\/out Reset (BOR) Detection Enable bit (BOR is enabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00031}00031 \textcolor{preprocessor}{\#pragma config ALTI2C1 = OFF            }\textcolor{comment}{// Alternate I2C pins for I2C1 (SDA1/SCK1 pins are selected as the I/O pins for I2C1)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00032}00032 \textcolor{preprocessor}{\#pragma config ALTI2C2 = ON            }\textcolor{comment}{// Alternate I2C pins for I2C2 (SDA2/SCK2 pins are selected as the I/O pins for I2C2)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00034}00034 \textcolor{comment}{// FICD}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00035}00035 \textcolor{preprocessor}{\#pragma config ICS = PGD1               }\textcolor{comment}{// ICD Communication Channel Select bits (Communicate on PGEC1 and PGED1)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00036}00036 \textcolor{preprocessor}{\#pragma config RSTPRI = PF              }\textcolor{comment}{// Reset Target Vector Select bit (Device will obtain reset instruction from Primary flash)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00037}00037 \textcolor{preprocessor}{\#pragma config JTAGEN = OFF             }\textcolor{comment}{// JTAG Enable bit (JTAG is disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00039}00039 \textcolor{comment}{// FAS}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00040}00040 \textcolor{preprocessor}{\#pragma config AWRP = OFF               }\textcolor{comment}{// Auxiliary Segment Write-\/protect bit (Auxiliary program memory is not write-\/protected)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00041}00041 \textcolor{preprocessor}{\#pragma config APL = OFF                }\textcolor{comment}{// Auxiliary Segment Code-\/protect bit (Aux Flash Code protect is disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00042}00042 \textcolor{preprocessor}{\#pragma config APLK = OFF               }\textcolor{comment}{// Auxiliary Segment Key bits (Aux Flash Write Protection and Code Protection is Disabled)}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00044}00044 \textcolor{comment}{// \#pragma config statements should precede project file includes.}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00045}00045 \textcolor{comment}{// Use project enums instead of \#define for ON and OFF.}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00047}00047 \textcolor{preprocessor}{\#include <xc.h>}}
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{configuration__bits_8c_source_l00051}00051 }
+
+\end{DoxyCode}

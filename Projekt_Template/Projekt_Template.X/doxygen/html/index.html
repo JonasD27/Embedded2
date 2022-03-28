@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Project_Template: Embedded1 und Embedded2 Aufgabendokumentation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Project_Template
+   </div>
+   <div id="projectbrief">Beispiele fÃ¼r Embedded</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Embedded1 und Embedded2 Aufgabendokumentation </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p >p_formatierung</p>
+<h1><a class="anchor" id="Programmdokumentation"></a>
+Programmdokumentation</h1>
+<p >Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben</p>
+<h2><a class="anchor" id="em_aufgabe1"></a>
+Aufgabe 1</h2>
+<ul>
+<li>die Main Funktion - main()</li>
+<li>Systemfrequenz<ul>
+<li>Die Oscillatoreinstellungen sind in ConfigureOscillator() programmiert</li>
+<li>Das Makrodefine #SYS_FREQ wird dabei ausgewertet</li>
+</ul>
+</li>
+<li>FÃ¼r die GPIOs wie Taster und LEDs sind in der Datei <a class="el" href="user_8h_source.html">user.h</a> diverse Zugriffs Makros definiert sowie eine Initialisierungsfunktion initApp()</li>
+<li>Softwaredelay Funktion delay_ms()</li>
+</ul>
+<h2><a class="anchor" id="em_aufgabe23"></a>
+Aufgabe 2 und 3</h2>
+<ul>
+<li>Delayfunktion mit dem Timer 1 delay_ms_t1() und zugehÃ¶rige Initialisierung init_ms_t1()</li>
+<li>Die LED und Taster Tasks: TaskLED0() und TaskTaster0()</li>
+</ul>
+<h2><a class="anchor" id="em_aufgaben"></a>
+Restliche Aufgaben</h2>
+<ul>
+<li>FÃ¼r die Prozessorauslastung: Auslastung() und init_T23_gated(void)</li>
+<li>Betriebszeit: initBetriebszeit() setBetriebszeit() getBetriebszeit() _T1Interrupt()</li>
+<li>UART putcUART() putsUART() getcUART()<ul>
+<li>FIFO: getcTX_FIFO() putcTX_FIFO() _U1TXInterrupt() _U1RXInterrupt</li>
+</ul>
+</li>
+<li>I2C und Temperatursensor: readTemperatureSimpleBlocking() readTemperatureFSM()</li>
+<li>State Machines: diverse Umsetzungen in aFSM.h</li>
+<li>Funktionen fÃ¼r das LC Display in LCD.h</li>
+<li>Dokumentation doku_page_timer_h in uTimer.h </li>
+</ul>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+p\+\_\+formatierung\hypertarget{index_Programmdokumentation}{}\doxysection{Programmdokumentation}\label{index_Programmdokumentation}
+Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben\hypertarget{index_em_aufgabe1}{}\doxysubsection{Aufgabe 1}\label{index_em_aufgabe1}
+
+\begin{DoxyItemize}
+\item die Main Funktion -\/ main()
+\item Systemfrequenz
+\begin{DoxyItemize}
+\item Die Oscillatoreinstellungen sind in Configure\+Oscillator() programmiert
+\item Das Makrodefine \#\+SYS\+\_\+\+FREQ wird dabei ausgewertet
+\end{DoxyItemize}
+\item FÃ¼r die GPIOs wie Taster und LEDs sind in der Datei \mbox{\hyperlink{user_8h_source}{user.\+h}} diverse Zugriffs Makros definiert sowie eine Initialisierungsfunktion init\+App()
+\item Softwaredelay Funktion delay\+\_\+ms()
+\end{DoxyItemize}\hypertarget{index_em_aufgabe23}{}\doxysubsection{Aufgabe 2 und 3}\label{index_em_aufgabe23}
+
+\begin{DoxyItemize}
+\item Delayfunktion mit dem Timer 1 delay\+\_\+ms\+\_\+t1() und zugehÃ¶rige Initialisierung init\+\_\+ms\+\_\+t1()
+\item Die LED und Taster Tasks\+: Task\+LED0() und Task\+Taster0()
+\end{DoxyItemize}\hypertarget{index_em_aufgaben}{}\doxysubsection{Restliche Aufgaben}\label{index_em_aufgaben}
+
+\begin{DoxyItemize}
+\item FÃ¼r die Prozessorauslastung\+: Auslastung() und init\+\_\+\+T23\+\_\+gated(void)
+\item Betriebszeit\+: init\+Betriebszeit() set\+Betriebszeit() get\+Betriebszeit() \+\_\+\+T1\+Interrupt()
+\item UART putc\+UART() puts\+UART() getc\+UART()
+\begin{DoxyItemize}
+\item FIFO\+: getc\+TX\+\_\+\+FIFO() putc\+TX\+\_\+\+FIFO() \+\_\+\+U1\+TXInterrupt() \+\_\+\+U1\+RXInterrupt
+\end{DoxyItemize}
+\item I2C und Temperatursensor\+: read\+Temperature\+Simple\+Blocking() read\+Temperature\+FSM()
+\item State Machines\+: diverse Umsetzungen in a\+FSM.\+h
+\item Funktionen fÃ¼r das LC Display in LCD.\+h
+\item Dokumentation doku\+\_\+page\+\_\+timer\+\_\+h in u\+Timer.\+h 
+\end{DoxyItemize}

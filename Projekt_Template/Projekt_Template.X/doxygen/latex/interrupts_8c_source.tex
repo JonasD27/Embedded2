@@ -1,0 +1,129 @@
+\hypertarget{interrupts_8c_source}{}\doxysection{interrupts.\+c}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00005}00005 \textcolor{comment}{/* Device header file */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00006}00006 \textcolor{preprocessor}{\#if defined(\_\_XC16\_\_)}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00007}00007 \textcolor{preprocessor}{    \#include <xc.h>}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00008}00008 \textcolor{preprocessor}{\#elif defined(\_\_C30\_\_)}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00009}00009 \textcolor{preprocessor}{    \#if defined(\_\_dsPIC33E\_\_)}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00010}00010 \textcolor{preprocessor}{        \#include <p33Exxxx.h>}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00011}00011 \textcolor{preprocessor}{    \#elif defined(\_\_dsPIC33F\_\_)}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00012}00012 \textcolor{preprocessor}{        \#include <p33Fxxxx.h>}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00013}00013 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00014}00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00016}00016 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00017}00017 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00020}00020 \textcolor{comment}{/* Interrupt Vector Options                                                   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00022}00022 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00023}00023 \textcolor{comment}{/* Refer to the C30 (MPLAB C Compiler for PIC24F MCUs and dsPIC33F DSCs) User */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00024}00024 \textcolor{comment}{/* Guide for an up to date list of the available interrupt options.           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00025}00025 \textcolor{comment}{/* Alternately these names can be pulled from the device linker scripts.      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00026}00026 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00027}00027 \textcolor{comment}{/* dsPIC33F Primary Interrupt Vector Names:                                   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00028}00028 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00029}00029 \textcolor{comment}{/* \_INT0Interrupt      \_C1Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00030}00030 \textcolor{comment}{/* \_IC1Interrupt       \_DMA3Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00031}00031 \textcolor{comment}{/* \_OC1Interrupt       \_IC3Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00032}00032 \textcolor{comment}{/* \_T1Interrupt        \_IC4Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00033}00033 \textcolor{comment}{/* \_DMA0Interrupt      \_IC5Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00034}00034 \textcolor{comment}{/* \_IC2Interrupt       \_IC6Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00035}00035 \textcolor{comment}{/* \_OC2Interrupt       \_OC5Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00036}00036 \textcolor{comment}{/* \_T2Interrupt        \_OC6Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00037}00037 \textcolor{comment}{/* \_T3Interrupt        \_OC7Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00038}00038 \textcolor{comment}{/* \_SPI1ErrInterrupt   \_OC8Interrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00039}00039 \textcolor{comment}{/* \_SPI1Interrupt      \_DMA4Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00040}00040 \textcolor{comment}{/* \_U1RXInterrupt      \_T6Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00041}00041 \textcolor{comment}{/* \_U1TXInterrupt      \_T7Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00042}00042 \textcolor{comment}{/* \_ADC1Interrupt      \_SI2C2Interrupt                                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00043}00043 \textcolor{comment}{/* \_DMA1Interrupt      \_MI2C2Interrupt                                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00044}00044 \textcolor{comment}{/* \_SI2C1Interrupt     \_T8Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00045}00045 \textcolor{comment}{/* \_MI2C1Interrupt     \_T9Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00046}00046 \textcolor{comment}{/* \_CNInterrupt        \_INT3Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00047}00047 \textcolor{comment}{/* \_INT1Interrupt      \_INT4Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00048}00048 \textcolor{comment}{/* \_ADC2Interrupt      \_C2RxRdyInterrupt                                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00049}00049 \textcolor{comment}{/* \_DMA2Interrupt      \_C2Interrupt                                           */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00050}00050 \textcolor{comment}{/* \_OC3Interrupt       \_DCIErrInterrupt                                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00051}00051 \textcolor{comment}{/* \_OC4Interrupt       \_DCIInterrupt                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00052}00052 \textcolor{comment}{/* \_T4Interrupt        \_DMA5Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00053}00053 \textcolor{comment}{/* \_T5Interrupt        \_U1ErrInterrupt                                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00054}00054 \textcolor{comment}{/* \_INT2Interrupt      \_U2ErrInterrupt                                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00055}00055 \textcolor{comment}{/* \_U2RXInterrupt      \_DMA6Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00056}00056 \textcolor{comment}{/* \_U2TXInterrupt      \_DMA7Interrupt                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00057}00057 \textcolor{comment}{/* \_SPI2ErrInterrupt   \_C1TxReqInterrupt                                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00058}00058 \textcolor{comment}{/* \_SPI2Interrupt      \_C2TxReqInterrupt                                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00059}00059 \textcolor{comment}{/* \_C1RxRdyInterrupt                                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00060}00060 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00061}00061 \textcolor{comment}{/* dsPIC33E Primary Interrupt Vector Names:                                   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00062}00062 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00063}00063 \textcolor{comment}{/* \_INT0Interrupt     \_IC4Interrupt      \_U4TXInterrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00064}00064 \textcolor{comment}{/* \_IC1Interrupt      \_IC5Interrupt      \_SPI3ErrInterrupt                    */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00065}00065 \textcolor{comment}{/* \_OC1Interrupt      \_IC6Interrupt      \_SPI3Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00066}00066 \textcolor{comment}{/* \_T1Interrupt       \_OC5Interrupt      \_OC9Interrupt                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00067}00067 \textcolor{comment}{/* \_DMA0Interrupt     \_OC6Interrupt      \_IC9Interrupt                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00068}00068 \textcolor{comment}{/* \_IC2Interrupt      \_OC7Interrupt      \_PWM1Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00069}00069 \textcolor{comment}{/* \_OC2Interrupt      \_OC8Interrupt      \_PWM2Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00070}00070 \textcolor{comment}{/* \_T2Interrupt       \_PMPInterrupt      \_PWM3Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00071}00071 \textcolor{comment}{/* \_T3Interrupt       \_DMA4Interrupt     \_PWM4Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00072}00072 \textcolor{comment}{/* \_SPI1ErrInterrupt  \_T6Interrupt       \_PWM5Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00073}00073 \textcolor{comment}{/* \_SPI1Interrupt     \_T7Interrupt       \_PWM6Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00074}00074 \textcolor{comment}{/* \_U1RXInterrupt     \_SI2C2Interrupt    \_PWM7Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00075}00075 \textcolor{comment}{/* \_U1TXInterrupt     \_MI2C2Interrupt    \_DMA8Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00076}00076 \textcolor{comment}{/* \_AD1Interrupt      \_T8Interrupt       \_DMA9Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00077}00077 \textcolor{comment}{/* \_DMA1Interrupt     \_T9Interrupt       \_DMA10Interrupt                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00078}00078 \textcolor{comment}{/* \_NVMInterrupt      \_INT3Interrupt     \_DMA11Interrupt                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00079}00079 \textcolor{comment}{/* \_SI2C1Interrupt    \_INT4Interrupt     \_SPI4ErrInterrupt                    */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00080}00080 \textcolor{comment}{/* \_MI2C1Interrupt    \_C2RxRdyInterrupt  \_SPI4Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00081}00081 \textcolor{comment}{/* \_CM1Interrupt      \_C2Interrupt       \_OC10Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00082}00082 \textcolor{comment}{/* \_CNInterrupt       \_QEI1Interrupt     \_IC10Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00083}00083 \textcolor{comment}{/* \_INT1Interrupt     \_DCIEInterrupt     \_OC11Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00084}00084 \textcolor{comment}{/* \_AD2Interrupt      \_DCIInterrupt      \_IC11Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00085}00085 \textcolor{comment}{/* \_IC7Interrupt      \_DMA5Interrupt     \_OC12Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00086}00086 \textcolor{comment}{/* \_IC8Interrupt      \_RTCCInterrupt     \_IC12Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00087}00087 \textcolor{comment}{/* \_DMA2Interrupt     \_U1ErrInterrupt    \_DMA12Interrupt                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00088}00088 \textcolor{comment}{/* \_OC3Interrupt      \_U2ErrInterrupt    \_DMA13Interrupt                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00089}00089 \textcolor{comment}{/* \_OC4Interrupt      \_CRCInterrupt      \_DMA14Interrupt                      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00090}00090 \textcolor{comment}{/* \_T4Interrupt       \_DMA6Interrupt     \_OC13Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00091}00091 \textcolor{comment}{/* \_T5Interrupt       \_DMA7Interrupt     \_IC13Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00092}00092 \textcolor{comment}{/* \_INT2Interrupt     \_C1TxReqInterrupt  \_OC14Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00093}00093 \textcolor{comment}{/* \_U2RXInterrupt     \_C2TxReqInterrupt  \_IC14Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00094}00094 \textcolor{comment}{/* \_U2TXInterrupt     \_QEI2Interrupt     \_OC15Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00095}00095 \textcolor{comment}{/* \_SPI2ErrInterrupt  \_U3ErrInterrupt    \_IC15Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00096}00096 \textcolor{comment}{/* \_SPI2Interrupt     \_U3RXInterrupt     \_OC16Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00097}00097 \textcolor{comment}{/* \_C1RxRdyInterrupt  \_U3TXInterrupt     \_IC16Interrupt                       */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00098}00098 \textcolor{comment}{/* \_C1Interrupt       \_USB1Interrupt     \_ICDInterrupt                        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00099}00099 \textcolor{comment}{/* \_DMA3Interrupt     \_U4ErrInterrupt    \_PWMSpEventMatchInterrupt            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00100}00100 \textcolor{comment}{/* \_IC3Interrupt      \_U4RXInterrupt     \_PWMSecSpEventMatchInterrupt         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00101}00101 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00102}00102 \textcolor{comment}{/* For alternate interrupt vector naming, simply add 'Alt' between the prim.  */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00103}00103 \textcolor{comment}{/* interrupt vector name '\_' and the first character of the primary interrupt */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00104}00104 \textcolor{comment}{/* vector name.  There is no Alternate Vector or 'AIVT' for the 33E family.   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00105}00105 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00106}00106 \textcolor{comment}{/* For example, the vector name \_ADC2Interrupt becomes \_AltADC2Interrupt in   */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00107}00107 \textcolor{comment}{/* the alternate vector table.                                                */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00108}00108 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00109}00109 \textcolor{comment}{/* Example Syntax:                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00110}00110 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00111}00111 \textcolor{comment}{/* void \_\_attribute\_\_((interrupt,auto\_psv)) <Vector Name>(void)               */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00112}00112 \textcolor{comment}{/* \{                                                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00113}00113 \textcolor{comment}{/*     <Clear Interrupt Flag>                                                 */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00114}00114 \textcolor{comment}{/* \}                                                                          */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00115}00115 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00116}00116 \textcolor{comment}{/* For more comprehensive interrupt examples refer to the C30 (MPLAB C        */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00117}00117 \textcolor{comment}{/* Compiler for PIC24 MCUs and dsPIC DSCs) User Guide in the                  */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00118}00118 \textcolor{comment}{/* <C30 compiler instal directory>/doc directory for the latest compiler      */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00119}00119 \textcolor{comment}{/* release.  For XC16, refer to the MPLAB XC16 C Compiler User's Guide in the */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00120}00120 \textcolor{comment}{/* <XC16 compiler instal directory>/doc folder.                               */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00121}00121 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00123}00123 \textcolor{comment}{/* Interrupt Routines                                                         */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00126}00126 \textcolor{comment}{/* TODO Add interrupt routine code here. */}}
+
+\end{DoxyCode}

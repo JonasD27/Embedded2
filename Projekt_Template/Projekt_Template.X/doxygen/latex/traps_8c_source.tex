@@ -1,0 +1,174 @@
+\hypertarget{traps_8c_source}{}\doxysection{traps.\+c}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00005}00005 \textcolor{comment}{/* Device header file */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00006}00006 \textcolor{preprocessor}{\#if defined(\_\_XC16\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00007}00007 \textcolor{preprocessor}{    \#include <xc.h>}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00008}00008 \textcolor{preprocessor}{\#elif defined(\_\_C30\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00009}00009 \textcolor{preprocessor}{    \#if defined(\_\_dsPIC33E\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00010}00010 \textcolor{preprocessor}{        \#include <p33Exxxx.h>}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00011}00011 \textcolor{preprocessor}{    \#elif defined(\_\_dsPIC33F\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00012}00012 \textcolor{preprocessor}{        \#include <p33Fxxxx.h>}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00013}00013 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00014}00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00016}00016 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00017}00017 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00020}00020 \textcolor{comment}{/* Trap Function Prototypes                                                   */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00023}00023 \textcolor{comment}{/* <Other function prototypes for debugging trap code may be inserted here>   */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00025}00025 \textcolor{comment}{/* Use if INTCON2 ALTIVT=1 */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00026}00026 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_OscillatorFail(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00027}00027 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AddressError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00028}00028 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_StackError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00029}00029 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_MathError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00031}00031 \textcolor{preprocessor}{\#if defined(\_\_HAS\_DMA\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00033}00033 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DMACError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00035}00035 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00037}00037 \textcolor{preprocessor}{\#if defined(\_\_dsPIC33F\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00039}00039 \textcolor{comment}{/* Use if INTCON2 ALTIVT=0 */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00040}00040 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltOscillatorFail(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00041}00041 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltAddressError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00042}00042 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltStackError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00043}00043 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltMathError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00045}00045 \textcolor{preprocessor}{    \#if defined(\_\_HAS\_DMA\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00047}00047     \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltDMACError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00049}00049 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00051}00051 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00053}00053 \textcolor{comment}{/* Default interrupt handler */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00054}00054 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DefaultInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00056}00056 \textcolor{preprocessor}{\#if defined(\_\_dsPIC33E\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00058}00058 \textcolor{comment}{/* These are additional traps in the 33E family.  Refer to the PIC33E}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00059}00059 \textcolor{comment}{migration guide.  There are no Alternate Vectors in the 33E family. */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00060}00060 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_HardTrapError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00061}00061 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_SoftTrapError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00063}00063 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00066}00066 \textcolor{comment}{/* Trap Handling                                                              */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00067}00067 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00068}00068 \textcolor{comment}{/* These trap routines simply ensure that the device continuously loops       */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00069}00069 \textcolor{comment}{/* within each routine.  Users who actually experience one of these traps     */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00070}00070 \textcolor{comment}{/* can add code to handle the error.  Some basic examples for trap code,      */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00071}00071 \textcolor{comment}{/* including assembly routines that process trap sources, are available at    */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00072}00072 \textcolor{comment}{/* www.microchip.com/codeexamples                                             */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00075}00075 \textcolor{comment}{/* Primary (non-\/alternate) address error trap function declarations */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00076}00076 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_OscillatorFail(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00077}00077 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00078}00078         INTCON1bits.OSCFAIL = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00079}00079         \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00080}00080 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00082}00082 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AddressError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00083}00083 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00084}00084         INTCON1bits.ADDRERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00085}00085         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00087}00087 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_StackError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00088}00088 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00089}00089         INTCON1bits.STKERR = 0;         \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00090}00090         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00091}00091 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00093}00093 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_MathError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00094}00094 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00095}00095         INTCON1bits.MATHERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00096}00096         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00097}00097 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00099}00099 \textcolor{preprocessor}{\#if defined(\_\_HAS\_DMA\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00101}00101 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DMACError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00102}00102 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00103}00103         INTCON1bits.DMACERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00104}00104         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00107}00107 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00109}00109 \textcolor{preprocessor}{\#if defined(\_\_dsPIC33F\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00111}00111 \textcolor{comment}{/* Alternate address error trap function declarations */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00112}00112 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltOscillatorFail(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00113}00113 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00114}00114         INTCON1bits.OSCFAIL = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00115}00115         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00116}00116 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00118}00118 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltAddressError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00119}00119 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00120}00120         INTCON1bits.ADDRERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00121}00121         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00124}00124 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltStackError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00125}00125 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00126}00126         INTCON1bits.STKERR = 0;         \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00127}00127         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00128}00128 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00130}00130 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltMathError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00131}00131 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00132}00132         INTCON1bits.MATHERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00133}00133         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00134}00134 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00136}00136 \textcolor{preprocessor}{    \#if defined(\_\_HAS\_DMA\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00138}00138     \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AltDMACError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00139}00139     \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00140}00140          INTCON1bits.DMACERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00141}00141          \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00142}00142     \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00144}00144 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00146}00146 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00149}00149 \textcolor{comment}{/* Default Interrupt Handler                                                  */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00150}00150 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00151}00151 \textcolor{comment}{/* This executes when an interrupt occurs for an interrupt source with an     */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00152}00152 \textcolor{comment}{/* improperly defined or undefined interrupt handling routine.                */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00154}00154 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DefaultInterrupt(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00155}00155 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00156}00156         \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00157}00157 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00159}00159 \textcolor{preprocessor}{\#if defined(\_\_dsPIC33E\_\_)}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00161}00161 \textcolor{comment}{/* These traps are new to the dsPIC33E family.  Refer to the device Interrupt}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00162}00162 \textcolor{comment}{chapter of the FRM to understand trap priority. */}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00163}00163 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_HardTrapError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00164}00164 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00165}00165     \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00166}00166 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00167}00167 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_SoftTrapError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00168}00168 \{}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00169}00169     \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00170}00170 \}}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00172}00172 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

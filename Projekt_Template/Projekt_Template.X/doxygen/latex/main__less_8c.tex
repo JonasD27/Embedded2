@@ -1,0 +1,659 @@
+\hypertarget{main__less_8c}{}\doxysection{main\+\_\+less.\+c-\/Dateireferenz}
+\label{main__less_8c}\index{main\_less.c@{main\_less.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+Include-\/\+Abhängigkeitsdiagramm für main\+\_\+less.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_buffer}{Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a8095cd8bb3de52fffba928ed8ff15065}{HEARTBEAT\+\_\+\+MS}}~1
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}~9600
+\item 
+\#define \mbox{\hyperlink{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\+\_\+\+FAIL}}~0
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\+\_\+\+SUCCESS}}~1
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}~128
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}~\+\_\+\+RA2
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}~\+\_\+\+RA3
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a2f01e56beefeda2b3e4d6ebce68a19ad}{I2\+C\+\_\+\+SCL\+\_\+\+TRIS}}~\+\_\+\+TRISA2
+\item 
+\#define \mbox{\hyperlink{main__less_8c_a20b430ca785a0b3041fc6cf3050f2de4}{I2\+C\+\_\+\+SDA\+\_\+\+TRIS}}~\+\_\+\+TRISA3
+\end{DoxyCompactItemize}
+\doxysubsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$($\ast$ \mbox{\hyperlink{main__less_8c_a1e962f6377505f2fb3a11000addfd1ec}{State\+Func}}) ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29}{init\+\_\+ms\+\_\+t4}} (void)
+\item 
+int16\+\_\+t \mbox{\hyperlink{main__less_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{puts\+UART}} (const char $\ast$str)
+\item 
+int16\+\_\+t \mbox{\hyperlink{main__less_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getc\+FIFO\+\_\+\+TX}} (volatile uint16\+\_\+t $\ast$c)
+\item 
+int16\+\_\+t \mbox{\hyperlink{main__less_8c_a6e64850d41714e4e58d22bea4caf1b67}{putc\+FIFO\+\_\+\+TX}} (char c)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_aacdc4332a06e594c059aedb477390b5c}{FSM2\+\_\+\+Idle}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_a523ccd721b1c0bbc7c62e372aa0fadc1}{FSM2\+\_\+\+Start}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_adce739d8fb7ae4e8fd4b5a8c89faf10a}{FSM2\+\_\+\+Adresse}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_acc21e9504ae41685a598e1ba66b8c562}{FSM2\+\_\+\+ACK\+\_\+\+Receive}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_aba8911e8ee36f1626310ff14ad18d89b}{FSM2\+\_\+\+Data\+\_\+\+Receive}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{main__less_8c_a16acc373f4f5db67bcde42ae665b240a}{FSM2\+\_\+\+Stop}} (void)
+\item 
+void \mbox{\hyperlink{main__less_8c_ad5c4975305544d27a487fa4dd0fb9bd6}{Temp\+\_\+\+FSM2}} (void)
+\item 
+void \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms}} (uint16\+\_\+t milliseconds)
+\begin{DoxyCompactList}\small\item\em Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main__less_8c_a3b9d4f7573499d6acdb1ffd1064a9077}{\+\_\+\+T1\+Interrupt}} (void)
+\item 
+void \mbox{\hyperlink{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931}{init\+UART}} ()
+\item 
+void \mbox{\hyperlink{main__less_8c_a677ede9c0b46557fafb2142bea4eddfa}{\+\_\+\+U1\+TXInterrupt}} (void)
+\item 
+int16\+\_\+t \mbox{\hyperlink{main__less_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putc\+UART}} (char c)
+\item 
+void \mbox{\hyperlink{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}{init\+\_\+timer1}} ()
+\item 
+void \mbox{\hyperlink{main__less_8c_abe298a3c1d98035cebe8b0535db549fa}{init\+I2C}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{main__less_8c_a3674e1feb03e742150964aa79b8fe8df}{DELAY\+\_\+\+ANPASSUNG}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}} = \{\{\}, 0, 0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Makro-\/\+Dokumentation}
+\mbox{\Hypertarget{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}\label{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}} 
+\index{main\_less.c@{main\_less.c}!BAUDRATE@{BAUDRATE}}
+\index{BAUDRATE@{BAUDRATE}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{BAUDRATE}{BAUDRATE}}
+{\footnotesize\ttfamily \#define BAUDRATE~9600}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00032}{32}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}\label{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}} 
+\index{main\_less.c@{main\_less.c}!BRGVAL@{BRGVAL}}
+\index{BRGVAL@{BRGVAL}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{BRGVAL}{BRGVAL}}
+{\footnotesize\ttfamily \#define BRGVAL~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00033}{33}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a130a78573f3f044449912e5a564bab60}\label{main__less_8c_a130a78573f3f044449912e5a564bab60}} 
+\index{main\_less.c@{main\_less.c}!BUFFER\_FAIL@{BUFFER\_FAIL}}
+\index{BUFFER\_FAIL@{BUFFER\_FAIL}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_FAIL}{BUFFER\_FAIL}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+FAIL~0}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00036}{36}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}\label{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}} 
+\index{main\_less.c@{main\_less.c}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+SIZE~128}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00038}{38}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a6861758eca7b115454b77ded9d29eebd}\label{main__less_8c_a6861758eca7b115454b77ded9d29eebd}} 
+\index{main\_less.c@{main\_less.c}!BUFFER\_SUCCESS@{BUFFER\_SUCCESS}}
+\index{BUFFER\_SUCCESS@{BUFFER\_SUCCESS}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SUCCESS}{BUFFER\_SUCCESS}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+SUCCESS~1}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00037}{37}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a8095cd8bb3de52fffba928ed8ff15065}\label{main__less_8c_a8095cd8bb3de52fffba928ed8ff15065}} 
+\index{main\_less.c@{main\_less.c}!HEARTBEAT\_MS@{HEARTBEAT\_MS}}
+\index{HEARTBEAT\_MS@{HEARTBEAT\_MS}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{HEARTBEAT\_MS}{HEARTBEAT\_MS}}
+{\footnotesize\ttfamily \#define HEARTBEAT\+\_\+\+MS~1}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00029}{29}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a212ca328a6409c98f8c3dfbbe1ba561d}\label{main__less_8c_a212ca328a6409c98f8c3dfbbe1ba561d}} 
+\index{main\_less.c@{main\_less.c}!I2C\_SCL@{I2C\_SCL}}
+\index{I2C\_SCL@{I2C\_SCL}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL}{I2C\_SCL}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL~\+\_\+\+RA2}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00042}{42}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a2f01e56beefeda2b3e4d6ebce68a19ad}\label{main__less_8c_a2f01e56beefeda2b3e4d6ebce68a19ad}} 
+\index{main\_less.c@{main\_less.c}!I2C\_SCL\_TRIS@{I2C\_SCL\_TRIS}}
+\index{I2C\_SCL\_TRIS@{I2C\_SCL\_TRIS}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL\_TRIS}{I2C\_SCL\_TRIS}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL\+\_\+\+TRIS~\+\_\+\+TRISA2}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00044}{44}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a18aefd12ad84d4c33dc97923cb821e47}\label{main__less_8c_a18aefd12ad84d4c33dc97923cb821e47}} 
+\index{main\_less.c@{main\_less.c}!I2C\_SDA@{I2C\_SDA}}
+\index{I2C\_SDA@{I2C\_SDA}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA}{I2C\_SDA}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA~\+\_\+\+RA3}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00043}{43}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a20b430ca785a0b3041fc6cf3050f2de4}\label{main__less_8c_a20b430ca785a0b3041fc6cf3050f2de4}} 
+\index{main\_less.c@{main\_less.c}!I2C\_SDA\_TRIS@{I2C\_SDA\_TRIS}}
+\index{I2C\_SDA\_TRIS@{I2C\_SDA\_TRIS}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA\_TRIS}{I2C\_SDA\_TRIS}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA\+\_\+\+TRIS~\+\_\+\+TRISA3}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00045}{45}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+
+
+\doxysubsection{Dokumentation der benutzerdefinierten Typen}
+\mbox{\Hypertarget{main__less_8c_a1e962f6377505f2fb3a11000addfd1ec}\label{main__less_8c_a1e962f6377505f2fb3a11000addfd1ec}} 
+\index{main\_less.c@{main\_less.c}!StateFunc@{StateFunc}}
+\index{StateFunc@{StateFunc}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{StateFunc}{StateFunc}}
+{\footnotesize\ttfamily typedef void $\ast$($\ast$ State\+Func) ()}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00058}{58}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+
+
+\doxysubsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{main__less_8c_a3b9d4f7573499d6acdb1ffd1064a9077}\label{main__less_8c_a3b9d4f7573499d6acdb1ffd1064a9077}} 
+\index{main\_less.c@{main\_less.c}!\_T1Interrupt@{\_T1Interrupt}}
+\index{\_T1Interrupt@{\_T1Interrupt}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{\_T1Interrupt()}{\_T1Interrupt()}}
+{\footnotesize\ttfamily void \+\_\+\+T1\+Interrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00091}{91}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a3b9d4f7573499d6acdb1ffd1064a9077_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a677ede9c0b46557fafb2142bea4eddfa}\label{main__less_8c_a677ede9c0b46557fafb2142bea4eddfa}} 
+\index{main\_less.c@{main\_less.c}!\_U1TXInterrupt@{\_U1TXInterrupt}}
+\index{\_U1TXInterrupt@{\_U1TXInterrupt}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{\_U1TXInterrupt()}{\_U1TXInterrupt()}}
+{\footnotesize\ttfamily void \+\_\+\+U1\+TXInterrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00136}{136}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{main__less_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a9d9be562445321043224885018bc7da3}\label{main__less_8c_a9d9be562445321043224885018bc7da3}} 
+\index{main\_less.c@{main\_less.c}!delay\_ms@{delay\_ms}}
+\index{delay\_ms@{delay\_ms}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{delay\_ms()}{delay\_ms()}}
+{\footnotesize\ttfamily void delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. 
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\texttt{ in}}  & {\em milliseconds} & Verzögerungszeit in millisekunden \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00085}{85}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{main__less_8c_a9d9be562445321043224885018bc7da3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_acc21e9504ae41685a598e1ba66b8c562}\label{main__less_8c_acc21e9504ae41685a598e1ba66b8c562}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_ACK\_Receive@{FSM2\_ACK\_Receive}}
+\index{FSM2\_ACK\_Receive@{FSM2\_ACK\_Receive}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_ACK\_Receive()}{FSM2\_ACK\_Receive()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+ACK\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00321}{321}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_acc21e9504ae41685a598e1ba66b8c562_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_acc21e9504ae41685a598e1ba66b8c562_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_adce739d8fb7ae4e8fd4b5a8c89faf10a}\label{main__less_8c_adce739d8fb7ae4e8fd4b5a8c89faf10a}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_Adresse@{FSM2\_Adresse}}
+\index{FSM2\_Adresse@{FSM2\_Adresse}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_Adresse()}{FSM2\_Adresse()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+Adresse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00313}{313}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_adce739d8fb7ae4e8fd4b5a8c89faf10a_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_adce739d8fb7ae4e8fd4b5a8c89faf10a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_aba8911e8ee36f1626310ff14ad18d89b}\label{main__less_8c_aba8911e8ee36f1626310ff14ad18d89b}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_Data\_Receive@{FSM2\_Data\_Receive}}
+\index{FSM2\_Data\_Receive@{FSM2\_Data\_Receive}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_Data\_Receive()}{FSM2\_Data\_Receive()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+Data\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00330}{330}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_aba8911e8ee36f1626310ff14ad18d89b_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_aba8911e8ee36f1626310ff14ad18d89b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_aacdc4332a06e594c059aedb477390b5c}\label{main__less_8c_aacdc4332a06e594c059aedb477390b5c}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_Idle@{FSM2\_Idle}}
+\index{FSM2\_Idle@{FSM2\_Idle}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_Idle()}{FSM2\_Idle()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+Idle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00294}{294}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_aacdc4332a06e594c059aedb477390b5c_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_aacdc4332a06e594c059aedb477390b5c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a523ccd721b1c0bbc7c62e372aa0fadc1}\label{main__less_8c_a523ccd721b1c0bbc7c62e372aa0fadc1}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_Start@{FSM2\_Start}}
+\index{FSM2\_Start@{FSM2\_Start}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_Start()}{FSM2\_Start()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00306}{306}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a523ccd721b1c0bbc7c62e372aa0fadc1_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a523ccd721b1c0bbc7c62e372aa0fadc1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a16acc373f4f5db67bcde42ae665b240a}\label{main__less_8c_a16acc373f4f5db67bcde42ae665b240a}} 
+\index{main\_less.c@{main\_less.c}!FSM2\_Stop@{FSM2\_Stop}}
+\index{FSM2\_Stop@{FSM2\_Stop}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FSM2\_Stop()}{FSM2\_Stop()}}
+{\footnotesize\ttfamily void $\ast$ FSM2\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00352}{352}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a16acc373f4f5db67bcde42ae665b240a_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a16acc373f4f5db67bcde42ae665b240a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}\label{main__less_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}} 
+\index{main\_less.c@{main\_less.c}!getcFIFO\_TX@{getcFIFO\_TX}}
+\index{getcFIFO\_TX@{getcFIFO\_TX}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{getcFIFO\_TX()}{getcFIFO\_TX()}}
+{\footnotesize\ttfamily int16\+\_\+t getc\+FIFO\+\_\+\+TX (\begin{DoxyParamCaption}\item[{volatile uint16\+\_\+t $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00165}{165}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{main__less_8c_a796981d39e7cf9a0ebf1842b2e48e0ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29}\label{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29}} 
+\index{main\_less.c@{main\_less.c}!init\_ms\_t4@{init\_ms\_t4}}
+\index{init\_ms\_t4@{init\_ms\_t4}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{init\_ms\_t4()}{init\_ms\_t4()}}
+{\footnotesize\ttfamily void init\+\_\+ms\+\_\+t4 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00109}{109}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}\label{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}} 
+\index{main\_less.c@{main\_less.c}!init\_timer1@{init\_timer1}}
+\index{init\_timer1@{init\_timer1}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{init\_timer1()}{init\_timer1()}}
+{\footnotesize\ttfamily void init\+\_\+timer1 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00210}{210}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{main__less_8c_af460918a62cf83ab0848c41f0ae852ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_abe298a3c1d98035cebe8b0535db549fa}\label{main__less_8c_abe298a3c1d98035cebe8b0535db549fa}} 
+\index{main\_less.c@{main\_less.c}!initI2C@{initI2C}}
+\index{initI2C@{initI2C}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{initI2C()}{initI2C()}}
+{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00234}{234}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{main__less_8c_abe298a3c1d98035cebe8b0535db549fa_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931}\label{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931}} 
+\index{main\_less.c@{main\_less.c}!initUART@{initUART}}
+\index{initUART@{initUART}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{initUART()}{initUART()}}
+{\footnotesize\ttfamily void init\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00100}{100}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}\label{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}} 
+\index{main\_less.c@{main\_less.c}!main@{main}}
+\index{main@{main}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int16\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00376}{376}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a6e64850d41714e4e58d22bea4caf1b67}\label{main__less_8c_a6e64850d41714e4e58d22bea4caf1b67}} 
+\index{main\_less.c@{main\_less.c}!putcFIFO\_TX@{putcFIFO\_TX}}
+\index{putcFIFO\_TX@{putcFIFO\_TX}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{putcFIFO\_TX()}{putcFIFO\_TX()}}
+{\footnotesize\ttfamily int16\+\_\+t putc\+FIFO\+\_\+\+TX (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00147}{147}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a6e64850d41714e4e58d22bea4caf1b67_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a8fc294bd40e64c3058e55556e3d6d9f4}\label{main__less_8c_a8fc294bd40e64c3058e55556e3d6d9f4}} 
+\index{main\_less.c@{main\_less.c}!putcUART@{putcUART}}
+\index{putcUART@{putcUART}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{putcUART()}{putcUART()}}
+{\footnotesize\ttfamily int16\+\_\+t putc\+UART (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00180}{180}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{main__less_8c_a8fc294bd40e64c3058e55556e3d6d9f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_a69a22a2e161c1c4207b694f38f5c3f8f}\label{main__less_8c_a69a22a2e161c1c4207b694f38f5c3f8f}} 
+\index{main\_less.c@{main\_less.c}!putsUART@{putsUART}}
+\index{putsUART@{putsUART}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{putsUART()}{putsUART()}}
+{\footnotesize\ttfamily int16\+\_\+t puts\+UART (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00190}{190}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{main__less_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_a69a22a2e161c1c4207b694f38f5c3f8f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main__less_8c_ad5c4975305544d27a487fa4dd0fb9bd6}\label{main__less_8c_ad5c4975305544d27a487fa4dd0fb9bd6}} 
+\index{main\_less.c@{main\_less.c}!Temp\_FSM2@{Temp\_FSM2}}
+\index{Temp\_FSM2@{Temp\_FSM2}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{Temp\_FSM2()}{Temp\_FSM2()}}
+{\footnotesize\ttfamily void Temp\+\_\+\+FSM2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00227}{227}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__less_8c_ad5c4975305544d27a487fa4dd0fb9bd6_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{main__less_8c_a1cc545950661d96524585c500b3b68d1}\label{main__less_8c_a1cc545950661d96524585c500b3b68d1}} 
+\index{main\_less.c@{main\_less.c}!data@{data}}
+\index{data@{data}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t data\mbox{[}2\mbox{]}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00046}{46}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_a3674e1feb03e742150964aa79b8fe8df}\label{main__less_8c_a3674e1feb03e742150964aa79b8fe8df}} 
+\index{main\_less.c@{main\_less.c}!DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}}
+\index{DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{DELAY\_ANPASSUNG}{DELAY\_ANPASSUNG}}
+{\footnotesize\ttfamily uint32\+\_\+t DELAY\+\_\+\+ANPASSUNG}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00039}{39}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+\mbox{\Hypertarget{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}\label{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}} 
+\index{main\_less.c@{main\_less.c}!FIFO@{FIFO}}
+\index{FIFO@{FIFO}!main\_less.c@{main\_less.c}}
+\doxysubsubsection{\texorpdfstring{FIFO}{FIFO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_buffer}{Buffer}} FIFO = \{\{\}, 0, 0\}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00056}{56}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+

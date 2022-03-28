@@ -1,0 +1,35 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\numberline {1}Embedded1 und Embedded2 Aufgabendokumentation}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Programmdokumentation}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Aufgabe 1}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Aufgabe 2 und 3}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Restliche Aufgaben}{2}{subsection.1.1.3}%
+\contentsline {chapter}{\numberline {2}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Datenstrukturen}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Auflistung der Dateien}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Buffer Strukturreferenz}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Ausführliche Beschreibung}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Dokumentation der Felder}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}data}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}read}{8}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}write}{8}{subsubsection.4.1.2.3}%
+\contentsline {chapter}{\numberline {5}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.2}%
+\contentsline {section}{\numberline {5.3}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.3}%
+\contentsline {section}{\numberline {5.4}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.4}%
+\contentsline {section}{\numberline {5.5}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.5}%
+\contentsline {section}{\numberline {5.6}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}o.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}d}{9}{section.5.6}%
+\contentsline {section}{\numberline {5.7}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{10}{section.5.7}%
+\contentsline {section}{\numberline {5.8}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{10}{section.5.8}%
+\contentsline {section}{\numberline {5.9}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{12}{section.5.9}%
+\contentsline {section}{\numberline {5.10}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}less.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{16}{section.5.10}%
+\contentsline {section}{\numberline {5.11}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{21}{section.5.11}%
+\contentsline {section}{\numberline {5.12}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.12}%
+\contentsline {section}{\numberline {5.13}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{23}{section.5.13}%
+\contentsline {section}{\numberline {5.14}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{25}{section.5.14}%
+\contentsline {section}{\numberline {5.15}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.15}%
+\contentsline {chapter}{Index}{27}{section*.3}%

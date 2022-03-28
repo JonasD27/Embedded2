@@ -1,0 +1,123 @@
+\hypertarget{system_8c_source}{}\doxysection{system.\+c}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00005}00005 \textcolor{comment}{/* Device header file */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00006}00006 \textcolor{preprocessor}{\#if defined(\_\_XC16\_\_)}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00007}00007 \textcolor{preprocessor}{    \#include <xc.h>}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00008}00008 \textcolor{preprocessor}{\#elif defined(\_\_C30\_\_)}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00009}00009 \textcolor{preprocessor}{    \#if defined(\_\_dsPIC33E\_\_)}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00010}00010 \textcolor{preprocessor}{        \#include <p33Exxxx.h>}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00011}00011 \textcolor{preprocessor}{    \#elif defined(\_\_dsPIC33F\_\_)}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00012}00012 \textcolor{preprocessor}{        \#include <p33Fxxxx.h>}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00013}00013 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00014}00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00017}00017 \textcolor{preprocessor}{\#include <stdint.h>}          \textcolor{comment}{/* For uint16\_t definition                       */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00018}00018 \textcolor{preprocessor}{\#include <stdbool.h>}         \textcolor{comment}{/* For true/false definition                     */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00020}00020 \textcolor{preprocessor}{\#include "{}system.h"{}}          \textcolor{comment}{/* variables/params used by system.c             */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00023}00023 \textcolor{comment}{/* System Level Functions                                                     */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00024}00024 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00025}00025 \textcolor{comment}{/* Custom oscillator configuration funtions, reset source evaluation          */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00026}00026 \textcolor{comment}{/* functions, and other non-\/peripheral microcontroller initialization         */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00027}00027 \textcolor{comment}{/* functions get placed in system.c.                                          */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00028}00028 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00031}00031 \textcolor{comment}{/* Refer to the device Family Reference Manual Oscillator section for}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00032}00032 \textcolor{comment}{information about available oscillator configurations.  Typically}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00033}00033 \textcolor{comment}{this would involve configuring the oscillator tuning register or clock}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00034}00034 \textcolor{comment}{switching useing the compiler's \_\_builtin\_write\_OSCCON functions.}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00035}00035 \textcolor{comment}{Refer to the C Compiler for PIC24 MCUs and dsPIC DSCs User Guide in the}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00036}00036 \textcolor{comment}{compiler installation directory /doc folder for documentation on the}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00037}00037 \textcolor{comment}{\_\_builtin functions.*/}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00039}00039 \textcolor{comment}{/* TODO Add clock switching code if appropriate.  An example stub is below.   */}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00040}00040 \textcolor{keywordtype}{void} ConfigureOscillator(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00041}00041 \{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00042}00042     \textcolor{keywordflow}{if} (SYS\_FREQ>7370000L)\{\textcolor{comment}{//Nur umschalten auf Primary wenn höhere Frequenz erwünscht}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00043}00043         \textcolor{keywordflow}{switch} (SYS\_FREQ)\{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00044}00044             \textcolor{keywordflow}{case} 8000000L:}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00045}00045                 \textcolor{comment}{//PLL muss nicht konfiguriert werden}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00046}00046                 \textcolor{comment}{// externer Quartz mit 8Mhz}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00047}00047                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00048}00048             \textcolor{keywordflow}{case} 50000000L:}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00049}00049                 CLKDIVbits.PLLPOST=2; \textcolor{comment}{//N2=4}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00050}00050                 PLLFBD=48; \textcolor{comment}{//M=50}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00051}00051                 CLKDIVbits.PLLPRE=0; \textcolor{comment}{//N1=2}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00052}00052                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00053}00053             \textcolor{keywordflow}{case} 70000000L:}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00054}00054                 CLKDIVbits.PLLPOST=2; \textcolor{comment}{//N2=4}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00055}00055                 PLLFBD=188; \textcolor{comment}{//M=190}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00056}00056                 CLKDIVbits.PLLPRE=3; \textcolor{comment}{//N1=5}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00057}00057                 \textcolor{keywordflow}{break};    }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00058}00058             \textcolor{keywordflow}{case} 100000000L:}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00059}00059                 CLKDIVbits.PLLPOST=0; \textcolor{comment}{//N2=2}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00060}00060                 PLLFBD=123; \textcolor{comment}{//M=125}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00061}00061                 CLKDIVbits.PLLPRE=3; \textcolor{comment}{//N1=5}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00062}00062                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00063}00063             \textcolor{keywordflow}{case} 140000000L:}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00064}00064                 CLKDIVbits.PLLPOST=0; \textcolor{comment}{//N2=2}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00065}00065                 PLLFBD=173; \textcolor{comment}{//M=175}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00066}00066                 CLKDIVbits.PLLPRE=3; \textcolor{comment}{//N1=5}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00067}00067                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00068}00068             \textcolor{comment}{//default:}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00069}00069                 \textcolor{comment}{//\#error Tets}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00070}00070         \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00071}00071         OSCTUN = 0;}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00072}00072         }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00073}00073         \textcolor{keywordflow}{if} (SYS\_FREQ == 8000000L)\{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00074}00074             \_\_builtin\_write\_OSCCONH(0x02); \textcolor{comment}{//Switch auf Primary ohne PLL}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00075}00075             }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00076}00076             \_\_builtin\_write\_OSCCONL(OSCCON | 0x01);}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00077}00077             \textcolor{keywordflow}{while} (OSCCONbits.COSC!= 0x02); \textcolor{comment}{//Warten bis gewechselt wurde}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00078}00078             \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00079}00079         }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00080}00080         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00081}00081             \_\_builtin\_write\_OSCCONH(0x03); \textcolor{comment}{//Switch auf Primary mit PLL}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00082}00082             }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00083}00083             \_\_builtin\_write\_OSCCONL(OSCCON | 0x01);}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00084}00084             }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00085}00085             \textcolor{keywordflow}{while} (OSCCONbits.COSC!= 0x3); \textcolor{comment}{//Warten bis gewechselt wurde}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00086}00086             \textcolor{keywordflow}{while} (OSCCONbits.LOCK!= 1);}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00087}00087         \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00093}00093 \textcolor{comment}{//Timer1}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00094}00094 \textcolor{keywordtype}{void} init\_timer1()\{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00095}00095     \_\_builtin\_write\_OSCCONL(0b00000011); \textcolor{comment}{//SOSC aktivieren}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00096}00096     T1CONbits.TON = 0; \textcolor{comment}{// Disable Timer}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00097}00097     T1CONbits.TCS = 1; \textcolor{comment}{// Select external clock}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00098}00098     T1CONbits.TSYNC = 0; \textcolor{comment}{// Disable Synchronization}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00099}00099     T1CONbits.TCKPS = 0b00; \textcolor{comment}{// Select 1:1 Prescaler}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00100}00100     TMR1 = 0x00; \textcolor{comment}{// Clear timer register}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00101}00101     PR1 = 32767; \textcolor{comment}{// Load the period value, Quarztakt}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00102}00102     }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00103}00103     IPC0bits.T1IP = 2; \textcolor{comment}{// Set Timer 1 Interrupt Priority Level}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00104}00104     IFS0bits.T1IF = 0; \textcolor{comment}{// Clear Timer 1 Interrupt Flag}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00105}00105     IEC0bits.T1IE = 1; \textcolor{comment}{// Enable Timer1 interrupt}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00106}00106     T1CONbits.TON = 1; \textcolor{comment}{// Start Timer}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00107}00107 \}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00109}00109 \textcolor{keywordtype}{void} init\_ms\_t4()\{}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00110}00110     T4CONbits.TON = 0; \textcolor{comment}{// Stop any 16/32-\/bit Timer3 operation}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00111}00111     T4CONbits.TCS = 0; \textcolor{comment}{// Select internal instruction cycle clock}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00112}00112     }
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00113}00113     T4CONbits.TGATE = 0; \textcolor{comment}{// Disable Gated Timer mode}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00114}00114     T4CONbits.TCKPS = 0b10; \textcolor{comment}{// Select 1:64 Prescaler}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00115}00115     TMR4 = 0x00; \textcolor{comment}{// Clear }}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00116}00116     PR4 = (FCY/64000)-\/1; \textcolor{comment}{// Load 32-\/bit period value (lsw)}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00117}00117     \textcolor{comment}{//IFS0bits.T2IF = 0; // Clear Timer2 Interrupt Flag}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00118}00118     \textcolor{comment}{//IEC0bits.T2IE = 0; // Disable Timer2 interrupt}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00119}00119     T4CONbits.TON = 1; \textcolor{comment}{// Start 32-\/bit Timer}}
+\DoxyCodeLine{\Hypertarget{system_8c_source_l00120}00120 \}}
+
+\end{DoxyCode}

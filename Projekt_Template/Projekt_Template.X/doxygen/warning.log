@@ -1,0 +1,19 @@
+warning: source '..\code' is not a readable file or directory... skipping.
+warning: source '..\examples' is not a readable file or directory... skipping.
+warning: source 'doxyhints\examples' is not a readable file or directory... skipping.
+warning: source 'doxyhints\images' is not a readable file or directory... skipping.
+warning: source 'doxyhints\doku' is not a readable file or directory... skipping.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/project_information.txt:21: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/main.c:39: warning: Compound Buffer is not documented.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/main_less.c:50: warning: Compound Buffer is not documented.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/project_information.txt:36: warning: documented symbol '< Application Description for Project Goes Here > Project Owner' was not declared or defined.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/project_information.txt:48: warning: documented symbol '< Application Description for Project Goes Here > Project Owner' was not declared or defined.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/main.c:40: warning: Member data[BUFFER_SIZE] (variable) of struct Buffer is not documented.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/main.c:41: warning: Member read (variable) of struct Buffer is not documented.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/main.c:42: warning: Member write (variable) of struct Buffer is not documented.
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:3: warning: unable to resolve reference to 'p_formatierung' for \ref command
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:14: warning: explicit link request to 'SYS_FREQ' could not be resolved
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:33: warning: unable to resolve reference to 'doku_page_timer_h' for \ref command
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:3: warning: unable to resolve reference to 'p_formatierung' for \ref command
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:14: warning: explicit link request to 'SYS_FREQ' could not be resolved
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown:33: warning: unable to resolve reference to 'doku_page_timer_h' for \ref command
