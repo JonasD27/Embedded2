@@ -1,5 +1,6 @@
 \hypertarget{traps_8c_source}{}\doxysection{traps.\+c}
-
+\label{traps_8c_source}\index{traps.c@{traps.c}}
+\mbox{\hyperlink{traps_8c}{gehe zur Dokumentation dieser Datei}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
@@ -24,10 +25,10 @@
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00023}00023 \textcolor{comment}{/* <Other function prototypes for debugging trap code may be inserted here>   */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00024}00024 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00025}00025 \textcolor{comment}{/* Use if INTCON2 ALTIVT=1 */}}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00026}00026 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_OscillatorFail(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00027}00027 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AddressError(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00028}00028 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_StackError(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00029}00029 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_MathError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00026}00026 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_aec63791363b2065eddc5e0517ef6d237}{\_OscillatorFail}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00027}00027 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a7d0e17c4ba9d457c33ee70078744b9c8}{\_AddressError}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00028}00028 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a6ecef055982dcb7c83228dad7e5cd4de}{\_StackError}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00029}00029 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a712462e16d3037efc5e9969f62fe6ee2}{\_MathError}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00030}00030 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00031}00031 \textcolor{preprocessor}{\#if defined(\_\_HAS\_DMA\_\_)}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00032}00032 }
@@ -52,7 +53,7 @@
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00051}00051 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00052}00052 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00053}00053 \textcolor{comment}{/* Default interrupt handler */}}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00054}00054 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DefaultInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00054}00054 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_ad66b851d3e30e7398cfce55cd2137629}{\_DefaultInterrupt}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00055}00055 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00056}00056 \textcolor{preprocessor}{\#if defined(\_\_dsPIC33E\_\_)}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00057}00057 }
@@ -73,24 +74,24 @@
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00072}00072 \textcolor{comment}{/* www.microchip.com/codeexamples                                             */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00073}00073 }
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00075}00075 \textcolor{comment}{/* Primary (non-\/alternate) address error trap function declarations */}}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00076}00076 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_OscillatorFail(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00076}\mbox{\hyperlink{traps_8c_aec63791363b2065eddc5e0517ef6d237}{00076}} \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_aec63791363b2065eddc5e0517ef6d237}{\_OscillatorFail}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00077}00077 \{}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00078}00078         INTCON1bits.OSCFAIL = 0;        \textcolor{comment}{/* Clear the trap flag */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00079}00079         \textcolor{keywordflow}{while}(1);}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00080}00080 \}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00082}00082 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_AddressError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00082}\mbox{\hyperlink{traps_8c_a7d0e17c4ba9d457c33ee70078744b9c8}{00082}} \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a7d0e17c4ba9d457c33ee70078744b9c8}{\_AddressError}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00083}00083 \{}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00084}00084         INTCON1bits.ADDRERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00085}00085         \textcolor{keywordflow}{while} (1);}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00086}00086 \}}
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00087}00087 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_StackError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00087}\mbox{\hyperlink{traps_8c_a6ecef055982dcb7c83228dad7e5cd4de}{00087}} \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a6ecef055982dcb7c83228dad7e5cd4de}{\_StackError}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00088}00088 \{}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00089}00089         INTCON1bits.STKERR = 0;         \textcolor{comment}{/* Clear the trap flag */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00090}00090         \textcolor{keywordflow}{while} (1);}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00091}00091 \}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00092}00092 }
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00093}00093 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_MathError(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00093}\mbox{\hyperlink{traps_8c_a712462e16d3037efc5e9969f62fe6ee2}{00093}} \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_a712462e16d3037efc5e9969f62fe6ee2}{\_MathError}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00094}00094 \{}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00095}00095         INTCON1bits.MATHERR = 0;        \textcolor{comment}{/* Clear the trap flag */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00096}00096         \textcolor{keywordflow}{while} (1);}
@@ -151,7 +152,7 @@
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00151}00151 \textcolor{comment}{/* This executes when an interrupt occurs for an interrupt source with an     */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00152}00152 \textcolor{comment}{/* improperly defined or undefined interrupt handling routine.                */}}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00153}00153 }
-\DoxyCodeLine{\Hypertarget{traps_8c_source_l00154}00154 \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \_DefaultInterrupt(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{traps_8c_source_l00154}\mbox{\hyperlink{traps_8c_ad66b851d3e30e7398cfce55cd2137629}{00154}} \textcolor{keywordtype}{void} \_\_attribute\_\_((interrupt,no\_auto\_psv)) \mbox{\hyperlink{traps_8c_ad66b851d3e30e7398cfce55cd2137629}{\_DefaultInterrupt}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00155}00155 \{}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00156}00156         \textcolor{keywordflow}{while}(1);}
 \DoxyCodeLine{\Hypertarget{traps_8c_source_l00157}00157 \}}

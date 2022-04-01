@@ -28,7 +28,7 @@
   <td id="projectalign">
    <div id="projectname">Project_Template
    </div>
-   <div id="projectbrief">Beispiele fÃ¼r Embedded</div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
   </td>
  </tr>
  </tbody>
@@ -94,14 +94,14 @@ Programmdokumentation</h1>
 <h2><a class="anchor" id="em_aufgabe1"></a>
 Aufgabe 1</h2>
 <ul>
-<li>die Main Funktion - main()</li>
+<li>die Main Funktion - <a class="el" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main()</a></li>
 <li>Systemfrequenz<ul>
-<li>Die Oscillatoreinstellungen sind in ConfigureOscillator() programmiert</li>
-<li>Das Makrodefine #SYS_FREQ wird dabei ausgewertet</li>
+<li>Die Oscillatoreinstellungen sind in <a class="el" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator()</a> programmiert</li>
+<li>Das Makrodefine <a class="el" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a> wird dabei ausgewertet</li>
 </ul>
 </li>
-<li>FÃ¼r die GPIOs wie Taster und LEDs sind in der Datei <a class="el" href="user_8h_source.html">user.h</a> diverse Zugriffs Makros definiert sowie eine Initialisierungsfunktion initApp()</li>
-<li>Softwaredelay Funktion delay_ms()</li>
+<li>FÃ¼r die GPIOs wie Taster und LEDs sind in der Datei <a class="el" href="user_8h.html">user.h</a> diverse Zugriffs Makros definiert sowie eine Initialisierungsfunktion initApp()</li>
+<li>Softwaredelay Funktion <a class="el" href="main_8c.html#a9d9be562445321043224885018bc7da3" title="Verzögerungsfunktion, blockierend.">delay_ms()</a></li>
 </ul>
 <h2><a class="anchor" id="em_aufgabe23"></a>
 Aufgabe 2 und 3</h2>
@@ -113,9 +113,9 @@ Aufgabe 2 und 3</h2>
 Restliche Aufgaben</h2>
 <ul>
 <li>FÃ¼r die Prozessorauslastung: Auslastung() und init_T23_gated(void)</li>
-<li>Betriebszeit: initBetriebszeit() setBetriebszeit() getBetriebszeit() _T1Interrupt()</li>
-<li>UART putcUART() putsUART() getcUART()<ul>
-<li>FIFO: getcTX_FIFO() putcTX_FIFO() _U1TXInterrupt() _U1RXInterrupt</li>
+<li>Betriebszeit: initBetriebszeit() setBetriebszeit() getBetriebszeit() <a class="el" href="main_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt()</a></li>
+<li>UART <a class="el" href="main_8c.html#a8fc294bd40e64c3058e55556e3d6d9f4">putcUART()</a> <a class="el" href="main_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f">putsUART()</a> getcUART()<ul>
+<li>FIFO: getcTX_FIFO() putcTX_FIFO() <a class="el" href="main_8c.html#a677ede9c0b46557fafb2142bea4eddfa">_U1TXInterrupt()</a> _U1RXInterrupt</li>
 </ul>
 </li>
 <li>I2C und Temperatursensor: readTemperatureSimpleBlocking() readTemperatureFSM()</li>

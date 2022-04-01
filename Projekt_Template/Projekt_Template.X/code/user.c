@@ -35,7 +35,7 @@ void InitApp(void)
 void setLED(uint16_t nr)
 {
    if (nr>=4) return;
-   LATB = LATB | (1 << nr+8); 
+   LATB = LATB | (1 << (nr+8)); 
 }
 
 

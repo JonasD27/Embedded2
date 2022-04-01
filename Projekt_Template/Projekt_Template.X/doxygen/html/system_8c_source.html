@@ -28,7 +28,7 @@
   <td id="projectalign">
    <div id="projectname">Project_Template
    </div>
-   <div id="projectbrief">Beispiele fÃ¼r Embedded</div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('system_8c_source.html',''); initResiza
   <div class="headertitle"><div class="title">system.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="system_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* Files to Include                                                           */</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* Device header file */</span></div>
@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('system_8c_source.html',''); initResiza
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>          <span class="comment">/* For uint16_t definition                       */</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span>         <span class="comment">/* For true/false definition                     */</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;system.h&quot;</span>          <span class="comment">/* variables/params used by system.c             */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="system_8h.html">system.h</a>&quot;</span>          <span class="comment">/* variables/params used by system.c             */</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* System Level Functions                                                     */</span></div>
@@ -124,93 +124,106 @@ $(document).ready(function(){initNavTree('system_8c_source.html',''); initResiza
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">__builtin functions.*/</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/* TODO Add clock switching code if appropriate.  An example stub is below.   */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> ConfigureOscillator(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (SYS_FREQ&gt;7370000L){<span class="comment">//Nur umschalten auf Primary wenn höhere Frequenz erwünscht</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">switch</span> (SYS_FREQ){</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">case</span> 8000000L:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <span class="comment">//PLL muss nicht konfiguriert werden</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="comment">// externer Quartz mit 8Mhz</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">case</span> 50000000L:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                CLKDIVbits.PLLPOST=2; <span class="comment">//N2=4</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                PLLFBD=48; <span class="comment">//M=50</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                CLKDIVbits.PLLPRE=0; <span class="comment">//N1=2</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">case</span> 70000000L:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                CLKDIVbits.PLLPOST=2; <span class="comment">//N2=4</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                PLLFBD=188; <span class="comment">//M=190</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">break</span>;    </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">case</span> 100000000L:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                CLKDIVbits.PLLPOST=0; <span class="comment">//N2=2</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                PLLFBD=123; <span class="comment">//M=125</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">case</span> 140000000L:</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                CLKDIVbits.PLLPOST=0; <span class="comment">//N2=2</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                PLLFBD=173; <span class="comment">//M=175</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="comment">//default:</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <span class="comment">//#error Tets</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        OSCTUN = 0;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> (SYS_FREQ == 8000000L){</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            __builtin_write_OSCCONH(0x02); <span class="comment">//Switch auf Primary ohne PLL</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            __builtin_write_OSCCONL(OSCCON | 0x01);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">while</span> (OSCCONbits.COSC!= 0x02); <span class="comment">//Warten bis gewechselt wurde</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            __builtin_write_OSCCONH(0x03); <span class="comment">//Switch auf Primary mit PLL</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            __builtin_write_OSCCONL(OSCCON | 0x01);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">while</span> (OSCCONbits.COSC!= 0x3); <span class="comment">//Warten bis gewechselt wurde</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">while</span> (OSCCONbits.LOCK!= 1);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (<a class="code hl_define" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>&gt;7370000L) <span class="comment">//Nur umschalten auf Primary (8 MHz) wenn höhere Frequenz erwünscht</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">switch</span> (<a class="code hl_define" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">case</span> 8000000L:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="comment">//PLL muss nicht konfiguriert werden</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="comment">// externer Quartz mit 8Mhz</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">case</span> 50000000L:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                CLKDIVbits.PLLPOST=2; <span class="comment">//N2=4</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                PLLFBD=48; <span class="comment">//M=50</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                CLKDIVbits.PLLPRE=0; <span class="comment">//N1=2</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">case</span> 70000000L:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                CLKDIVbits.PLLPOST=2; <span class="comment">//N2=4</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                PLLFBD=188; <span class="comment">//M=190</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                <span class="keywordflow">break</span>;    </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">case</span> 100000000L:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                CLKDIVbits.PLLPOST=0; <span class="comment">//N2=2</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                PLLFBD=123; <span class="comment">//M=125</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">case</span> 140000000L:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                CLKDIVbits.PLLPOST=0; <span class="comment">//N2=2</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                PLLFBD=173; <span class="comment">//M=175</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                CLKDIVbits.PLLPRE=3; <span class="comment">//N1=5</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="comment">//default:</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="comment">//#error Tets</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        OSCTUN = 0;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">if</span> (<a class="code hl_define" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a> == 8000000L)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            __builtin_write_OSCCONH(0x02); <span class="comment">//Switch auf Primary ohne PLL</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            __builtin_write_OSCCONL(OSCCON | 0x01);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">while</span> (OSCCONbits.COSC!= 0x02); <span class="comment">//Warten bis gewechselt wurde</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">else</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            __builtin_write_OSCCONH(0x03); <span class="comment">//Switch auf Primary mit PLL</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            __builtin_write_OSCCONL(OSCCON | 0x01);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">while</span> (OSCCONbits.COSC!= 0x3); <span class="comment">//Warten bis gewechselt wurde</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">while</span> (OSCCONbits.LOCK!= 1);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//Timer1</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> init_timer1(){</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    __builtin_write_OSCCONL(0b00000011); <span class="comment">//SOSC aktivieren</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    T1CONbits.TON = 0; <span class="comment">// Disable Timer</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    T1CONbits.TCS = 1; <span class="comment">// Select external clock</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    T1CONbits.TSYNC = 0; <span class="comment">// Disable Synchronization</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    T1CONbits.TCKPS = 0b00; <span class="comment">// Select 1:1 Prescaler</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    TMR1 = 0x00; <span class="comment">// Clear timer register</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    PR1 = 32767; <span class="comment">// Load the period value, Quarztakt</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    IPC0bits.T1IP = 2; <span class="comment">// Set Timer 1 Interrupt Priority Level</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    IFS0bits.T1IF = 0; <span class="comment">// Clear Timer 1 Interrupt Flag</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    IEC0bits.T1IE = 1; <span class="comment">// Enable Timer1 interrupt</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    T1CONbits.TON = 1; <span class="comment">// Start Timer</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> init_ms_t4(){</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    T4CONbits.TON = 0; <span class="comment">// Stop any 16/32-bit Timer3 operation</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    T4CONbits.TCS = 0; <span class="comment">// Select internal instruction cycle clock</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    T4CONbits.TGATE = 0; <span class="comment">// Disable Gated Timer mode</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    T4CONbits.TCKPS = 0b10; <span class="comment">// Select 1:64 Prescaler</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    TMR4 = 0x00; <span class="comment">// Clear </span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    PR4 = (FCY/64000)-1; <span class="comment">// Load 32-bit period value (lsw)</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">//IFS0bits.T2IF = 0; // Clear Timer2 Interrupt Flag</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">//IEC0bits.T2IE = 0; // Disable Timer2 interrupt</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    T4CONbits.TON = 1; <span class="comment">// Start 32-bit Timer</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">//Timer1</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="system_8c.html#af460918a62cf83ab0848c41f0ae852ea">   98</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="system_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a>() <span class="comment">//generiert in 1s Rythmus Interrupts</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    __builtin_write_OSCCONL(0b00000011); <span class="comment">//SOSC aktivieren</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    T1CONbits.TON = 0; <span class="comment">// Disable Timer</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    T1CONbits.TCS = 1; <span class="comment">// Select external clock</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    T1CONbits.TSYNC = 0; <span class="comment">// Disable Synchronization</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    T1CONbits.TCKPS = 0b00; <span class="comment">// Select 1:1 Prescaler</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    TMR1 = 0x00; <span class="comment">// Clear timer register</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    PR1 = 32767; <span class="comment">// Load the period value, Quarztakt</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    IPC0bits.T1IP = 2; <span class="comment">// Set Timer 1 Interrupt Priority Level</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    IFS0bits.T1IF = 0; <span class="comment">// Clear Timer 1 Interrupt Flag</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    IEC0bits.T1IE = 1; <span class="comment">// Enable Timer1 interrupt</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    T1CONbits.TON = 1; <span class="comment">// Start Timer</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="main__less_8c.html#ab99293b6cbbc43735cbe80ab55287b29">  114</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="system_8c.html#ab0bb063f480450e226799ab30cc6a3ed">init_ms_t4</a>() <span class="comment">//Interrupt Flag wird jede ms gesetzt</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    T4CONbits.TON = 0; <span class="comment">// Stop any 16/32-bit Timer3 operation</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    T4CONbits.TCS = 0; <span class="comment">// Select internal instruction cycle clock</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    T4CONbits.TGATE = 0; <span class="comment">// Disable Gated Timer mode</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    T4CONbits.TCKPS = 0b10; <span class="comment">// Select 1:64 Prescaler</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    TMR4 = 0x00; <span class="comment">// Clear </span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    PR4 = (<a class="code hl_define" href="system_8h.html#a99d7c812ba23bfdba5d29ec2fddf1e83">FCY</a>/64000)-1; <span class="comment">// Load 32-bit period value (lsw)</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">//IFS0bits.T2IF = 0; // Clear Timer2 Interrupt Flag</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//IEC0bits.T2IE = 0; // Disable Timer2 interrupt</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    T4CONbits.TON = 1; <span class="comment">// Start 32-bit Timer</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="ttc" id="asystem_8c_html_a9cf05fad20cabd4ca4a12ab9b1c6e7ea"><div class="ttname"><a href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a></div><div class="ttdeci">void ConfigureOscillator(void)</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00040">system.c:40</a></div></div>
+<div class="ttc" id="asystem_8c_html_ab0bb063f480450e226799ab30cc6a3ed"><div class="ttname"><a href="system_8c.html#ab0bb063f480450e226799ab30cc6a3ed">init_ms_t4</a></div><div class="ttdeci">void init_ms_t4()</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00114">system.c:114</a></div></div>
+<div class="ttc" id="asystem_8c_html_af460918a62cf83ab0848c41f0ae852ea"><div class="ttname"><a href="system_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a></div><div class="ttdeci">void init_timer1()</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00098">system.c:98</a></div></div>
+<div class="ttc" id="asystem_8h_html"><div class="ttname"><a href="system_8h.html">system.h</a></div></div>
+<div class="ttc" id="asystem_8h_html_a7d5ce7b79462bbfb630ee53075540b65"><div class="ttname"><a href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a></div><div class="ttdeci">#define SYS_FREQ</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l00010">system.h:10</a></div></div>
+<div class="ttc" id="asystem_8h_html_a99d7c812ba23bfdba5d29ec2fddf1e83"><div class="ttname"><a href="system_8h.html#a99d7c812ba23bfdba5d29ec2fddf1e83">FCY</a></div><div class="ttdeci">#define FCY</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l00015">system.h:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>system.c</b></li>
+    <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="system_8c.html">system.c</a></li>
     <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

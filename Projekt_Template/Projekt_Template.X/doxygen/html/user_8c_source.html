@@ -28,7 +28,7 @@
   <td id="projectalign">
    <div id="projectname">Project_Template
    </div>
-   <div id="projectbrief">Beispiele fÃ¼r Embedded</div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('user_8c_source.html',''); initResizabl
   <div class="headertitle"><div class="title">user.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="user_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* Files to Include                                                           */</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* Device header file */</span></div>
@@ -103,14 +103,14 @@ $(document).ready(function(){initNavTree('user_8c_source.html',''); initResizabl
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>          <span class="comment">/* For uint16_t definition                       */</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span>         <span class="comment">/* For true/false definition                     */</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;user.h&quot;</span>            <span class="comment">/* variables/params used by user.c               */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span>            <span class="comment">/* variables/params used by user.c               */</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* User Functions                                                             */</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/* &lt;Initialize variables in user.h and insert code for user algorithms.&gt; */</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> InitApp(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="user_8c.html#addc0a16fa099430e2337628a38764b67">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="user_8c.html#addc0a16fa099430e2337628a38764b67">InitApp</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">/* TODO Initialize User Ports/Peripherals/Project here */</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('user_8c_source.html',''); initResizabl
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">/* Initialize peripherals */</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> setLED(uint16_t nr)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="user_8c.html#a038b3fb195072fa9d06014244e49282d">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="user_8c.html#a038b3fb195072fa9d06014244e49282d">setLED</a>(uint16_t nr)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   <span class="keywordflow">if</span> (nr&gt;=4) <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   LATB = LATB | (1 &lt;&lt; nr+8); </div>
@@ -132,12 +132,15 @@ $(document).ready(function(){initNavTree('user_8c_source.html',''); initResizabl
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//uint16_t leds=0b 0000 0000 0000 1101;</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//LATB = (LATB &amp; ~0b0000111100000000) | ((leds&lt;&lt;8) &amp;0b0000111100000000);</span></div>
+<div class="ttc" id="auser_8c_html_a038b3fb195072fa9d06014244e49282d"><div class="ttname"><a href="user_8c.html#a038b3fb195072fa9d06014244e49282d">setLED</a></div><div class="ttdeci">void setLED(uint16_t nr)</div><div class="ttdef"><b>Definition:</b> <a href="user_8c_source.html#l00035">user.c:35</a></div></div>
+<div class="ttc" id="auser_8c_html_addc0a16fa099430e2337628a38764b67"><div class="ttname"><a href="user_8c.html#addc0a16fa099430e2337628a38764b67">InitApp</a></div><div class="ttdeci">void InitApp(void)</div><div class="ttdef"><b>Definition:</b> <a href="user_8c_source.html#l00026">user.c:26</a></div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>user.c</b></li>
+    <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="user_8c.html">user.c</a></li>
     <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

@@ -28,7 +28,7 @@
   <td id="projectalign">
    <div id="projectname">Project_Template
    </div>
-   <div id="projectbrief">Beispiele fÃ¼r Embedded</div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
   <div class="headertitle"><div class="title">traps.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="traps_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* Files to Include                                                           */</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* Device header file */</span></div>
@@ -110,10 +110,10 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* &lt;Other function prototypes for debugging trap code may be inserted here&gt;   */</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* Use if INTCON2 ALTIVT=1 */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _OscillatorFail(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _AddressError(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _StackError(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _MathError(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#aec63791363b2065eddc5e0517ef6d237">_OscillatorFail</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a7d0e17c4ba9d457c33ee70078744b9c8">_AddressError</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a6ecef055982dcb7c83228dad7e5cd4de">_StackError</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a712462e16d3037efc5e9969f62fe6ee2">_MathError</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#if defined(__HAS_DMA__)</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/* Default interrupt handler */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _DefaultInterrupt(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#ad66b851d3e30e7398cfce55cd2137629">_DefaultInterrupt</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#if defined(__dsPIC33E__)</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
@@ -159,24 +159,24 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/* www.microchip.com/codeexamples                                             */</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/* Primary (non-alternate) address error trap function declarations */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _OscillatorFail(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="traps_8c.html#aec63791363b2065eddc5e0517ef6d237">   76</a></span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#aec63791363b2065eddc5e0517ef6d237">_OscillatorFail</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        INTCON1bits.OSCFAIL = 0;        <span class="comment">/* Clear the trap flag */</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">while</span>(1);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _AddressError(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="traps_8c.html#a7d0e17c4ba9d457c33ee70078744b9c8">   82</a></span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a7d0e17c4ba9d457c33ee70078744b9c8">_AddressError</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        INTCON1bits.ADDRERR = 0;        <span class="comment">/* Clear the trap flag */</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">while</span> (1);</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _StackError(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="traps_8c.html#a6ecef055982dcb7c83228dad7e5cd4de">   87</a></span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a6ecef055982dcb7c83228dad7e5cd4de">_StackError</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        INTCON1bits.STKERR = 0;         <span class="comment">/* Clear the trap flag */</span></div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">while</span> (1);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _MathError(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="traps_8c.html#a712462e16d3037efc5e9969f62fe6ee2">   93</a></span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#a712462e16d3037efc5e9969f62fe6ee2">_MathError</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        INTCON1bits.MATHERR = 0;        <span class="comment">/* Clear the trap flag */</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">while</span> (1);</div>
@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">/* This executes when an interrupt occurs for an interrupt source with an     */</span></div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/* improperly defined or undefined interrupt handling routine.                */</span></div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) _DefaultInterrupt(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="traps_8c.html#ad66b851d3e30e7398cfce55cd2137629">  154</a></span><span class="keywordtype">void</span> __attribute__((interrupt,no_auto_psv)) <a class="code hl_function" href="traps_8c.html#ad66b851d3e30e7398cfce55cd2137629">_DefaultInterrupt</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>{</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">while</span>(1);</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>}</div>
@@ -256,12 +256,17 @@ $(document).ready(function(){initNavTree('traps_8c_source.html',''); initResizab
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>}</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="atraps_8c_html_a6ecef055982dcb7c83228dad7e5cd4de"><div class="ttname"><a href="traps_8c.html#a6ecef055982dcb7c83228dad7e5cd4de">_StackError</a></div><div class="ttdeci">void _StackError(void)</div><div class="ttdef"><b>Definition:</b> <a href="traps_8c_source.html#l00087">traps.c:87</a></div></div>
+<div class="ttc" id="atraps_8c_html_a712462e16d3037efc5e9969f62fe6ee2"><div class="ttname"><a href="traps_8c.html#a712462e16d3037efc5e9969f62fe6ee2">_MathError</a></div><div class="ttdeci">void _MathError(void)</div><div class="ttdef"><b>Definition:</b> <a href="traps_8c_source.html#l00093">traps.c:93</a></div></div>
+<div class="ttc" id="atraps_8c_html_a7d0e17c4ba9d457c33ee70078744b9c8"><div class="ttname"><a href="traps_8c.html#a7d0e17c4ba9d457c33ee70078744b9c8">_AddressError</a></div><div class="ttdeci">void _AddressError(void)</div><div class="ttdef"><b>Definition:</b> <a href="traps_8c_source.html#l00082">traps.c:82</a></div></div>
+<div class="ttc" id="atraps_8c_html_ad66b851d3e30e7398cfce55cd2137629"><div class="ttname"><a href="traps_8c.html#ad66b851d3e30e7398cfce55cd2137629">_DefaultInterrupt</a></div><div class="ttdeci">void _DefaultInterrupt(void)</div><div class="ttdef"><b>Definition:</b> <a href="traps_8c_source.html#l00154">traps.c:154</a></div></div>
+<div class="ttc" id="atraps_8c_html_aec63791363b2065eddc5e0517ef6d237"><div class="ttname"><a href="traps_8c.html#aec63791363b2065eddc5e0517ef6d237">_OscillatorFail</a></div><div class="ttdeci">void _OscillatorFail(void)</div><div class="ttdef"><b>Definition:</b> <a href="traps_8c_source.html#l00076">traps.c:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>traps.c</b></li>
+    <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="traps_8c.html">traps.c</a></li>
     <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

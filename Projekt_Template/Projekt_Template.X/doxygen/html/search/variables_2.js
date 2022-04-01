@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contribution_0',['CONTRIBUTION',['../legal__disclaimer_8txt.html#aa878f00ef2c8980c8846044e1991ec54',1,'legal_disclaimer.txt']]]
+  ['read_0',['read',['../struct_buffer.html#ad99a3f990d972bf0b87f25fd507eb599',1,'Buffer']]]
 ];

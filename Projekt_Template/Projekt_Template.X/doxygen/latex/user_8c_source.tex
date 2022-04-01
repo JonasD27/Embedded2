@@ -1,5 +1,6 @@
 \hypertarget{user_8c_source}{}\doxysection{user.\+c}
-
+\label{user_8c_source}\index{user.c@{user.c}}
+\mbox{\hyperlink{user_8c}{gehe zur Dokumentation dieser Datei}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
@@ -17,14 +18,14 @@
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00015}00015 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00016}00016 \textcolor{preprocessor}{\#include <stdint.h>}          \textcolor{comment}{/* For uint16\_t definition                       */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00017}00017 \textcolor{preprocessor}{\#include <stdbool.h>}         \textcolor{comment}{/* For true/false definition                     */}}
-\DoxyCodeLine{\Hypertarget{user_8c_source_l00018}00018 \textcolor{preprocessor}{\#include "{}user.h"{}}            \textcolor{comment}{/* variables/params used by user.c               */}}
+\DoxyCodeLine{\Hypertarget{user_8c_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}            \textcolor{comment}{/* variables/params used by user.c               */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00019}00019 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00020}00020 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00021}00021 \textcolor{comment}{/* User Functions                                                             */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00022}00022 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00024}00024 \textcolor{comment}{/* <Initialize variables in user.h and insert code for user algorithms.> */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{user_8c_source_l00026}00026 \textcolor{keywordtype}{void} InitApp(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{user_8c_source_l00026}\mbox{\hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{00026}} \textcolor{keywordtype}{void} \mbox{\hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{InitApp}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00027}00027 \{}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00028}00028     \textcolor{comment}{/* TODO Initialize User Ports/Peripherals/Project here */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00029}00029 }
@@ -33,7 +34,7 @@
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00032}00032     \textcolor{comment}{/* Initialize peripherals */}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00033}00033 \}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{user_8c_source_l00035}00035 \textcolor{keywordtype}{void} setLED(uint16\_t nr)}
+\DoxyCodeLine{\Hypertarget{user_8c_source_l00035}\mbox{\hyperlink{user_8c_a038b3fb195072fa9d06014244e49282d}{00035}} \textcolor{keywordtype}{void} \mbox{\hyperlink{user_8c_a038b3fb195072fa9d06014244e49282d}{setLED}}(uint16\_t nr)}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00036}00036 \{}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00037}00037    \textcolor{keywordflow}{if} (nr>=4) \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00038}00038    LATB = LATB | (1 << nr+8); }

@@ -34,10 +34,21 @@ var NAVTREE =
     ] ],
     [ "Datenstrukturen", "annotated.html", [
       [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
-      [ "Datenstruktur-Verzeichnis", "classes.html", null ]
+      [ "Datenstruktur-Verzeichnis", "classes.html", null ],
+      [ "Datenstruktur-Elemente", "functions.html", [
+        [ "Alle", "functions.html", null ],
+        [ "Variablen", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Dateien", "files.html", [
-      [ "Auflistung der Dateien", "files.html", "files_dup" ]
+      [ "Auflistung der Dateien", "files.html", "files_dup" ],
+      [ "Globale Elemente", "globals.html", [
+        [ "Alle", "globals.html", null ],
+        [ "Funktionen", "globals_func.html", null ],
+        [ "Variablen", "globals_vars.html", null ],
+        [ "Typdefinitionen", "globals_type.html", null ],
+        [ "Makrodefinitionen", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
