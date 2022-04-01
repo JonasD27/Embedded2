@@ -36,7 +36,8 @@ uint32_t DELAY_ANPASSUNG;
 uint8_t data[2];
 
 /*Typen-Definitionen***********************************************************/
-typedef struct {
+typedef struct 
+{
   uint8_t data[BUFFER_SIZE];
   uint8_t read; // zeigt auf das Feld mit dem ältesten Inhalt
   uint8_t write; // zeigt immer auf leeres Feld
@@ -71,22 +72,25 @@ void Temp_FSM2(void);
  * Verzögerungsfunktion, blockierend
  * @param milliseconds Anzahl der zu verzögernden Millisekunden
  */
-void delay_ms(uint16_t milliseconds) {    
+void delay_ms(uint16_t milliseconds) 
+{    
     uint32_t i=0;
-    for (i=0;i<(DELAY_ANPASSUNG*(uint32_t)milliseconds);i++){
-         }
+    for (i=0;i<(DELAY_ANPASSUNG*(uint32_t)milliseconds);i++)
+    {
+    }
 }
 
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
-    {
-        _T1IF = 0; //Clear Timer1 interrupt flag
+{
+    _T1IF = 0; //Clear Timer1 interrupt flag
         
-        putsUART("Hello World\n");  
+    putsUART("Hello World\n");  
         
-    }
+}
 
 //UART
-void initUART(){
+void initUART()
+{
     U1MODEbits.STSEL = 0; // 1-Stop bit
     U1MODEbits.PDSEL = 0; // No Parity, 8-Data bits
     U1MODEbits.ABAUD = 0; // Auto-Baud disabled
@@ -140,14 +144,17 @@ int16_t putcFIFO_TX(char c)
   _LATF0 = 1;
   if ( ( FIFO.write + 1 == FIFO.read ) ||
        ( FIFO.read == 0 && FIFO.write + 1 == BUFFER_SIZE ) )
+  {
     return BUFFER_FAIL; // voll
+  }
 
   FIFO.data[FIFO.write] = c;
 
   FIFO.write++;
   if (FIFO.write >= BUFFER_SIZE)
+  {
     FIFO.write = 0;
-
+  }
   return BUFFER_SUCCESS;
 }
 
@@ -155,34 +162,37 @@ int16_t getcFIFO_TX(volatile uint16_t *c)
 {
   _LATF0 = 1;
   if (FIFO.read == FIFO.write)
+  {
     return BUFFER_FAIL;
-
+  }
   *c = FIFO.data[FIFO.read];
 
   FIFO.read++;
   if (FIFO.read >= BUFFER_SIZE)
+  {
     FIFO.read = 0;
-
+  }
   return BUFFER_SUCCESS;
 }
 
-int16_t putcUART(char c){
+int16_t putcUART(char c)
+{
     _LATF0 = 1;
     _GIE = 0; // Interrupts ausschalten
     int16_t erfolg = putcFIFO_TX(c);
     _GIE = 1;
     return erfolg;
-
-
 }
 
-int16_t putsUART(const char *str) {
+int16_t putsUART(const char *str) 
+{
     _LATF0 = 1;
     uint16_t i;
     uint16_t length = strlen(str);
     
     _GIE = 0;   //Global Interrupt disable
-    for(i = 0; i < length; i++) {
+    for(i = 0; i < length; i++) 
+    {
         //uint16_t ret = putcFIFO_TX(str[i]);
         if(! putcFIFO_TX(str[i]))
             break;
@@ -200,11 +210,11 @@ int16_t putsUART(const char *str) {
 void Temp_FSM2(void)
 {
      static StateFunc statefunc = FSM2_Idle;
-     
      statefunc = (StateFunc)(*statefunc)();
 }
 
-void initI2C(){
+void initI2C()
+{
     I2C2CONbits.A10M = 0;
     I2C2BRG = 245; //100kHz 
 
@@ -240,7 +250,8 @@ void initI2C(){
     I2C2TRN=0b10010000;
     while(I2C2STATbits.TRSTAT==1){}
 
-    if (I2C2STATbits.ACKSTAT==1){   //if NACK received, generate stop condition and exit
+    if (I2C2STATbits.ACKSTAT==1)
+    {   //if NACK received, generate stop condition and exit
         I2C2STATbits.ACKSTAT=0;
         I2C2CONbits.PEN=1;
         while(I2C2CONbits.PEN==1){} //wait for the stop interrupt;
@@ -249,9 +260,11 @@ void initI2C(){
 
     //Tx Register Address
     I2C2TRN=0b00000000; //Pointer auf TEMP REGISTER setzten
-    while(I2C2STATbits.TRSTAT==1){}
+    while(I2C2STATbits.TRSTAT==1)
+    {}
 
-    if (I2C2STATbits.ACKSTAT==1){   //if NACK received, generate stop condition and exit
+    if (I2C2STATbits.ACKSTAT==1)
+    {   //if NACK received, generate stop condition and exit
         I2C2STATbits.ACKSTAT=0;
         I2C2CONbits.PEN=1;
         while(I2C2CONbits.PEN==1){} //wait for the stop interrupt;
@@ -267,7 +280,8 @@ void initI2C(){
 void *FSM2_Idle(void)
 {
     static int c = 0;
-    if (c>=999){
+    if (c>=999)
+    {
         c=0;
         return FSM2_Start;
     }
@@ -293,7 +307,8 @@ void *FSM2_Adresse(void)
 
 void *FSM2_ACK_Receive(void)
 {
-    if (I2C2STATbits.ACKSTAT==1){   //if NACK received, generate stop condition and exit
+    if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
+    {   
         I2C2STATbits.ACKSTAT=0;
         return FSM2_Stop;
     }
@@ -305,14 +320,18 @@ void *FSM2_Data_Receive(void)
     int N=2; //2 bytes empfangen  
     int i;
     
-    for(i=0;i<N;i++){
+    for(i=0;i<N;i++)
+    {
         I2C2CONbits.RCEN=1; //Empfangen aktivieren
         while(I2C2CONbits.RCEN==1){} //RCEN cleared automatically when SSP1IF goes high
 
         data[i]=I2C2RCV;
 
         //ACK sequence
-        if (i<N-1){ I2C2CONbits.ACKDT=0; } //jedes byte mit ACK bestätigen
+        if (i<N-1)
+        { 
+            I2C2CONbits.ACKDT=0; 
+        } //jedes byte mit ACK bestätigen
         else {I2C2CONbits.ACKDT=1;} //send NACK if this is the last Byte
 
         I2C2CONbits.ACKEN=1; //start ack/nack sequence

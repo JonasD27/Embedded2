@@ -39,8 +39,10 @@ __builtin functions.*/
 /* TODO Add clock switching code if appropriate.  An example stub is below.   */
 void ConfigureOscillator(void)
 {
-    if (SYS_FREQ>7370000L){//Nur umschalten auf Primary wenn höhere Frequenz erwünscht
-        switch (SYS_FREQ){
+    if (SYS_FREQ>7370000L) //Nur umschalten auf Primary (8 MHz) wenn höhere Frequenz erwünscht
+    {
+        switch (SYS_FREQ)
+        {
             case 8000000L:
                 //PLL muss nicht konfiguriert werden
                 // externer Quartz mit 8Mhz
@@ -70,14 +72,16 @@ void ConfigureOscillator(void)
         }
         OSCTUN = 0;
         
-        if (SYS_FREQ == 8000000L){
+        if (SYS_FREQ == 8000000L)
+        {
             __builtin_write_OSCCONH(0x02); //Switch auf Primary ohne PLL
             
             __builtin_write_OSCCONL(OSCCON | 0x01);
             while (OSCCONbits.COSC!= 0x02); //Warten bis gewechselt wurde
-            }
+        }
         
-        else {
+        else 
+        {
             __builtin_write_OSCCONH(0x03); //Switch auf Primary mit PLL
             
             __builtin_write_OSCCONL(OSCCON | 0x01);
@@ -91,7 +95,8 @@ void ConfigureOscillator(void)
 
 
 //Timer1
-void init_timer1(){
+void init_timer1()
+{
     __builtin_write_OSCCONL(0b00000011); //SOSC aktivieren
     T1CONbits.TON = 0; // Disable Timer
     T1CONbits.TCS = 1; // Select external clock
@@ -106,7 +111,8 @@ void init_timer1(){
     T1CONbits.TON = 1; // Start Timer
 }
 
-void init_ms_t4(){
+void init_ms_t4()
+{
     T4CONbits.TON = 0; // Stop any 16/32-bit Timer3 operation
     T4CONbits.TCS = 0; // Select internal instruction cycle clock
     
