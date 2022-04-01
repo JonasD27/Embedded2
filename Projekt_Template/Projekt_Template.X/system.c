@@ -95,7 +95,7 @@ void ConfigureOscillator(void)
 
 
 //Timer1
-void init_timer1()
+void init_timer1() //generiert in 1s Rythmus Interrupts
 {
     __builtin_write_OSCCONL(0b00000011); //SOSC aktivieren
     T1CONbits.TON = 0; // Disable Timer
@@ -111,7 +111,7 @@ void init_timer1()
     T1CONbits.TON = 1; // Start Timer
 }
 
-void init_ms_t4()
+void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
 {
     T4CONbits.TON = 0; // Stop any 16/32-bit Timer3 operation
     T4CONbits.TCS = 0; // Select internal instruction cycle clock
