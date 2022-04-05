@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['user_2ec_0',['user.c',['../user_8c.html',1,'']]],
-  ['user_2eh_1',['user.h',['../user_8h.html',1,'']]]
+  ['write_0',['write',['../struct_buffer.html#a60e9c75aa693ad12f404344cffc12505',1,'Buffer']]]
 ];

@@ -33,9 +33,15 @@ uint32_t DELAY_ANPASSUNG;
 #define I2C_SDA      _RA3
 #define I2C_SCL_TRIS _TRISA2
 #define I2C_SDA_TRIS _TRISA3 
-uint8_t data[2];
+
+uint8_t write_data_buffer;
+uint8_t read_data_buffer[2];
+
+bool repeated_start=0;
 
 /*Typen-Definitionen***********************************************************/
+typedef enum {Pending, Finished, Error} i2c_status_t;
+
 typedef struct 
 {
   uint8_t data[BUFFER_SIZE];
@@ -43,13 +49,27 @@ typedef struct
   uint8_t write; // zeigt immer auf leeres Feld
 }Buffer;
 
-Buffer FIFO = {{}, 0, 0};
+typedef struct
+{
+    uint8_t address;
+    uint16_t num_write;
+    uint8_t *writebuf;
+    uint16_t num_read;
+    uint8_t *readbuf;
+    i2c_status_t status;
+}I2C_struct;
+
+I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,Error};
+
+Buffer FIFO = {{}, 0, 0}; //FIFO zum Versenden über UART
 
 typedef void *(*StateFunc)();
 
 
 /*Prototypes*******************************************************************/
+int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t status);
 
+void doI2C(void);
 
 int16_t putsUART(const char *str);
 int16_t getcFIFO_TX(volatile uint16_t *c);
@@ -63,6 +83,7 @@ void *FSM2_Start(void);
 void *FSM2_Adresse(void);
 void *FSM2_ACK_Receive(void);
 void *FSM2_Data_Receive(void);
+void *FSM2_Data_Write(void);
 void *FSM2_Stop(void);
 void Temp_FSM2(void);
 
@@ -80,13 +101,16 @@ void delay_ms(uint16_t milliseconds)
     }
 }
 
+#if 0
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
 {
     _T1IF = 0; //Clear Timer1 interrupt flag
         
-    putsUART("Hello World\n");  
+    putsUART("Hello World\n"); 
+    exchangeI2C(0b1001000, 0, &write_data_buffer, 2, read_data_buffer, Pending);
         
 }
+#endif
 
 //UART
 void initUART()
@@ -207,6 +231,27 @@ int16_t putsUART(const char *str)
 
 //I2C
 
+int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t status)
+{
+    I2C_test_struct.address=address;
+    I2C_test_struct.num_write=num_write;
+    I2C_test_struct.writebuf=writebuf;
+    I2C_test_struct.num_read=num_read;
+    I2C_test_struct.readbuf=readbuf;
+    I2C_test_struct.status=status;
+    _GIE=0;
+    doI2C();
+    _GIE=1;
+    return 0;  
+}
+
+void doI2C()
+{
+  static StateFunc statefunc = FSM2_Idle;
+  statefunc = (StateFunc)(*statefunc)();  
+}
+
+
 void Temp_FSM2(void)
 {
      static StateFunc statefunc = FSM2_Idle;
@@ -241,7 +286,7 @@ void initI2C()
         _MI2C2IF = 0; //Interrupt falls noetig
         _MI2C2IE = 0;  
         I2C2CONbits.I2CEN = 1;
-        
+#if 0    
     //Sensor Pointer auf TEMP Register setzten    
     I2C2CONbits.SEN=1; //start
     while(I2C2CONbits.SEN==1){} 
@@ -273,6 +318,7 @@ void initI2C()
     
     I2C2CONbits.PEN=1; //stop
     while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
+#endif
 }
 
 
@@ -299,10 +345,25 @@ void *FSM2_Start(void)
 
 void *FSM2_Adresse(void)
 {
-    //Tx Device address + Read bit
-    I2C2TRN=0b10010001; 
-    while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
-    return FSM2_ACK_Receive;
+    //1 Lesen, 0 Schreiben
+    if ((I2C_test_struct.num_write>0) && (repeated_start==0)) //Schreiben
+    {
+       I2C2TRN=(I2C_test_struct.address<<1);
+       while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
+       return FSM2_ACK_Receive;
+    }
+    else if (I2C_test_struct.num_read>0)  //Lesen
+    {
+       I2C2TRN=(I2C_test_struct.address<<1) | 0b1;
+       while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
+       return FSM2_ACK_Receive;
+    }
+    else
+    {
+        return FSM2_Stop;
+    }
+    
+    
 } 
 
 void *FSM2_ACK_Receive(void)
@@ -310,14 +371,27 @@ void *FSM2_ACK_Receive(void)
     if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
     {   
         I2C2STATbits.ACKSTAT=0;
+        I2C_test_struct.status=Error;
         return FSM2_Stop;
     }
-    return FSM2_Data_Receive;
+    
+    if ((I2C_test_struct.num_write>0) && (repeated_start==0)) //Schreiben
+    {
+        return FSM2_Data_Write;
+    }
+    else if (I2C_test_struct.num_read>0) //Lesen
+    {
+        return FSM2_Data_Receive;
+    }
+    else
+    {
+        return FSM2_Stop;
+    }
 }
 
 void *FSM2_Data_Receive(void)
 {
-    int N=2; //2 bytes empfangen  
+    int N=I2C_test_struct.num_read; 
     int i;
     
     for(i=0;i<N;i++)
@@ -325,7 +399,7 @@ void *FSM2_Data_Receive(void)
         I2C2CONbits.RCEN=1; //Empfangen aktivieren
         while(I2C2CONbits.RCEN==1){} //RCEN cleared automatically when SSP1IF goes high
 
-        data[i]=I2C2RCV;
+        I2C_test_struct.readbuf[i]=I2C2RCV;
 
         //ACK sequence
         if (i<N-1)
@@ -341,19 +415,47 @@ void *FSM2_Data_Receive(void)
     return FSM2_Stop;
 }
 
+void *FSM2_Data_Write(void)
+{
+    int N=I2C_test_struct.num_write;
+    int i;
+    
+    for(i=0;i<N;i++)
+    {
+      I2C2TRN = *(I2C_test_struct).writebuf;
+      while(I2C2STATbits.TRSTAT==1)
+      {}
+      if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
+      {   
+        I2C2STATbits.ACKSTAT=0;
+        I2C_test_struct.status=Error;
+        return FSM2_Stop;
+      }
+    }
+    
+    
+    // Repeated Start
+    repeated_start=1;
+    I2C2CONbits.RSEN=1;
+    while(I2C2CONbits.RSEN==1){} 
+    return FSM2_Adresse;
+}
+
 void *FSM2_Stop(void)
 {
     I2C2CONbits.PEN=1;
     while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
-    
-    double temp = data[0]<<8|data[1];
+
+    double temp = I2C_test_struct.readbuf[0]<<8|I2C_test_struct.readbuf[1];
     char str[16];
     sprintf(str,"%f",temp/256);
     putsUART("Temperatur: ");
     putsUART(str);
     putsUART("°C");
     putsUART("\n");
- 
+    
+    repeated_start=0;
+
     return FSM2_Idle;
 }
 
@@ -371,26 +473,16 @@ int16_t main(void)
     /* Initialize IO ports and peripherals */
     //InitApp();
     initUART();
+    #if 0
     init_timer1();
+    #endif
     init_ms_t4();
     initI2C();
-    
-    
-    TRISBbits.TRISB8 = 0; //LED als Ausgang
-    ANSELBbits.ANSB8 = 0;
-    
-    TRISBbits.TRISB9 = 0; //LED als Ausgang
-    ANSELBbits.ANSB9 = 0;
-    
-   //Taster als Eingänge
-    _TRISG12 = 1;
-    //Pull-up Widerstände einschalten
-    _CNPUG12 = 1;
-  
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
     
+    write_data_buffer=0b00000000;
     while(1)
     {
         if(_T4IF)
@@ -400,7 +492,9 @@ int16_t main(void)
             if (Count >= HEARTBEAT_MS)
             {
                 Count = 0;
-                Temp_FSM2();
+
+                exchangeI2C(0b1001000, 1, &write_data_buffer, 2, read_data_buffer, Pending);
+
             }
             
         }

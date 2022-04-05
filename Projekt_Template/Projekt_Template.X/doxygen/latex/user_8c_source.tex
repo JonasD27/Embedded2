@@ -37,7 +37,7 @@
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00035}\mbox{\hyperlink{user_8c_a038b3fb195072fa9d06014244e49282d}{00035}} \textcolor{keywordtype}{void} \mbox{\hyperlink{user_8c_a038b3fb195072fa9d06014244e49282d}{setLED}}(uint16\_t nr)}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00036}00036 \{}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00037}00037    \textcolor{keywordflow}{if} (nr>=4) \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{user_8c_source_l00038}00038    LATB = LATB | (1 << nr+8); }
+\DoxyCodeLine{\Hypertarget{user_8c_source_l00038}00038    LATB = LATB | (1 << (nr+8)); }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00039}00039 \}}
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00040}00040 }
 \DoxyCodeLine{\Hypertarget{user_8c_source_l00041}00041 }

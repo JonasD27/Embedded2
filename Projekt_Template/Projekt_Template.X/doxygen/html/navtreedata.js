@@ -24,12 +24,17 @@
 */
 var NAVTREE =
 [
-  [ "Project_Template", "index.html", [
-    [ "Embedded1 und Embedded2 Aufgabendokumentation", "index.html", [
-      [ "Programmdokumentation", "index.html#Programmdokumentation", [
-        [ "Aufgabe 1", "index.html#em_aufgabe1", null ],
-        [ "Aufgabe 2 und 3", "index.html#em_aufgabe23", null ],
-        [ "Restliche Aufgaben", "index.html#em_aufgaben", null ]
+  [ "Embedded 2 Dokumentation", "index.html", [
+    [ "Code Style", "index.html", [
+      [ "Code Style", "index.html#em_code_style", [
+        [ "EinrÃ¼ckung, Klammern und Formatierung", "index.html#em_formatierung", null ],
+        [ "Kommentare", "index.html#em_kommentare", null ],
+        [ "Bezeichner / Namen von Variablen, Funktionen & Konstanten", "index.html#em_bezeichner", null ],
+        [ "Bibliotheken", "index.html#em_bib", null ],
+        [ "Doxygen", "index.html#em_doxy", null ]
+      ] ],
+      [ "Programmdokumentation", "index.html#em_doku", [
+        [ "Aufgabe 1", "index.html#em_aufgabe1", null ]
       ] ]
     ] ],
     [ "Datenstrukturen", "annotated.html", [
