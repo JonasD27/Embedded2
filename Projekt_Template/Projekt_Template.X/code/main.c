@@ -34,8 +34,8 @@ uint32_t DELAY_ANPASSUNG;
 #define I2C_SCL_TRIS _TRISA2
 #define I2C_SDA_TRIS _TRISA3 
 
-uint8_t write_data_buffer;
-uint8_t read_data_buffer[2];
+uint8_t write_data_buffer_temp;
+uint8_t read_data_buffer_temp[2];
 
 bool repeated_start=0;
 
@@ -445,7 +445,7 @@ void *FSM2_Stop(void)
 {
     I2C2CONbits.PEN=1;
     while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
-
+#if 0
     double temp = I2C_test_struct.readbuf[0]<<8|I2C_test_struct.readbuf[1];
     char str[16];
     sprintf(str,"%f",temp/256);
@@ -453,10 +453,28 @@ void *FSM2_Stop(void)
     putsUART(str);
     putsUART("°C");
     putsUART("\n");
+#endif
     
     repeated_start=0;
 
     return FSM2_Idle;
+}
+
+void print_Temp()
+{
+    static int c = 0;
+    if (c>=999)
+    {
+        c=0;
+        double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
+        char str[16];
+        sprintf(str,"%f",temp/256);
+        putsUART("Temperatur: ");
+        putsUART(str);
+        putsUART("°C");
+        putsUART("\n");
+    }
+    c++;  
 }
 
 
@@ -482,7 +500,7 @@ int16_t main(void)
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
     
-    write_data_buffer=0b00000000;
+    write_data_buffer_temp=0b00000000;
     while(1)
     {
         if(_T4IF)
@@ -492,8 +510,9 @@ int16_t main(void)
             if (Count >= HEARTBEAT_MS)
             {
                 Count = 0;
-
-                exchangeI2C(0b1001000, 1, &write_data_buffer, 2, read_data_buffer, Pending);
+                //Temp
+                exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, Pending);
+                print_Temp();
 
             }
             

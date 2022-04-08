@@ -5,6 +5,8 @@
         <group>
             <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/system.c</file>
             <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/main.c</file>
+            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/main_less.c</file>
+            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/traps.c</file>
             <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/system.h</file>
         </group>
     </open-files>
