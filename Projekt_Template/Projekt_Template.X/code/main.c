@@ -85,7 +85,6 @@ void *FSM2_ACK_Receive(void);
 void *FSM2_Data_Receive(void);
 void *FSM2_Data_Write(void);
 void *FSM2_Stop(void);
-void Temp_FSM2(void);
 
 /*Funktionen*******************************************************************/
 
@@ -242,20 +241,20 @@ int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint
     _GIE=0;
     doI2C();
     _GIE=1;
-    return 0;  
+    if (I2C_test_struct.status==Finished)
+    {
+        return 1;
+    }
+    else if(I2C_test_struct.status==Pending)
+    {
+        return 0;
+    }
 }
 
 void doI2C()
 {
   static StateFunc statefunc = FSM2_Idle;
   statefunc = (StateFunc)(*statefunc)();  
-}
-
-
-void Temp_FSM2(void)
-{
-     static StateFunc statefunc = FSM2_Idle;
-     statefunc = (StateFunc)(*statefunc)();
 }
 
 void initI2C()
@@ -286,39 +285,6 @@ void initI2C()
         _MI2C2IF = 0; //Interrupt falls noetig
         _MI2C2IE = 0;  
         I2C2CONbits.I2CEN = 1;
-#if 0    
-    //Sensor Pointer auf TEMP Register setzten    
-    I2C2CONbits.SEN=1; //start
-    while(I2C2CONbits.SEN==1){} 
-
-    //Tx Device address + Write bit
-    I2C2TRN=0b10010000;
-    while(I2C2STATbits.TRSTAT==1){}
-
-    if (I2C2STATbits.ACKSTAT==1)
-    {   //if NACK received, generate stop condition and exit
-        I2C2STATbits.ACKSTAT=0;
-        I2C2CONbits.PEN=1;
-        while(I2C2CONbits.PEN==1){} //wait for the stop interrupt;
-        return;
-    }
-
-    //Tx Register Address
-    I2C2TRN=0b00000000; //Pointer auf TEMP REGISTER setzten
-    while(I2C2STATbits.TRSTAT==1)
-    {}
-
-    if (I2C2STATbits.ACKSTAT==1)
-    {   //if NACK received, generate stop condition and exit
-        I2C2STATbits.ACKSTAT=0;
-        I2C2CONbits.PEN=1;
-        while(I2C2CONbits.PEN==1){} //wait for the stop interrupt;
-        return;
-    }
-    
-    I2C2CONbits.PEN=1; //stop
-    while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
-#endif
 }
 
 
@@ -329,7 +295,10 @@ void *FSM2_Idle(void)
     if (c>=999)
     {
         c=0;
+        I2C_test_struct.status=Pending;
+        I2C2CONbits.SEN=1; //Start
         return FSM2_Start;
+        
     }
     c++;
     return FSM2_Idle;
@@ -338,9 +307,13 @@ void *FSM2_Idle(void)
 
 void *FSM2_Start(void)
 {
-    I2C2CONbits.SEN=1; //Start
-    while(I2C2CONbits.SEN==1){} 
-    return FSM2_Adresse;
+    
+    if (I2C2CONbits.SEN==0)
+    {
+        return FSM2_Adresse;
+    }
+    return FSM2_Start; 
+    
 } 
 
 void *FSM2_Adresse(void)
@@ -348,6 +321,7 @@ void *FSM2_Adresse(void)
     //1 Lesen, 0 Schreiben
     if ((I2C_test_struct.num_write>0) && (repeated_start==0)) //Schreiben
     {
+        //Verschieben in Übergang
        I2C2TRN=(I2C_test_struct.address<<1);
        while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
        return FSM2_ACK_Receive;
@@ -420,6 +394,7 @@ void *FSM2_Data_Write(void)
     int N=I2C_test_struct.num_write;
     int i;
     
+    //auch blockierend, sollte immer weider zurück in anderen Zustand gehen
     for(i=0;i<N;i++)
     {
       I2C2TRN = *(I2C_test_struct).writebuf;
@@ -445,18 +420,10 @@ void *FSM2_Stop(void)
 {
     I2C2CONbits.PEN=1;
     while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
-#if 0
-    double temp = I2C_test_struct.readbuf[0]<<8|I2C_test_struct.readbuf[1];
-    char str[16];
-    sprintf(str,"%f",temp/256);
-    putsUART("Temperatur: ");
-    putsUART(str);
-    putsUART("°C");
-    putsUART("\n");
-#endif
     
+    //Repeated Start
     repeated_start=0;
-
+    I2C_test_struct.status=Finished;
     return FSM2_Idle;
 }
 
@@ -500,6 +467,7 @@ int16_t main(void)
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
     
+    
     write_data_buffer_temp=0b00000000;
     while(1)
     {
@@ -513,6 +481,13 @@ int16_t main(void)
                 //Temp
                 exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, Pending);
                 print_Temp();
+                //exchange wird zum bsp alle 10s aufgerufen, um daten anzufordern
+                //doI2C sollte zyklisch, zb alle 1ms aufgerufen werden, schaut nach ob es gerade eine Anforderung gibt, wenn ja FSM durchlaufen
+                //Wenn Tempepratur und Licht, dann muus geschaut werden dass nicht eine neue Anforderung gestellt werden kann wenn noch eine andere läuft
+                
+                //TODO
+                //FSM fixen, nicht blockierend, kein while{}
+                //exchange alle 1s, doI2C in superloop
 
             }
             
