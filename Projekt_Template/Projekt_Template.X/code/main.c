@@ -25,7 +25,7 @@ uint32_t DELAY_ANPASSUNG;
 //FIFO
 #define BUFFER_FAIL     0
 #define BUFFER_SUCCESS  1
-#define BUFFER_SIZE 128
+#define BUFFER_SIZE 256
 
 
 //I2C
@@ -35,19 +35,14 @@ uint32_t DELAY_ANPASSUNG;
 #define I2C_SDA_TRIS _TRISA3 
 
 uint8_t write_data_buffer_temp;
+uint8_t write_data_buffer_light;
 uint8_t read_data_buffer_temp[2];
+uint8_t read_data_buffer_light[2];
 
-bool repeated_start=0;
+bool trigger_FSM=0;
 
 /*Typen-Definitionen***********************************************************/
 typedef enum {Pending, Finished, Error} i2c_status_t;
-
-typedef struct 
-{
-  uint8_t data[BUFFER_SIZE];
-  uint8_t read; // zeigt auf das Feld mit dem ältesten Inhalt
-  uint8_t write; // zeigt immer auf leeres Feld
-}Buffer;
 
 typedef struct
 {
@@ -59,9 +54,27 @@ typedef struct
     i2c_status_t status;
 }I2C_struct;
 
-I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,Error};
+typedef struct 
+{
+  uint8_t data[BUFFER_SIZE];
+  uint8_t read; // zeigt auf das Feld mit dem ältesten Inhalt
+  uint8_t write; // zeigt immer auf leeres Feld
+}Buffer;
+
+typedef struct 
+{
+  I2C_struct data[BUFFER_SIZE];
+  uint8_t read; // zeigt auf das Feld mit dem ältesten Inhalt
+  uint8_t write; // zeigt immer auf leeres Feld
+}Buffer_I2C_FSM;
+
+
+
+I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,Finished};
 
 Buffer FIFO = {{}, 0, 0}; //FIFO zum Versenden über UART
+
+Buffer_I2C_FSM FIFO_I2C = {{},0,0}; //FIFO für die I2C FSM
 
 typedef void *(*StateFunc)();
 
@@ -70,6 +83,8 @@ typedef void *(*StateFunc)();
 int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t status);
 
 void doI2C(void);
+
+void print_sensor_values(void);
 
 int16_t putsUART(const char *str);
 int16_t getcFIFO_TX(volatile uint16_t *c);
@@ -102,16 +117,20 @@ void delay_ms(uint16_t milliseconds)
     }
 }
 
-#if 0
+
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
 {
     _T1IF = 0; //Clear Timer1 interrupt flag
         
-    putsUART("Hello World\n"); 
-    exchangeI2C(0b1001000, 0, &write_data_buffer, 2, read_data_buffer, Pending);
+    //putsUART("Hello World\n"); 
+    //Anfrage Temperatur-Sensor
+    exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, Pending);
+    //Anfrage Licht-Sensor
+    exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, Pending);
+    print_sensor_values();
         
 }
-#endif
+
 
 //UART
 void initUART()
@@ -154,11 +173,43 @@ void initUART()
 void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
 { 
     _U1TXIF = 0; // Clear TX Interrupt flag
-    
     getcFIFO_TX(&U1TXREG);
     
 }
 
+int16_t put_I2C_struct_FIFO(I2C_struct s)
+{
+  if ( ( FIFO_I2C.write + 1 == FIFO_I2C.read ) ||
+       ( FIFO_I2C.read == 0 && FIFO_I2C.write + 1 == BUFFER_SIZE ) )
+  {
+    return BUFFER_FAIL; // voll
+  }
+
+  FIFO_I2C.data[FIFO_I2C.write] = s;
+
+  FIFO_I2C.write++;
+  if (FIFO_I2C.write >= BUFFER_SIZE)
+  {
+    FIFO_I2C.write = 0;
+  }
+  return BUFFER_SUCCESS;
+}
+
+int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
+{
+  if (FIFO_I2C.read == FIFO_I2C.write)
+  {
+    return BUFFER_FAIL;
+  }
+  *s = FIFO_I2C.data[FIFO_I2C.read];
+
+  FIFO_I2C.read++;
+  if (FIFO_I2C.read >= BUFFER_SIZE)
+  {
+    FIFO_I2C.read = 0;
+  }
+  return BUFFER_SUCCESS;
+}
 
 
 
@@ -234,20 +285,15 @@ int16_t putsUART(const char *str)
 
 int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t status)
 {
-    I2C_test_struct.address=address;
-    I2C_test_struct.num_write=num_write;
-    I2C_test_struct.writebuf=writebuf;
-    I2C_test_struct.num_read=num_read;
-    I2C_test_struct.readbuf=readbuf;
-    I2C_test_struct.status=status;
-    _GIE=0;
-    doI2C();
-    _GIE=1;
+    I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,Finished};
+    put_I2C_struct_FIFO(temporary_struct);
+    
     if (I2C_test_struct.status==Finished)
     {
+     
         return 1;
     }
-    else if(I2C_test_struct.status==Pending)
+    else
     {
         return 0;
     }
@@ -256,7 +302,17 @@ int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint
 void doI2C()
 {
   static StateFunc statefunc = FSM_Idle;
-  statefunc = (StateFunc)(*statefunc)();  
+  
+  if (!(FIFO_I2C.read == FIFO_I2C.write)) //Wenn Ihnalt im FIFO ist
+  {
+      trigger_FSM=1;  
+  }
+  
+  if (trigger_FSM==1)
+  {
+      statefunc = (StateFunc)(*statefunc)(); 
+  }
+   
 }
 
 void initI2C()
@@ -293,17 +349,9 @@ void initI2C()
 
 void *FSM_Idle(void)
 {
-    static int c = 0;
-    if (c>=999)
-    {
-        c=0;
-        I2C_test_struct.status=Pending;
-        I2C2CONbits.SEN=1; //Start
-        return FSM_Start;
-        
-    }
-    c++;
-    return FSM_Idle;
+    get_I2C_struct_FIFO(&I2C_test_struct);
+    I2C2CONbits.SEN=1; //Start
+    return FSM_Start;
 
 }  
 
@@ -341,11 +389,11 @@ void *FSM_Adresse_Write(void)
             return FSM_Stop;
         }
         
-        if (I2C2STATbits.ACKSTAT==0)
+        if (I2C2STATbits.ACKSTAT==0) //ACK von Slave erhalten
         {
             static int count=0;
             
-            if (count < I2C_test_struct.num_write ) //Noch Bytes zu senden
+            if (count < I2C_test_struct.num_write) //Noch Bytes zu senden
             {
                 
                 I2C2TRN=I2C_test_struct.writebuf[count];
@@ -403,6 +451,7 @@ void *FSM_Adresse_Read(void)
             { 
                count = 0; 
                I2C2CONbits.PEN=1;
+               I2C_test_struct.status=Finished;
                return FSM_Stop;
             }
             
@@ -430,6 +479,7 @@ void *FSM_RECV_EN(void)
         {
             I2C2CONbits.ACKDT=0;
         }
+        
         I2C2CONbits.ACKEN=1;
         return FSM_RECV_ACK_EN;
     }
@@ -507,31 +557,34 @@ void *FSM2_Data_Write(void)
 
 void *FSM_Stop(void)
 {
-    
     if(I2C2CONbits.PEN==0)
-    {
-        
+    {  
+        trigger_FSM=0;
         return FSM_Idle;
     } 
     return FSM_Stop;
-    
 }
 
-void print_Temp()
+void print_sensor_values()
 {
-    static int c = 0;
-    if (c>=999)
-    {
-        c=0;
-        double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
-        char str[16];
-        sprintf(str,"%f",temp/256);
-        putsUART("Temperatur: ");
-        putsUART(str);
-        putsUART("°C");
-        putsUART("\n");
-    }
-    c++;  
+    //Temperatur
+    double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
+    char str[16];
+    sprintf(str,"%.1f",temp/256);
+    putsUART("Temperatur: ");
+    putsUART(str);
+    putsUART("°C");
+    putsUART("\n");
+    
+    //Licht
+    double light = read_data_buffer_light[0]<<8 | read_data_buffer_light[1];
+    
+    sprintf(str,"%.1f",light/1.2);
+    putsUART("Licht: ");
+    putsUART(str);
+    putsUART(" lux");
+    putsUART("\n");
+ 
 }
 
 
@@ -548,9 +601,7 @@ int16_t main(void)
     /* Initialize IO ports and peripherals */
     //InitApp();
     initUART();
-    #if 0
     init_timer1();
-    #endif
     init_ms_t4();
     initI2C();
 
@@ -559,6 +610,7 @@ int16_t main(void)
     
     
     write_data_buffer_temp=0b00000000;
+    write_data_buffer_light=0b00010000;
     while(1)
     {
         if(_T4IF)
@@ -568,16 +620,9 @@ int16_t main(void)
             if (Count >= HEARTBEAT_MS)
             {
                 Count = 0;
-                //Temp
-                exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, Pending);
-                print_Temp();
-                //exchange wird zum bsp alle 10s aufgerufen, um daten anzufordern
-                //doI2C sollte zyklisch, zb alle 1ms aufgerufen werden, schaut nach ob es gerade eine Anforderung gibt, wenn ja FSM durchlaufen
+                doI2C();
+
                 //Wenn Tempepratur und Licht, dann muus geschaut werden dass nicht eine neue Anforderung gestellt werden kann wenn noch eine andere läuft
-                
-                //TODO
-                //FSM fixen, nicht blockierend, kein while{}
-                //exchange alle 1s, doI2C in superloop
 
             }
             
