@@ -78,13 +78,15 @@ int16_t getcFIFO_TX(volatile uint16_t *c);
 int16_t putcFIFO_TX(char c);
 //int16_t putcFIFO_RX(char c);
 
-void *FSM2_Idle(void);
-void *FSM2_Start(void);
-void *FSM2_Adresse(void);
-void *FSM2_ACK_Receive(void);
-void *FSM2_Data_Receive(void);
-void *FSM2_Data_Write(void);
-void *FSM2_Stop(void);
+void *FSM_Idle(void);
+void *FSM_Start(void);
+void *FSM_Adresse_Read(void);
+void *FSM_Adresse_Write(void);
+void *FSM_Repeated_Start(void);
+void *FSM_RECV_EN(void);
+void *FSM_RECV_ACK_EN(void);
+
+void *FSM_Stop(void);
 
 /*Funktionen*******************************************************************/
 
@@ -253,7 +255,7 @@ int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint
 
 void doI2C()
 {
-  static StateFunc statefunc = FSM2_Idle;
+  static StateFunc statefunc = FSM_Idle;
   statefunc = (StateFunc)(*statefunc)();  
 }
 
@@ -289,7 +291,7 @@ void initI2C()
 
 
 
-void *FSM2_Idle(void)
+void *FSM_Idle(void)
 {
     static int c = 0;
     if (c>=999)
@@ -297,72 +299,157 @@ void *FSM2_Idle(void)
         c=0;
         I2C_test_struct.status=Pending;
         I2C2CONbits.SEN=1; //Start
-        return FSM2_Start;
+        return FSM_Start;
         
     }
     c++;
-    return FSM2_Idle;
+    return FSM_Idle;
 
 }  
 
-void *FSM2_Start(void)
+void *FSM_Start(void)
 {
     
     if (I2C2CONbits.SEN==0)
     {
-        return FSM2_Adresse;
+        if (I2C_test_struct.num_write>0) //Schreiben
+        {
+            I2C2TRN=(I2C_test_struct.address<<1);
+            return FSM_Adresse_Write;
+        }
+        
+        else if (I2C_test_struct.num_read>0)  //Lesen
+        {
+            I2C2TRN=(I2C_test_struct.address<<1) | 0b1;
+            return FSM_Adresse_Read;
+        }
+        
+        
     }
-    return FSM2_Start; 
+    return FSM_Start; 
     
 } 
 
-void *FSM2_Adresse(void)
+void *FSM_Adresse_Write(void)
 {
-    //1 Lesen, 0 Schreiben
-    if ((I2C_test_struct.num_write>0) && (repeated_start==0)) //Schreiben
+    if(I2C2STATbits.TRSTAT==0) //Wenn erfolgreich übertragen
     {
-        //Verschieben in Übergang
-       I2C2TRN=(I2C_test_struct.address<<1);
-       while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
-       return FSM2_ACK_Receive;
+        if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
+        {  
+            I2C2CONbits.PEN=1;
+            I2C_test_struct.status=Error;
+            return FSM_Stop;
+        }
+        
+        if (I2C2STATbits.ACKSTAT==0)
+        {
+            static int count=0;
+            
+            if (count < I2C_test_struct.num_write ) //Noch Bytes zu senden
+            {
+                
+                I2C2TRN=I2C_test_struct.writebuf[count];
+                count++;
+                return FSM_Adresse_Write;
+            }
+            
+            else //Nichts mehr zu schicken
+            { 
+               count=0;
+               I2C2CONbits.RSEN=1;
+               return FSM_Repeated_Start;
+            }
+            
+        }
+        
     }
-    else if (I2C_test_struct.num_read>0)  //Lesen
-    {
-       I2C2TRN=(I2C_test_struct.address<<1) | 0b1;
-       while(I2C2STATbits.TRSTAT==1){} //Warten solange übertragen wird 
-       return FSM2_ACK_Receive;
-    }
-    else
-    {
-        return FSM2_Stop;
-    }
-    
+    return FSM_Adresse_Write;  
     
 } 
 
-void *FSM2_ACK_Receive(void)
+void *FSM_Repeated_Start(void)
 {
-    if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
-    {   
-        I2C2STATbits.ACKSTAT=0;
-        I2C_test_struct.status=Error;
-        return FSM2_Stop;
-    }
-    
-    if ((I2C_test_struct.num_write>0) && (repeated_start==0)) //Schreiben
+    if (I2C2CONbits.RSEN==0)
     {
-        return FSM2_Data_Write;
+        I2C2TRN=(I2C_test_struct.address<<1) | 0b1;
+        return FSM_Adresse_Read;
     }
-    else if (I2C_test_struct.num_read>0) //Lesen
-    {
-        return FSM2_Data_Receive;
-    }
-    else
-    {
-        return FSM2_Stop;
-    }
+    return FSM_Repeated_Start;
 }
 
+void *FSM_Adresse_Read(void)
+{
+    if(I2C2STATbits.TRSTAT==0) //Wenn erfolgreich übertragen
+    {
+        if (I2C2STATbits.ACKSTAT==1) //if NACK received, generate stop condition and exit
+        {  
+            I2C2CONbits.PEN=1;
+            I2C_test_struct.status=Error;
+            return FSM_Stop;
+        }
+        
+        if (I2C2STATbits.ACKSTAT==0)
+        {
+            static int count = 0;
+            
+            if (count < I2C_test_struct.num_read) //Noch Bytes zu empfangen
+            {
+                count++;
+                I2C2CONbits.RCEN=1;
+                return FSM_RECV_EN;
+            }
+            
+            else //Nichts mehr zu empfangen
+            { 
+               count = 0; 
+               I2C2CONbits.PEN=1;
+               return FSM_Stop;
+            }
+            
+        }
+        
+    }
+    return FSM_Adresse_Read;  
+    
+} 
+
+void *FSM_RECV_EN(void)
+{
+    if (I2C2CONbits.RCEN==0)
+    {
+        static int count = 0;
+        I2C_test_struct.readbuf[count]=I2C2RCV;
+        count++;
+        
+        if (count>=I2C_test_struct.num_read) //Wenn letztes Byte empfangen wurde
+        {
+            count=0;
+            I2C2CONbits.ACKDT=1;
+        }
+        else
+        {
+            I2C2CONbits.ACKDT=0;
+        }
+        I2C2CONbits.ACKEN=1;
+        return FSM_RECV_ACK_EN;
+    }
+    
+    return FSM_RECV_EN;
+    
+}
+
+void *FSM_RECV_ACK_EN(void)
+{
+    if (I2C2CONbits.ACKEN==0)
+    {
+        return FSM_Adresse_Read;
+    }
+    
+    return FSM_RECV_ACK_EN;
+    
+}
+
+#if 0
 void *FSM2_Data_Receive(void)
 {
     int N=I2C_test_struct.num_read; 
@@ -388,6 +475,7 @@ void *FSM2_Data_Receive(void)
     } //end for loop
     return FSM2_Stop;
 }
+
 
 void *FSM2_Data_Write(void)
 {
@@ -415,16 +503,18 @@ void *FSM2_Data_Write(void)
     while(I2C2CONbits.RSEN==1){} 
     return FSM2_Adresse;
 }
+#endif
 
-void *FSM2_Stop(void)
+void *FSM_Stop(void)
 {
-    I2C2CONbits.PEN=1;
-    while(I2C2CONbits.PEN==1){} //wait for the stop interrupt
     
-    //Repeated Start
-    repeated_start=0;
-    I2C_test_struct.status=Finished;
-    return FSM2_Idle;
+    if(I2C2CONbits.PEN==0)
+    {
+        
+        return FSM_Idle;
+    } 
+    return FSM_Stop;
+    
 }
 
 void print_Temp()
