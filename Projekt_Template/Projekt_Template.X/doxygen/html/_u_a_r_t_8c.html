@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Embedded 2 Dokumentation: UART.c-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Embedded 2 Dokumentation
+   </div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_u_a_r_t_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">UART.c-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="system_8h_source.html">system.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include-Abhängigkeitsdiagramm für UART.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c__incl.png" border="0" usemap="#a_u_a_r_t_8c" alt=""/></div>
+<map name="a_u_a_r_t_8c" id="a_u_a_r_t_8c">
+<area shape="rect" title=" " alt="" coords="325,5,392,32"/>
+<area shape="rect" href="_u_a_r_t_8h.html" title=" " alt="" coords="277,80,344,107"/>
+<area shape="rect" href="system_8h.html" title=" " alt="" coords="369,80,445,107"/>
+<area shape="rect" href="user_8h.html" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" title=" " alt="" coords="89,155,154,181"/>
+<area shape="rect" title=" " alt="" coords="179,155,253,181"/>
+<area shape="rect" title=" " alt="" coords="278,155,343,181"/>
+<area shape="rect" title=" " alt="" coords="368,155,429,181"/>
+<area shape="rect" title=" " alt="" coords="453,155,517,181"/>
+<area shape="rect" title=" " alt="" coords="542,155,589,181"/>
+</map>
+</div>
+</div>
+<p><a href="_u_a_r_t_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a2cb50cd9b95f3b32212def6b17da3931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a2cb50cd9b95f3b32212def6b17da3931">initUART</a> ()</td></tr>
+<tr class="separator:a2cb50cd9b95f3b32212def6b17da3931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677ede9c0b46557fafb2142bea4eddfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a677ede9c0b46557fafb2142bea4eddfa">_U1TXInterrupt</a> (void)</td></tr>
+<tr class="separator:a677ede9c0b46557fafb2142bea4eddfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e64850d41714e4e58d22bea4caf1b67"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a6e64850d41714e4e58d22bea4caf1b67">putcFIFO_TX</a> (char c)</td></tr>
+<tr class="separator:a6e64850d41714e4e58d22bea4caf1b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a796981d39e7cf9a0ebf1842b2e48e0ca"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a796981d39e7cf9a0ebf1842b2e48e0ca">getcFIFO_TX</a> (volatile uint16_t *c)</td></tr>
+<tr class="separator:a796981d39e7cf9a0ebf1842b2e48e0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc294bd40e64c3058e55556e3d6d9f4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a8fc294bd40e64c3058e55556e3d6d9f4">putcUART</a> (char c)</td></tr>
+<tr class="separator:a8fc294bd40e64c3058e55556e3d6d9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a22a2e161c1c4207b694f38f5c3f8f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f">putsUART</a> (const char *str)</td></tr>
+<tr class="separator:a69a22a2e161c1c4207b694f38f5c3f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a677ede9c0b46557fafb2142bea4eddfa" name="a677ede9c0b46557fafb2142bea4eddfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677ede9c0b46557fafb2142bea4eddfa">&#9670;&nbsp;</a></span>_U1TXInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _U1TXInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00042">42</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph.png" border="0" usemap="#a_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph" id="a_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,112,32"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a796981d39e7cf9a0ebf1842b2e48e0ca" title=" " alt="" coords="160,5,257,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a796981d39e7cf9a0ebf1842b2e48e0ca" name="a796981d39e7cf9a0ebf1842b2e48e0ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a796981d39e7cf9a0ebf1842b2e48e0ca">&#9670;&nbsp;</a></span>getcFIFO_TX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t getcFIFO_TX </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00070">70</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca_icgraph.png" border="0" usemap="#a_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca_icgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca_icgraph" id="a_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca_icgraph">
+<area shape="rect" title=" " alt="" coords="160,5,257,32"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a677ede9c0b46557fafb2142bea4eddfa" title=" " alt="" coords="5,5,112,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2cb50cd9b95f3b32212def6b17da3931" name="a2cb50cd9b95f3b32212def6b17da3931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb50cd9b95f3b32212def6b17da3931">&#9670;&nbsp;</a></span>initUART()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initUART </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00004">4</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph.png" border="0" usemap="#a_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph" id="a_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,79,32"/>
+<area shape="rect" href="main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="127,5,205,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6e64850d41714e4e58d22bea4caf1b67" name="a6e64850d41714e4e58d22bea4caf1b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e64850d41714e4e58d22bea4caf1b67">&#9670;&nbsp;</a></span>putcFIFO_TX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t putcFIFO_TX </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00049">49</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67_icgraph.png" border="0" usemap="#a_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67_icgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67_icgraph" id="a_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67_icgraph">
+<area shape="rect" title=" " alt="" coords="135,31,232,57"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a8fc294bd40e64c3058e55556e3d6d9f4" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f" title=" " alt="" coords="5,56,87,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8fc294bd40e64c3058e55556e3d6d9f4" name="a8fc294bd40e64c3058e55556e3d6d9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc294bd40e64c3058e55556e3d6d9f4">&#9670;&nbsp;</a></span>putcUART()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t putcUART </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00087">87</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4_cgraph.png" border="0" usemap="#a_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4_cgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4_cgraph" id="a_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a6e64850d41714e4e58d22bea4caf1b67" title=" " alt="" coords="135,5,232,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a69a22a2e161c1c4207b694f38f5c3f8f" name="a69a22a2e161c1c4207b694f38f5c3f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a22a2e161c1c4207b694f38f5c3f8f">&#9670;&nbsp;</a></span>putsUART()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t putsUART </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_u_a_r_t_8c_source.html#l00096">96</a> der Datei <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph.png" border="0" usemap="#a_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph" alt=""/></div>
+<map name="a_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph" id="a_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="_u_a_r_t_8c.html#a6e64850d41714e4e58d22bea4caf1b67" title=" " alt="" coords="135,5,232,32"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="_u_a_r_t_8c.html">UART.c</a></li>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

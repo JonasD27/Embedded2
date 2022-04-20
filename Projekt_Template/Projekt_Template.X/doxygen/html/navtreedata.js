@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Embedded 2 Dokumentation", "index.html", [
-    [ "Code Style", "index.html", [
+    [ "Dokumentation", "index.html", [
       [ "Code Style", "index.html#em_code_style", [
         [ "EinrÃ¼ckung, Klammern und Formatierung", "index.html#em_formatierung", null ],
         [ "Kommentare", "index.html#em_kommentare", null ],
@@ -34,7 +34,7 @@ var NAVTREE =
         [ "Doxygen", "index.html#em_doxy", null ]
       ] ],
       [ "Programmdokumentation", "index.html#em_doku", [
-        [ "Aufgabe 1", "index.html#em_aufgabe1", null ]
+        [ "Aufgabe I2C Lichtsensor", "index.html#em_aufgabe1", null ]
       ] ]
     ] ],
     [ "Datenstrukturen", "annotated.html", [
@@ -52,6 +52,8 @@ var NAVTREE =
         [ "Funktionen", "globals_func.html", null ],
         [ "Variablen", "globals_vars.html", null ],
         [ "Typdefinitionen", "globals_type.html", null ],
+        [ "Aufzählungen", "globals_enum.html", null ],
+        [ "Aufzählungswerte", "globals_eval.html", null ],
         [ "Makrodefinitionen", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -60,7 +62,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_i2_c_8c.html"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';

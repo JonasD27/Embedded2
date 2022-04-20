@@ -95,10 +95,15 @@ Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält:</div
 <div class="dyncontent">
 <div class="center"><img src="user_8h__dep__incl.png" border="0" usemap="#auser_8hdep" alt=""/></div>
 <map name="auser_8hdep" id="auser_8hdep">
-<area shape="rect" title=" " alt="" coords="108,5,167,32"/>
-<area shape="rect" href="main_8c.html" title=" " alt="" coords="5,80,67,107"/>
-<area shape="rect" href="main__less_8c.html" title=" " alt="" coords="91,80,183,107"/>
-<area shape="rect" href="user_8c.html" title=" " alt="" coords="208,80,267,107"/>
+<area shape="rect" title=" " alt="" coords="225,5,284,32"/>
+<area shape="rect" href="_i2_c_8h.html" title=" " alt="" coords="197,80,249,107"/>
+<area shape="rect" href="interrupts_8c.html" title=" " alt="" coords="258,155,345,181"/>
+<area shape="rect" href="main_8c.html" title=" " alt="" coords="96,155,157,181"/>
+<area shape="rect" href="_u_a_r_t_8h.html" title=" " alt="" coords="55,80,121,107"/>
+<area shape="rect" href="main__less_8c.html" title=" " alt="" coords="325,80,417,107"/>
+<area shape="rect" href="user_8c.html" title=" " alt="" coords="441,80,500,107"/>
+<area shape="rect" href="_i2_c_8c.html" title=" " alt="" coords="182,155,234,181"/>
+<area shape="rect" href="_u_a_r_t_8c.html" title=" " alt="" coords="5,155,72,181"/>
 </map>
 </div>
 </div>
@@ -122,15 +127,69 @@ Makrodefinitionen</h2></td></tr>
 <tr class="separator:a259c2993ee45e06a4ea8150451a7a70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d800c5f04f8638061876b9e32c6c508"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a5d800c5f04f8638061876b9e32c6c508">T3</a>&#160;&#160;&#160;!_RG15</td></tr>
 <tr class="separator:a5d800c5f04f8638061876b9e32c6c508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130a78573f3f044449912e5a564bab60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a130a78573f3f044449912e5a564bab60">BUFFER_FAIL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a130a78573f3f044449912e5a564bab60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6861758eca7b115454b77ded9d29eebd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a6861758eca7b115454b77ded9d29eebd">BUFFER_SUCCESS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a6861758eca7b115454b77ded9d29eebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b20d41d6252e9871430c242cb1a56e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:a6b20d41d6252e9871430c242cb1a56e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29753842428f7af333a76486ce0286e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a29753842428f7af333a76486ce0286e2">SENSOR_TIME</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a29753842428f7af333a76486ce0286e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:addc0a16fa099430e2337628a38764b67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#addc0a16fa099430e2337628a38764b67">InitApp</a> (void)</td></tr>
 <tr class="separator:addc0a16fa099430e2337628a38764b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a038b3fb195072fa9d06014244e49282d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_8h.html#a038b3fb195072fa9d06014244e49282d">setLED</a> (uint16_t nr)</td></tr>
-<tr class="separator:a038b3fb195072fa9d06014244e49282d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Makro-Dokumentation</h2>
+<a id="a130a78573f3f044449912e5a564bab60" name="a130a78573f3f044449912e5a564bab60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130a78573f3f044449912e5a564bab60">&#9670;&nbsp;</a></span>BUFFER_FAIL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_FAIL&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="user_8h_source.html#l00013">13</a> der Datei <a class="el" href="user_8h_source.html">user.h</a>.</p>
+
+</div>
+</div>
+<a id="a6b20d41d6252e9871430c242cb1a56e7" name="a6b20d41d6252e9871430c242cb1a56e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b20d41d6252e9871430c242cb1a56e7">&#9670;&nbsp;</a></span>BUFFER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SIZE&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="user_8h_source.html#l00015">15</a> der Datei <a class="el" href="user_8h_source.html">user.h</a>.</p>
+
+</div>
+</div>
+<a id="a6861758eca7b115454b77ded9d29eebd" name="a6861758eca7b115454b77ded9d29eebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6861758eca7b115454b77ded9d29eebd">&#9670;&nbsp;</a></span>BUFFER_SUCCESS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFFER_SUCCESS&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="user_8h_source.html#l00014">14</a> der Datei <a class="el" href="user_8h_source.html">user.h</a>.</p>
+
+</div>
+</div>
 <a id="ae8d5b4e7e2d9d21caaa4744d385d7cc7" name="ae8d5b4e7e2d9d21caaa4744d385d7cc7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8d5b4e7e2d9d21caaa4744d385d7cc7">&#9670;&nbsp;</a></span>LED0</h2>
 
@@ -192,6 +251,22 @@ Funktionen</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definiert in Zeile <a class="el" href="user_8h_source.html#l00007">7</a> der Datei <a class="el" href="user_8h_source.html">user.h</a>.</p>
+
+</div>
+</div>
+<a id="a29753842428f7af333a76486ce0286e2" name="a29753842428f7af333a76486ce0286e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29753842428f7af333a76486ce0286e2">&#9670;&nbsp;</a></span>SENSOR_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SENSOR_TIME&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="user_8h_source.html#l00016">16</a> der Datei <a class="el" href="user_8h_source.html">user.h</a>.</p>
 
 </div>
 </div>
@@ -286,26 +361,6 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <area shape="rect" href="main__less_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a038b3fb195072fa9d06014244e49282d" name="a038b3fb195072fa9d06014244e49282d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a038b3fb195072fa9d06014244e49282d">&#9670;&nbsp;</a></span>setLED()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void setLED </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>nr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definiert in Zeile <a class="el" href="user_8c_source.html#l00035">35</a> der Datei <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>

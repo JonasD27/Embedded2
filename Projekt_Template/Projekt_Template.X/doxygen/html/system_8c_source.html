@@ -212,7 +212,18 @@ $(document).ready(function(){initNavTree('system_8c_source.html',''); initResiza
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    T4CONbits.TON = 1; <span class="comment">// Start 32-bit Timer</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="system_8c.html#a9d9be562445321043224885018bc7da3">  129</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="system_8c.html#a9d9be562445321043224885018bc7da3">delay_ms</a>(uint16_t milliseconds) </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{    </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint32_t i=0;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">for</span> (i=0;i&lt;(<a class="code hl_variable" href="main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a>*(uint32_t)milliseconds);i++)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="ttc" id="amain__less_8c_html_a3674e1feb03e742150964aa79b8fe8df"><div class="ttname"><a href="main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a></div><div class="ttdeci">uint32_t DELAY_ANPASSUNG</div><div class="ttdef"><b>Definition:</b> <a href="main__less_8c_source.html#l00039">main_less.c:39</a></div></div>
 <div class="ttc" id="asystem_8c_html_a9cf05fad20cabd4ca4a12ab9b1c6e7ea"><div class="ttname"><a href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a></div><div class="ttdeci">void ConfigureOscillator(void)</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00040">system.c:40</a></div></div>
+<div class="ttc" id="asystem_8c_html_a9d9be562445321043224885018bc7da3"><div class="ttname"><a href="system_8c.html#a9d9be562445321043224885018bc7da3">delay_ms</a></div><div class="ttdeci">void delay_ms(uint16_t milliseconds)</div><div class="ttdoc">Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch...</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00129">system.c:129</a></div></div>
 <div class="ttc" id="asystem_8c_html_ab0bb063f480450e226799ab30cc6a3ed"><div class="ttname"><a href="system_8c.html#ab0bb063f480450e226799ab30cc6a3ed">init_ms_t4</a></div><div class="ttdeci">void init_ms_t4()</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00114">system.c:114</a></div></div>
 <div class="ttc" id="asystem_8c_html_af460918a62cf83ab0848c41f0ae852ea"><div class="ttname"><a href="system_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a></div><div class="ttdeci">void init_timer1()</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00098">system.c:98</a></div></div>
 <div class="ttc" id="asystem_8h_html"><div class="ttname"><a href="system_8h.html">system.h</a></div></div>

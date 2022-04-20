@@ -15,6 +15,8 @@
 
 #include <stdint.h>        /* Includes uint16_t definition   */
 #include <stdbool.h>       /* Includes true/false definition */
+#include "user.h"
+#include "I2C.h"
 
 /******************************************************************************/
 /* Interrupt Vector Options                                                   */
@@ -122,5 +124,29 @@
 /******************************************************************************/
 /* Interrupt Routines                                                         */
 /******************************************************************************/
+
+void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
+{
+    _T1IF = 0; //Clear Timer1 interrupt flag
+    static int count=0;
+    
+    if (count>=SENSOR_TIME-1)
+    {
+        count=0;
+        i2c_status_t status;   
+        //putsUART("Hello World\n"); 
+        //Anfrage Temperatur-Sensor
+        exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status);
+        //Anfrage Licht-Sensor
+        exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status);
+        print_sensor_values();
+    }
+    else
+    {
+        count++;
+    }
+
+}
+
 
 /* TODO Add interrupt routine code here. */

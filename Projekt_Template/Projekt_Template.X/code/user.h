@@ -13,6 +13,7 @@
 #define BUFFER_FAIL     0
 #define BUFFER_SUCCESS  1
 #define BUFFER_SIZE 256
+#define SENSOR_TIME 2
 /* TODO Application specific user parameters used in user.c may go here */
 
 /******************************************************************************/

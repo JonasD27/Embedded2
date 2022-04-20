@@ -18,7 +18,9 @@ void \mbox{\hyperlink{system_8c_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{Configure\+Os
 void \mbox{\hyperlink{system_8c_af460918a62cf83ab0848c41f0ae852ea}{init\+\_\+timer1}} ()
 \item 
 void \mbox{\hyperlink{system_8c_ab0bb063f480450e226799ab30cc6a3ed}{init\+\_\+ms\+\_\+t4}} ()
-\end{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{system_8c_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms}} (uint16\+\_\+t milliseconds)
+\begin{DoxyCompactList}\small\item\em Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Dokumentation der Funktionen}
@@ -39,6 +41,25 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \includegraphics[width=252pt]{system_8c_a9cf05fad20cabd4ca4a12ab9b1c6e7ea_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{system_8c_a9d9be562445321043224885018bc7da3}\label{system_8c_a9d9be562445321043224885018bc7da3}} 
+\index{system.c@{system.c}!delay\_ms@{delay\_ms}}
+\index{delay\_ms@{delay\_ms}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{delay\_ms()}{delay\_ms()}}
+{\footnotesize\ttfamily void delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. 
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\texttt{ in}}  & {\em milliseconds} & Verzögerungszeit in millisekunden \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00129}{129}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
 \mbox{\Hypertarget{system_8c_ab0bb063f480450e226799ab30cc6a3ed}\label{system_8c_ab0bb063f480450e226799ab30cc6a3ed}} 
 \index{system.c@{system.c}!init\_ms\_t4@{init\_ms\_t4}}
 \index{init\_ms\_t4@{init\_ms\_t4}!system.c@{system.c}}

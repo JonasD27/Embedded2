@@ -26,7 +26,7 @@ struct \mbox{\hyperlink{struct_buffer}{Buffer}}
 \item 
 \#define \mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}~9600
 \item 
-\#define \mbox{\hyperlink{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1
+\#define \mbox{\hyperlink{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{_u_a_r_t_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1
 \item 
 \#define \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\+\_\+\+FAIL}}~0
 \item 
@@ -85,7 +85,7 @@ int16\+\_\+t \mbox{\hyperlink{main__less_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{p
 void \mbox{\hyperlink{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}{init\+\_\+timer1}} ()
 \item 
 void \mbox{\hyperlink{main__less_8c_abe298a3c1d98035cebe8b0535db549fa}{init\+I2C}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialisiert die I2\+C-\/\+Kommunikation. \end{DoxyCompactList}\item 
 int16\+\_\+t \mbox{\hyperlink{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variablen}
@@ -114,7 +114,7 @@ Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00032}{32}} der Datei 
 \index{main\_less.c@{main\_less.c}!BRGVAL@{BRGVAL}}
 \index{BRGVAL@{BRGVAL}!main\_less.c@{main\_less.c}}
 \doxysubsubsection{\texorpdfstring{BRGVAL}{BRGVAL}}
-{\footnotesize\ttfamily \#define BRGVAL~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{main__less_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1}
+{\footnotesize\ttfamily \#define BRGVAL~((\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}/\mbox{\hyperlink{_u_a_r_t_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}})/16)-\/1}
 
 
 
@@ -273,7 +273,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=230pt]{main__less_8c_a9d9be562445321043224885018bc7da3_icgraph}
+\includegraphics[width=304pt]{main__less_8c_a9d9be562445321043224885018bc7da3_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{main__less_8c_acc21e9504ae41685a598e1ba66b8c562}\label{main__less_8c_acc21e9504ae41685a598e1ba66b8c562}} 
@@ -475,7 +475,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \index{main\_less.c@{main\_less.c}!initI2C@{initI2C}}
 \index{initI2C@{initI2C}!main\_less.c@{main\_less.c}}
 \doxysubsubsection{\texorpdfstring{initI2C()}{initI2C()}}
-{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisiert die I2\+C-\/\+Kommunikation. 
 
 
 
@@ -492,7 +496,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \index{main\_less.c@{main\_less.c}!initUART@{initUART}}
 \index{initUART@{initUART}!main\_less.c@{main\_less.c}}
 \doxysubsubsection{\texorpdfstring{initUART()}{initUART()}}
-{\footnotesize\ttfamily void init\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+UART (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -503,6 +507,13 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=230pt]{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}\label{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}} 

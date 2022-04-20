@@ -4,7 +4,7 @@ Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\no
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=289pt]{system_8h__dep__incl}
+\includegraphics[width=350pt]{system_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Makrodefinitionen}
@@ -19,9 +19,16 @@ Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\no
 \item 
 void \mbox{\hyperlink{system_8h_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{Configure\+Oscillator}} (void)
 \item 
+void \mbox{\hyperlink{system_8h_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms}} (uint16\+\_\+t milliseconds)
+\begin{DoxyCompactList}\small\item\em Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{system_8h_a4c8a60bd5612f0a209df26f391461c6c}{init\+\_\+timer1}} (void)
 \item 
 void \mbox{\hyperlink{system_8h_ab99293b6cbbc43735cbe80ab55287b29}{init\+\_\+ms\+\_\+t4}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{system_8h_a3674e1feb03e742150964aa79b8fe8df}{DELAY\+\_\+\+ANPASSUNG}}
 \end{DoxyCompactItemize}
 
 
@@ -66,6 +73,32 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \includegraphics[width=252pt]{system_8h_a9cf05fad20cabd4ca4a12ab9b1c6e7ea_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{system_8h_a9d9be562445321043224885018bc7da3}\label{system_8h_a9d9be562445321043224885018bc7da3}} 
+\index{system.h@{system.h}!delay\_ms@{delay\_ms}}
+\index{delay\_ms@{delay\_ms}!system.h@{system.h}}
+\doxysubsubsection{\texorpdfstring{delay\_ms()}{delay\_ms()}}
+{\footnotesize\ttfamily void delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. 
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\texttt{ in}}  & {\em milliseconds} & Verzögerungszeit in millisekunden \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00085}{85}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{system_8h_a9d9be562445321043224885018bc7da3_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{system_8h_ab99293b6cbbc43735cbe80ab55287b29}\label{system_8h_ab99293b6cbbc43735cbe80ab55287b29}} 
 \index{system.h@{system.h}!init\_ms\_t4@{init\_ms\_t4}}
 \index{init\_ms\_t4@{init\_ms\_t4}!system.h@{system.h}}
@@ -93,3 +126,16 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \includegraphics[width=216pt]{system_8h_a4c8a60bd5612f0a209df26f391461c6c_icgraph}
 \end{center}
 \end{figure}
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{system_8h_a3674e1feb03e742150964aa79b8fe8df}\label{system_8h_a3674e1feb03e742150964aa79b8fe8df}} 
+\index{system.h@{system.h}!DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}}
+\index{DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}!system.h@{system.h}}
+\doxysubsubsection{\texorpdfstring{DELAY\_ANPASSUNG}{DELAY\_ANPASSUNG}}
+{\footnotesize\ttfamily uint32\+\_\+t DELAY\+\_\+\+ANPASSUNG\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main__less_8c_source_l00039}{39}} der Datei \mbox{\hyperlink{main__less_8c_source}{main\+\_\+less.\+c}}.
+

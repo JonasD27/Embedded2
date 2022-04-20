@@ -1,0 +1,4 @@
+<map id="print_sensor_values" name="print_sensor_values">
+<area shape="rect" id="node1" title="Ausgabe der ausgelesenen Sensor&#45;Werte per UART." alt="" coords="144,5,280,32"/>
+<area shape="rect" id="node2" href="$interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077" title=" " alt="" coords="5,5,96,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="exchangeI2C" name="exchangeI2C">
+<area shape="rect" id="node1" title="Übergibt angeforderte I2C&#45;Anfrage an das FIFO und liefert den akutellen Status." alt="" coords="5,5,103,32"/>
+<area shape="rect" id="node2" href="$_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47" title="Legt eine I2C&#45;Anfrage in dem I2C&#45;FIFO ab." alt="" coords="151,5,293,32"/>
+</map>

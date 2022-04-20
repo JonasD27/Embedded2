@@ -15,6 +15,7 @@
             <sourceRootList>
                 <sourceRootElem>runfiles</sourceRootElem>
                 <sourceRootElem>code</sourceRootElem>
+                <sourceRootElem>doku</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

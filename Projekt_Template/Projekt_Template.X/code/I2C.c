@@ -3,7 +3,11 @@
 #include "UART.h"
 
 //Funktionen
-
+/**
+ * Legt eine I2C-Anfrage in dem I2C-FIFO ab
+ * @param s I2C-Anfrage in Form eines Structs des Typs I2C_struct
+ * @return BUFFER_FAIL im Fehlerfall, ansonsten BUFFER_SUCCESS
+ */
 int16_t put_I2C_struct_FIFO(I2C_struct s)
 {
   if ( ( FIFO_I2C.write + 1 == FIFO_I2C.read ) ||
@@ -22,6 +26,12 @@ int16_t put_I2C_struct_FIFO(I2C_struct s)
   return BUFFER_SUCCESS;
 }
 
+
+/**
+ * Entnimmt I2C-Anfrage aus dem I2C-FIFO
+ * @param *s Zeiger auf I2C-Anfrage in Form eines Structs des Typs I2C_struct
+ * @return BUFFER_FAIL im Fehlerfall, ansonsten BUFFER_SUCCESS
+ */
 int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
 {
   if (FIFO_I2C.read == FIFO_I2C.write)
@@ -38,6 +48,18 @@ int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
   return BUFFER_SUCCESS;
 }
 
+
+/**
+ * 
+ * Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status 
+ * @param address Adresse des Slaves
+ * @param num_write Anzahl der zu sendenen Bytes
+ * @param writebuf Zeiger auf zu schreibende Daten
+ * @param num_read Anzahl der zu lesenden Bytes
+ * @param readbuf Zeiger auf Berecih, in welchem Daten abgespeuchert werden sollen
+ * @param status Zeiger, um akuellen Status zurückzugeben
+ * @return 1, falls Anfrage direkt angenommen werden konnte, ansonsten 0
+ */
 int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status)
 {
     I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,Pending};
@@ -56,6 +78,11 @@ int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint
     }
 }
 
+/**
+ * Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation.
+ * Falls das FIFO neue Anfragen enthält wird die FSM getriggert.
+ * 
+ */
 void doI2C()
 {
   static StateFunc statefunc = FSM_Idle;
@@ -72,6 +99,9 @@ void doI2C()
    
 }
 
+/**
+ * Initialisiert die I2C-Kommunikation
+ */
 void initI2C()
 {
     I2C2CONbits.A10M = 0;
@@ -103,7 +133,10 @@ void initI2C()
 }
 
 
-
+/**
+ * Kopiert die Anfrage aus dem FIFO und leitet Start-Sequenz ein. 
+ * @return 
+ */
 void *FSM_Idle(void)
 {
     get_I2C_struct_FIFO(&I2C_test_struct);
@@ -112,6 +145,10 @@ void *FSM_Idle(void)
 
 }  
 
+/**
+ * Beschreibt das Trancieve-Register mit der Adresse
+ * @return 
+ */
 void *FSM_Start(void)
 {
     
@@ -135,6 +172,10 @@ void *FSM_Start(void)
     
 } 
 
+/**
+ * Schreibt die zu übertragende Daten in das Tranceive-Register
+ * @return 
+ */
 void *FSM_Adresse_Write(void)
 {
     if(I2C2STATbits.TRSTAT==0) //Wenn erfolgreich übertragen
@@ -172,6 +213,10 @@ void *FSM_Adresse_Write(void)
     
 } 
 
+/**
+ * Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse
+ * @return 
+ */
 void *FSM_Repeated_Start(void)
 {
     if (I2C2CONbits.RSEN==0)
@@ -181,6 +226,12 @@ void *FSM_Repeated_Start(void)
     }
     return FSM_Repeated_Start;
 }
+
+
+/**
+ * Initiiert das Lesen der Daten des Slaves
+ * @return 
+ */
 
 void *FSM_Adresse_Read(void)
 {
@@ -195,21 +246,28 @@ void *FSM_Adresse_Read(void)
         
         if (I2C2STATbits.ACKSTAT==0)
         {
-            static int count = 0;
-            
-            if (count < I2C_test_struct.num_read) //Noch Bytes zu empfangen
+            if (I2C2CONbits.ACKEN==0)
             {
-                count++;
-                I2C2CONbits.RCEN=1;
-                return FSM_RECV_EN;
+                static int count = 0;
+
+                if (count < I2C_test_struct.num_read) //Noch Bytes zu empfangen
+                {
+                    count++;
+                    I2C2CONbits.RCEN=1;
+                    return FSM_RECV_EN;
+                }
+
+                else //Nichts mehr zu empfangen
+                { 
+                   count = 0; 
+                   I2C2CONbits.PEN=1;
+                   I2C_test_struct.status=Finished;
+                   return FSM_Stop;
+                }
             }
-            
-            else //Nichts mehr zu empfangen
-            { 
-               count = 0; 
-               I2C2CONbits.PEN=1;
-               I2C_test_struct.status=Finished;
-               return FSM_Stop;
+            else
+            {
+                return FSM_Adresse_Read;
             }
             
         }
@@ -219,6 +277,10 @@ void *FSM_Adresse_Read(void)
     
 } 
 
+/**
+ * Auslesen des Receive Registers und Bestätigung mit ACK bzw. NACK
+ * @return 
+ */
 void *FSM_RECV_EN(void)
 {
     if (I2C2CONbits.RCEN==0)
@@ -238,25 +300,17 @@ void *FSM_RECV_EN(void)
         }
         
         I2C2CONbits.ACKEN=1;
-        return FSM_RECV_ACK_EN;
+        return FSM_Adresse_Read;
     }
     
     return FSM_RECV_EN;
     
 }
 
-void *FSM_RECV_ACK_EN(void)
-{
-    if (I2C2CONbits.ACKEN==0)
-    {
-        return FSM_Adresse_Read;
-    }
-    
-    return FSM_RECV_ACK_EN;
-    
-}
-
-
+/**
+ * Überprüfung auf Abschluss der Stop-Sequenz und Rückkehr in den Idle-State
+ * @return 
+ */
 void *FSM_Stop(void)
 {
     if(I2C2CONbits.PEN==0)
@@ -267,6 +321,9 @@ void *FSM_Stop(void)
     return FSM_Stop;
 }
 
+/**
+ * Ausgabe der ausgelesenen Sensor-Werte per UART
+ */
 void print_sensor_values()
 {
     //Temperatur

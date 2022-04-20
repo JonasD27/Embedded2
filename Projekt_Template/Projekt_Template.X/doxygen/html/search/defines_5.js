@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sys_5ffreq_0',['SYS_FREQ',['../system_8h.html#a7d5ce7b79462bbfb630ee53075540b65',1,'system.h']]]
+  ['main_0',['MAIN',['../main_8c.html#a34b04bd23b07b485921a728ad0805ac4',1,'main.c']]]
 ];

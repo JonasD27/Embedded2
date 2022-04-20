@@ -18,19 +18,27 @@
 \DoxyCodeLine{\Hypertarget{system_8h_source_l00015}\mbox{\hyperlink{system_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{00015}} \textcolor{preprocessor}{\#define FCY             SYS\_FREQ/2}}
 \DoxyCodeLine{\Hypertarget{system_8h_source_l00016}00016 }
 \DoxyCodeLine{\Hypertarget{system_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00019}00019 \textcolor{comment}{/* System Function Prototypes                                                 */}}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00022}00022 \textcolor{comment}{/* Custom oscillator configuration funtions, reset source evaluation}}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00023}00023 \textcolor{comment}{functions, and other non-\/peripheral microcontroller initialization functions}}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00024}00024 \textcolor{comment}{go here. */}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00018}00018 \textcolor{preprocessor}{\#ifdef MAIN}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00019}00019 uint32\_t \mbox{\hyperlink{system_8h_a3674e1feb03e742150964aa79b8fe8df}{DELAY\_ANPASSUNG}};}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00020}00020 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00021}00021 \textcolor{keyword}{extern} uint32\_t \mbox{\hyperlink{system_8h_a3674e1feb03e742150964aa79b8fe8df}{DELAY\_ANPASSUNG}};}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00022}00022 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00024}00024 }
 \DoxyCodeLine{\Hypertarget{system_8h_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00027}00027 \textcolor{comment}{//System Prototypen}}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00028}00028 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{ConfigureOscillator}}(\textcolor{keywordtype}{void}); \textcolor{comment}{/* Handles clock switching/osc initialization */}}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00030}00030 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_a4c8a60bd5612f0a209df26f391461c6c}{init\_timer1}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{system_8h_source_l00031}00031 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_ab99293b6cbbc43735cbe80ab55287b29}{init\_ms\_t4}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00026}00026 \textcolor{comment}{/* System Function Prototypes                                                 */}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00029}00029 \textcolor{comment}{/* Custom oscillator configuration funtions, reset source evaluation}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00030}00030 \textcolor{comment}{functions, and other non-\/peripheral microcontroller initialization functions}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00031}00031 \textcolor{comment}{go here. */}}
 \DoxyCodeLine{\Hypertarget{system_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00034}00034 \textcolor{comment}{//System Prototypen}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00035}00035 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{ConfigureOscillator}}(\textcolor{keywordtype}{void}); \textcolor{comment}{/* Handles clock switching/osc initialization */}}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00036}00036 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_a9d9be562445321043224885018bc7da3}{delay\_ms}}(uint16\_t milliseconds); }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00038}00038 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_a4c8a60bd5612f0a209df26f391461c6c}{init\_timer1}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00039}00039 \textcolor{keywordtype}{void} \mbox{\hyperlink{system_8h_ab99293b6cbbc43735cbe80ab55287b29}{init\_ms\_t4}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{system_8h_source_l00040}00040 }
 
 \end{DoxyCode}

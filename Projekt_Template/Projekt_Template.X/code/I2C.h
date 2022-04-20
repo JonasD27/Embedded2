@@ -1,4 +1,7 @@
-
+/**
+ In dieser Header-Datei werden alle für das I2C-Protokoll benötigten Konstanten,
+ * Typedefs und Prototypen definiert
+ */
 #include "user.h"
 //#include "UART.h"
 #include <stdint.h>        /* Includes uint16_t definition                    */
@@ -83,7 +86,6 @@ void *FSM_Adresse_Read(void);
 void *FSM_Adresse_Write(void);
 void *FSM_Repeated_Start(void);
 void *FSM_RECV_EN(void);
-void *FSM_RECV_ACK_EN(void);
 
 void *FSM_Stop(void);
 

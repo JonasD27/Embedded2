@@ -1,298 +1,426 @@
 \begin{theindex}
 
   \item {\_AddressError}
-    \subitem {traps.c}, \hyperpage{54}
+    \subitem {traps.c}, \hyperpage{73}
   \item {\_DefaultInterrupt}
-    \subitem {traps.c}, \hyperpage{54}
+    \subitem {traps.c}, \hyperpage{73}
   \item {\_MathError}
-    \subitem {traps.c}, \hyperpage{54}
+    \subitem {traps.c}, \hyperpage{73}
   \item {\_OscillatorFail}
-    \subitem {traps.c}, \hyperpage{55}
+    \subitem {traps.c}, \hyperpage{74}
   \item {\_StackError}
-    \subitem {traps.c}, \hyperpage{55}
+    \subitem {traps.c}, \hyperpage{74}
   \item {\_T1Interrupt}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main\_less.c}, \hyperpage{33}
+    \subitem {interrupts.c}, \hyperpage{42}
+    \subitem {main\_less.c}, \hyperpage{51}
   \item {\_U1TXInterrupt}
-    \subitem {main.c}, \hyperpage{16}
-    \subitem {main\_less.c}, \hyperpage{33}
+    \subitem {main\_less.c}, \hyperpage{51}
+    \subitem {UART.c}, \hyperpage{77}
+
+  \indexspace
+
+  \item {address}
+    \subitem {I2C\_struct}, \hyperpage{10}
 
   \indexspace
 
   \item {BAUDRATE}
-    \subitem {main.c}, \hyperpage{13}
-    \subitem {main\_less.c}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{49}
+    \subitem {UART.h}, \hyperpage{82}
   \item {BRGVAL}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{49}
+    \subitem {UART.h}, \hyperpage{82}
   \item {Buffer}, \hyperpage{7}
     \subitem {data}, \hyperpage{7}
     \subitem {read}, \hyperpage{8}
     \subitem {write}, \hyperpage{8}
   \item {BUFFER\_FAIL}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{49}
+    \subitem {user.h}, \hyperpage{88}
+  \item {Buffer\_I2C\_FSM}, \hyperpage{8}
+    \subitem {data}, \hyperpage{9}
+    \subitem {read}, \hyperpage{9}
+    \subitem {write}, \hyperpage{9}
   \item {BUFFER\_SIZE}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {main\_less.c}, \hyperpage{49}
+    \subitem {user.h}, \hyperpage{88}
   \item {BUFFER\_SUCCESS}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {main\_less.c}, \hyperpage{49}
+    \subitem {user.h}, \hyperpage{88}
 
   \indexspace
 
-  \item {Code Style.markdown}, \hyperpage{62}
-  \item {configuration\_bits.c}, \hyperpage{9}
+  \item {Code Style.markdown}, \hyperpage{90}
+  \item {configuration\_bits.c}, \hyperpage{13}
   \item {ConfigureOscillator}
-    \subitem {system.c}, \hyperpage{49}
-    \subitem {system.h}, \hyperpage{52}
+    \subitem {system.c}, \hyperpage{66}
+    \subitem {system.h}, \hyperpage{70}
 
   \indexspace
 
   \item {data}
     \subitem {Buffer}, \hyperpage{7}
-    \subitem {main.c}, \hyperpage{24}
-    \subitem {main\_less.c}, \hyperpage{43}
+    \subitem {Buffer\_I2C\_FSM}, \hyperpage{9}
+    \subitem {main\_less.c}, \hyperpage{60}
   \item {DELAY\_ANPASSUNG}
-    \subitem {main.c}, \hyperpage{24}
-    \subitem {main\_less.c}, \hyperpage{43}
+    \subitem {main\_less.c}, \hyperpage{60}
+    \subitem {system.h}, \hyperpage{72}
   \item {delay\_ms}
-    \subitem {main.c}, \hyperpage{16}
-    \subitem {main\_less.c}, \hyperpage{34}
-  \item {Dokumentation.markdown}, \hyperpage{62}
+    \subitem {main\_less.c}, \hyperpage{51}
+    \subitem {system.c}, \hyperpage{66}
+    \subitem {system.h}, \hyperpage{70}
+  \item {doI2C}
+    \subitem {I2C.c}, \hyperpage{15}
+    \subitem {I2C.h}, \hyperpage{32}
+  \item {Dokumentation.markdown}, \hyperpage{90}
+
+  \indexspace
+
+  \item {Error}
+    \subitem {I2C.h}, \hyperpage{31}
+  \item {exchangeI2C}
+    \subitem {I2C.c}, \hyperpage{16}
+    \subitem {I2C.h}, \hyperpage{32}
 
   \indexspace
 
   \item {FCY}
-    \subitem {system.h}, \hyperpage{52}
+    \subitem {system.h}, \hyperpage{70}
   \item {FIFO}
-    \subitem {main.c}, \hyperpage{25}
-    \subitem {main\_less.c}, \hyperpage{43}
+    \subitem {main\_less.c}, \hyperpage{60}
+    \subitem {UART.h}, \hyperpage{84}
+  \item {FIFO\_I2C}
+    \subitem {I2C.h}, \hyperpage{40}
+  \item {Finished}
+    \subitem {I2C.h}, \hyperpage{31}
   \item {FSM2\_ACK\_Receive}
-    \subitem {main.c}, \hyperpage{17}
-    \subitem {main\_less.c}, \hyperpage{34}
+    \subitem {main\_less.c}, \hyperpage{52}
   \item {FSM2\_Adresse}
-    \subitem {main.c}, \hyperpage{17}
-    \subitem {main\_less.c}, \hyperpage{35}
+    \subitem {main\_less.c}, \hyperpage{52}
   \item {FSM2\_Data\_Receive}
-    \subitem {main.c}, \hyperpage{18}
-    \subitem {main\_less.c}, \hyperpage{36}
+    \subitem {main\_less.c}, \hyperpage{53}
   \item {FSM2\_Idle}
-    \subitem {main.c}, \hyperpage{19}
-    \subitem {main\_less.c}, \hyperpage{36}
+    \subitem {main\_less.c}, \hyperpage{54}
   \item {FSM2\_Start}
-    \subitem {main.c}, \hyperpage{19}
-    \subitem {main\_less.c}, \hyperpage{37}
+    \subitem {main\_less.c}, \hyperpage{54}
   \item {FSM2\_Stop}
-    \subitem {main.c}, \hyperpage{20}
-    \subitem {main\_less.c}, \hyperpage{37}
+    \subitem {main\_less.c}, \hyperpage{55}
+  \item {FSM\_Adresse\_Read}
+    \subitem {I2C.c}, \hyperpage{17}
+    \subitem {I2C.h}, \hyperpage{33}
+  \item {FSM\_Adresse\_Write}
+    \subitem {I2C.c}, \hyperpage{17}
+    \subitem {I2C.h}, \hyperpage{34}
+  \item {FSM\_Idle}
+    \subitem {I2C.c}, \hyperpage{18}
+    \subitem {I2C.h}, \hyperpage{35}
+  \item {FSM\_RECV\_EN}
+    \subitem {I2C.c}, \hyperpage{19}
+    \subitem {I2C.h}, \hyperpage{35}
+  \item {FSM\_Repeated\_Start}
+    \subitem {I2C.c}, \hyperpage{20}
+    \subitem {I2C.h}, \hyperpage{36}
+  \item {FSM\_Start}
+    \subitem {I2C.c}, \hyperpage{20}
+    \subitem {I2C.h}, \hyperpage{37}
+  \item {FSM\_Stop}
+    \subitem {I2C.c}, \hyperpage{21}
+    \subitem {I2C.h}, \hyperpage{38}
 
   \indexspace
 
+  \item {get\_I2C\_struct\_FIFO}
+    \subitem {I2C.c}, \hyperpage{22}
   \item {getcFIFO\_TX}
-    \subitem {main.c}, \hyperpage{20}
-    \subitem {main\_less.c}, \hyperpage{38}
+    \subitem {main\_less.c}, \hyperpage{55}
+    \subitem {UART.c}, \hyperpage{77}
+    \subitem {UART.h}, \hyperpage{82}
 
   \indexspace
 
   \item {HEARTBEAT\_MS}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {main.c}, \hyperpage{45}
+    \subitem {main\_less.c}, \hyperpage{49}
 
   \indexspace
 
+  \item {I2C.c}, \hyperpage{14}, \hyperpage{25}
+    \subitem {doI2C}, \hyperpage{15}
+    \subitem {exchangeI2C}, \hyperpage{16}
+    \subitem {FSM\_Adresse\_Read}, \hyperpage{17}
+    \subitem {FSM\_Adresse\_Write}, \hyperpage{17}
+    \subitem {FSM\_Idle}, \hyperpage{18}
+    \subitem {FSM\_RECV\_EN}, \hyperpage{19}
+    \subitem {FSM\_Repeated\_Start}, \hyperpage{20}
+    \subitem {FSM\_Start}, \hyperpage{20}
+    \subitem {FSM\_Stop}, \hyperpage{21}
+    \subitem {get\_I2C\_struct\_FIFO}, \hyperpage{22}
+    \subitem {initI2C}, \hyperpage{23}
+    \subitem {print\_sensor\_values}, \hyperpage{23}
+    \subitem {put\_I2C\_struct\_FIFO}, \hyperpage{24}
+  \item {I2C.h}, \hyperpage{28}, \hyperpage{41}
+    \subitem {doI2C}, \hyperpage{32}
+    \subitem {Error}, \hyperpage{31}
+    \subitem {exchangeI2C}, \hyperpage{32}
+    \subitem {FIFO\_I2C}, \hyperpage{40}
+    \subitem {Finished}, \hyperpage{31}
+    \subitem {FSM\_Adresse\_Read}, \hyperpage{33}
+    \subitem {FSM\_Adresse\_Write}, \hyperpage{34}
+    \subitem {FSM\_Idle}, \hyperpage{35}
+    \subitem {FSM\_RECV\_EN}, \hyperpage{35}
+    \subitem {FSM\_Repeated\_Start}, \hyperpage{36}
+    \subitem {FSM\_Start}, \hyperpage{37}
+    \subitem {FSM\_Stop}, \hyperpage{38}
+    \subitem {I2C\_SCL}, \hyperpage{30}
+    \subitem {I2C\_SCL\_TRIS}, \hyperpage{30}
+    \subitem {I2C\_SDA}, \hyperpage{31}
+    \subitem {I2C\_SDA\_TRIS}, \hyperpage{31}
+    \subitem {i2c\_status\_t}, \hyperpage{31}
+    \subitem {I2C\_test\_struct}, \hyperpage{40}
+    \subitem {initI2C}, \hyperpage{38}
+    \subitem {Pending}, \hyperpage{31}
+    \subitem {print\_sensor\_values}, \hyperpage{39}
+    \subitem {read\_data\_buffer\_light}, \hyperpage{40}
+    \subitem {read\_data\_buffer\_temp}, \hyperpage{40}
+    \subitem {StateFunc}, \hyperpage{31}
+    \subitem {trigger\_FSM}, \hyperpage{40}
+    \subitem {write\_data\_buffer\_light}, \hyperpage{40}
+    \subitem {write\_data\_buffer\_temp}, \hyperpage{41}
   \item {I2C\_SCL}
-    \subitem {main.c}, \hyperpage{14}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {I2C.h}, \hyperpage{30}
+    \subitem {main\_less.c}, \hyperpage{50}
   \item {I2C\_SCL\_TRIS}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {I2C.h}, \hyperpage{30}
+    \subitem {main\_less.c}, \hyperpage{50}
   \item {I2C\_SDA}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main\_less.c}, \hyperpage{32}
+    \subitem {I2C.h}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{50}
   \item {I2C\_SDA\_TRIS}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main\_less.c}, \hyperpage{33}
+    \subitem {I2C.h}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{50}
+  \item {i2c\_status\_t}
+    \subitem {I2C.h}, \hyperpage{31}
+  \item {I2C\_struct}, \hyperpage{10}
+    \subitem {address}, \hyperpage{10}
+    \subitem {num\_read}, \hyperpage{10}
+    \subitem {num\_write}, \hyperpage{11}
+    \subitem {readbuf}, \hyperpage{11}
+    \subitem {status}, \hyperpage{11}
+    \subitem {writebuf}, \hyperpage{11}
+  \item {I2C\_test\_struct}
+    \subitem {I2C.h}, \hyperpage{40}
   \item {init\_ms\_t4}
-    \subitem {main\_less.c}, \hyperpage{38}
-    \subitem {system.c}, \hyperpage{49}
-    \subitem {system.h}, \hyperpage{52}
+    \subitem {main\_less.c}, \hyperpage{56}
+    \subitem {system.c}, \hyperpage{67}
+    \subitem {system.h}, \hyperpage{71}
   \item {init\_timer1}
-    \subitem {main\_less.c}, \hyperpage{39}
-    \subitem {system.c}, \hyperpage{49}
-    \subitem {system.h}, \hyperpage{53}
+    \subitem {main\_less.c}, \hyperpage{56}
+    \subitem {system.c}, \hyperpage{67}
+    \subitem {system.h}, \hyperpage{71}
   \item {InitApp}
-    \subitem {user.c}, \hyperpage{58}
-    \subitem {user.h}, \hyperpage{61}
+    \subitem {user.c}, \hyperpage{86}
+    \subitem {user.h}, \hyperpage{90}
   \item {initI2C}
-    \subitem {main.c}, \hyperpage{21}
-    \subitem {main\_less.c}, \hyperpage{39}
+    \subitem {I2C.c}, \hyperpage{23}
+    \subitem {I2C.h}, \hyperpage{38}
+    \subitem {main\_less.c}, \hyperpage{57}
   \item {initUART}
-    \subitem {main.c}, \hyperpage{21}
-    \subitem {main\_less.c}, \hyperpage{40}
-  \item {interrupts.c}, \hyperpage{10, 11}
+    \subitem {main\_less.c}, \hyperpage{57}
+    \subitem {UART.c}, \hyperpage{77}
+    \subitem {UART.h}, \hyperpage{83}
+  \item {interrupts.c}, \hyperpage{42, 43}
+    \subitem {\_T1Interrupt}, \hyperpage{42}
 
   \indexspace
 
   \item {LED0}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{88}
   \item {LED1}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{88}
   \item {LED2}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{88}
   \item {LED3}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{89}
 
   \indexspace
 
+  \item {MAIN}
+    \subitem {main.c}, \hyperpage{46}
   \item {main}
-    \subitem {main.c}, \hyperpage{22}
-    \subitem {main\_less.c}, \hyperpage{40}
-  \item {main.c}, \hyperpage{12}, \hyperpage{25}
-    \subitem {\_T1Interrupt}, \hyperpage{15}
-    \subitem {\_U1TXInterrupt}, \hyperpage{16}
-    \subitem {BAUDRATE}, \hyperpage{13}
-    \subitem {BRGVAL}, \hyperpage{14}
-    \subitem {BUFFER\_FAIL}, \hyperpage{14}
-    \subitem {BUFFER\_SIZE}, \hyperpage{14}
-    \subitem {BUFFER\_SUCCESS}, \hyperpage{14}
-    \subitem {data}, \hyperpage{24}
-    \subitem {DELAY\_ANPASSUNG}, \hyperpage{24}
-    \subitem {delay\_ms}, \hyperpage{16}
-    \subitem {FIFO}, \hyperpage{25}
-    \subitem {FSM2\_ACK\_Receive}, \hyperpage{17}
-    \subitem {FSM2\_Adresse}, \hyperpage{17}
-    \subitem {FSM2\_Data\_Receive}, \hyperpage{18}
-    \subitem {FSM2\_Idle}, \hyperpage{19}
-    \subitem {FSM2\_Start}, \hyperpage{19}
-    \subitem {FSM2\_Stop}, \hyperpage{20}
-    \subitem {getcFIFO\_TX}, \hyperpage{20}
-    \subitem {HEARTBEAT\_MS}, \hyperpage{14}
-    \subitem {I2C\_SCL}, \hyperpage{14}
-    \subitem {I2C\_SCL\_TRIS}, \hyperpage{15}
-    \subitem {I2C\_SDA}, \hyperpage{15}
-    \subitem {I2C\_SDA\_TRIS}, \hyperpage{15}
-    \subitem {initI2C}, \hyperpage{21}
-    \subitem {initUART}, \hyperpage{21}
-    \subitem {main}, \hyperpage{22}
-    \subitem {putcFIFO\_TX}, \hyperpage{22}
-    \subitem {putcUART}, \hyperpage{23}
-    \subitem {putsUART}, \hyperpage{23}
-    \subitem {StateFunc}, \hyperpage{15}
-    \subitem {Temp\_FSM2}, \hyperpage{24}
-  \item {main\_less.c}, \hyperpage{30}, \hyperpage{43}
-    \subitem {\_T1Interrupt}, \hyperpage{33}
-    \subitem {\_U1TXInterrupt}, \hyperpage{33}
-    \subitem {BAUDRATE}, \hyperpage{31}
-    \subitem {BRGVAL}, \hyperpage{31}
-    \subitem {BUFFER\_FAIL}, \hyperpage{31}
-    \subitem {BUFFER\_SIZE}, \hyperpage{32}
-    \subitem {BUFFER\_SUCCESS}, \hyperpage{32}
-    \subitem {data}, \hyperpage{43}
-    \subitem {DELAY\_ANPASSUNG}, \hyperpage{43}
-    \subitem {delay\_ms}, \hyperpage{34}
-    \subitem {FIFO}, \hyperpage{43}
-    \subitem {FSM2\_ACK\_Receive}, \hyperpage{34}
-    \subitem {FSM2\_Adresse}, \hyperpage{35}
-    \subitem {FSM2\_Data\_Receive}, \hyperpage{36}
-    \subitem {FSM2\_Idle}, \hyperpage{36}
-    \subitem {FSM2\_Start}, \hyperpage{37}
-    \subitem {FSM2\_Stop}, \hyperpage{37}
-    \subitem {getcFIFO\_TX}, \hyperpage{38}
-    \subitem {HEARTBEAT\_MS}, \hyperpage{32}
-    \subitem {I2C\_SCL}, \hyperpage{32}
-    \subitem {I2C\_SCL\_TRIS}, \hyperpage{32}
-    \subitem {I2C\_SDA}, \hyperpage{32}
-    \subitem {I2C\_SDA\_TRIS}, \hyperpage{33}
-    \subitem {init\_ms\_t4}, \hyperpage{38}
-    \subitem {init\_timer1}, \hyperpage{39}
-    \subitem {initI2C}, \hyperpage{39}
-    \subitem {initUART}, \hyperpage{40}
-    \subitem {main}, \hyperpage{40}
-    \subitem {putcFIFO\_TX}, \hyperpage{41}
-    \subitem {putcUART}, \hyperpage{41}
-    \subitem {putsUART}, \hyperpage{42}
-    \subitem {StateFunc}, \hyperpage{33}
-    \subitem {Temp\_FSM2}, \hyperpage{42}
+    \subitem {main.c}, \hyperpage{46}
+    \subitem {main\_less.c}, \hyperpage{58}
+  \item {main.c}, \hyperpage{45}, \hyperpage{47}
+    \subitem {HEARTBEAT\_MS}, \hyperpage{45}
+    \subitem {MAIN}, \hyperpage{46}
+    \subitem {main}, \hyperpage{46}
+  \item {main\_less.c}, \hyperpage{47}, \hyperpage{61}
+    \subitem {\_T1Interrupt}, \hyperpage{51}
+    \subitem {\_U1TXInterrupt}, \hyperpage{51}
+    \subitem {BAUDRATE}, \hyperpage{49}
+    \subitem {BRGVAL}, \hyperpage{49}
+    \subitem {BUFFER\_FAIL}, \hyperpage{49}
+    \subitem {BUFFER\_SIZE}, \hyperpage{49}
+    \subitem {BUFFER\_SUCCESS}, \hyperpage{49}
+    \subitem {data}, \hyperpage{60}
+    \subitem {DELAY\_ANPASSUNG}, \hyperpage{60}
+    \subitem {delay\_ms}, \hyperpage{51}
+    \subitem {FIFO}, \hyperpage{60}
+    \subitem {FSM2\_ACK\_Receive}, \hyperpage{52}
+    \subitem {FSM2\_Adresse}, \hyperpage{52}
+    \subitem {FSM2\_Data\_Receive}, \hyperpage{53}
+    \subitem {FSM2\_Idle}, \hyperpage{54}
+    \subitem {FSM2\_Start}, \hyperpage{54}
+    \subitem {FSM2\_Stop}, \hyperpage{55}
+    \subitem {getcFIFO\_TX}, \hyperpage{55}
+    \subitem {HEARTBEAT\_MS}, \hyperpage{49}
+    \subitem {I2C\_SCL}, \hyperpage{50}
+    \subitem {I2C\_SCL\_TRIS}, \hyperpage{50}
+    \subitem {I2C\_SDA}, \hyperpage{50}
+    \subitem {I2C\_SDA\_TRIS}, \hyperpage{50}
+    \subitem {init\_ms\_t4}, \hyperpage{56}
+    \subitem {init\_timer1}, \hyperpage{56}
+    \subitem {initI2C}, \hyperpage{57}
+    \subitem {initUART}, \hyperpage{57}
+    \subitem {main}, \hyperpage{58}
+    \subitem {putcFIFO\_TX}, \hyperpage{58}
+    \subitem {putcUART}, \hyperpage{59}
+    \subitem {putsUART}, \hyperpage{59}
+    \subitem {StateFunc}, \hyperpage{50}
+    \subitem {Temp\_FSM2}, \hyperpage{60}
 
   \indexspace
 
+  \item {num\_read}
+    \subitem {I2C\_struct}, \hyperpage{10}
+  \item {num\_write}
+    \subitem {I2C\_struct}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Pending}
+    \subitem {I2C.h}, \hyperpage{31}
+  \item {print\_sensor\_values}
+    \subitem {I2C.c}, \hyperpage{23}
+    \subitem {I2C.h}, \hyperpage{39}
+  \item {put\_I2C\_struct\_FIFO}
+    \subitem {I2C.c}, \hyperpage{24}
   \item {putcFIFO\_TX}
-    \subitem {main.c}, \hyperpage{22}
-    \subitem {main\_less.c}, \hyperpage{41}
+    \subitem {main\_less.c}, \hyperpage{58}
+    \subitem {UART.c}, \hyperpage{78}
+    \subitem {UART.h}, \hyperpage{83}
   \item {putcUART}
-    \subitem {main.c}, \hyperpage{23}
-    \subitem {main\_less.c}, \hyperpage{41}
+    \subitem {main\_less.c}, \hyperpage{59}
+    \subitem {UART.c}, \hyperpage{78}
   \item {putsUART}
-    \subitem {main.c}, \hyperpage{23}
-    \subitem {main\_less.c}, \hyperpage{42}
+    \subitem {main\_less.c}, \hyperpage{59}
+    \subitem {UART.c}, \hyperpage{79}
+    \subitem {UART.h}, \hyperpage{84}
 
   \indexspace
 
   \item {read}
     \subitem {Buffer}, \hyperpage{8}
+    \subitem {Buffer\_I2C\_FSM}, \hyperpage{9}
+  \item {read\_data\_buffer\_light}
+    \subitem {I2C.h}, \hyperpage{40}
+  \item {read\_data\_buffer\_temp}
+    \subitem {I2C.h}, \hyperpage{40}
+  \item {readbuf}
+    \subitem {I2C\_struct}, \hyperpage{11}
 
   \indexspace
 
+  \item {SENSOR\_TIME}
+    \subitem {user.h}, \hyperpage{89}
   \item {setLED}
-    \subitem {user.c}, \hyperpage{58}
-    \subitem {user.h}, \hyperpage{61}
+    \subitem {user.c}, \hyperpage{86}
   \item {StateFunc}
-    \subitem {main.c}, \hyperpage{15}
-    \subitem {main\_less.c}, \hyperpage{33}
+    \subitem {I2C.h}, \hyperpage{31}
+    \subitem {main\_less.c}, \hyperpage{50}
+  \item {status}
+    \subitem {I2C\_struct}, \hyperpage{11}
   \item {SYS\_FREQ}
-    \subitem {system.h}, \hyperpage{52}
-  \item {system.c}, \hyperpage{48}, \hyperpage{50}
-    \subitem {ConfigureOscillator}, \hyperpage{49}
-    \subitem {init\_ms\_t4}, \hyperpage{49}
-    \subitem {init\_timer1}, \hyperpage{49}
-  \item {system.h}, \hyperpage{51}, \hyperpage{53}
-    \subitem {ConfigureOscillator}, \hyperpage{52}
-    \subitem {FCY}, \hyperpage{52}
-    \subitem {init\_ms\_t4}, \hyperpage{52}
-    \subitem {init\_timer1}, \hyperpage{53}
-    \subitem {SYS\_FREQ}, \hyperpage{52}
+    \subitem {system.h}, \hyperpage{70}
+  \item {system.c}, \hyperpage{66}, \hyperpage{68}
+    \subitem {ConfigureOscillator}, \hyperpage{66}
+    \subitem {delay\_ms}, \hyperpage{66}
+    \subitem {init\_ms\_t4}, \hyperpage{67}
+    \subitem {init\_timer1}, \hyperpage{67}
+  \item {system.h}, \hyperpage{69}, \hyperpage{72}
+    \subitem {ConfigureOscillator}, \hyperpage{70}
+    \subitem {DELAY\_ANPASSUNG}, \hyperpage{72}
+    \subitem {delay\_ms}, \hyperpage{70}
+    \subitem {FCY}, \hyperpage{70}
+    \subitem {init\_ms\_t4}, \hyperpage{71}
+    \subitem {init\_timer1}, \hyperpage{71}
+    \subitem {SYS\_FREQ}, \hyperpage{70}
 
   \indexspace
 
   \item {T0}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{89}
   \item {T1}
-    \subitem {user.h}, \hyperpage{60}
+    \subitem {user.h}, \hyperpage{89}
   \item {T2}
-    \subitem {user.h}, \hyperpage{61}
+    \subitem {user.h}, \hyperpage{89}
   \item {T3}
-    \subitem {user.h}, \hyperpage{61}
+    \subitem {user.h}, \hyperpage{89}
   \item {Temp\_FSM2}
-    \subitem {main.c}, \hyperpage{24}
-    \subitem {main\_less.c}, \hyperpage{42}
-  \item {traps.c}, \hyperpage{54, 55}
-    \subitem {\_AddressError}, \hyperpage{54}
-    \subitem {\_DefaultInterrupt}, \hyperpage{54}
-    \subitem {\_MathError}, \hyperpage{54}
-    \subitem {\_OscillatorFail}, \hyperpage{55}
-    \subitem {\_StackError}, \hyperpage{55}
+    \subitem {main\_less.c}, \hyperpage{60}
+  \item {traps.c}, \hyperpage{73, 74}
+    \subitem {\_AddressError}, \hyperpage{73}
+    \subitem {\_DefaultInterrupt}, \hyperpage{73}
+    \subitem {\_MathError}, \hyperpage{73}
+    \subitem {\_OscillatorFail}, \hyperpage{74}
+    \subitem {\_StackError}, \hyperpage{74}
+  \item {trigger\_FSM}
+    \subitem {I2C.h}, \hyperpage{40}
 
   \indexspace
 
-  \item {user.c}, \hyperpage{57, 58}
-    \subitem {InitApp}, \hyperpage{58}
-    \subitem {setLED}, \hyperpage{58}
-  \item {user.h}, \hyperpage{59}, \hyperpage{62}
-    \subitem {InitApp}, \hyperpage{61}
-    \subitem {LED0}, \hyperpage{60}
-    \subitem {LED1}, \hyperpage{60}
-    \subitem {LED2}, \hyperpage{60}
-    \subitem {LED3}, \hyperpage{60}
-    \subitem {setLED}, \hyperpage{61}
-    \subitem {T0}, \hyperpage{60}
-    \subitem {T1}, \hyperpage{60}
-    \subitem {T2}, \hyperpage{61}
-    \subitem {T3}, \hyperpage{61}
+  \item {UART.c}, \hyperpage{76}, \hyperpage{79}
+    \subitem {\_U1TXInterrupt}, \hyperpage{77}
+    \subitem {getcFIFO\_TX}, \hyperpage{77}
+    \subitem {initUART}, \hyperpage{77}
+    \subitem {putcFIFO\_TX}, \hyperpage{78}
+    \subitem {putcUART}, \hyperpage{78}
+    \subitem {putsUART}, \hyperpage{79}
+  \item {UART.h}, \hyperpage{81}, \hyperpage{85}
+    \subitem {BAUDRATE}, \hyperpage{82}
+    \subitem {BRGVAL}, \hyperpage{82}
+    \subitem {FIFO}, \hyperpage{84}
+    \subitem {getcFIFO\_TX}, \hyperpage{82}
+    \subitem {initUART}, \hyperpage{83}
+    \subitem {putcFIFO\_TX}, \hyperpage{83}
+    \subitem {putsUART}, \hyperpage{84}
+  \item {user.c}, \hyperpage{85, 86}
+    \subitem {InitApp}, \hyperpage{86}
+    \subitem {setLED}, \hyperpage{86}
+  \item {user.h}, \hyperpage{87}, \hyperpage{90}
+    \subitem {BUFFER\_FAIL}, \hyperpage{88}
+    \subitem {BUFFER\_SIZE}, \hyperpage{88}
+    \subitem {BUFFER\_SUCCESS}, \hyperpage{88}
+    \subitem {InitApp}, \hyperpage{90}
+    \subitem {LED0}, \hyperpage{88}
+    \subitem {LED1}, \hyperpage{88}
+    \subitem {LED2}, \hyperpage{88}
+    \subitem {LED3}, \hyperpage{89}
+    \subitem {SENSOR\_TIME}, \hyperpage{89}
+    \subitem {T0}, \hyperpage{89}
+    \subitem {T1}, \hyperpage{89}
+    \subitem {T2}, \hyperpage{89}
+    \subitem {T3}, \hyperpage{89}
 
   \indexspace
 
   \item {write}
     \subitem {Buffer}, \hyperpage{8}
+    \subitem {Buffer\_I2C\_FSM}, \hyperpage{9}
+  \item {write\_data\_buffer\_light}
+    \subitem {I2C.h}, \hyperpage{40}
+  \item {write\_data\_buffer\_temp}
+    \subitem {I2C.h}, \hyperpage{41}
+  \item {writebuf}
+    \subitem {I2C\_struct}, \hyperpage{11}
 
 \end{theindex}

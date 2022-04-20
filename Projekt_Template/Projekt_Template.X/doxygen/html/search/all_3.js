@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../struct_buffer.html#a6fefed24f21d9e08925e7904fa7fe887',1,'Buffer::data()'],['../main_8c.html#a1cc545950661d96524585c500b3b68d1',1,'data():&#160;main.c'],['../main__less_8c.html#a1cc545950661d96524585c500b3b68d1',1,'data():&#160;main_less.c']]],
-  ['delay_5fanpassung_1',['DELAY_ANPASSUNG',['../main_8c.html#a3674e1feb03e742150964aa79b8fe8df',1,'DELAY_ANPASSUNG():&#160;main.c'],['../main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df',1,'DELAY_ANPASSUNG():&#160;main_less.c']]],
-  ['delay_5fms_2',['delay_ms',['../main_8c.html#a9d9be562445321043224885018bc7da3',1,'delay_ms(uint16_t milliseconds):&#160;main.c'],['../main__less_8c.html#a9d9be562445321043224885018bc7da3',1,'delay_ms(uint16_t milliseconds):&#160;main_less.c']]],
-  ['dokumentation_2emarkdown_3',['Dokumentation.markdown',['../_dokumentation_8markdown.html',1,'']]]
+  ['code_20style_2emarkdown_0',['Code Style.markdown',['../_code_01_style_8markdown.html',1,'']]],
+  ['configuration_5fbits_2ec_1',['configuration_bits.c',['../configuration__bits_8c.html',1,'']]],
+  ['configureoscillator_2',['ConfigureOscillator',['../system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea',1,'ConfigureOscillator(void):&#160;system.c'],['../system_8h.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea',1,'ConfigureOscillator(void):&#160;system.c']]]
 ];

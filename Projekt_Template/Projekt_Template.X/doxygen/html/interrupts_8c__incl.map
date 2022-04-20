@@ -1,5 +1,11 @@
 <map id="interrupts.c" name="interrupts.c">
-<area shape="rect" id="node1" title=" " alt="" coords="41,5,128,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="95,80,170,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="124,5,211,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,71,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="95,155,170,181"/>
+<area shape="rect" id="node4" href="$user_8h.html" title=" " alt="" coords="194,155,253,181"/>
+<area shape="rect" id="node5" href="$_i2_c_8h.html" title=" " alt="" coords="271,80,323,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="521,155,587,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="277,155,338,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="362,155,426,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="451,155,497,181"/>
 </map>

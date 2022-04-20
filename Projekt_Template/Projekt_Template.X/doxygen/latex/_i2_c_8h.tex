@@ -1,0 +1,578 @@
+\hypertarget{_i2_c_8h}{}\doxysection{I2\+C.\+h-\/Dateireferenz}
+\label{_i2_c_8h}\index{I2C.h@{I2C.h}}
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+Include-\/\+Abhängigkeitsdiagramm für I2\+C.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{_i2_c_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{struct_buffer___i2_c___f_s_m}{Buffer\+\_\+\+I2\+C\+\_\+\+FSM}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_i2_c_8h_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}~\+\_\+\+RA2
+\begin{DoxyCompactList}\small\item\em In dieser Header-\/\+Datei werden alle für das I2\+C-\/\+Protokoll benötigten Konstanten, Typedefs und Prototypen definiert. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_i2_c_8h_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}~\+\_\+\+RA3
+\item 
+\#define \mbox{\hyperlink{_i2_c_8h_a2f01e56beefeda2b3e4d6ebce68a19ad}{I2\+C\+\_\+\+SCL\+\_\+\+TRIS}}~\+\_\+\+TRISA2
+\item 
+\#define \mbox{\hyperlink{_i2_c_8h_a20b430ca785a0b3041fc6cf3050f2de4}{I2\+C\+\_\+\+SDA\+\_\+\+TRIS}}~\+\_\+\+TRISA3
+\end{DoxyCompactItemize}
+\doxysubsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$($\ast$ \mbox{\hyperlink{_i2_c_8h_a1e962f6377505f2fb3a11000addfd1ec}{State\+Func}}) ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \{ \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a1f7a25007001fe77317521028b7af642}{Pending}}
+, \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53ab68c130eb6caa378c2c394e9054bbb63}{Finished}}
+, \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{_i2_c_8h_afebf0d256affa0109e46790328ec5985}{exchange\+I2C}} (uint8\+\_\+t address, uint16\+\_\+t num\+\_\+write, uint8\+\_\+t $\ast$writebuf, uint16\+\_\+t num\+\_\+read, uint8\+\_\+t $\ast$readbuf, \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} $\ast$status)
+\begin{DoxyCompactList}\small\item\em Übergibt angeforderte I2\+C-\/\+Anfrage an das FIFO und liefert den akutellen Status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i2_c_8h_ada7a4bb9048e4e7ddcae0a35eb5b1958}{do\+I2C}} (void)
+\begin{DoxyCompactList}\small\item\em Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2\+C-\/\+Kommunikation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i2_c_8h_abe2a495f8fb12203f43fa52b6d012ed7}{init\+I2C}} (void)
+\begin{DoxyCompactList}\small\item\em Initialisiert die I2\+C-\/\+Kommunikation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915}{print\+\_\+sensor\+\_\+values}} (void)
+\begin{DoxyCompactList}\small\item\em Ausgabe der ausgelesenen Sensor-\/\+Werte per UART. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_a84e14be148fa92abff4048271a969ec7}{FSM\+\_\+\+Idle}} (void)
+\begin{DoxyCompactList}\small\item\em Kopiert die Anfrage aus dem FIFO und leitet Start-\/\+Sequenz ein. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_a956838411a5e4289993cb2bdeb699c82}{FSM\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Beschreibt das Trancieve-\/\+Register mit der Adresse. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_aa10d853ad3747605d8729d26d7676ee1}{FSM\+\_\+\+Adresse\+\_\+\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Initiiert das Lesen der Daten des Slaves. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_a6147b1d310d535a45c9260b25c72f087}{FSM\+\_\+\+Adresse\+\_\+\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Schreibt die zu übertragende Daten in das Tranceive-\/\+Register. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_ac22d155fd8127afb0dd9aca7b71e390c}{FSM\+\_\+\+Repeated\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_a7c5db52646d82b6f4dc89cda29fbbbb5}{FSM\+\_\+\+RECV\+\_\+\+EN}} (void)
+\begin{DoxyCompactList}\small\item\em Auslesen des Receive Registers und Bestätigung mit ACK bzw. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{_i2_c_8h_ace8745b63f67ec9eb023dcaf341f84fd}{FSM\+\_\+\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Überprüfung auf Abschluss der Stop-\/\+Sequenz und Rückkehr in den Idle-\/\+State. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}{write\+\_\+data\+\_\+buffer\+\_\+temp}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}{write\+\_\+data\+\_\+buffer\+\_\+light}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c_8h_aef8997c71403e269e83a8e8478ccf73c}{read\+\_\+data\+\_\+buffer\+\_\+temp}} \mbox{[}2\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}{read\+\_\+data\+\_\+buffer\+\_\+light}} \mbox{[}2\mbox{]}
+\item 
+bool \mbox{\hyperlink{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}{trigger\+\_\+\+FSM}}
+\item 
+\mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}} \mbox{\hyperlink{_i2_c_8h_a290a8009ff32ac27f0687325153ddcba}{I2\+C\+\_\+test\+\_\+struct}}
+\item 
+\mbox{\hyperlink{struct_buffer___i2_c___f_s_m}{Buffer\+\_\+\+I2\+C\+\_\+\+FSM}} \mbox{\hyperlink{_i2_c_8h_a704bb8674396325fb9ed2f65997b9d42}{FIFO\+\_\+\+I2C}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Makro-\/\+Dokumentation}
+\mbox{\Hypertarget{_i2_c_8h_a212ca328a6409c98f8c3dfbbe1ba561d}\label{_i2_c_8h_a212ca328a6409c98f8c3dfbbe1ba561d}} 
+\index{I2C.h@{I2C.h}!I2C\_SCL@{I2C\_SCL}}
+\index{I2C\_SCL@{I2C\_SCL}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL}{I2C\_SCL}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL~\+\_\+\+RA2}
+
+
+
+In dieser Header-\/\+Datei werden alle für das I2\+C-\/\+Protokoll benötigten Konstanten, Typedefs und Prototypen definiert. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00016}{16}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+\mbox{\Hypertarget{_i2_c_8h_a2f01e56beefeda2b3e4d6ebce68a19ad}\label{_i2_c_8h_a2f01e56beefeda2b3e4d6ebce68a19ad}} 
+\index{I2C.h@{I2C.h}!I2C\_SCL\_TRIS@{I2C\_SCL\_TRIS}}
+\index{I2C\_SCL\_TRIS@{I2C\_SCL\_TRIS}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL\_TRIS}{I2C\_SCL\_TRIS}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL\+\_\+\+TRIS~\+\_\+\+TRISA2}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00018}{18}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+\mbox{\Hypertarget{_i2_c_8h_a18aefd12ad84d4c33dc97923cb821e47}\label{_i2_c_8h_a18aefd12ad84d4c33dc97923cb821e47}} 
+\index{I2C.h@{I2C.h}!I2C\_SDA@{I2C\_SDA}}
+\index{I2C\_SDA@{I2C\_SDA}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA}{I2C\_SDA}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA~\+\_\+\+RA3}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00017}{17}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+\mbox{\Hypertarget{_i2_c_8h_a20b430ca785a0b3041fc6cf3050f2de4}\label{_i2_c_8h_a20b430ca785a0b3041fc6cf3050f2de4}} 
+\index{I2C.h@{I2C.h}!I2C\_SDA\_TRIS@{I2C\_SDA\_TRIS}}
+\index{I2C\_SDA\_TRIS@{I2C\_SDA\_TRIS}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA\_TRIS}{I2C\_SDA\_TRIS}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA\+\_\+\+TRIS~\+\_\+\+TRISA3}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00019}{19}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+
+
+\doxysubsection{Dokumentation der benutzerdefinierten Typen}
+\mbox{\Hypertarget{_i2_c_8h_a1e962f6377505f2fb3a11000addfd1ec}\label{_i2_c_8h_a1e962f6377505f2fb3a11000addfd1ec}} 
+\index{I2C.h@{I2C.h}!StateFunc@{StateFunc}}
+\index{StateFunc@{StateFunc}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{StateFunc}{StateFunc}}
+{\footnotesize\ttfamily typedef void $\ast$($\ast$ State\+Func) ()}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00042}{42}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+
+
+\doxysubsection{Dokumentation der Aufzählungstypen}
+\mbox{\Hypertarget{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}\label{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}} 
+\index{I2C.h@{I2C.h}!i2c\_status\_t@{i2c\_status\_t}}
+\index{i2c\_status\_t@{i2c\_status\_t}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_status\_t}{i2c\_status\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Aufzählungswerte}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pending@{Pending}!I2C.h@{I2C.h}}\index{I2C.h@{I2C.h}!Pending@{Pending}}}\mbox{\Hypertarget{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a1f7a25007001fe77317521028b7af642}\label{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a1f7a25007001fe77317521028b7af642}} 
+Pending&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Finished@{Finished}!I2C.h@{I2C.h}}\index{I2C.h@{I2C.h}!Finished@{Finished}}}\mbox{\Hypertarget{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53ab68c130eb6caa378c2c394e9054bbb63}\label{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53ab68c130eb6caa378c2c394e9054bbb63}} 
+Finished&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!I2C.h@{I2C.h}}\index{I2C.h@{I2C.h}!Error@{Error}}}\mbox{\Hypertarget{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}\label{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}} 
+Error&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8h_source_l00022}{22}} der Datei \mbox{\hyperlink{_i2_c_8h_source}{I2\+C.\+h}}.
+
+
+
+\doxysubsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{_i2_c_8h_ada7a4bb9048e4e7ddcae0a35eb5b1958}\label{_i2_c_8h_ada7a4bb9048e4e7ddcae0a35eb5b1958}} 
+\index{I2C.h@{I2C.h}!doI2C@{doI2C}}
+\index{doI2C@{doI2C}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{doI2C()}{doI2C()}}
+{\footnotesize\ttfamily void do\+I2C (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2\+C-\/\+Kommunikation. 
+
+Falls das FIFO neue Anfragen enthält wird die FSM getriggert. 
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00086}{86}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_ada7a4bb9048e4e7ddcae0a35eb5b1958_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{_i2_c_8h_ada7a4bb9048e4e7ddcae0a35eb5b1958_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_afebf0d256affa0109e46790328ec5985}\label{_i2_c_8h_afebf0d256affa0109e46790328ec5985}} 
+\index{I2C.h@{I2C.h}!exchangeI2C@{exchangeI2C}}
+\index{exchangeI2C@{exchangeI2C}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{exchangeI2C()}{exchangeI2C()}}
+{\footnotesize\ttfamily int16\+\_\+t exchange\+I2C (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint16\+\_\+t}]{num\+\_\+write,  }\item[{uint8\+\_\+t $\ast$}]{writebuf,  }\item[{uint16\+\_\+t}]{num\+\_\+read,  }\item[{uint8\+\_\+t $\ast$}]{readbuf,  }\item[{\mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Übergibt angeforderte I2\+C-\/\+Anfrage an das FIFO und liefert den akutellen Status. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em address} & Adresse des Slaves \\
+\hline
+{\em num\+\_\+write} & Anzahl der zu sendenen Bytes \\
+\hline
+{\em writebuf} & Zeiger auf zu schreibende Daten \\
+\hline
+{\em num\+\_\+read} & Anzahl der zu lesenden Bytes \\
+\hline
+{\em readbuf} & Zeiger auf Berecih, in welchem Daten abgespeuchert werden sollen \\
+\hline
+{\em status} & Zeiger, um akuellen Status zurückzugeben \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+1, falls Anfrage direkt angenommen werden konnte, ansonsten 0 
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00063}{63}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{_i2_c_8h_afebf0d256affa0109e46790328ec5985_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{_i2_c_8h_afebf0d256affa0109e46790328ec5985_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_aa10d853ad3747605d8729d26d7676ee1}\label{_i2_c_8h_aa10d853ad3747605d8729d26d7676ee1}} 
+\index{I2C.h@{I2C.h}!FSM\_Adresse\_Read@{FSM\_Adresse\_Read}}
+\index{FSM\_Adresse\_Read@{FSM\_Adresse\_Read}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Adresse\_Read()}{FSM\_Adresse\_Read()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Adresse\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initiiert das Lesen der Daten des Slaves. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00236}{236}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_aa10d853ad3747605d8729d26d7676ee1_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_aa10d853ad3747605d8729d26d7676ee1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_a6147b1d310d535a45c9260b25c72f087}\label{_i2_c_8h_a6147b1d310d535a45c9260b25c72f087}} 
+\index{I2C.h@{I2C.h}!FSM\_Adresse\_Write@{FSM\_Adresse\_Write}}
+\index{FSM\_Adresse\_Write@{FSM\_Adresse\_Write}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Adresse\_Write()}{FSM\_Adresse\_Write()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Adresse\+\_\+\+Write (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Schreibt die zu übertragende Daten in das Tranceive-\/\+Register. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00179}{179}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a6147b1d310d535a45c9260b25c72f087_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a6147b1d310d535a45c9260b25c72f087_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_a84e14be148fa92abff4048271a969ec7}\label{_i2_c_8h_a84e14be148fa92abff4048271a969ec7}} 
+\index{I2C.h@{I2C.h}!FSM\_Idle@{FSM\_Idle}}
+\index{FSM\_Idle@{FSM\_Idle}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Idle()}{FSM\_Idle()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Idle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Kopiert die Anfrage aus dem FIFO und leitet Start-\/\+Sequenz ein. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00140}{140}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a84e14be148fa92abff4048271a969ec7_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a84e14be148fa92abff4048271a969ec7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_a7c5db52646d82b6f4dc89cda29fbbbb5}\label{_i2_c_8h_a7c5db52646d82b6f4dc89cda29fbbbb5}} 
+\index{I2C.h@{I2C.h}!FSM\_RECV\_EN@{FSM\_RECV\_EN}}
+\index{FSM\_RECV\_EN@{FSM\_RECV\_EN}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_RECV\_EN()}{FSM\_RECV\_EN()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+RECV\+\_\+\+EN (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Auslesen des Receive Registers und Bestätigung mit ACK bzw. 
+
+NACK \begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00284}{284}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a7c5db52646d82b6f4dc89cda29fbbbb5_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a7c5db52646d82b6f4dc89cda29fbbbb5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_ac22d155fd8127afb0dd9aca7b71e390c}\label{_i2_c_8h_ac22d155fd8127afb0dd9aca7b71e390c}} 
+\index{I2C.h@{I2C.h}!FSM\_Repeated\_Start@{FSM\_Repeated\_Start}}
+\index{FSM\_Repeated\_Start@{FSM\_Repeated\_Start}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Repeated\_Start()}{FSM\_Repeated\_Start()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Repeated\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00220}{220}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_ac22d155fd8127afb0dd9aca7b71e390c_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_ac22d155fd8127afb0dd9aca7b71e390c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_a956838411a5e4289993cb2bdeb699c82}\label{_i2_c_8h_a956838411a5e4289993cb2bdeb699c82}} 
+\index{I2C.h@{I2C.h}!FSM\_Start@{FSM\_Start}}
+\index{FSM\_Start@{FSM\_Start}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Start()}{FSM\_Start()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Beschreibt das Trancieve-\/\+Register mit der Adresse. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00152}{152}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a956838411a5e4289993cb2bdeb699c82_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a956838411a5e4289993cb2bdeb699c82_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_ace8745b63f67ec9eb023dcaf341f84fd}\label{_i2_c_8h_ace8745b63f67ec9eb023dcaf341f84fd}} 
+\index{I2C.h@{I2C.h}!FSM\_Stop@{FSM\_Stop}}
+\index{FSM\_Stop@{FSM\_Stop}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Stop()}{FSM\_Stop()}}
+{\footnotesize\ttfamily void $\ast$ FSM\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Überprüfung auf Abschluss der Stop-\/\+Sequenz und Rückkehr in den Idle-\/\+State. 
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00314}{314}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_ace8745b63f67ec9eb023dcaf341f84fd_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_ace8745b63f67ec9eb023dcaf341f84fd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_abe2a495f8fb12203f43fa52b6d012ed7}\label{_i2_c_8h_abe2a495f8fb12203f43fa52b6d012ed7}} 
+\index{I2C.h@{I2C.h}!initI2C@{initI2C}}
+\index{initI2C@{initI2C}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{initI2C()}{initI2C()}}
+{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisiert die I2\+C-\/\+Kommunikation. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00105}{105}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{_i2_c_8h_abe2a495f8fb12203f43fa52b6d012ed7_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{_i2_c_8h_abe2a495f8fb12203f43fa52b6d012ed7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915}\label{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915}} 
+\index{I2C.h@{I2C.h}!print\_sensor\_values@{print\_sensor\_values}}
+\index{print\_sensor\_values@{print\_sensor\_values}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{print\_sensor\_values()}{print\_sensor\_values()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+values (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Ausgabe der ausgelesenen Sensor-\/\+Werte per UART. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00327}{327}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{_i2_c_8h_a704bb8674396325fb9ed2f65997b9d42}\label{_i2_c_8h_a704bb8674396325fb9ed2f65997b9d42}} 
+\index{I2C.h@{I2C.h}!FIFO\_I2C@{FIFO\_I2C}}
+\index{FIFO\_I2C@{FIFO\_I2C}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{FIFO\_I2C}{FIFO\_I2C}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_buffer___i2_c___f_s_m}{Buffer\+\_\+\+I2\+C\+\_\+\+FSM}} FIFO\+\_\+\+I2C\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a290a8009ff32ac27f0687325153ddcba}\label{_i2_c_8h_a290a8009ff32ac27f0687325153ddcba}} 
+\index{I2C.h@{I2C.h}!I2C\_test\_struct@{I2C\_test\_struct}}
+\index{I2C\_test\_struct@{I2C\_test\_struct}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_test\_struct}{I2C\_test\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}} I2\+C\+\_\+test\+\_\+struct\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}\label{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}} 
+\index{I2C.h@{I2C.h}!read\_data\_buffer\_light@{read\_data\_buffer\_light}}
+\index{read\_data\_buffer\_light@{read\_data\_buffer\_light}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{read\_data\_buffer\_light}{read\_data\_buffer\_light}}
+{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data\+\_\+buffer\+\_\+light\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_aef8997c71403e269e83a8e8478ccf73c}\label{_i2_c_8h_aef8997c71403e269e83a8e8478ccf73c}} 
+\index{I2C.h@{I2C.h}!read\_data\_buffer\_temp@{read\_data\_buffer\_temp}}
+\index{read\_data\_buffer\_temp@{read\_data\_buffer\_temp}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{read\_data\_buffer\_temp}{read\_data\_buffer\_temp}}
+{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data\+\_\+buffer\+\_\+temp\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}\label{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}} 
+\index{I2C.h@{I2C.h}!trigger\_FSM@{trigger\_FSM}}
+\index{trigger\_FSM@{trigger\_FSM}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{trigger\_FSM}{trigger\_FSM}}
+{\footnotesize\ttfamily bool trigger\+\_\+\+FSM\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}\label{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}} 
+\index{I2C.h@{I2C.h}!write\_data\_buffer\_light@{write\_data\_buffer\_light}}
+\index{write\_data\_buffer\_light@{write\_data\_buffer\_light}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{write\_data\_buffer\_light}{write\_data\_buffer\_light}}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+light\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}\label{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}} 
+\index{I2C.h@{I2C.h}!write\_data\_buffer\_temp@{write\_data\_buffer\_temp}}
+\index{write\_data\_buffer\_temp@{write\_data\_buffer\_temp}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{write\_data\_buffer\_temp}{write\_data\_buffer\_temp}}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+temp\hspace{0.3cm}{\ttfamily [extern]}}
+
