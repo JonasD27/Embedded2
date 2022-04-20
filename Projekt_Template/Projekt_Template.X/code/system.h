@@ -15,6 +15,13 @@
 #define FCY             SYS_FREQ/2
 
 
+#ifdef MAIN
+uint32_t DELAY_ANPASSUNG;
+#else
+extern uint32_t DELAY_ANPASSUNG;
+#endif
+
+
 /******************************************************************************/
 /* System Function Prototypes                                                 */
 /******************************************************************************/
@@ -26,6 +33,7 @@ go here. */
 
 //System Prototypen
 void ConfigureOscillator(void); /* Handles clock switching/osc initialization */
+void delay_ms(uint16_t milliseconds); 
 
 void init_timer1(void);
 void init_ms_t4(void);

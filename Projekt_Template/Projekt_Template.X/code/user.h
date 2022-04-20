@@ -9,6 +9,10 @@
 #define T1 !_RG13
 #define T2 !_RG14
 #define T3 !_RG15
+
+#define BUFFER_FAIL     0
+#define BUFFER_SUCCESS  1
+#define BUFFER_SIZE 256
 /* TODO Application specific user parameters used in user.c may go here */
 
 /******************************************************************************/
@@ -19,4 +23,4 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 
-void setLED(uint16_t nr);
+

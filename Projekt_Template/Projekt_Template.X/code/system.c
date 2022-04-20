@@ -125,3 +125,12 @@ void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
     T4CONbits.TON = 1; // Start 32-bit Timer
 }
 
+
+void delay_ms(uint16_t milliseconds) 
+{    
+    uint32_t i=0;
+    for (i=0;i<(DELAY_ANPASSUNG*(uint32_t)milliseconds);i++)
+    {
+    }
+}
+
