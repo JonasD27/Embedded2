@@ -29,7 +29,7 @@ void initUART()
     //_U1RXIE = 1; // Enable UART RX interrupt
     
     U1MODEbits.UARTEN = 1; // Enable UART
-    //delay_ms(2);
+    delay_ms(2);
     U1STAbits.UTXEN = 1; // Enable UART TX
     
     /* Wait at least 105 microseconds (1/9600) before sending first char */

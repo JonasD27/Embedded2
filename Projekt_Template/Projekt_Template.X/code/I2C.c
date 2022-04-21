@@ -332,7 +332,7 @@ void print_sensor_values()
     sprintf(str,"%.1f",temp/256);
     putsUART("Temperatur: ");
     putsUART(str);
-    putsUART("°C");
+    putsUART(" Grad");
     putsUART("\n");
     
     //Licht
