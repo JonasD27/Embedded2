@@ -54,7 +54,7 @@ Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2\+C-
 
 Falls das FIFO neue Anfragen enthält wird die FSM getriggert. 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00086}{86}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00101}{101}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -82,25 +82,29 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 \begin{DoxyParams}{Parameter}
-{\em address} & Adresse des Slaves \\
+{\em address} & 7 Bit Adresse des Slaves \\
 \hline
-{\em num\+\_\+write} & Anzahl der zu sendenen Bytes \\
+{\em num\+\_\+write} & Anzahl der zu sendenen Bytes, bei 0 keine Write Zugriff \\
 \hline
 {\em writebuf} & Zeiger auf zu schreibende Daten \\
 \hline
-{\em num\+\_\+read} & Anzahl der zu lesenden Bytes \\
+{\em num\+\_\+read} & Anzahl der zu lesenden Bytes, bei 0 keine Read Zugriff \\
 \hline
-{\em readbuf} & Zeiger auf Berecih, in welchem Daten abgespeuchert werden sollen \\
+{\em readbuf} & Zeiger auf Bereich, in welchem Daten abgespeichert werden sollen \\
 \hline
 {\em status} & Zeiger, um akuellen Status zurückzugeben \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Rückgabe}
-1, falls Anfrage direkt angenommen werden konnte, ansonsten 0 
-\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em 1,Anforderung} & wurde angenommen, die FSM wird getriggert \\
+\hline
+{\em 0,FSM} & ist beschäftig, Anforderung kann nicht angeommen werden \\
+\hline
+\end{DoxyRetVals}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00063}{63}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00076}{76}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -126,12 +130,23 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 Initiiert das Lesen der Daten des Slaves. 
 
-\begin{DoxyReturn}{Rückgabe}
 
+\begin{DoxyParams}{Parameter}
+{\em count} & Zaelervariable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+FSM\+\_\+\+Stop, sobald ein Fehler bei der Kommunikation auftritt, z.\+B kein ACK vom Slave 
+
+FSM\+\_\+\+RECV\+\_\+\+EN, sobald der Empfangsmodus für I2C aktiviert wurde 
+
+FSM\+\_\+\+Stop, sobald die Stop-\/\+Bedigungen an die Pins SDAx und SCLx weitergeleitet wurden. 
+
+FSM\+\_\+\+Adresse\+\_\+\+Read, wenn kein ACK vom Slave erhalten oder das Bit der ACK-\/\+Sequenz nicht freigegeben ist 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00236}{236}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00279}{279}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -157,12 +172,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 Schreibt die zu übertragende Daten in das Tranceive-\/\+Register. 
 
-\begin{DoxyReturn}{Rückgabe}
 
+\begin{DoxyParams}{Parameter}
+{\em count} & Zaelervariable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+FSM\+\_\+\+Stop, sobald ein Fehler bei der Kommunikation auftritt, z.\+B kein ACK vom Slave 
+
+FSM\+\_\+\+Adresse\+\_\+\+Write, sobald keine Bytes mehr zu senden gibt 
+
+FSM\+\_\+\+Repeated\+\_\+\+Start, sobald die Bedigungen für den wiederholten Start an die Pins SDAx und SClx weitergeleitet wurde. 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00179}{179}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00214}{214}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -189,11 +213,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 Kopiert die Anfrage aus dem FIFO und leitet Start-\/\+Sequenz ein. 
 
 \begin{DoxyReturn}{Rückgabe}
-
+FSM\+\_\+\+Start, sobald die Startbedingungen an die Pins SDAx und SCLx weitergeleiet worden sind 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00140}{140}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00167}{167}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -219,12 +243,19 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 Auslesen des Receive Registers und Bestätigung mit ACK bzw. 
 
-NACK \begin{DoxyReturn}{Rückgabe}
+NACK 
+\begin{DoxyParams}{Parameter}
+{\em count} & Zaelervariable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+FSM\+\_\+\+Adresse\+\_\+\+Read, sobald die Acknowledge-\/\+Sequenz an den Pins SDAx und SCLx initiiert wurde und das ACKDT Datenbit übertragen wurde 
 
+FSM\+\_\+\+RECV\+\_\+\+EN, Wenn die Empfangssequenz nicht ausgeführt wurde 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00284}{284}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00330}{330}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -251,11 +282,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse. 
 
 \begin{DoxyReturn}{Rückgabe}
-
+FSM\+\_\+\+Adresse\+\_\+\+Read, sobald es einen Restart gibt 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00220}{220}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00256}{256}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -282,11 +313,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 Beschreibt das Trancieve-\/\+Register mit der Adresse. 
 
 \begin{DoxyReturn}{Rückgabe}
-
+FSM\+\_\+\+Adresse\+\_\+\+Write, sobald geschrieben werden kann @retrun FSM\+\_\+\+Adresse\+\_\+\+Read, sobald gelesen werden kann 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00152}{152}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00181}{181}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -313,11 +344,13 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 Überprüfung auf Abschluss der Stop-\/\+Sequenz und Rückkehr in den Idle-\/\+State. 
 
 \begin{DoxyReturn}{Rückgabe}
+FSM\+\_\+\+Idle, wenn die Stop-\/\+Bedingungen erfolgreich an den Pins SDAx und SCLx weitergeleitet wurden 
 
+FSM\+\_\+\+Stop, wenn keine Stop-\/\+Bedingungen weitergeleitet wurden 
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00314}{314}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00362}{362}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -348,12 +381,16 @@ Entnimmt I2\+C-\/\+Anfrage aus dem I2\+C-\/\+FIFO.
 {\em $\ast$s} & Zeiger auf I2\+C-\/\+Anfrage in Form eines Structs des Typs \mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}} \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Rückgabe}
-BUFFER\+\_\+\+FAIL im Fehlerfall, ansonsten BUFFER\+\_\+\+SUCCESS 
-\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em BUFFER\+\_\+\+FAIL} & im Fehlerfall \\
+\hline
+{\em ansonsten} & BUFFER\+\_\+\+SUCCESS, wenn erfolgreich \\
+\hline
+\end{DoxyRetVals}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00035}{35}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00045}{45}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -372,9 +409,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 Initialisiert die I2\+C-\/\+Kommunikation. 
 
+Einschalten I2C mit eigenem Workaround, I2C Peripheriemodul kann hier leider nicht verwendet werden. Pins wie einen Open-\/\+Kollektor-\/\+Treiber verwenden, d.\+h. 1 -\/ hochohmig, 0 wird getrieben
 
+Aktiviert das I2C Modul und konfiguriert die Pins SDAx und SCLx als serielle PORT-\/\+Pins.
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00105}{105}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00120}{120}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -402,7 +441,7 @@ Ausgabe der ausgelesenen Sensor-\/\+Werte per UART.
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00327}{327}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00376}{376}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -433,12 +472,16 @@ Legt eine I2\+C-\/\+Anfrage in dem I2\+C-\/\+FIFO ab.
 {\em s} & I2\+C-\/\+Anfrage in Form eines Structs des Typs \mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}} \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Rückgabe}
-BUFFER\+\_\+\+FAIL im Fehlerfall, ansonsten BUFFER\+\_\+\+SUCCESS 
-\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em BUFFER\+\_\+\+FAIL} & im Fehlerfall \\
+\hline
+{\em ansonsten} & BUFFER\+\_\+\+SUCCESS, wenn erfolgreich \\
+\hline
+\end{DoxyRetVals}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00011}{11}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00019}{19}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]

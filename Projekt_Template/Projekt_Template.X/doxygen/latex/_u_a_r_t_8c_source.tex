@@ -2,120 +2,130 @@
 \label{_u_a_r_t_8c_source}\index{UART.c@{UART.c}}
 \mbox{\hyperlink{_u_a_r_t_8c}{gehe zur Dokumentation dieser Datei}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_a_r_t_8h}{UART.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00004}\mbox{\hyperlink{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931}{00004}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931}{initUART}}()}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00005}00005 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00006}00006     U1MODEbits.STSEL = 0; \textcolor{comment}{// 1-\/Stop bit}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00007}00007     U1MODEbits.PDSEL = 0; \textcolor{comment}{// No Parity, 8-\/Data bits}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00008}00008     U1MODEbits.ABAUD = 0; \textcolor{comment}{// Auto-\/Baud disabled}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00009}00009     U1MODEbits.UEN = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00010}00010     U1MODEbits.LPBACK = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00011}00011     U1MODEbits.RXINV = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00012}00012     \textcolor{comment}{//U1MODEbits.ALTIO = 0;}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00013}00013     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00014}00014     U1MODEbits.URXINV = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00015}00015     U1MODEbits.RTSMD = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00016}00016     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00017}00017     U1MODEbits.BRGH = 0; \textcolor{comment}{// Standard-\/Speed mode}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00018}00018     U1BRG = \mbox{\hyperlink{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}; \textcolor{comment}{// Baud Rate setting for 9600}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00019}00019     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00020}00020     U1STAbits.UTXISEL0 = 0; \textcolor{comment}{// Interrupt after one TX character is transmitted}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00021}00021     U1STAbits.UTXISEL1 = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00022}00022     U1STAbits.UTXBRK = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00023}00023     U1STAbits.ADDEN = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00024}00024     U1STAbits.UTXINV = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00025}00025     U1STAbits.URXISEL = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00026}00026     U1STA = U1STA | 0b0001000000000000;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00027}00027     \textcolor{comment}{//\_URXEN = 1;}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00028}00028     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00029}00029     \textcolor{comment}{//\_U1RXIE = 1; // Enable UART RX interrupt}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00030}00030     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00031}00031     U1MODEbits.UARTEN = 1; \textcolor{comment}{// Enable UART}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00032}00032     \textcolor{comment}{//delay\_ms(2);}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00033}00033     U1STAbits.UTXEN = 1; \textcolor{comment}{// Enable UART TX}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00034}00034     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00035}00035     \textcolor{comment}{/* Wait at least 105 microseconds (1/9600) before sending first char */}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00036}00036     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(2); }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00037}00037     \_U1TXIE = 1; \textcolor{comment}{// Enable UART TX interrupt}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_a_r_t_8h}{UART.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00009}00009 \textcolor{comment}{/* Funktionen                                                                 */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00012}\mbox{\hyperlink{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931}{initUART}}()}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00014}00014     U1MODEbits.STSEL = 0; \textcolor{comment}{// 1-\/Stop bit}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00015}00015     U1MODEbits.PDSEL = 0; \textcolor{comment}{// No Parity, 8-\/Data bits}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00016}00016     U1MODEbits.ABAUD = 0; \textcolor{comment}{// Auto-\/Baud disabled}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00017}00017     U1MODEbits.UEN = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00018}00018     U1MODEbits.LPBACK = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00019}00019     U1MODEbits.RXINV = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00020}00020     \textcolor{comment}{//U1MODEbits.ALTIO = 0;}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00021}00021     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00022}00022     U1MODEbits.URXINV = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00023}00023     U1MODEbits.RTSMD = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00024}00024     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00025}00025     U1MODEbits.BRGH = 0; \textcolor{comment}{// Standard-\/Speed mode}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00026}00026     U1BRG = \mbox{\hyperlink{main__less_8c_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}; \textcolor{comment}{// Baud Rate setting for 9600}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00027}00027     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00028}00028     U1STAbits.UTXISEL0 = 0; \textcolor{comment}{// Interrupt after one TX character is transmitted}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00029}00029     U1STAbits.UTXISEL1 = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00030}00030     U1STAbits.UTXBRK = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00031}00031     U1STAbits.ADDEN = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00032}00032     U1STAbits.UTXINV = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00033}00033     U1STAbits.URXISEL = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00034}00034     U1STA = U1STA | 0b0001000000000000;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00035}00035     \textcolor{comment}{//\_URXEN = 1;}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00037}00037     \textcolor{comment}{//\_U1RXIE = 1; // Enable UART RX interrupt}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00038}00038     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00039}00039 \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00042}\mbox{\hyperlink{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}{00042}} \textcolor{keywordtype}{void} \_\_attribute\_\_((\_\_interrupt\_\_, no\_auto\_psv)) \mbox{\hyperlink{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}{\_U1TXInterrupt}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00043}00043 \{ }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00044}00044     \_U1TXIF = 0; \textcolor{comment}{// Clear TX Interrupt flag}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00045}00045     \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\&U1TXREG);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00039}00039     U1MODEbits.UARTEN = 1; \textcolor{comment}{// Enable UART}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00040}00040     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(2);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00041}00041     U1STAbits.UTXEN = 1; \textcolor{comment}{// Enable UART TX}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00042}00042     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00043}00043     \textcolor{comment}{/* Wait at least 105 microseconds (1/9600) before sending first char */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00044}00044     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(2); }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00045}00045     \_U1TXIE = 1; \textcolor{comment}{// Enable UART TX interrupt}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00046}00046     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00047}00047 \} \textcolor{comment}{/* initUART() */}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00049}\mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{00049}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(\textcolor{keywordtype}{char} c)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00050}00050 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00051}00051   \textcolor{comment}{//if (buffer.write >= BUFFER\_SIZE)}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00052}00052   \textcolor{comment}{//  buffer.write = 0; // erhöht sicherheit}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00053}00053   \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00054}00054   \textcolor{keywordflow}{if} ( ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} ) ||}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00055}00055        ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == 0 \&\& \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}} ) )}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00056}00056   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00057}00057     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}}; \textcolor{comment}{// voll}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00058}00058   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00060}00060   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}] = c;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00062}00062   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}++;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00063}00063   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00050}\mbox{\hyperlink{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}{00050}} \textcolor{keywordtype}{void} \_\_attribute\_\_((\_\_interrupt\_\_, no\_auto\_psv)) \mbox{\hyperlink{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}{\_U1TXInterrupt}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00051}00051 \{ }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00052}00052     \_U1TXIF = 0; \textcolor{comment}{// Clear TX Interrupt flag}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00053}00053     \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\&U1TXREG);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00054}00054     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00057}\mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{00057}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00058}00058 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00059}00059   \textcolor{comment}{//if (buffer.write >= BUFFER\_SIZE)}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00060}00060   \textcolor{comment}{//  buffer.write = 0; // erhöht sicherheit}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00061}00061   \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00062}00062   \textcolor{keywordflow}{if} ( ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} ) ||}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00063}00063        ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == 0 \&\& \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}} ) )}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00064}00064   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00065}00065     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00065}00065     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}}; \textcolor{comment}{// voll}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00066}00066   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00067}00067   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00068}00068 \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00068}00068   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}] = c;}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00070}\mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{00070}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00071}00071 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00072}00072   \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00073}00073   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00074}00074   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00075}00075     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00076}00076   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00077}00077   *c = \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}];}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00070}00070   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}++;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00071}00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00072}00072   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00073}00073     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00074}00074   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00075}00075   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00076}00076   }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00077}00077 \} \textcolor{comment}{/* putcFIFO\_TX() */}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00078}00078 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00079}00079   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}++;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00080}00080   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00081}00081   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00082}00082     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00083}00083   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00084}00084   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00085}00085 \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00086}00086 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00087}\mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{00087}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putcUART}}(\textcolor{keywordtype}{char} c)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00088}00088 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00089}00089     \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00090}00090     \_GIE = 0; \textcolor{comment}{// Interrupts ausschalten}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00091}00091     int16\_t erfolg = \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(c);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00092}00092     \_GIE = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00093}00093     \textcolor{keywordflow}{return} erfolg;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00094}00094 \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00096}\mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{00096}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str) }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00097}00097 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00098}00098     \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00099}00099     uint16\_t i;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00100}00100     uint16\_t length = strlen(str);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00101}00101     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00102}00102     \_GIE = 0;   \textcolor{comment}{//Global Interrupt disable}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00103}00103     \textcolor{keywordflow}{for}(i = 0; i < length; i++) }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00104}00104     \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00105}00105         \textcolor{comment}{//uint16\_t ret = putcFIFO\_TX(str[i]);}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00106}00106         \textcolor{keywordflow}{if}(! \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(str[i]))}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00107}00107             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00108}00108     \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00109}00109     \_GIE = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00110}00110     int16\_t erfolg = -\/i;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00111}00111     \textcolor{keywordflow}{if}(erfolg == -\/length)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00112}00112         erfolg *= -\/1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00113}00113     \_U1TXIF = 1; \textcolor{comment}{//Interuppt Routine Starten um FIFO-\/Inhalt zu senden}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00114}00114     \textcolor{keywordflow}{return} erfolg;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00115}00115 \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00079}\mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{00079}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00080}00080 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00081}00081   \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00082}00082   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00083}00083   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00084}00084     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00085}00085   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00086}00086   *c = \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}];}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00088}00088   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}++;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00089}00089   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00090}00090   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00091}00091     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00092}00092   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00093}00093   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00094}00094   }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00095}00095 \} \textcolor{comment}{/* getcFIFO\_TX() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00097}\mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{00097}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putcUART}}(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00098}00098 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00099}00099     \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00100}00100     \_GIE = 0; \textcolor{comment}{// Interrupts ausschalten}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00101}00101     int16\_t erfolg = \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(c);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00102}00102     \_GIE = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00103}00103     \textcolor{keywordflow}{return} erfolg;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00104}00104     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00105}00105 \} \textcolor{comment}{/* putcUART() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00107}\mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{00107}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str) }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00108}00108 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00109}00109     \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00110}00110     uint16\_t i;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00111}00111     uint16\_t length = strlen(str);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00112}00112     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00113}00113     \_GIE = 0;   \textcolor{comment}{//Global Interrupt disable}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00114}00114     \textcolor{keywordflow}{for}(i = 0; i < length; i++) }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00115}00115     \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00116}00116         \textcolor{comment}{//uint16\_t ret = putcFIFO\_TX(str[i]);}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00117}00117         \textcolor{keywordflow}{if}(! \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(str[i]))}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00118}00118             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00119}00119     \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00120}00120     \_GIE = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00121}00121     int16\_t erfolg = -\/i;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00122}00122     \textcolor{keywordflow}{if}(erfolg == -\/length)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00123}00123         erfolg *= -\/1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00124}00124     \_U1TXIF = 1; \textcolor{comment}{//Interuppt Routine Starten um FIFO-\/Inhalt zu senden}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00125}00125     \textcolor{keywordflow}{return} erfolg;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00126}00126     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00127}00127 \} \textcolor{comment}{/* putsUART() */}}
 
 \end{DoxyCode}

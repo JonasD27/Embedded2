@@ -175,7 +175,7 @@ Funktionen</h2></td></tr>
 <p>Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation. </p>
 <p >Falls das FIFO neue Anfragen enthält wird die FSM getriggert. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00086">86</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00101">101</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -257,18 +257,24 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>Adresse des Slaves </td></tr>
-    <tr><td class="paramname">num_write</td><td>Anzahl der zu sendenen Bytes </td></tr>
+    <tr><td class="paramname">address</td><td>7 Bit Adresse des Slaves </td></tr>
+    <tr><td class="paramname">num_write</td><td>Anzahl der zu sendenen Bytes, bei 0 keine Write Zugriff </td></tr>
     <tr><td class="paramname">writebuf</td><td>Zeiger auf zu schreibende Daten </td></tr>
-    <tr><td class="paramname">num_read</td><td>Anzahl der zu lesenden Bytes </td></tr>
-    <tr><td class="paramname">readbuf</td><td>Zeiger auf Berecih, in welchem Daten abgespeuchert werden sollen </td></tr>
+    <tr><td class="paramname">num_read</td><td>Anzahl der zu lesenden Bytes, bei 0 keine Read Zugriff </td></tr>
+    <tr><td class="paramname">readbuf</td><td>Zeiger auf Bereich, in welchem Daten abgespeichert werden sollen </td></tr>
     <tr><td class="paramname">status</td><td>Zeiger, um akuellen Status zurückzugeben </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>1, falls Anfrage direkt angenommen werden konnte, ansonsten 0 </dd></dl>
+<dl class="retval"><dt>Rückgabewerte</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1,Anforderung</td><td>wurde angenommen, die FSM wird getriggert </td></tr>
+    <tr><td class="paramname">0,FSM</td><td>ist beschäftig, Anforderung kann nicht angeommen werden </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00063">63</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00076">76</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -307,9 +313,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Initiiert das Lesen der Daten des Slaves. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Zaelervariable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Stop, sobald ein Fehler bei der Kommunikation auftritt, z.B kein ACK vom Slave </dd>
+<dd>
+FSM_RECV_EN, sobald der Empfangsmodus für I2C aktiviert wurde </dd>
+<dd>
+FSM_Stop, sobald die Stop-Bedigungen an die Pins SDAx und SCLx weitergeleitet wurden. </dd>
+<dd>
+FSM_Adresse_Read, wenn kein ACK vom Slave erhalten oder das Bit der ACK-Sequenz nicht freigegeben ist </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00236">236</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00279">279</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -361,9 +379,19 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Schreibt die zu übertragende Daten in das Tranceive-Register. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Zaelervariable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Stop, sobald ein Fehler bei der Kommunikation auftritt, z.B kein ACK vom Slave </dd>
+<dd>
+FSM_Adresse_Write, sobald keine Bytes mehr zu senden gibt </dd>
+<dd>
+FSM_Repeated_Start, sobald die Bedigungen für den wiederholten Start an die Pins SDAx und SClx weitergeleitet wurde. </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00179">179</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00214">214</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -415,9 +443,9 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Kopiert die Anfrage aus dem FIFO und leitet Start-Sequenz ein. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Start, sobald die Startbedingungen an die Pins SDAx und SCLx weitergeleiet worden sind </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00140">140</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00167">167</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -469,9 +497,17 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Auslesen des Receive Registers und Bestätigung mit ACK bzw. </p>
-<p >NACK </p><dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<p >NACK </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Zaelervariable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Adresse_Read, sobald die Acknowledge-Sequenz an den Pins SDAx und SCLx initiiert wurde und das ACKDT Datenbit übertragen wurde </dd>
+<dd>
+FSM_RECV_EN, Wenn die Empfangssequenz nicht ausgeführt wurde </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00284">284</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00330">330</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -523,9 +559,9 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Adresse_Read, sobald es einen Restart gibt </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00220">220</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00256">256</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -577,9 +613,9 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Beschreibt das Trancieve-Register mit der Adresse. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Adresse_Write, sobald geschrieben werden kann @retrun FSM_Adresse_Read, sobald gelesen werden kann </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00152">152</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00181">181</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -631,9 +667,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Überprüfung auf Abschluss der Stop-Sequenz und Rückkehr in den Idle-State. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>FSM_Idle, wenn die Stop-Bedingungen erfolgreich an den Pins SDAx und SCLx weitergeleitet wurden </dd>
+<dd>
+FSM_Stop, wenn keine Stop-Bedingungen weitergeleitet wurden </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00314">314</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00362">362</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -687,13 +725,19 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Entnimmt I2C-Anfrage aus dem I2C-FIFO. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*s</td><td>Zeiger auf I2C-Anfrage in Form eines Structs des Typs <a class="el" href="struct_i2_c__struct.html">I2C_struct</a> </td></tr>
+    <tr><td class="paramname">*s</td><td>Zeiger auf I2C-Anfrage in Form eines Structs des Typs <a class="el" href="struct_i2_c__struct.html" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b...">I2C_struct</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>BUFFER_FAIL im Fehlerfall, ansonsten BUFFER_SUCCESS </dd></dl>
+<dl class="retval"><dt>Rückgabewerte</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BUFFER_FAIL</td><td>im Fehlerfall </td></tr>
+    <tr><td class="paramname">ansonsten</td><td>BUFFER_SUCCESS, wenn erfolgreich </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00035">35</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00045">45</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
@@ -731,8 +775,10 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 </div><div class="memdoc">
 
 <p>Initialisiert die I2C-Kommunikation. </p>
+<p >Einschalten I2C mit eigenem Workaround, I2C Peripheriemodul kann hier leider nicht verwendet werden. Pins wie einen Open-Kollektor-Treiber verwenden, d.h. 1 - hochohmig, 0 wird getrieben</p>
+<p >Aktiviert das I2C Modul und konfiguriert die Pins SDAx und SCLx als serielle PORT-Pins.</p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00105">105</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00120">120</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -772,7 +818,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 
 <p>Ausgabe der ausgelesenen Sensor-Werte per UART. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00327">327</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00376">376</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -814,13 +860,19 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Legt eine I2C-Anfrage in dem I2C-FIFO ab. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>I2C-Anfrage in Form eines Structs des Typs <a class="el" href="struct_i2_c__struct.html">I2C_struct</a> </td></tr>
+    <tr><td class="paramname">s</td><td>I2C-Anfrage in Form eines Structs des Typs <a class="el" href="struct_i2_c__struct.html" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b...">I2C_struct</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>BUFFER_FAIL im Fehlerfall, ansonsten BUFFER_SUCCESS </dd></dl>
+<dl class="retval"><dt>Rückgabewerte</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BUFFER_FAIL</td><td>im Fehlerfall </td></tr>
+    <tr><td class="paramname">ansonsten</td><td>BUFFER_SUCCESS, wenn erfolgreich </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00011">11</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00019">19</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
