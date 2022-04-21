@@ -616,7 +616,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSÐ&
+ __FGS.sec        0xf80004          0x2 /CW/_FGS
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -643,7 +643,7 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3d59
+.debug_info       0x000000       0x3d5c
  *(.debug_info)
  .debug_info      0x000000        0x145 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_info      0x000145        0x415 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -651,8 +651,8 @@ __FUID0
  .debug_info      0x000ec9        0xd98 build/XC16_dsPIC33EP512MU810/production/code/system.o
  .debug_info      0x001c61        0x3bf build/XC16_dsPIC33EP512MU810/production/code/traps.o
  .debug_info      0x002020        0x1a9 build/XC16_dsPIC33EP512MU810/production/code/user.o
- .debug_info      0x0021c9        0xf30 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_info      0x0030f9        0xc60 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_info      0x0021c9        0xf33 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+ .debug_info      0x0030fc        0xc60 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x797
@@ -666,7 +666,7 @@ __FUID0
  .debug_abbrev    0x000464        0x1e8 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_abbrev    0x00064c        0x14b build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
-.debug_line       0x000000        0x91b
+.debug_line       0x000000        0x929
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_line      0x00001a        0x125 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -674,8 +674,8 @@ __FUID0
  .debug_line      0x000282        0x147 build/XC16_dsPIC33EP512MU810/production/code/system.o
  .debug_line      0x0003c9        0x125 build/XC16_dsPIC33EP512MU810/production/code/traps.o
  .debug_line      0x0004ee        0x114 build/XC16_dsPIC33EP512MU810/production/code/user.o
- .debug_line      0x000602        0x1ae build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_line      0x0007b0        0x16b build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_line      0x000602        0x1ba build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+ .debug_line      0x0007bc        0x16d build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
 .debug_frame      0x000000        0x47e
  *(.debug_frame)
@@ -3435,7 +3435,7 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGSÐ&
+LOAD /CW/_FGS
 LOAD jump_table
 LOAD data_init
 

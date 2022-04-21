@@ -2,6 +2,11 @@
  In dieser Header-Datei werden alle für das I2C-Protokoll benötigten Konstanten,
  * Typedefs und Prototypen definiert
  */
+
+/******************************************************************************/
+/* Files to Include                                                           */
+/******************************************************************************/
+
 #include "user.h"
 //#include "UART.h"
 #include <stdint.h>        /* Includes uint16_t definition                    */
@@ -9,18 +14,30 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <xc.h>
 
-//Konstanten
+/******************************************************************************/
+/* Konstanten                                                                 */
+/******************************************************************************/
+
 #define I2C_SCL      _RA2
 #define I2C_SDA      _RA3
 #define I2C_SCL_TRIS _TRISA2
 #define I2C_SDA_TRIS _TRISA3 
 
-//Typedef
+/******************************************************************************/
+/* Typedef                                                                    */
+/******************************************************************************/
+
 typedef enum {Pending, Finished, Error} i2c_status_t;
 
+/**
+ * Datenstruktur für die Kapselung aller benötigten Variablen, welche für
+ * ein character basiertes FIFO benötigt werden.
+ * 
+ * Diese Datenstruktur muss als globale Variable (z.B. mit Zusatz static)
+ * angelegt werden
+ */
 typedef struct
 {
     uint8_t address;
@@ -42,7 +59,11 @@ typedef struct
 typedef void *(*StateFunc)();
 
 #ifdef MAIN
-//Globale Variablen
+
+/******************************************************************************/
+/* Global Variable Declaration                                                */
+/******************************************************************************/
+
 uint8_t write_data_buffer_temp;
 uint8_t write_data_buffer_light;
 uint8_t read_data_buffer_temp[2];
@@ -71,7 +92,10 @@ extern Buffer_I2C_FSM FIFO_I2C; //FIFO für die I2C FSM
 
 
 
-//Prototypen
+/******************************************************************************/
+/* Prototypen                                                                 */
+/******************************************************************************/
+
 int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status);
 
 void doI2C(void);

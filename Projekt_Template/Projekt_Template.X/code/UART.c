@@ -1,5 +1,13 @@
+/******************************************************************************/
+/* Files to Include                                                           */
+/******************************************************************************/
+
 #include "UART.h"
 #include "system.h"
+
+/******************************************************************************/
+/* Funktionen                                                                 */
+/******************************************************************************/
 
 void initUART()
 {
@@ -36,7 +44,7 @@ void initUART()
     delay_ms(2); 
     _U1TXIE = 1; // Enable UART TX interrupt
     
-}
+} /* initUART() */
 
 
 void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
@@ -65,7 +73,8 @@ int16_t putcFIFO_TX(char c)
     FIFO.write = 0;
   }
   return BUFFER_SUCCESS;
-}
+  
+} /* putcFIFO_TX() */
 
 int16_t getcFIFO_TX(volatile uint16_t *c)
 {
@@ -82,7 +91,8 @@ int16_t getcFIFO_TX(volatile uint16_t *c)
     FIFO.read = 0;
   }
   return BUFFER_SUCCESS;
-}
+  
+} /* getcFIFO_TX() */
 
 int16_t putcUART(char c)
 {
@@ -91,7 +101,8 @@ int16_t putcUART(char c)
     int16_t erfolg = putcFIFO_TX(c);
     _GIE = 1;
     return erfolg;
-}
+    
+} /* putcUART() */
 
 int16_t putsUART(const char *str) 
 {
@@ -112,4 +123,5 @@ int16_t putsUART(const char *str)
         erfolg *= -1;
     _U1TXIF = 1; //Interuppt Routine Starten um FIFO-Inhalt zu senden
     return erfolg;
-}
+    
+} /* putsUART() */
