@@ -28,8 +28,8 @@ Auch bei einzeiligen If-Anweisungen werden geschwungene Klammern verwendet.
 @subsection em_kommentare Kommentare
 Generell sollte jede Variable, Funktion oder andere Logik deren Aufgabe oder Bedeutung nicht 
 direkt erkennbar ist mit einem kurzen Kommentar beschrieben werden. 
-Falls der Kommentar sich über mehrere Zeilen erstreckt, wird dieser mit â€ž/* â€¦. */â€œ begrenzt. 
-Andernfalls reichen die zwei doppelten Slashs â€ž//â€œ. Kommentare sind generell in Deutsch.
+Falls der Kommentar sich über mehrere Zeilen erstreckt, wird dieser mit /*  */begrenzt. 
+Andernfalls reichen die zwei doppelten Slashs //. Kommentare sind generell in Deutsch.
 
 	int icounter_5; //Counter mit Startwert 5
 	 
@@ -38,7 +38,7 @@ Andernfalls reichen die zwei doppelten Slashs â€ž//â€œ. Kommentare sind generell
 
 @subsection em_bezeichner Bezeichner / Namen von Variablen, Funktionen & Konstanten
 Die Namen von den verschiedenen Strukturen sollen schon beim Lesen einen Hinweis auf deren Funktion geben. 
-Die Namen sind generell in Englisch verfasst und kÃ¶nnen auch Abkürzungen enthalten.
+Die Namen sind generell in Englisch verfasst und können auch Abkürzungen enthalten.
 Variablen- und Funktionen-Bezeichner werden durch Unterstriche getrennt und sind klein geschrieben. (snake_case)
 Konstanten hingegen werden groß geschrieben.
 
@@ -63,7 +63,7 @@ Nur die nötigsten Tags verwenden.
 	* @brief Verzögerung (ms)
 	* Verzögerungsfunktion, blockierend
 	* @param milliseconds Anzahl der zu verzögernden Millisekunden
-	* @return â€¦
+	* @return ...
 	*/
 
 

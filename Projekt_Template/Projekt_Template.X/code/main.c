@@ -1,8 +1,5 @@
 /*TODO
- * exchangeI2C
- *  Testen
     Doku mit DoxyGen
-    (FSM in Interrupt)
  *  
  */
 

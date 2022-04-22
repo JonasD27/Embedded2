@@ -168,12 +168,12 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x15ae          0x2085  (8325)
-.const                      0x17ae                0x28            0x3c  (60)
-.text                       0x17d6               0x36e           0x525  (1317)
-.dinit                      0x1b44               0x174           0x22e  (558)
-.text                       0x1cb8               0x2a0           0x3f0  (1008)
+.const                      0x17ae                0x4c            0x72  (114)
+.text                       0x17fa               0x39a           0x567  (1383)
+.dinit                      0x1b94               0x174           0x22e  (558)
+.text                       0x1d08               0x2a0           0x3f0  (1008)
 
-                 Total "program" memory used (bytes):         0x2c04  (11268) 2%
+                 Total "program" memory used (bytes):         0x2c7c  (11388) 2%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -313,44 +313,44 @@ External Symbols in Program Memory (by address):
                   0x0016e6                  __dtype
                   0x00170a                  __dunpack
                   0x001758                  ___floatundidf
-                  0x0017d6                  _put_I2C_struct_FIFO
-                  0x001848                  _get_I2C_struct_FIFO
-                  0x001898                  _exchangeI2C
-                  0x0018da                  _doI2C
-                  0x0018e6                  _initI2C
-                  0x001932                  _FSM_Idle
-                  0x001948                  _FSM_Start
-                  0x001982                  _FSM_Adresse_Write
-                  0x0019dc                  _FSM_Repeated_Start
-                  0x0019fc                  _FSM_Adresse_Read
-                  0x001a5e                  _FSM_RECV_EN
-                  0x001a98                  _FSM_Stop
-                  0x001aac                  _print_sensor_values
-                  0x001cb8                  _initUART
-                  0x001d06                  _putcFIFO_TX
-                  0x001d56                  _getcFIFO_TX
-                  0x001d92                  _putcUART
-                  0x001da8                  _putsUART
-                  0x001df2                  _ConfigureOscillator
-                  0x001e4a                  _init_timer1
-                  0x001e82                  _init_ms_t4
-                  0x001ea0                  _delay_ms
-                  0x001ed6                  _main
-                  0x001f30                  _InitApp
-                  0x001f36                  _setLED
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x0018bc                  _exchangeI2C
+                  0x0018fe                  _doI2C
+                  0x00190a                  _initI2C
+                  0x001956                  _FSM_Idle
+                  0x00196c                  _FSM_Start
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001a00                  _FSM_Repeated_Start
+                  0x001a20                  _FSM_Adresse_Read
+                  0x001a82                  _FSM_RECV_EN
+                  0x001abc                  _FSM_Stop
+                  0x001ad0                  _print_sensor_values
+                  0x001d08                  _initUART
+                  0x001d56                  _putcFIFO_TX
+                  0x001da6                  _getcFIFO_TX
+                  0x001de2                  _putcUART
+                  0x001df8                  _putsUART
+                  0x001e42                  _ConfigureOscillator
+                  0x001e9a                  _init_timer1
+                  0x001ed2                  _init_ms_t4
+                  0x001ef0                  _delay_ms
+                  0x001f26                  _main
+                  0x001f80                  _InitApp
+                  0x001f86                  _setLED
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x001df2                  _ConfigureOscillator
-                  0x0019fc                  _FSM_Adresse_Read
-                  0x001982                  _FSM_Adresse_Write
-                  0x001932                  _FSM_Idle
-                  0x001a5e                  _FSM_RECV_EN
-                  0x0019dc                  _FSM_Repeated_Start
-                  0x001948                  _FSM_Start
-                  0x001a98                  _FSM_Stop
-                  0x001f30                  _InitApp
+                  0x001e42                  _ConfigureOscillator
+                  0x001a20                  _FSM_Adresse_Read
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001956                  _FSM_Idle
+                  0x001a82                  _FSM_RECV_EN
+                  0x001a00                  _FSM_Repeated_Start
+                  0x00196c                  _FSM_Start
+                  0x001abc                  _FSM_Stop
+                  0x001f80                  _InitApp
                   0x000364                  __AddressError
                   0x000376                  __DMACError
                   0x00037c                  __DefaultInterrupt
@@ -405,25 +405,25 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x0005dc                  __sprintf_fF
                   0x0007c8                  __vfprintf_fF
-                  0x001ea0                  _delay_ms
-                  0x0018da                  _doI2C
-                  0x001898                  _exchangeI2C
+                  0x001ef0                  _delay_ms
+                  0x0018fe                  _doI2C
+                  0x0018bc                  _exchangeI2C
                   0x001518                  _frexp
                   0x001518                  _frexpl
-                  0x001848                  _get_I2C_struct_FIFO
-                  0x001d56                  _getcFIFO_TX
-                  0x0018e6                  _initI2C
-                  0x001cb8                  _initUART
-                  0x001e82                  _init_ms_t4
-                  0x001e4a                  _init_timer1
-                  0x001ed6                  _main
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x001da6                  _getcFIFO_TX
+                  0x00190a                  _initI2C
+                  0x001d08                  _initUART
+                  0x001ed2                  _init_ms_t4
+                  0x001e9a                  _init_timer1
+                  0x001f26                  _main
                   0x00117e                  _memcpy
-                  0x001aac                  _print_sensor_values
-                  0x0017d6                  _put_I2C_struct_FIFO
-                  0x001d06                  _putcFIFO_TX
-                  0x001d92                  _putcUART
-                  0x001da8                  _putsUART
-                  0x001f36                  _setLED
+                  0x001ad0                  _print_sensor_values
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x001d56                  _putcFIFO_TX
+                  0x001de2                  _putcUART
+                  0x001df8                  _putsUART
+                  0x001f86                  _setLED
                   0x00118c                  _strlen
 
 Memory Configuration
@@ -626,7 +626,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS
+ __FGS.sec        0xf80004          0x2 /CW/_FGS€\
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -653,7 +653,7 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3f0a
+.debug_info       0x000000       0x3f35
  *(.debug_info)
  .debug_info      0x000000        0x145 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_info      0x000145        0x42e build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -661,8 +661,8 @@ __FUID0
  .debug_info      0x000f23        0xd98 build/XC16_dsPIC33EP512MU810/production/code/system.o
  .debug_info      0x001cbb        0x3bf build/XC16_dsPIC33EP512MU810/production/code/traps.o
  .debug_info      0x00207a        0x1a9 build/XC16_dsPIC33EP512MU810/production/code/user.o
- .debug_info      0x002223       0x1087 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_info      0x0032aa        0xc60 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_info      0x002223       0x10b2 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+ .debug_info      0x0032d5        0xc60 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x799
@@ -676,16 +676,16 @@ __FUID0
  .debug_abbrev    0x00045b        0x1f3 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_abbrev    0x00064e        0x14b build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
-.debug_line       0x000000        0x931
+.debug_line       0x000000        0x935
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
- .debug_line      0x00001a        0x124 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
- .debug_line      0x00013e        0x144 build/XC16_dsPIC33EP512MU810/production/code/main.o
- .debug_line      0x000282        0x147 build/XC16_dsPIC33EP512MU810/production/code/system.o
- .debug_line      0x0003c9        0x125 build/XC16_dsPIC33EP512MU810/production/code/traps.o
- .debug_line      0x0004ee        0x114 build/XC16_dsPIC33EP512MU810/production/code/user.o
- .debug_line      0x000602        0x1be build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_line      0x0007c0        0x171 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_line      0x00001a        0x123 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
+ .debug_line      0x00013d        0x144 build/XC16_dsPIC33EP512MU810/production/code/main.o
+ .debug_line      0x000281        0x147 build/XC16_dsPIC33EP512MU810/production/code/system.o
+ .debug_line      0x0003c8        0x125 build/XC16_dsPIC33EP512MU810/production/code/traps.o
+ .debug_line      0x0004ed        0x114 build/XC16_dsPIC33EP512MU810/production/code/user.o
+ .debug_line      0x000601        0x1c3 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+ .debug_line      0x0007c4        0x171 build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
 .debug_frame      0x000000        0x47e
  *(.debug_frame)
@@ -3445,7 +3445,7 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGS
+LOAD /CW/_FGS€\
 LOAD jump_table
 LOAD data_init
 
@@ -3677,42 +3677,42 @@ __c30_signature
  .ivt._U1TXInterrupt
                   0x00002c          0x2 build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
-.const              0x97ae         0x28 load address 0x0017ae  
- .const             0x97ae         0x28 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+.const              0x97ae         0x4c load address 0x0017ae  
+ .const             0x97ae         0x4c build/XC16_dsPIC33EP512MU810/production/code/I2C.o
 
-.text             0x0017d6        0x36e
- .text            0x0017d6        0x36e build/XC16_dsPIC33EP512MU810/production/code/I2C.o
-                  0x0017d6                  _put_I2C_struct_FIFO
-                  0x001848                  _get_I2C_struct_FIFO
-                  0x001898                  _exchangeI2C
-                  0x0018da                  _doI2C
-                  0x0018e6                  _initI2C
-                  0x001932                  _FSM_Idle
-                  0x001948                  _FSM_Start
-                  0x001982                  _FSM_Adresse_Write
-                  0x0019dc                  _FSM_Repeated_Start
-                  0x0019fc                  _FSM_Adresse_Read
-                  0x001a5e                  _FSM_RECV_EN
-                  0x001a98                  _FSM_Stop
-                  0x001aac                  _print_sensor_values
+.text             0x0017fa        0x39a
+ .text            0x0017fa        0x39a build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x0018bc                  _exchangeI2C
+                  0x0018fe                  _doI2C
+                  0x00190a                  _initI2C
+                  0x001956                  _FSM_Idle
+                  0x00196c                  _FSM_Start
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001a00                  _FSM_Repeated_Start
+                  0x001a20                  _FSM_Adresse_Read
+                  0x001a82                  _FSM_RECV_EN
+                  0x001abc                  _FSM_Stop
+                  0x001ad0                  _print_sensor_values
 
-.dinit            0x001b44        0x174
- .dinit           0x001b44        0x174 data_init
+.dinit            0x001b94        0x174
+ .dinit           0x001b94        0x174 data_init
 
-.text             0x001cb8        0x2a0
- .text            0x001cb8        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
-                  0x001cb8                  _initUART
-                  0x001d06                  _putcFIFO_TX
-                  0x001d56                  _getcFIFO_TX
-                  0x001d92                  _putcUART
-                  0x001da8                  _putsUART
- .text            0x001df2         0xe4 build/XC16_dsPIC33EP512MU810/production/code/system.o
-                  0x001df2                  _ConfigureOscillator
-                  0x001e4a                  _init_timer1
-                  0x001e82                  _init_ms_t4
-                  0x001ea0                  _delay_ms
- .text            0x001ed6         0x5a build/XC16_dsPIC33EP512MU810/production/code/main.o
-                  0x001ed6                  _main
- .text            0x001f30         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
-                  0x001f30                  _InitApp
-                  0x001f36                  _setLED
+.text             0x001d08        0x2a0
+ .text            0x001d08        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
+                  0x001d08                  _initUART
+                  0x001d56                  _putcFIFO_TX
+                  0x001da6                  _getcFIFO_TX
+                  0x001de2                  _putcUART
+                  0x001df8                  _putsUART
+ .text            0x001e42         0xe4 build/XC16_dsPIC33EP512MU810/production/code/system.o
+                  0x001e42                  _ConfigureOscillator
+                  0x001e9a                  _init_timer1
+                  0x001ed2                  _init_ms_t4
+                  0x001ef0                  _delay_ms
+ .text            0x001f26         0x5a build/XC16_dsPIC33EP512MU810/production/code/main.o
+                  0x001f26                  _main
+ .text            0x001f80         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
+                  0x001f80                  _InitApp
+                  0x001f86                  _setLED

@@ -400,5 +400,17 @@ void print_sensor_values()
         putsUART(lf);
         status_licht=Pending;
     }
+    
+    if (status_licht==Error || status_temperatur==Error)
+    {
+       char str[16];
+       sprintf(str, "Fehler beim Auslesen eines Sensors!");
+       putsUART(str); 
+       
+       char lf[2];
+       sprintf(lf, "\n");
+        
+       putsUART(lf);
+    }
  
 } /* print_sensor_values() */
