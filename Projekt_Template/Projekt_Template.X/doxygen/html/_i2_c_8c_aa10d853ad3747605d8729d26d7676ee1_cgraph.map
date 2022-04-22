@@ -2,9 +2,9 @@
 <area shape="rect" id="node1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="5,80,148,107"/>
 <area shape="rect" id="node2" href="$_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="196,29,315,56"/>
 <area shape="rect" id="node3" href="$_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="213,155,297,181"/>
-<area shape="rect" id="node4" href="$_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="363,131,440,157"/>
-<area shape="rect" id="node5" href="$_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="517,80,602,107"/>
-<area shape="rect" id="node8" href="$_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="488,131,631,157"/>
-<area shape="rect" id="node6" href="$_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="679,181,821,208"/>
-<area shape="rect" id="node7" href="$_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="869,207,1016,233"/>
+<area shape="rect" id="node4" href="$_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="363,155,440,181"/>
+<area shape="rect" id="node5" href="$_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="517,104,602,131"/>
+<area shape="rect" id="node8" href="$_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="488,155,631,181"/>
+<area shape="rect" id="node6" href="$_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="679,205,821,232"/>
+<area shape="rect" id="node7" href="$_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="869,231,1016,257"/>
 </map>

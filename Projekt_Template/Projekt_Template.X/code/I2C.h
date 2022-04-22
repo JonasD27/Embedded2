@@ -45,7 +45,7 @@ typedef struct
     uint8_t *writebuf;
     uint16_t num_read;
     uint8_t *readbuf;
-    i2c_status_t status;
+    i2c_status_t *status;
 }I2C_struct;
 
 
@@ -71,8 +71,11 @@ uint8_t read_data_buffer_light[2];
 
 bool trigger_FSM;
 
+i2c_status_t status_temperatur;
+i2c_status_t status_licht;
 
-I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,Finished};
+
+I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,NULL};
 
 Buffer_I2C_FSM FIFO_I2C = {{},0,0}; //FIFO für die I2C FSM
 #else
@@ -82,6 +85,9 @@ extern uint8_t read_data_buffer_temp[2];
 extern uint8_t read_data_buffer_light[2];
 
 extern bool trigger_FSM;
+
+extern i2c_status_t status_temperatur;
+extern i2c_status_t status_licht;
 
 
 extern I2C_struct I2C_test_struct;

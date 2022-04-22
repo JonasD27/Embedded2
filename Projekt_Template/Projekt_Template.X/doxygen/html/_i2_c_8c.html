@@ -175,7 +175,7 @@ Funktionen</h2></td></tr>
 <p>Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation. </p>
 <p >Falls das FIFO neue Anfragen enthält wird die FSM getriggert. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00101">101</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00104">104</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -274,7 +274,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
   </dd>
 </dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00076">76</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00082">82</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -327,7 +327,7 @@ FSM_Stop, sobald die Stop-Bedigungen an die Pins SDAx und SCLx weitergeleitet wu
 <dd>
 FSM_Adresse_Read, wenn kein ACK vom Slave erhalten oder das Bit der ACK-Sequenz nicht freigegeben ist </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00279">279</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00296">296</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -336,11 +336,11 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <area shape="rect" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="5,80,148,107"/>
 <area shape="rect" href="_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="196,29,315,56"/>
 <area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="213,155,297,181"/>
-<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="363,131,440,157"/>
-<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="517,80,602,107"/>
-<area shape="rect" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="488,131,631,157"/>
-<area shape="rect" href="_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="679,181,821,208"/>
-<area shape="rect" href="_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="869,207,1016,233"/>
+<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="363,155,440,181"/>
+<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="517,104,602,131"/>
+<area shape="rect" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="488,155,631,181"/>
+<area shape="rect" href="_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="679,205,821,232"/>
+<area shape="rect" href="_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="869,231,1016,257"/>
 </map>
 </div>
 <div class="dynheader">
@@ -391,7 +391,7 @@ FSM_Adresse_Write, sobald keine Bytes mehr zu senden gibt </dd>
 <dd>
 FSM_Repeated_Start, sobald die Bedigungen für den wiederholten Start an die Pins SDAx und SClx weitergeleitet wurde. </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00214">214</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00231">231</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -412,15 +412,15 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
 <div class="center"><img src="_i2_c_8c_a6147b1d310d535a45c9260b25c72f087_icgraph.png" border="0" usemap="#a_i2_c_8c_a6147b1d310d535a45c9260b25c72f087_icgraph" alt=""/></div>
 <map name="a_i2_c_8c_a6147b1d310d535a45c9260b25c72f087_icgraph" id="a_i2_c_8c_a6147b1d310d535a45c9260b25c72f087_icgraph">
-<area shape="rect" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="781,131,924,157"/>
-<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="648,56,733,83"/>
-<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="523,5,600,32"/>
-<area shape="rect" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C&#45;Kommunikation." alt="" coords="405,5,460,32"/>
-<area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="391,131,475,157"/>
-<area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="246,5,297,32"/>
-<area shape="rect" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="200,107,343,133"/>
-<area shape="rect" href="_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="19,107,138,133"/>
-<area shape="rect" href="_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="5,181,152,208"/>
+<area shape="rect" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="781,155,924,181"/>
+<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="648,80,733,107"/>
+<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="523,29,600,56"/>
+<area shape="rect" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C&#45;Kommunikation." alt="" coords="405,29,460,56"/>
+<area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="391,155,475,181"/>
+<area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="246,29,297,56"/>
+<area shape="rect" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="200,131,343,157"/>
+<area shape="rect" href="_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="19,131,138,157"/>
+<area shape="rect" href="_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="5,205,152,232"/>
 </map>
 </div>
 
@@ -445,7 +445,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Kopiert die Anfrage aus dem FIFO und leitet Start-Sequenz ein. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>FSM_Start, sobald die Startbedingungen an die Pins SDAx und SCLx weitergeleiet worden sind </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00167">167</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00177">177</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -507,15 +507,15 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <dd>
 FSM_RECV_EN, Wenn die Empfangssequenz nicht ausgeführt wurde </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00330">330</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00347">347</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="_i2_c_8c_a7c5db52646d82b6f4dc89cda29fbbbb5_cgraph.png" border="0" usemap="#a_i2_c_8c_a7c5db52646d82b6f4dc89cda29fbbbb5_cgraph" alt=""/></div>
 <map name="a_i2_c_8c_a7c5db52646d82b6f4dc89cda29fbbbb5_cgraph" id="a_i2_c_8c_a7c5db52646d82b6f4dc89cda29fbbbb5_cgraph">
-<area shape="rect" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="5,117,124,144"/>
-<area shape="rect" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="172,117,315,144"/>
-<area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="363,117,447,144"/>
+<area shape="rect" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="5,105,124,132"/>
+<area shape="rect" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="172,105,315,132"/>
+<area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="363,105,447,132"/>
 <area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="495,80,572,107"/>
 <area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="649,29,734,56"/>
 <area shape="rect" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="620,80,763,107"/>
@@ -561,7 +561,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>FSM_Adresse_Read, sobald es einen Restart gibt </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00256">256</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00273">273</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -571,10 +571,10 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <area shape="rect" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="200,67,343,93"/>
 <area shape="rect" href="_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="391,67,509,93"/>
 <area shape="rect" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="408,192,492,219"/>
-<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="557,168,635,195"/>
-<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="711,117,797,144"/>
-<area shape="rect" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="683,168,825,195"/>
-<area shape="rect" href="_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="873,117,1016,144"/>
+<area shape="rect" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="557,192,635,219"/>
+<area shape="rect" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="711,129,797,156"/>
+<area shape="rect" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="683,192,825,219"/>
+<area shape="rect" href="_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="873,129,1016,156"/>
 </map>
 </div>
 <div class="dynheader">
@@ -615,7 +615,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Beschreibt das Trancieve-Register mit der Adresse. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>FSM_Adresse_Write, sobald geschrieben werden kann @retrun FSM_Adresse_Read, sobald gelesen werden kann </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00181">181</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00198">198</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -671,7 +671,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <dd>
 FSM_Stop, wenn keine Stop-Bedingungen weitergeleitet wurden </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00362">362</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00379">379</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -737,7 +737,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
   </dd>
 </dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00045">45</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00048">48</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
@@ -778,7 +778,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p >Einschalten I2C mit eigenem Workaround, I2C Peripheriemodul kann hier leider nicht verwendet werden. Pins wie einen Open-Kollektor-Treiber verwenden, d.h. 1 - hochohmig, 0 wird getrieben</p>
 <p >Aktiviert das I2C Modul und konfiguriert die Pins SDAx und SCLx als serielle PORT-Pins.</p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00120">120</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00130">130</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -818,7 +818,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 
 <p>Ausgabe der ausgelesenen Sensor-Werte per UART. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00376">376</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8c_source.html#l00392">392</a> der Datei <a class="el" href="_i2_c_8c_source.html">I2C.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">

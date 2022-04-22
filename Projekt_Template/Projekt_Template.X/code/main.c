@@ -1,8 +1,8 @@
 /*TODO
+ * exchangeI2C
  *  Testen
     Doku mit DoxyGen
-    Lichtsensor testen
-    FSM in Interrupt
+    (FSM in Interrupt)
  *  
  */
 
@@ -63,6 +63,7 @@ int16_t main(void)
             {
                 Count = 0;
                 doI2C();
+                print_sensor_values();
             }         
         }
     }

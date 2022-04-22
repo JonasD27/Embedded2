@@ -18,9 +18,11 @@
  */
 int16_t put_I2C_struct_FIFO(I2C_struct s)
 {
+  _GIE=0;
   if ( ( FIFO_I2C.write + 1 == FIFO_I2C.read ) ||
        ( FIFO_I2C.read == 0 && FIFO_I2C.write + 1 == BUFFER_SIZE ) )
   {
+    _GIE=1;  
     return BUFFER_FAIL; // voll
   }
 
@@ -31,6 +33,7 @@ int16_t put_I2C_struct_FIFO(I2C_struct s)
   {
     FIFO_I2C.write = 0;
   }
+  _GIE=1;
   return BUFFER_SUCCESS;
   
 } /* put_I2C_struct_FIFO() */
@@ -44,8 +47,10 @@ int16_t put_I2C_struct_FIFO(I2C_struct s)
  */
 int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
 {
+  _GIE=0;  
   if (FIFO_I2C.read == FIFO_I2C.write)
   {
+    _GIE=1;  
     return BUFFER_FAIL;
   }
   *s = FIFO_I2C.data[FIFO_I2C.read];
@@ -55,6 +60,7 @@ int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
   {
     FIFO_I2C.read = 0;
   }
+  _GIE=1;
   return BUFFER_SUCCESS;
   
 } /* get_I2C_struct_FIFO() */
@@ -75,14 +81,10 @@ int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
  */
 int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status)
 {
-    I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,Pending};
-    put_I2C_struct_FIFO(temporary_struct);
-    
-    *status = I2C_test_struct.status;
-    
-    if (I2C_test_struct.status==Finished)   //Status der FSM abgearbeitet?
+    I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,status};
+  
+    if (put_I2C_struct_FIFO(temporary_struct))   //Erfolgreich in FIFO abgelegt?
     {
-     
         return 1;
     }
     else
@@ -101,17 +103,7 @@ int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint
 void doI2C()
 {
   static StateFunc statefunc = FSM_Idle;
-  
-  if (!(FIFO_I2C.read == FIFO_I2C.write)) //Wenn Ihnalt im FIFO ist
-  {
-      trigger_FSM=1;  
-  }
-  
-  if (trigger_FSM==1)
-  {
-      statefunc = (StateFunc)(*statefunc)(); 
-  }
-   
+  statefunc = (StateFunc)(*statefunc)(); 
 } /* doI2C() */
 
 /**
@@ -166,10 +158,15 @@ void initI2C()
  */
 void *FSM_Idle(void)
 {
-    get_I2C_struct_FIFO(&I2C_test_struct);
-    I2C2CONbits.SEN=1; // Leite Start-Bedingungen weiter
-    return FSM_Start;
-
+    if (get_I2C_struct_FIFO(&I2C_test_struct)) //Anfrage aus FIFO holen möglich
+    {
+        I2C2CONbits.SEN=1; // Leite Start-Bedingungen weiter
+        return FSM_Start;
+    }
+    else
+    {
+        return FSM_Idle;
+    }
 } /* *FSM_Idle() */
 
 
@@ -218,7 +215,7 @@ void *FSM_Adresse_Write(void)
         if (I2C2STATbits.ACKSTAT==1) // Leitet Stop-Bedigungen weiter
         {  
             I2C2CONbits.PEN=1;  //Fehler bei Kommunikation
-            I2C_test_struct.status=Error;
+            *I2C_test_struct.status=Error;
             return FSM_Stop;
         }
         
@@ -283,7 +280,7 @@ void *FSM_Adresse_Read(void)
         if (I2C2STATbits.ACKSTAT==1) //Wenn NACK von Slave erhalten
         {  
             I2C2CONbits.PEN=1;  // Leitet Stop-Bedigungen weiter 
-            I2C_test_struct.status=Error;   //Fehler bei Kommunikation
+            *I2C_test_struct.status=Error;   //Fehler bei Kommunikation
             return FSM_Stop;
         }
         
@@ -304,7 +301,7 @@ void *FSM_Adresse_Read(void)
                 { 
                    count = 0; 
                    I2C2CONbits.PEN=1;   // Leitet Stop-Bedigungen weiter
-                   I2C_test_struct.status=Finished; //Anforderung abgearbeitet
+                   *I2C_test_struct.status=Finished; //Anforderung abgearbeitet
                    return FSM_Stop;
                 }
             }
@@ -363,7 +360,6 @@ void *FSM_Stop(void)
 {
     if(I2C2CONbits.PEN==0)  //Wenn die Stop-Bedingungen weitergeleitet wurden
     {  
-        trigger_FSM=0;
         return FSM_Idle;
     } 
     return FSM_Stop;
@@ -376,21 +372,33 @@ void *FSM_Stop(void)
 void print_sensor_values()
 {
     //Temperatur
-    double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
-    char str[16];
-    sprintf(str,"%.1f",temp/256);
-    putsUART("Temperatur: ");
-    putsUART(str);
-    putsUART(" Grad");
-    putsUART("\n");
+    if (status_temperatur==Finished)
+    {
+        double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
+        char str[16];
+        sprintf(str,"Temperatur: %.1f Grad",temp/256);
+        putsUART(str);
+        
+        char lf[2];
+        sprintf(lf, "\n");
+        
+        putsUART(lf);
+        status_temperatur=Pending;
+    }
     
-    //Licht
-    double light = read_data_buffer_light[0]<<8 | read_data_buffer_light[1];
-    
-    sprintf(str,"%.1f",light/1.2);
-    putsUART("Licht: ");
-    putsUART(str);
-    putsUART(" lux");
-    putsUART("\n");
+    if (status_licht==Finished)
+    {
+        //Licht
+        double light = read_data_buffer_light[0]<<8 | read_data_buffer_light[1];
+        char str[16];
+        sprintf(str,"Licht: %.1f lux",light/1.2);
+        putsUART(str);
+        
+        char lf[2];
+        sprintf(lf, "\n");
+        
+        putsUART(lf);
+        status_licht=Pending;
+    }
  
 } /* print_sensor_values() */

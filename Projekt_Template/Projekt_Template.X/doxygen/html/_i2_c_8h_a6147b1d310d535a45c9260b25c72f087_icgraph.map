@@ -1,11 +1,11 @@
 <map id="FSM_Adresse_Write" name="FSM_Adresse_Write">
-<area shape="rect" id="node1" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="781,131,924,157"/>
-<area shape="rect" id="node2" href="$_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="648,56,733,83"/>
-<area shape="rect" id="node3" href="$_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="523,5,600,32"/>
-<area shape="rect" id="node4" href="$_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C&#45;Kommunikation." alt="" coords="405,5,460,32"/>
-<area shape="rect" id="node6" href="$_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="391,131,475,157"/>
-<area shape="rect" id="node5" href="$main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="246,5,297,32"/>
-<area shape="rect" id="node7" href="$_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="200,107,343,133"/>
-<area shape="rect" id="node8" href="$_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="19,107,138,133"/>
-<area shape="rect" id="node9" href="$_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="5,181,152,208"/>
+<area shape="rect" id="node1" title="Schreibt die zu übertragende Daten in das Tranceive&#45;Register." alt="" coords="781,155,924,181"/>
+<area shape="rect" id="node2" href="$_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="648,80,733,107"/>
+<area shape="rect" id="node3" href="$_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="523,29,600,56"/>
+<area shape="rect" id="node4" href="$_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C&#45;Kommunikation." alt="" coords="405,29,460,56"/>
+<area shape="rect" id="node6" href="$_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="391,155,475,181"/>
+<area shape="rect" id="node5" href="$main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="246,29,297,56"/>
+<area shape="rect" id="node7" href="$_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="200,131,343,157"/>
+<area shape="rect" id="node8" href="$_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="19,131,138,157"/>
+<area shape="rect" id="node9" href="$_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse." alt="" coords="5,205,152,232"/>
 </map>

@@ -56,12 +56,14 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
 
 int16_t putcFIFO_TX(char c)
 {
+  _GIE=0;  
   //if (buffer.write >= BUFFER_SIZE)
   //  buffer.write = 0; // erhöht sicherheit
   _LATF0 = 1;
   if ( ( FIFO.write + 1 == FIFO.read ) ||
        ( FIFO.read == 0 && FIFO.write + 1 == BUFFER_SIZE ) )
   {
+    _GIE=1;   
     return BUFFER_FAIL; // voll
   }
 
@@ -72,15 +74,17 @@ int16_t putcFIFO_TX(char c)
   {
     FIFO.write = 0;
   }
+  _GIE=1; 
   return BUFFER_SUCCESS;
   
 } /* putcFIFO_TX() */
 
 int16_t getcFIFO_TX(volatile uint16_t *c)
 {
-  _LATF0 = 1;
+  _GIE=0; 
   if (FIFO.read == FIFO.write)
   {
+    _GIE=1;  
     return BUFFER_FAIL;
   }
   *c = FIFO.data[FIFO.read];
@@ -90,6 +94,7 @@ int16_t getcFIFO_TX(volatile uint16_t *c)
   {
     FIFO.read = 0;
   }
+  _GIE=1;
   return BUFFER_SUCCESS;
   
 } /* getcFIFO_TX() */
@@ -106,14 +111,12 @@ int16_t putcUART(char c)
 
 int16_t putsUART(const char *str) 
 {
-    _LATF0 = 1;
     uint16_t i;
     uint16_t length = strlen(str);
     
     _GIE = 0;   //Global Interrupt disable
     for(i = 0; i < length; i++) 
     {
-        //uint16_t ret = putcFIFO_TX(str[i]);
         if(! putcFIFO_TX(str[i]))
             break;
     }

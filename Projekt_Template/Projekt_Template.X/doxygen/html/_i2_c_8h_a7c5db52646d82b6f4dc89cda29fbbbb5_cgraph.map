@@ -1,7 +1,7 @@
 <map id="FSM_RECV_EN" name="FSM_RECV_EN">
-<area shape="rect" id="node1" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="5,117,124,144"/>
-<area shape="rect" id="node2" href="$_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="172,117,315,144"/>
-<area shape="rect" id="node3" href="$_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="363,117,447,144"/>
+<area shape="rect" id="node1" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw." alt="" coords="5,105,124,132"/>
+<area shape="rect" id="node2" href="$_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves." alt="" coords="172,105,315,132"/>
+<area shape="rect" id="node3" href="$_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop&#45;Sequenz und Rückkehr in den Idle&#45;State." alt="" coords="363,105,447,132"/>
 <area shape="rect" id="node4" href="$_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start&#45;Sequenz ein." alt="" coords="495,80,572,107"/>
 <area shape="rect" id="node5" href="$_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve&#45;Register mit der Adresse." alt="" coords="649,29,734,56"/>
 <area shape="rect" id="node8" href="$_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C&#45;Anfrage aus dem I2C&#45;FIFO." alt="" coords="620,80,763,107"/>

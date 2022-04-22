@@ -1,13 +1,12 @@
-@mainpage Dokumentation
+@page em_code_style Code-Style
 
-@section em_code_style Code Style
 
 Hier wird der aktuelle Coding Style hinterlegt.
 
-@subsection em_formatierung EinrÃ¼ckung, Klammern und Formatierung
-Der Code sollte mÃ¶glichst einfach lesbar sein und gut strukturiert sein. 
-Die geschwungenen Klammern von BlÃ¶cken wie z.B. If-BlÃ¶cken stehen immer in einer neuen, alleinstehenden Zeile.
-BlÃ¶cke werden eingerÃ¼ckt.
+@subsection em_formatierung Einrückung, Klammern und Formatierung
+Der Code sollte möglichst einfach lesbar sein und gut strukturiert sein. 
+Die geschwungenen Klammern von Blöcken wie z.B. If-Blöcken stehen immer in einer neuen, alleinstehenden Zeile.
+Blöcke werden eingerückt.
 
 	if (x < foo (y, z))
 	{
@@ -29,7 +28,7 @@ Auch bei einzeiligen If-Anweisungen werden geschwungene Klammern verwendet.
 @subsection em_kommentare Kommentare
 Generell sollte jede Variable, Funktion oder andere Logik deren Aufgabe oder Bedeutung nicht 
 direkt erkennbar ist mit einem kurzen Kommentar beschrieben werden. 
-Falls der Kommentar sich Ã¼ber mehrere Zeilen erstreckt, wird dieser mit â€/* â€¦. */â€œ begrenzt. 
+Falls der Kommentar sich über mehrere Zeilen erstreckt, wird dieser mit â€/* â€¦. */â€œ begrenzt. 
 Andernfalls reichen die zwei doppelten Slashs â€//â€œ. Kommentare sind generell in Deutsch.
 
 	int icounter_5; //Counter mit Startwert 5
@@ -39,9 +38,9 @@ Andernfalls reichen die zwei doppelten Slashs â€//â€œ. Kommentare sind generell
 
 @subsection em_bezeichner Bezeichner / Namen von Variablen, Funktionen & Konstanten
 Die Namen von den verschiedenen Strukturen sollen schon beim Lesen einen Hinweis auf deren Funktion geben. 
-Die Namen sind generell in Englisch verfasst und kÃ¶nnen auch AbkÃ¼rzungen enthalten.
+Die Namen sind generell in Englisch verfasst und kÃ¶nnen auch Abkürzungen enthalten.
 Variablen- und Funktionen-Bezeichner werden durch Unterstriche getrennt und sind klein geschrieben. (snake_case)
-Konstanten hingegen werden groÃŸ geschrieben.
+Konstanten hingegen werden groß geschrieben.
 
 	//Konstanten
 	int DELAY_MS=4;
@@ -58,30 +57,15 @@ Bibliotheken werden generell immer am Anfang der Datei eingebunden.
 
 @subsection em_doxy Doxygen
 Einleitung mit /** 
-Nur die nÃ¶tigsten Tags verwenden.
+Nur die nötigsten Tags verwenden.
 
 	/**
-	* @brief VerzÃ¶gerung (ms)
-	* VerzÃ¶gerungsfunktion, blockierend
-	* @param milliseconds Anzahl der zu verzÃ¶gernden Millisekunden
+	* @brief Verzögerung (ms)
+	* Verzögerungsfunktion, blockierend
+	* @param milliseconds Anzahl der zu verzögernden Millisekunden
 	* @return â€¦
 	*/
 
 
 
 
-@section em_doku Programmdokumentation
-
-Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben
-
-@subsection em_aufgabe1 Aufgabe I2C Lichtsensor
-
-Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.
-
-Da der grundliegende I2C Kommunikationsablauf immer ähnlich ist, soll eine universelle FSM entwickelt werden, welche im Interrupt aber auch wahlweise in der Super Loop verwendet werden kann.
-
-Diese wird mittels der Funktion exchangeI2C()  getriggert, welche alls Schnittstelle zwischen Anwendungsprogramm und FSM fungiert.
-
-Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine)
-Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden
-Optional: Erweitern Sie den Kommandointerpreter von Embedded 1 um die Zeitintervalle über die UART verändern zu können.

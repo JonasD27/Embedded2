@@ -25,18 +25,8 @@
 var NAVTREE =
 [
   [ "Embedded 2 Dokumentation", "index.html", [
-    [ "Dokumentation", "index.html", [
-      [ "Code Style", "index.html#em_code_style", [
-        [ "EinrÃ¼ckung, Klammern und Formatierung", "index.html#em_formatierung", null ],
-        [ "Kommentare", "index.html#em_kommentare", null ],
-        [ "Bezeichner / Namen von Variablen, Funktionen & Konstanten", "index.html#em_bezeichner", null ],
-        [ "Bibliotheken", "index.html#em_bib", null ],
-        [ "Doxygen", "index.html#em_doxy", null ]
-      ] ],
-      [ "Programmdokumentation", "index.html#em_doku", [
-        [ "Aufgabe I2C Lichtsensor", "index.html#em_aufgabe1", null ]
-      ] ]
-    ] ],
+    [ "Programmdokumentation", "index.html", null ],
+    [ "Code-Style", "md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style.html", null ],
     [ "Datenstrukturen", "annotated.html", [
       [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
       [ "Datenstruktur-Verzeichnis", "classes.html", null ],

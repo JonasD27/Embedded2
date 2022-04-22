@@ -135,22 +135,30 @@
 \DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00133}00133     \textcolor{keywordflow}{if} (count>=\mbox{\hyperlink{user_8h_a29753842428f7af333a76486ce0286e2}{SENSOR\_TIME}}-\/1)}
 \DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00134}00134     \{}
 \DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00135}00135         count=0;}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00136}00136         \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\_status\_t}} status;   }
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00137}00137         \textcolor{comment}{//putsUART("{}Hello World\(\backslash\)n"{}); }}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00138}00138         \textcolor{comment}{//Anfrage Temperatur-\/Sensor}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00139}00139         \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchangeI2C}}(0b1001000, 1, \&\mbox{\hyperlink{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}{write\_data\_buffer\_temp}}, 2, \mbox{\hyperlink{_i2_c_8h_aef8997c71403e269e83a8e8478ccf73c}{read\_data\_buffer\_temp}}, \&status);}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00140}00140         \textcolor{comment}{//Anfrage Licht-\/Sensor}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00141}00141         \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchangeI2C}}(0b0100011, 1, \&\mbox{\hyperlink{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}{write\_data\_buffer\_light}}, 2, \mbox{\hyperlink{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}{read\_data\_buffer\_light}}, \&status);}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00142}00142         \mbox{\hyperlink{_i2_c_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\_sensor\_values}}();}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00143}00143     \}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00144}00144     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00145}00145     \{}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00146}00146         count++;}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00147}00147     \}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00148}00148 }
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00149}00149 \}}
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00150}00150 }
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00151}00151 }
-\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00152}00152 \textcolor{comment}{/* TODO Add interrupt routine code here. */}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00136}00136         \textcolor{comment}{//2 globale Variablen in denen der Status gespeichert wird}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00137}00137         \textcolor{comment}{//satus dann in print\_sensor pollen}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00138}00138         \textcolor{comment}{//rpint\_sensor in super loop}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00139}00139         \textcolor{comment}{//wenn finished ausgeben, dann wieder auf pending setzten}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00140}00140         \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\_status\_t}} status;   }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00141}00141         }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00142}00142         \textcolor{comment}{//Anfrage Temperatur-\/Sensor}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00143}00143         \textcolor{comment}{//status geht so verloren}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00144}00144         \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchangeI2C}}(0b1001000, 1, \&\mbox{\hyperlink{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}{write\_data\_buffer\_temp}}, 2, \mbox{\hyperlink{_i2_c_8h_aef8997c71403e269e83a8e8478ccf73c}{read\_data\_buffer\_temp}}, \&status);}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00145}00145         \textcolor{comment}{//Anfrage Licht-\/Sensor}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00146}00146         \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchangeI2C}}(0b0100011, 1, \&\mbox{\hyperlink{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}{write\_data\_buffer\_light}}, 2, \mbox{\hyperlink{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}{read\_data\_buffer\_light}}, \&status);}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00147}00147         \textcolor{comment}{// ist so immer um einen zyklus versetzt}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00148}00148         \mbox{\hyperlink{_i2_c_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\_sensor\_values}}();}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00149}00149         }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00150}00150         }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00151}00151     \}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00152}00152     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00153}00153     \{}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00154}00154         count++;}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00155}00155     \}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00157}00157 \}}
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{interrupts_8c_source_l00160}00160 \textcolor{comment}{/* TODO Add interrupt routine code here. */}}
 
 \end{DoxyCode}

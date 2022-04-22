@@ -3,70 +3,72 @@
 \mbox{\hyperlink{main_8c}{gehe zur Dokumentation dieser Datei}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001 \textcolor{comment}{/*TODO}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00002}00002 \textcolor{comment}{ *  Testen}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00003}00003 \textcolor{comment}{    Doku mit DoxyGen}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00004}00004 \textcolor{comment}{    Lichtsensor testen}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005 \textcolor{comment}{    FSM in Interrupt}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006 \textcolor{comment}{ *  }}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007 \textcolor{comment}{ */}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00002}00002 \textcolor{comment}{ * exchangeI2C}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00003}00003 \textcolor{comment}{ * Interrupt Funktion}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00004}00004 \textcolor{comment}{ * print\_sensor\_values}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005 \textcolor{comment}{ *  Testen}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006 \textcolor{comment}{    Doku mit DoxyGen}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007 \textcolor{comment}{    FSM in Interrupt}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008 \textcolor{comment}{ *  }}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010 }
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}\mbox{\hyperlink{main_8c_a34b04bd23b07b485921a728ad0805ac4}{00013}} \textcolor{preprocessor}{\#define MAIN}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014 \textcolor{preprocessor}{\#include <xc.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition                    */}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition                  */}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018 \textcolor{preprocessor}{\#include <string.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020 \textcolor{preprocessor}{\#include <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_a_r_t_8h}{UART.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i2_c_8h}{I2C.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}        \textcolor{comment}{/* System funct/params, like osc/peripheral config */}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}          \textcolor{comment}{/* User funct/params, such as InitApp              */}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}\mbox{\hyperlink{main_8c_a34b04bd23b07b485921a728ad0805ac4}{00015}} \textcolor{preprocessor}{\#define MAIN}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016 \textcolor{preprocessor}{\#include <xc.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition                    */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition                  */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_a_r_t_8h}{UART.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i2_c_8h}{I2C.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}        \textcolor{comment}{/* System funct/params, like osc/peripheral config */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}          \textcolor{comment}{/* User funct/params, such as InitApp              */}}
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030 \textcolor{comment}{/* Global Variable Declaration                                                */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030 }
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}\mbox{\hyperlink{main_8c_a8095cd8bb3de52fffba928ed8ff15065}{00033}} \textcolor{preprocessor}{\#define HEARTBEAT\_MS 1}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036 \textcolor{comment}{/* Main Program                                                               */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032 \textcolor{comment}{/* Global Variable Declaration                                                */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}\mbox{\hyperlink{main_8c_a8095cd8bb3de52fffba928ed8ff15065}{00035}} \textcolor{preprocessor}{\#define HEARTBEAT\_MS 1}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036 }
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}\mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{00039}} int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040 \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041     \mbox{\hyperlink{main__less_8c_a3674e1feb03e742150964aa79b8fe8df}{DELAY\_ANPASSUNG}} = ((\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\_FREQ}}/96)*2180ull)/1000000ull; \textcolor{comment}{//Berechnung der Delay Anpassung}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042     uint16\_t Count = 0;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044     \mbox{\hyperlink{system_8c_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{ConfigureOscillator}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045     \mbox{\hyperlink{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931}{initUART}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046     \mbox{\hyperlink{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}{init\_timer1}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047     \mbox{\hyperlink{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29}{init\_ms\_t4}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048     \mbox{\hyperlink{_i2_c_8c_abe298a3c1d98035cebe8b0535db549fa}{initI2C}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050     \_RP66R = \_RPOUT\_U1TX; \textcolor{comment}{//UART Pin Mapping}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051     RPINR18bits.U1RXR = 0b1011000;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052     }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053     }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054     \mbox{\hyperlink{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}{write\_data\_buffer\_temp}}=0b00000000;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055     \mbox{\hyperlink{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}{write\_data\_buffer\_light}}=0b00010000;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056     \textcolor{keywordflow}{while}(1)}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057     \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058         \textcolor{keywordflow}{if}(\_T4IF)}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059         \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060             \_T4IF=0;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061             Count++;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062             \textcolor{keywordflow}{if} (Count >= \mbox{\hyperlink{main_8c_a8095cd8bb3de52fffba928ed8ff15065}{HEARTBEAT\_MS}})}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063             \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064                 Count = 0;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065                 \mbox{\hyperlink{_i2_c_8c_a7335126c4448cdb02cd6fa5973398fbf}{doI2C}}();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066             \}         }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068     \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038 \textcolor{comment}{/* Main Program                                                               */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}\mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{00041}} int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043     \mbox{\hyperlink{main__less_8c_a3674e1feb03e742150964aa79b8fe8df}{DELAY\_ANPASSUNG}} = ((\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\_FREQ}}/96)*2180ull)/1000000ull; \textcolor{comment}{//Berechnung der Delay Anpassung}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044     uint16\_t Count = 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046     \mbox{\hyperlink{system_8c_a9cf05fad20cabd4ca4a12ab9b1c6e7ea}{ConfigureOscillator}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047     \mbox{\hyperlink{main__less_8c_a2cb50cd9b95f3b32212def6b17da3931}{initUART}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048     \mbox{\hyperlink{main__less_8c_af460918a62cf83ab0848c41f0ae852ea}{init\_timer1}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049     \mbox{\hyperlink{main__less_8c_ab99293b6cbbc43735cbe80ab55287b29}{init\_ms\_t4}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050     \mbox{\hyperlink{_i2_c_8c_abe298a3c1d98035cebe8b0535db549fa}{initI2C}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052     \_RP66R = \_RPOUT\_U1TX; \textcolor{comment}{//UART Pin Mapping}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053     RPINR18bits.U1RXR = 0b1011000;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054     }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055     }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056     \mbox{\hyperlink{_i2_c_8h_adff71d8937a9a0e682b3a195f98be0df}{write\_data\_buffer\_temp}}=0b00000000;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057     \mbox{\hyperlink{_i2_c_8h_a2d5347585325c234d8c68be50f2eb6a0}{write\_data\_buffer\_light}}=0b00010000;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058     \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059     \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060         \textcolor{keywordflow}{if}(\_T4IF)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061         \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062             \_T4IF=0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063             Count++;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064             \textcolor{keywordflow}{if} (Count >= \mbox{\hyperlink{main_8c_a8095cd8bb3de52fffba928ed8ff15065}{HEARTBEAT\_MS}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065             \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066                 Count = 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067                 \mbox{\hyperlink{_i2_c_8c_a7335126c4448cdb02cd6fa5973398fbf}{doI2C}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068             \}         }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071 \}}
 
 \end{DoxyCode}

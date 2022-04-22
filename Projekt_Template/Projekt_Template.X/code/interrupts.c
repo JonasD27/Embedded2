@@ -132,14 +132,15 @@ void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
     
     if (count>=SENSOR_TIME-1)
     {
-        count=0;
-        i2c_status_t status;   
-        //putsUART("Hello World\n"); 
+        count=0;     
         //Anfrage Temperatur-Sensor
-        exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status);
+        exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status_temperatur);
         //Anfrage Licht-Sensor
-        exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status);
-        print_sensor_values();
+        exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status_licht);
+     
+        
+        
+        
     }
     else
     {

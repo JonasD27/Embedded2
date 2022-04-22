@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Embedded 2 Dokumentation: Dokumentation</title>
+<title>Embedded 2 Dokumentation: Programmdokumentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,55 +84,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Dokumentation </div></div>
+  <div class="headertitle"><div class="title">Programmdokumentation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="em_code_style"></a>
-Code Style</h1>
-<p >Hier wird der aktuelle Coding Style hinterlegt.</p>
-<h2><a class="anchor" id="em_formatierung"></a>
-EinrÃ¼ckung, Klammern und Formatierung</h2>
-<p >Der Code sollte mÃ¶glichst einfach lesbar sein und gut strukturiert sein. Die geschwungenen Klammern von BlÃ¶cken wie z.B. If-BlÃ¶cken stehen immer in einer neuen, alleinstehenden Zeile. BlÃ¶cke werden eingerÃ¼ckt. </p><pre class="fragment">if (x &lt; foo (y, z))
-{
-  haha = bar[4] + 5;
-}
-else
-{
-  while (z)
-  {
-    haha += foo (z, z);
-    z--;
-  }
-return ++x + bar ();
-}
-</pre><p> Auch bei einzeiligen If-Anweisungen werden geschwungene Klammern verwendet.</p>
-<h2><a class="anchor" id="em_kommentare"></a>
-Kommentare</h2>
-<p >Generell sollte jede Variable, Funktion oder andere Logik deren Aufgabe oder Bedeutung nicht direkt erkennbar ist mit einem kurzen Kommentar beschrieben werden. Falls der Kommentar sich Ã¼ber mehrere Zeilen erstreckt, wird dieser mit â/* â¦. */â begrenzt. Andernfalls reichen die zwei doppelten Slashs â//â. Kommentare sind generell in Deutsch. </p><pre class="fragment">int icounter_5; //Counter mit Startwert 5
-
-int rgb_to_lumi(int r, int g, int b).... /*Funktion um RGB-Werte in   einen Luminanz-Wert zu konvertieren*/
-</pre><h2><a class="anchor" id="em_bezeichner"></a>
-Bezeichner / Namen von Variablen, Funktionen &amp; Konstanten</h2>
-<p >Die Namen von den verschiedenen Strukturen sollen schon beim Lesen einen Hinweis auf deren Funktion geben. Die Namen sind generell in Englisch verfasst und kÃ¶nnen auch AbkÃ¼rzungen enthalten. Variablen- und Funktionen-Bezeichner werden durch Unterstriche getrennt und sind klein geschrieben. (snake_case) Konstanten hingegen werden groÃ geschrieben. </p><pre class="fragment">//Konstanten
-int DELAY_MS=4;
-
-//Variablen und Funktionen
-int current_memory_left;
-void set_all_leds_high();
-</pre><h2><a class="anchor" id="em_bib"></a>
-Bibliotheken</h2>
-<p >Bibliotheken werden generell immer am Anfang der Datei eingebunden. </p><pre class="fragment">#include "test_3.h"
-</pre> <h2><a class="anchor" id="em_doxy"></a>
-Doxygen</h2>
-<p >Einleitung mit /** Nur die nÃ¶tigsten Tags verwenden. </p><pre class="fragment">/**
-* @brief VerzÃ¶gerung (ms)
-* VerzÃ¶gerungsfunktion, blockierend
-* @param milliseconds Anzahl der zu verzÃ¶gernden Millisekunden
-* @return â¦
-*/
-</pre><h1><a class="anchor" id="em_doku"></a>
-Programmdokumentation</h1>
-<p >Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben</p>
+<div class="textblock"><p >Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben</p>
 <h2><a class="anchor" id="em_aufgabe1"></a>
 Aufgabe I2C Lichtsensor</h2>
 <p >Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.</p>

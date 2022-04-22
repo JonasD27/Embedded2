@@ -39,6 +39,7 @@
     <itemPath>runfiles/doxygen_pdf.bat</itemPath>
     <itemPath>runfiles/doxygen_run.bat</itemPath>
     <itemPath>doku/Code Style.markdown</itemPath>
+    <itemPath>doku/Dokumentation.markdown</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>runfiles</Elem>
