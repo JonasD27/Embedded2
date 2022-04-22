@@ -58,74 +58,77 @@
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00056}00056 }
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00057}\mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{00057}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(\textcolor{keywordtype}{char} c)}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00058}00058 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00059}00059   \textcolor{comment}{//if (buffer.write >= BUFFER\_SIZE)}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00060}00060   \textcolor{comment}{//  buffer.write = 0; // erhöht sicherheit}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00061}00061   \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00062}00062   \textcolor{keywordflow}{if} ( ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} ) ||}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00063}00063        ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == 0 \&\& \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}} ) )}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00064}00064   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00065}00065     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}}; \textcolor{comment}{// voll}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00066}00066   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00068}00068   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}] = c;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00059}00059   \_GIE=0;  }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00060}00060   \textcolor{comment}{//if (buffer.write >= BUFFER\_SIZE)}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00061}00061   \textcolor{comment}{//  buffer.write = 0; // erhöht sicherheit}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00062}00062   \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00063}00063   \textcolor{keywordflow}{if} ( ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} ) ||}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00064}00064        ( \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == 0 \&\& \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} + 1 == \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}} ) )}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00065}00065   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00066}00066     \_GIE=1;   }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00067}00067     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}}; \textcolor{comment}{// voll}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00068}00068   \}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00070}00070   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}++;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00071}00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00072}00072   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00073}00073     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00074}00074   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00075}00075   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00076}00076   }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00077}00077 \} \textcolor{comment}{/* putcFIFO\_TX() */}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00078}00078 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00079}\mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{00079}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00080}00080 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00081}00081   \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00082}00082   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00083}00083   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00084}00084     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00085}00085   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00086}00086   *c = \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}];}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00087}00087 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00088}00088   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}++;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00089}00089   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00090}00090   \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00091}00091     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} = 0;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00092}00092   \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00093}00093   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00094}00094   }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00095}00095 \} \textcolor{comment}{/* getcFIFO\_TX() */}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00096}00096 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00097}\mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{00097}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putcUART}}(\textcolor{keywordtype}{char} c)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00098}00098 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00099}00099     \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00100}00100     \_GIE = 0; \textcolor{comment}{// Interrupts ausschalten}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00101}00101     int16\_t erfolg = \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(c);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00102}00102     \_GIE = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00103}00103     \textcolor{keywordflow}{return} erfolg;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00104}00104     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00105}00105 \} \textcolor{comment}{/* putcUART() */}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00106}00106 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00107}\mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{00107}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str) }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00108}00108 \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00109}00109     \_LATF0 = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00110}00110     uint16\_t i;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00111}00111     uint16\_t length = strlen(str);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00112}00112     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00113}00113     \_GIE = 0;   \textcolor{comment}{//Global Interrupt disable}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00114}00114     \textcolor{keywordflow}{for}(i = 0; i < length; i++) }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00115}00115     \{}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00116}00116         \textcolor{comment}{//uint16\_t ret = putcFIFO\_TX(str[i]);}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00117}00117         \textcolor{keywordflow}{if}(! \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(str[i]))}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00118}00118             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00119}00119     \}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00120}00120     \_GIE = 1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00121}00121     int16\_t erfolg = -\/i;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00122}00122     \textcolor{keywordflow}{if}(erfolg == -\/length)}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00123}00123         erfolg *= -\/1;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00124}00124     \_U1TXIF = 1; \textcolor{comment}{//Interuppt Routine Starten um FIFO-\/Inhalt zu senden}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00125}00125     \textcolor{keywordflow}{return} erfolg;}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00126}00126     }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00127}00127 \} \textcolor{comment}{/* putsUART() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00070}00070   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}] = c;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00072}00072   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}}++;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00073}00073   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00074}00074   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00075}00075     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}} = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00076}00076   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00077}00077   \_GIE=1; }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00078}00078   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00079}00079   }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00080}00080 \} \textcolor{comment}{/* putcFIFO\_TX() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00082}\mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{00082}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00083}00083 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00084}00084   \_GIE=0; }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00085}00085   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} == \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a60e9c75aa693ad12f404344cffc12505}{write}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00086}00086   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00087}00087     \_GIE=1;  }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00088}00088     \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a130a78573f3f044449912e5a564bab60}{BUFFER\_FAIL}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00089}00089   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00090}00090   *c = \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_a6fefed24f21d9e08925e7904fa7fe887}{data}}[\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}];}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00092}00092   \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}}++;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00093}00093   \textcolor{keywordflow}{if} (\mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} >= \mbox{\hyperlink{main__less_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00094}00094   \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00095}00095     \mbox{\hyperlink{main__less_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}.\mbox{\hyperlink{struct_buffer_ad99a3f990d972bf0b87f25fd507eb599}{read}} = 0;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00096}00096   \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00097}00097   \_GIE=1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00098}00098   \textcolor{keywordflow}{return} \mbox{\hyperlink{main__less_8c_a6861758eca7b115454b77ded9d29eebd}{BUFFER\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00099}00099   }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00100}00100 \} \textcolor{comment}{/* getcFIFO\_TX() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00102}\mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{00102}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putcUART}}(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00103}00103 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00104}00104     \_LATF0 = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00105}00105     \_GIE = 0; \textcolor{comment}{// Interrupts ausschalten}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00106}00106     int16\_t erfolg = \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(c);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00107}00107     \_GIE = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00108}00108     \textcolor{keywordflow}{return} erfolg;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00109}00109     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00110}00110 \} \textcolor{comment}{/* putcUART() */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00112}\mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{00112}} int16\_t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str) }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00113}00113 \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00114}00114     uint16\_t i;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00115}00115     uint16\_t length = strlen(str);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00116}00116     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00117}00117     \_GIE = 0;   \textcolor{comment}{//Global Interrupt disable}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00118}00118     \textcolor{keywordflow}{for}(i = 0; i < length; i++) }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00119}00119     \{}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00120}00120         \textcolor{keywordflow}{if}(! \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(str[i]))}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00121}00121             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00123}00123     \_GIE = 1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00124}00124     int16\_t erfolg = -\/i;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00125}00125     \textcolor{keywordflow}{if}(erfolg == -\/length)}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00126}00126         erfolg *= -\/1;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00127}00127     \_U1TXIF = 1; \textcolor{comment}{//Interuppt Routine Starten um FIFO-\/Inhalt zu senden}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00128}00128     \textcolor{keywordflow}{return} erfolg;}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00129}00129     }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8c_source_l00130}00130 \} \textcolor{comment}{/* putsUART() */}}
 
 \end{DoxyCode}

@@ -27,6 +27,8 @@ var _i2_c_8h =
     [ "I2C_test_struct", "_i2_c_8h.html#a290a8009ff32ac27f0687325153ddcba", null ],
     [ "read_data_buffer_light", "_i2_c_8h.html#a812b49b4aafdf99e12c75ed8005948a1", null ],
     [ "read_data_buffer_temp", "_i2_c_8h.html#aef8997c71403e269e83a8e8478ccf73c", null ],
+    [ "status_licht", "_i2_c_8h.html#a9b4d29ba3bf357b320400e1f01a35610", null ],
+    [ "status_temperatur", "_i2_c_8h.html#a11becdc58f1b623b42ad75744dfa6461", null ],
     [ "trigger_FSM", "_i2_c_8h.html#a7e90b5fd01a7117f3e4514cf4e3ee0cb", null ],
     [ "write_data_buffer_light", "_i2_c_8h.html#a2d5347585325c234d8c68be50f2eb6a0", null ],
     [ "write_data_buffer_temp", "_i2_c_8h.html#adff71d8937a9a0e682b3a195f98be0df", null ]

@@ -3,7 +3,7 @@
 
 
 Hier wird der aktuelle Coding Style hinterlegt.\hypertarget{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_formatierung}{}\doxysubsection{Einrückung, Klammern und Formatierung}\label{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_formatierung}
-Der Code sollte möglichst einfach lesbar sein und gut strukturiert sein. Die geschwungenen Klammern von BlÃ¶cken wie z.\+B. If-\/\+Blöcken stehen immer in einer neuen, alleinstehenden Zeile. Blöcke werden eingerückt. \begin{DoxyVerb}if (x < foo (y, z))
+Der Code sollte möglichst einfach lesbar sein und gut strukturiert sein. Die geschwungenen Klammern von Blöcken wie z.\+B. If-\/\+Blöcken stehen immer in einer neuen, alleinstehenden Zeile. Blöcke werden eingerückt. \begin{DoxyVerb}if (x < foo (y, z))
 {
   haha = bar[4] + 5;
 }
@@ -18,12 +18,12 @@ return ++x + bar ();
 }
 \end{DoxyVerb}
  Auch bei einzeiligen If-\/\+Anweisungen werden geschwungene Klammern verwendet.\hypertarget{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_kommentare}{}\doxysubsection{Kommentare}\label{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_kommentare}
-Generell sollte jede Variable, Funktion oder andere Logik deren Aufgabe oder Bedeutung nicht direkt erkennbar ist mit einem kurzen Kommentar beschrieben werden. Falls der Kommentar sich über mehrere Zeilen erstreckt, wird dieser mit â/$\ast$ â¦. $\ast$/â begrenzt. Andernfalls reichen die zwei doppelten Slashs â//â. Kommentare sind generell in Deutsch. \begin{DoxyVerb}int icounter_5; //Counter mit Startwert 5
+Generell sollte jede Variable, Funktion oder andere Logik deren Aufgabe oder Bedeutung nicht direkt erkennbar ist mit einem kurzen Kommentar beschrieben werden. Falls der Kommentar sich über mehrere Zeilen erstreckt, wird dieser mit /$\ast$ $\ast$/begrenzt. Andernfalls reichen die zwei doppelten Slashs //. Kommentare sind generell in Deutsch. \begin{DoxyVerb}int icounter_5; //Counter mit Startwert 5
 
 int rgb_to_lumi(int r, int g, int b).... /*Funktion um RGB-Werte in   einen Luminanz-Wert zu konvertieren*/
 \end{DoxyVerb}
 \hypertarget{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_bezeichner}{}\doxysubsection{Bezeichner / Namen von Variablen, Funktionen \& Konstanten}\label{md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style_em_bezeichner}
-Die Namen von den verschiedenen Strukturen sollen schon beim Lesen einen Hinweis auf deren Funktion geben. Die Namen sind generell in Englisch verfasst und kÃ¶nnen auch AbkÃ¼rzungen enthalten. Variablen-\/ und Funktionen-\/\+Bezeichner werden durch Unterstriche getrennt und sind klein geschrieben. (snake\+\_\+case) Konstanten hingegen werden groß geschrieben. \begin{DoxyVerb}//Konstanten
+Die Namen von den verschiedenen Strukturen sollen schon beim Lesen einen Hinweis auf deren Funktion geben. Die Namen sind generell in Englisch verfasst und können auch Abkürzungen enthalten. Variablen-\/ und Funktionen-\/\+Bezeichner werden durch Unterstriche getrennt und sind klein geschrieben. (snake\+\_\+case) Konstanten hingegen werden groß geschrieben. \begin{DoxyVerb}//Konstanten
 int DELAY_MS=4;
 
 //Variablen und Funktionen
@@ -38,7 +38,7 @@ Einleitung mit /$\ast$$\ast$ Nur die nötigsten Tags verwenden. \begin{DoxyVerb}
 * @brief Verzögerung (ms)
 * Verzögerungsfunktion, blockierend
 * @param milliseconds Anzahl der zu verzögernden Millisekunden
-* @return â¦
+* @return ...
 */
 \end{DoxyVerb}
  

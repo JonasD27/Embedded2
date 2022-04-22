@@ -87,13 +87,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Programmdokumentation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben</p>
+<div class="textblock"><p >Die Dokumentation erfolgt getrennt nach den jeweiligen Aufgaben</p>
 <h2><a class="anchor" id="em_aufgabe1"></a>
 Aufgabe I2C Lichtsensor</h2>
 <p >Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.</p>
 <p >Da der grundliegende I2C Kommunikationsablauf immer ähnlich ist, soll eine universelle FSM entwickelt werden, welche im Interrupt aber auch wahlweise in der Super Loop verwendet werden kann.</p>
 <p >Diese wird mittels der Funktion <a class="el" href="_i2_c_8c.html#afebf0d256affa0109e46790328ec5985" title="Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status.">exchangeI2C()</a> getriggert, welche alls Schnittstelle zwischen Anwendungsprogramm und FSM fungiert.</p>
-<p >Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden Optional: Erweitern Sie den Kommandointerpreter von Embedded 1 um die Zeitintervalle über die UART verändern zu können. </p>
+<p >Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden</p>
+<p >Die grundlegende Funktion ist wie folgt:</p>
+<p >Im Interrupt des Timer1 <a class="el" href="interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt()</a> wird zyklisch eine Anfrage mit der Funktion <a class="el" href="_i2_c_8c.html#afebf0d256affa0109e46790328ec5985" title="Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status.">exchangeI2C()</a> getätigt. In der Superloop befindet sich die Funktion <a class="el" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation.">doI2C()</a>, welche die FSM enthält. Außerdem befindet sich dort die Funktion <a class="el" href="_i2_c_8c.html#adebdefdb6d4ef0fb996c5495257e938e" title="Ausgabe der ausgelesenen Sensor-Werte per UART.">print_sensor_values()</a>, welche die Sensor-Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

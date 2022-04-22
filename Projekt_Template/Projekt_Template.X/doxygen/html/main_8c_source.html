@@ -88,88 +88,85 @@ $(document).ready(function(){initNavTree('main_8c_source.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a href="main_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*TODO</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * exchangeI2C</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Interrupt Funktion</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * print_sensor_values</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *  Testen</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    Doku mit DoxyGen</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    FSM in Interrupt</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *  </span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/* Files to Include                                                           */</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="main_8c.html#a34b04bd23b07b485921a728ad0805ac4">   15</a></span><span class="preprocessor">#define MAIN</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>        <span class="comment">/* Includes uint16_t definition                    */</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span>       <span class="comment">/* Includes true/false definition                  */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="_u_a_r_t_8h.html">UART.h</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="_i2_c_8h.html">I2C.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">    Doku mit DoxyGen</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/* Files to Include                                                           */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="main_8c.html#a34b04bd23b07b485921a728ad0805ac4">   10</a></span><span class="preprocessor">#define MAIN</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>        <span class="comment">/* Includes uint16_t definition                    */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span>       <span class="comment">/* Includes true/false definition                  */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_u_a_r_t_8h.html">UART.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="_i2_c_8h.html">I2C.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="system_8h.html">system.h</a>&quot;</span>        <span class="comment">/* System funct/params, like osc/peripheral config */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span>          <span class="comment">/* User funct/params, such as InitApp              */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="system_8h.html">system.h</a>&quot;</span>        <span class="comment">/* System funct/params, like osc/peripheral config */</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span>          <span class="comment">/* User funct/params, such as InitApp              */</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/* Global Variable Declaration                                                */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">   30</a></span><span class="preprocessor">#define HEARTBEAT_MS 1</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/* Global Variable Declaration                                                */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">   35</a></span><span class="preprocessor">#define HEARTBEAT_MS 1</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/* Main Program                                                               */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">   41</a></span>int16_t <a class="code hl_function" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a> = ((<a class="code hl_define" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>/96)*2180ull)/1000000ull; <span class="comment">//Berechnung der Delay Anpassung</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    uint16_t Count = 0;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="main__less_8c.html#a2cb50cd9b95f3b32212def6b17da3931">initUART</a>();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="main__less_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="main__less_8c.html#ab99293b6cbbc43735cbe80ab55287b29">init_ms_t4</a>();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa">initI2C</a>();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    _RP66R = _RPOUT_U1TX; <span class="comment">//UART Pin Mapping</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    RPINR18bits.U1RXR = 0b1011000;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_variable" href="_i2_c_8h.html#adff71d8937a9a0e682b3a195f98be0df">write_data_buffer_temp</a>=0b00000000;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_variable" href="_i2_c_8h.html#a2d5347585325c234d8c68be50f2eb6a0">write_data_buffer_light</a>=0b00010000;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">while</span>(1)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span>(_T4IF)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            _T4IF=0;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            Count++;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">if</span> (Count &gt;= <a class="code hl_define" href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">HEARTBEAT_MS</a>)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                Count = 0;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <a class="code hl_function" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf">doI2C</a>();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            }         </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
-<div class="ttc" id="a_i2_c_8c_html_a7335126c4448cdb02cd6fa5973398fbf"><div class="ttname"><a href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf">doI2C</a></div><div class="ttdeci">void doI2C()</div><div class="ttdoc">Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation.</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c_8c_source.html#l00104">I2C.c:104</a></div></div>
-<div class="ttc" id="a_i2_c_8c_html_abe298a3c1d98035cebe8b0535db549fa"><div class="ttname"><a href="_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa">initI2C</a></div><div class="ttdeci">void initI2C()</div><div class="ttdoc">Initialisiert die I2C-Kommunikation.</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c_8c_source.html#l00130">I2C.c:130</a></div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/* Main Program                                                               */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">   36</a></span>int16_t <a class="code hl_function" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_variable" href="main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a> = ((<a class="code hl_define" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>/96)*2180ull)/1000000ull; <span class="comment">//Berechnung der Delay Anpassung</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    uint16_t Count = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="main__less_8c.html#a2cb50cd9b95f3b32212def6b17da3931">initUART</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_function" href="main__less_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_function" href="main__less_8c.html#ab99293b6cbbc43735cbe80ab55287b29">init_ms_t4</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_function" href="_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa">initI2C</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    _RP66R = _RPOUT_U1TX; <span class="comment">//UART Pin Mapping</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    RPINR18bits.U1RXR = 0b1011000;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_variable" href="_i2_c_8h.html#adff71d8937a9a0e682b3a195f98be0df">write_data_buffer_temp</a>=0b00000000;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_variable" href="_i2_c_8h.html#a2d5347585325c234d8c68be50f2eb6a0">write_data_buffer_light</a>=0b00010000;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">while</span>(1)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span>(_T4IF)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            _T4IF=0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            Count++;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">if</span> (Count &gt;= <a class="code hl_define" href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">HEARTBEAT_MS</a>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                Count = 0;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <a class="code hl_function" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf">doI2C</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                <a class="code hl_function" href="_i2_c_8c.html#adebdefdb6d4ef0fb996c5495257e938e">print_sensor_values</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            }         </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+<div class="ttc" id="a_i2_c_8c_html_a7335126c4448cdb02cd6fa5973398fbf"><div class="ttname"><a href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf">doI2C</a></div><div class="ttdeci">void doI2C()</div><div class="ttdoc">Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation.</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c_8c_source.html#l00103">I2C.c:103</a></div></div>
+<div class="ttc" id="a_i2_c_8c_html_abe298a3c1d98035cebe8b0535db549fa"><div class="ttname"><a href="_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa">initI2C</a></div><div class="ttdeci">void initI2C()</div><div class="ttdoc">Initialisiert die I2C-Kommunikation.</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c_8c_source.html#l00112">I2C.c:112</a></div></div>
+<div class="ttc" id="a_i2_c_8c_html_adebdefdb6d4ef0fb996c5495257e938e"><div class="ttname"><a href="_i2_c_8c.html#adebdefdb6d4ef0fb996c5495257e938e">print_sensor_values</a></div><div class="ttdeci">void print_sensor_values()</div><div class="ttdoc">Ausgabe der ausgelesenen Sensor-Werte per UART.</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c_8c_source.html#l00372">I2C.c:372</a></div></div>
 <div class="ttc" id="a_i2_c_8h_html"><div class="ttname"><a href="_i2_c_8h.html">I2C.h</a></div></div>
 <div class="ttc" id="a_i2_c_8h_html_a2d5347585325c234d8c68be50f2eb6a0"><div class="ttname"><a href="_i2_c_8h.html#a2d5347585325c234d8c68be50f2eb6a0">write_data_buffer_light</a></div><div class="ttdeci">uint8_t write_data_buffer_light</div></div>
 <div class="ttc" id="a_i2_c_8h_html_adff71d8937a9a0e682b3a195f98be0df"><div class="ttname"><a href="_i2_c_8h.html#adff71d8937a9a0e682b3a195f98be0df">write_data_buffer_temp</a></div><div class="ttdeci">uint8_t write_data_buffer_temp</div></div>
 <div class="ttc" id="a_u_a_r_t_8h_html"><div class="ttname"><a href="_u_a_r_t_8h.html">UART.h</a></div></div>
-<div class="ttc" id="amain_8c_html_a8095cd8bb3de52fffba928ed8ff15065"><div class="ttname"><a href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">HEARTBEAT_MS</a></div><div class="ttdeci">#define HEARTBEAT_MS</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00035">main.c:35</a></div></div>
-<div class="ttc" id="amain_8c_html_aec570f4ab450e8224be63b7dcfa62b35"><div class="ttname"><a href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a></div><div class="ttdeci">int16_t main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00041">main.c:41</a></div></div>
+<div class="ttc" id="amain_8c_html_a8095cd8bb3de52fffba928ed8ff15065"><div class="ttname"><a href="main_8c.html#a8095cd8bb3de52fffba928ed8ff15065">HEARTBEAT_MS</a></div><div class="ttdeci">#define HEARTBEAT_MS</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00030">main.c:30</a></div></div>
+<div class="ttc" id="amain_8c_html_aec570f4ab450e8224be63b7dcfa62b35"><div class="ttname"><a href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a></div><div class="ttdeci">int16_t main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00036">main.c:36</a></div></div>
 <div class="ttc" id="amain__less_8c_html_a2cb50cd9b95f3b32212def6b17da3931"><div class="ttname"><a href="main__less_8c.html#a2cb50cd9b95f3b32212def6b17da3931">initUART</a></div><div class="ttdeci">void initUART()</div><div class="ttdef"><b>Definition:</b> <a href="main__less_8c_source.html#l00100">main_less.c:100</a></div></div>
 <div class="ttc" id="amain__less_8c_html_a3674e1feb03e742150964aa79b8fe8df"><div class="ttname"><a href="main__less_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a></div><div class="ttdeci">uint32_t DELAY_ANPASSUNG</div><div class="ttdef"><b>Definition:</b> <a href="main__less_8c_source.html#l00039">main_less.c:39</a></div></div>
 <div class="ttc" id="amain__less_8c_html_ab99293b6cbbc43735cbe80ab55287b29"><div class="ttname"><a href="main__less_8c.html#ab99293b6cbbc43735cbe80ab55287b29">init_ms_t4</a></div><div class="ttdeci">void init_ms_t4(void)</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00114">system.c:114</a></div></div>
 <div class="ttc" id="amain__less_8c_html_af460918a62cf83ab0848c41f0ae852ea"><div class="ttname"><a href="main__less_8c.html#af460918a62cf83ab0848c41f0ae852ea">init_timer1</a></div><div class="ttdeci">void init_timer1()</div><div class="ttdef"><b>Definition:</b> <a href="main__less_8c_source.html#l00210">main_less.c:210</a></div></div>
 <div class="ttc" id="asystem_8c_html_a9cf05fad20cabd4ca4a12ab9b1c6e7ea"><div class="ttname"><a href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a></div><div class="ttdeci">void ConfigureOscillator(void)</div><div class="ttdef"><b>Definition:</b> <a href="system_8c_source.html#l00040">system.c:40</a></div></div>
 <div class="ttc" id="asystem_8h_html"><div class="ttname"><a href="system_8h.html">system.h</a></div></div>
-<div class="ttc" id="asystem_8h_html_a7d5ce7b79462bbfb630ee53075540b65"><div class="ttname"><a href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a></div><div class="ttdeci">#define SYS_FREQ</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l00010">system.h:10</a></div></div>
+<div class="ttc" id="asystem_8h_html_a7d5ce7b79462bbfb630ee53075540b65"><div class="ttname"><a href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a></div><div class="ttdeci">#define SYS_FREQ</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l00012">system.h:12</a></div></div>
 <div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

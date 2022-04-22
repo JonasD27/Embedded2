@@ -1,8 +1,12 @@
-Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben\hypertarget{index_em_aufgabe1}{}\doxysubsection{Aufgabe I2\+C Lichtsensor}\label{index_em_aufgabe1}
+Die Dokumentation erfolgt getrennt nach den jeweiligen Aufgaben\hypertarget{index_em_aufgabe1}{}\doxysubsection{Aufgabe I2\+C Lichtsensor}\label{index_em_aufgabe1}
 Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-\/302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.
 
 Da der grundliegende I2C Kommunikationsablauf immer ähnlich ist, soll eine universelle FSM entwickelt werden, welche im Interrupt aber auch wahlweise in der Super Loop verwendet werden kann.
 
 Diese wird mittels der Funktion \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchange\+I2\+C()}} getriggert, welche alls Schnittstelle zwischen Anwendungsprogramm und FSM fungiert.
 
-Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden Optional\+: Erweitern Sie den Kommandointerpreter von Embedded 1 um die Zeitintervalle über die UART verändern zu können. 
+Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden
+
+Die grundlegende Funktion ist wie folgt\+:
+
+Im Interrupt des Timer1 \mbox{\hyperlink{interrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077}{\+\_\+\+T1\+Interrupt()}} wird zyklisch eine Anfrage mit der Funktion \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchange\+I2\+C()}} getätigt. In der Superloop befindet sich die Funktion \mbox{\hyperlink{_i2_c_8c_a7335126c4448cdb02cd6fa5973398fbf}{do\+I2\+C()}}, welche die FSM enthält. Außerdem befindet sich dort die Funktion \mbox{\hyperlink{_i2_c_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\+\_\+sensor\+\_\+values()}}, welche die Sensor-\/\+Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt. 

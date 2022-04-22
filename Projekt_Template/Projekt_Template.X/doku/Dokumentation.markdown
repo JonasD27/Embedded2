@@ -1,6 +1,6 @@
 @mainpage Programmdokumentation
 
-Die Dokumentation erfolgt gtrennt nach den jeweiligen Aufgaben
+Die Dokumentation erfolgt getrennt nach den jeweiligen Aufgaben
 
 @subsection em_aufgabe1 Aufgabe I2C Lichtsensor
 
@@ -12,5 +12,10 @@ Diese wird mittels der Funktion exchangeI2C()  getriggert, welche alls Schnittst
 
 Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine)
 Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden
-Optional: Erweitern Sie den Kommandointerpreter von Embedded 1 um die Zeitintervalle über die UART verändern zu können.
+
+Die grundlegende Funktion ist wie folgt:
+
+Im Interrupt des Timer1 _T1Interrupt() wird zyklisch eine Anfrage mit der Funktion exchangeI2C() getätigt.
+In der Superloop befindet sich die Funktion doI2C(), welche die FSM enthält.
+Außerdem befindet sich dort die Funktion print_sensor_values(), welche die Sensor-Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt.
 

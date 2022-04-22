@@ -90,6 +90,10 @@ uint8\+\_\+t \mbox{\hyperlink{_i2_c_8h_a812b49b4aafdf99e12c75ed8005948a1}{read\+
 \item 
 bool \mbox{\hyperlink{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}{trigger\+\_\+\+FSM}}
 \item 
+\mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{_i2_c_8h_a11becdc58f1b623b42ad75744dfa6461}{status\+\_\+temperatur}}
+\item 
+\mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{_i2_c_8h_a9b4d29ba3bf357b320400e1f01a35610}{status\+\_\+licht}}
+\item 
 \mbox{\hyperlink{struct_i2_c__struct}{I2\+C\+\_\+struct}} \mbox{\hyperlink{_i2_c_8h_a290a8009ff32ac27f0687325153ddcba}{I2\+C\+\_\+test\+\_\+struct}}
 \item 
 \mbox{\hyperlink{struct_buffer___i2_c___f_s_m}{Buffer\+\_\+\+I2\+C\+\_\+\+FSM}} \mbox{\hyperlink{_i2_c_8h_a704bb8674396325fb9ed2f65997b9d42}{FIFO\+\_\+\+I2C}}
@@ -196,7 +200,7 @@ Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2\+C-
 
 Falls das FIFO neue Anfragen enthält wird die FSM getriggert. 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00104}{104}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00103}{103}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -288,7 +292,7 @@ FSM\+\_\+\+Adresse\+\_\+\+Read, wenn kein ACK vom Slave erhalten oder das Bit de
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00296}{296}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00276}{276}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -328,7 +332,7 @@ FSM\+\_\+\+Repeated\+\_\+\+Start, sobald die Bedigungen für den wiederholten St
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00231}{231}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00211}{211}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -359,7 +363,7 @@ FSM\+\_\+\+Start, sobald die Startbedingungen an die Pins SDAx und SCLx weiterge
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00177}{177}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00159}{159}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -397,7 +401,7 @@ FSM\+\_\+\+RECV\+\_\+\+EN, Wenn die Empfangssequenz nicht ausgeführt wurde
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00347}{347}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00327}{327}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -428,7 +432,7 @@ FSM\+\_\+\+Adresse\+\_\+\+Read, sobald es einen Restart gibt
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00273}{273}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00253}{253}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -459,7 +463,7 @@ FSM\+\_\+\+Adresse\+\_\+\+Write, sobald geschrieben werden kann @retrun FSM\+\_\
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00198}{198}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00178}{178}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -492,7 +496,7 @@ FSM\+\_\+\+Stop, wenn keine Stop-\/\+Bedingungen weitergeleitet wurden
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00379}{379}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00359}{359}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -522,7 +526,7 @@ Einschalten I2C mit eigenem Workaround, I2C Peripheriemodul kann hier leider nic
 
 Aktiviert das I2C Modul und konfiguriert die Pins SDAx und SCLx als serielle PORT-\/\+Pins.
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00130}{130}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00112}{112}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -550,7 +554,7 @@ Ausgabe der ausgelesenen Sensor-\/\+Werte per UART.
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00392}{392}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_i2_c_8c_source_l00372}{372}} der Datei \mbox{\hyperlink{_i2_c_8c_source}{I2\+C.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -559,11 +563,12 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \includegraphics[width=350pt]{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915_cgraph}
 \end{center}
 \end{figure}
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=286pt]{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915_icgraph}
+\includegraphics[width=256pt]{_i2_c_8h_a8a04c6bbc751721e41e25af6d8f10915_icgraph}
 \end{center}
 \end{figure}
 
@@ -592,6 +597,18 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \index{read\_data\_buffer\_temp@{read\_data\_buffer\_temp}!I2C.h@{I2C.h}}
 \doxysubsubsection{\texorpdfstring{read\_data\_buffer\_temp}{read\_data\_buffer\_temp}}
 {\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data\+\_\+buffer\+\_\+temp\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a9b4d29ba3bf357b320400e1f01a35610}\label{_i2_c_8h_a9b4d29ba3bf357b320400e1f01a35610}} 
+\index{I2C.h@{I2C.h}!status\_licht@{status\_licht}}
+\index{status\_licht@{status\_licht}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{status\_licht}{status\_licht}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} status\+\_\+licht\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{_i2_c_8h_a11becdc58f1b623b42ad75744dfa6461}\label{_i2_c_8h_a11becdc58f1b623b42ad75744dfa6461}} 
+\index{I2C.h@{I2C.h}!status\_temperatur@{status\_temperatur}}
+\index{status\_temperatur@{status\_temperatur}!I2C.h@{I2C.h}}
+\doxysubsubsection{\texorpdfstring{status\_temperatur}{status\_temperatur}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} status\+\_\+temperatur\hspace{0.3cm}{\ttfamily [extern]}}
 
 \mbox{\Hypertarget{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}\label{_i2_c_8h_a7e90b5fd01a7117f3e4514cf4e3ee0cb}} 
 \index{I2C.h@{I2C.h}!trigger\_FSM@{trigger\_FSM}}
