@@ -19,3 +19,28 @@ Im Interrupt des Timer1 _T1Interrupt() wird zyklisch eine Anfrage mit der Funkti
 In der Superloop befindet sich die Funktion doI2C(), welche die FSM enthält.
 Außerdem befindet sich dort die Funktion print_sensor_values(), welche die Sensor-Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt.
 
+
+Die Funktionen in der I2C funktionieren wie folgt:
+
+In der Funktion put_I2C_struct_FIFO() wird eine I2C-Anfrage im I2C-FIFO abgelegt.
+Die Funktion get_I2C_struct_FIFO() entnimmt die I2C-Anfrage aus dem I2C-FIFO.
+Mit der initI2C() wird die I2C-Kommunikation initialisiert.
+
+Anschließend kommen die Funktionen der FSM:
+
+Zu Beginn die Funktion FSM_Idle(). Diese kopiert die Anfrage aus dem FIFO und leitet die Start-Sequenz ein. Wenn es eine Anfrage gibt, werden die Startbedingungen weitergeleitet.
+Mit der Funktion FSM_Start() wird das Trancieve-Register mit der Adresse beschrieben. Entweder wird geschrieben oder gelesen.
+Wenn geschrieben wird, wird die Funktion FSM_Adresse_Write() aufgerufen und die zu übertragenden Daten werden in das Tranceive-Register geschrieben.
+Wenn es nichts mehr zu senden gibt, dann kommt es zum Restart und die Funktion FSM_Repeated_Start() wird aufgerufen. Hier wird wieder das Tranceive-Register mit der Adresse beschrieben. 
+Wenn der Restart erfolgreich war, wird geschaut ob noch gelesen werden kann.
+Hierbei wird die Funktion FSM_Adresse_Read() aufgerufen. Hier wird das Lesen der Daten des Slaves initiiert. 
+Gibt es noch etwas zum Lesen wird die Funktion FSM_RECV_EN() aufgerufen. Diese liest das Receive Register aus und bestätigt dies mit einem ACK oder NACK.
+Treten Fehlerfälle beim Lesen oder Schreiben auf, wird eine Stopp-Bedingung eingeleitet. Dies hat zur Folge das die Funktion FSM_Stop() aufgerufen wird. Diese verursacht die Rückkehr in den Idle-State.
+
+Der Status der Anfragen wird innerhalb der FSM gesetzt. Falls der Status auf Finished gesetzt wird, gibt print_sensor_values() die gemessenen Werte aus.
+   
+
+  
+
+ 
+
