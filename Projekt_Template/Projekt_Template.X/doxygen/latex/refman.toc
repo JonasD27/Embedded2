@@ -1,210 +1,211 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{\numberline {1}Dokumentation}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Code Style}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}EinrÃ¼ckung, Klammern und Formatierung}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Kommentare}{1}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Bezeichner / Namen von Variablen, Funktionen \& Konstanten}{2}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Bibliotheken}{2}{subsection.1.1.4}%
-\contentsline {subsection}{\numberline {1.1.5}Doxygen}{2}{subsection.1.1.5}%
-\contentsline {section}{\numberline {1.2}Programmdokumentation}{2}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Aufgabe I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C Lichtsensor}{2}{subsection.1.2.1}%
-\contentsline {chapter}{\numberline {2}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Datenstrukturen}{3}{section.2.1}%
-\contentsline {chapter}{\numberline {3}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Auflistung der Dateien}{5}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Buffer Strukturreferenz}{7}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Ausführliche Beschreibung}{7}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Dokumentation der Felder}{7}{subsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.2.1}data}{8}{subsubsection.4.1.2.1}%
-\contentsline {subsubsection}{\numberline {4.1.2.2}read}{8}{subsubsection.4.1.2.2}%
-\contentsline {subsubsection}{\numberline {4.1.2.3}write}{8}{subsubsection.4.1.2.3}%
-\contentsline {section}{\numberline {4.2}Buffer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}FSM Strukturreferenz}{8}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Ausführliche Beschreibung}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Dokumentation der Felder}{9}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}data}{9}{subsubsection.4.2.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}read}{9}{subsubsection.4.2.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.3}write}{9}{subsubsection.4.2.2.3}%
-\contentsline {section}{\numberline {4.3}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Strukturreferenz}{10}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Ausführliche Beschreibung}{10}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Dokumentation der Felder}{10}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}address}{10}{subsubsection.4.3.2.1}%
-\contentsline {subsubsection}{\numberline {4.3.2.2}num\_read}{11}{subsubsection.4.3.2.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}num\_write}{11}{subsubsection.4.3.2.3}%
-\contentsline {subsubsection}{\numberline {4.3.2.4}readbuf}{11}{subsubsection.4.3.2.4}%
-\contentsline {subsubsection}{\numberline {4.3.2.5}status}{11}{subsubsection.4.3.2.5}%
-\contentsline {subsubsection}{\numberline {4.3.2.6}writebuf}{11}{subsubsection.4.3.2.6}%
-\contentsline {chapter}{\numberline {5}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{13}{section.5.2}%
-\contentsline {section}{\numberline {5.3}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{14}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Dokumentation der Funktionen}{15}{subsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.1.1}doI2C()}{15}{subsubsection.5.3.1.1}%
-\contentsline {subsubsection}{\numberline {5.3.1.2}exchangeI2C()}{16}{subsubsection.5.3.1.2}%
-\contentsline {subsubsection}{\numberline {5.3.1.3}FSM\_Adresse\_Read()}{17}{subsubsection.5.3.1.3}%
-\contentsline {subsubsection}{\numberline {5.3.1.4}FSM\_Adresse\_Write()}{18}{subsubsection.5.3.1.4}%
-\contentsline {subsubsection}{\numberline {5.3.1.5}FSM\_Idle()}{19}{subsubsection.5.3.1.5}%
-\contentsline {subsubsection}{\numberline {5.3.1.6}FSM\_RECV\_EN()}{20}{subsubsection.5.3.1.6}%
-\contentsline {subsubsection}{\numberline {5.3.1.7}FSM\_Repeated\_Start()}{21}{subsubsection.5.3.1.7}%
-\contentsline {subsubsection}{\numberline {5.3.1.8}FSM\_Start()}{22}{subsubsection.5.3.1.8}%
-\contentsline {subsubsection}{\numberline {5.3.1.9}FSM\_Stop()}{22}{subsubsection.5.3.1.9}%
-\contentsline {subsubsection}{\numberline {5.3.1.10}get\_I2C\_struct\_FIFO()}{23}{subsubsection.5.3.1.10}%
-\contentsline {subsubsection}{\numberline {5.3.1.11}initI2C()}{24}{subsubsection.5.3.1.11}%
-\contentsline {subsubsection}{\numberline {5.3.1.12}print\_sensor\_values()}{25}{subsubsection.5.3.1.12}%
-\contentsline {subsubsection}{\numberline {5.3.1.13}put\_I2C\_struct\_FIFO()}{25}{subsubsection.5.3.1.13}%
-\contentsline {section}{\numberline {5.4}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{26}{section.5.4}%
-\contentsline {section}{\numberline {5.5}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{29}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{31}{subsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.1.1}I2C\_SCL}{31}{subsubsection.5.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.5.1.2}I2C\_SCL\_TRIS}{32}{subsubsection.5.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.5.1.3}I2C\_SDA}{32}{subsubsection.5.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.5.1.4}I2C\_SDA\_TRIS}{32}{subsubsection.5.5.1.4}%
-\contentsline {subsection}{\numberline {5.5.2}Dokumentation der benutzerdefinierten Typen}{32}{subsection.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.2.1}StateFunc}{32}{subsubsection.5.5.2.1}%
-\contentsline {subsection}{\numberline {5.5.3}Dokumentation der Aufzählungstypen}{32}{subsection.5.5.3}%
-\contentsline {subsubsection}{\numberline {5.5.3.1}i2c\_status\_t}{32}{subsubsection.5.5.3.1}%
-\contentsline {subsection}{\numberline {5.5.4}Dokumentation der Funktionen}{33}{subsection.5.5.4}%
-\contentsline {subsubsection}{\numberline {5.5.4.1}doI2C()}{33}{subsubsection.5.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.5.4.2}exchangeI2C()}{33}{subsubsection.5.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.5.4.3}FSM\_Adresse\_Read()}{34}{subsubsection.5.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.5.4.4}FSM\_Adresse\_Write()}{35}{subsubsection.5.5.4.4}%
-\contentsline {subsubsection}{\numberline {5.5.4.5}FSM\_Idle()}{36}{subsubsection.5.5.4.5}%
-\contentsline {subsubsection}{\numberline {5.5.4.6}FSM\_RECV\_EN()}{37}{subsubsection.5.5.4.6}%
-\contentsline {subsubsection}{\numberline {5.5.4.7}FSM\_Repeated\_Start()}{38}{subsubsection.5.5.4.7}%
-\contentsline {subsubsection}{\numberline {5.5.4.8}FSM\_Start()}{39}{subsubsection.5.5.4.8}%
-\contentsline {subsubsection}{\numberline {5.5.4.9}FSM\_Stop()}{40}{subsubsection.5.5.4.9}%
-\contentsline {subsubsection}{\numberline {5.5.4.10}initI2C()}{40}{subsubsection.5.5.4.10}%
-\contentsline {subsubsection}{\numberline {5.5.4.11}print\_sensor\_values()}{41}{subsubsection.5.5.4.11}%
-\contentsline {subsection}{\numberline {5.5.5}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{42}{subsection.5.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.5.1}FIFO\_I2C}{42}{subsubsection.5.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.5.2}I2C\_test\_struct}{42}{subsubsection.5.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.5.3}read\_data\_buffer\_light}{42}{subsubsection.5.5.5.3}%
-\contentsline {subsubsection}{\numberline {5.5.5.4}read\_data\_buffer\_temp}{42}{subsubsection.5.5.5.4}%
-\contentsline {subsubsection}{\numberline {5.5.5.5}trigger\_FSM}{42}{subsubsection.5.5.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.5.6}write\_data\_buffer\_light}{42}{subsubsection.5.5.5.6}%
-\contentsline {subsubsection}{\numberline {5.5.5.7}write\_data\_buffer\_temp}{42}{subsubsection.5.5.5.7}%
-\contentsline {section}{\numberline {5.6}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{43}{section.5.6}%
-\contentsline {section}{\numberline {5.7}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{44}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Dokumentation der Funktionen}{44}{subsection.5.7.1}%
-\contentsline {subsubsection}{\numberline {5.7.1.1}\_T1Interrupt()}{44}{subsubsection.5.7.1.1}%
-\contentsline {section}{\numberline {5.8}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{45}{section.5.8}%
-\contentsline {section}{\numberline {5.9}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{47}{section.5.9}%
-\contentsline {subsection}{\numberline {5.9.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{47}{subsection.5.9.1}%
-\contentsline {subsubsection}{\numberline {5.9.1.1}HEARTBEAT\_MS}{47}{subsubsection.5.9.1.1}%
-\contentsline {subsubsection}{\numberline {5.9.1.2}MAIN}{48}{subsubsection.5.9.1.2}%
-\contentsline {subsection}{\numberline {5.9.2}Dokumentation der Funktionen}{48}{subsection.5.9.2}%
-\contentsline {subsubsection}{\numberline {5.9.2.1}main()}{48}{subsubsection.5.9.2.1}%
-\contentsline {section}{\numberline {5.10}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{48}{section.5.10}%
-\contentsline {section}{\numberline {5.11}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}less.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{49}{section.5.11}%
-\contentsline {subsection}{\numberline {5.11.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{50}{subsection.5.11.1}%
-\contentsline {subsubsection}{\numberline {5.11.1.1}BAUDRATE}{51}{subsubsection.5.11.1.1}%
-\contentsline {subsubsection}{\numberline {5.11.1.2}BRGVAL}{51}{subsubsection.5.11.1.2}%
-\contentsline {subsubsection}{\numberline {5.11.1.3}BUFFER\_FAIL}{51}{subsubsection.5.11.1.3}%
-\contentsline {subsubsection}{\numberline {5.11.1.4}BUFFER\_SIZE}{51}{subsubsection.5.11.1.4}%
-\contentsline {subsubsection}{\numberline {5.11.1.5}BUFFER\_SUCCESS}{51}{subsubsection.5.11.1.5}%
-\contentsline {subsubsection}{\numberline {5.11.1.6}HEARTBEAT\_MS}{51}{subsubsection.5.11.1.6}%
-\contentsline {subsubsection}{\numberline {5.11.1.7}I2C\_SCL}{52}{subsubsection.5.11.1.7}%
-\contentsline {subsubsection}{\numberline {5.11.1.8}I2C\_SCL\_TRIS}{52}{subsubsection.5.11.1.8}%
-\contentsline {subsubsection}{\numberline {5.11.1.9}I2C\_SDA}{52}{subsubsection.5.11.1.9}%
-\contentsline {subsubsection}{\numberline {5.11.1.10}I2C\_SDA\_TRIS}{52}{subsubsection.5.11.1.10}%
-\contentsline {subsection}{\numberline {5.11.2}Dokumentation der benutzerdefinierten Typen}{52}{subsection.5.11.2}%
-\contentsline {subsubsection}{\numberline {5.11.2.1}StateFunc}{52}{subsubsection.5.11.2.1}%
-\contentsline {subsection}{\numberline {5.11.3}Dokumentation der Funktionen}{52}{subsection.5.11.3}%
-\contentsline {subsubsection}{\numberline {5.11.3.1}\_T1Interrupt()}{53}{subsubsection.5.11.3.1}%
-\contentsline {subsubsection}{\numberline {5.11.3.2}\_U1TXInterrupt()}{53}{subsubsection.5.11.3.2}%
-\contentsline {subsubsection}{\numberline {5.11.3.3}delay\_ms()}{53}{subsubsection.5.11.3.3}%
-\contentsline {subsubsection}{\numberline {5.11.3.4}FSM2\_ACK\_Receive()}{54}{subsubsection.5.11.3.4}%
-\contentsline {subsubsection}{\numberline {5.11.3.5}FSM2\_Adresse()}{55}{subsubsection.5.11.3.5}%
-\contentsline {subsubsection}{\numberline {5.11.3.6}FSM2\_Data\_Receive()}{55}{subsubsection.5.11.3.6}%
-\contentsline {subsubsection}{\numberline {5.11.3.7}FSM2\_Idle()}{56}{subsubsection.5.11.3.7}%
-\contentsline {subsubsection}{\numberline {5.11.3.8}FSM2\_Start()}{56}{subsubsection.5.11.3.8}%
-\contentsline {subsubsection}{\numberline {5.11.3.9}FSM2\_Stop()}{57}{subsubsection.5.11.3.9}%
-\contentsline {subsubsection}{\numberline {5.11.3.10}getcFIFO\_TX()}{58}{subsubsection.5.11.3.10}%
-\contentsline {subsubsection}{\numberline {5.11.3.11}init\_ms\_t4()}{58}{subsubsection.5.11.3.11}%
-\contentsline {subsubsection}{\numberline {5.11.3.12}init\_timer1()}{58}{subsubsection.5.11.3.12}%
-\contentsline {subsubsection}{\numberline {5.11.3.13}initI2C()}{59}{subsubsection.5.11.3.13}%
-\contentsline {subsubsection}{\numberline {5.11.3.14}initUART()}{59}{subsubsection.5.11.3.14}%
-\contentsline {subsubsection}{\numberline {5.11.3.15}main()}{60}{subsubsection.5.11.3.15}%
-\contentsline {subsubsection}{\numberline {5.11.3.16}putcFIFO\_TX()}{61}{subsubsection.5.11.3.16}%
-\contentsline {subsubsection}{\numberline {5.11.3.17}putcUART()}{61}{subsubsection.5.11.3.17}%
-\contentsline {subsubsection}{\numberline {5.11.3.18}putsUART()}{61}{subsubsection.5.11.3.18}%
-\contentsline {subsubsection}{\numberline {5.11.3.19}Temp\_FSM2()}{62}{subsubsection.5.11.3.19}%
-\contentsline {subsection}{\numberline {5.11.4}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{62}{subsection.5.11.4}%
-\contentsline {subsubsection}{\numberline {5.11.4.1}data}{62}{subsubsection.5.11.4.1}%
-\contentsline {subsubsection}{\numberline {5.11.4.2}DELAY\_ANPASSUNG}{63}{subsubsection.5.11.4.2}%
-\contentsline {subsubsection}{\numberline {5.11.4.3}FIFO}{63}{subsubsection.5.11.4.3}%
-\contentsline {section}{\numberline {5.12}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}less.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{63}{section.5.12}%
-\contentsline {section}{\numberline {5.13}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{68}{section.5.13}%
-\contentsline {subsection}{\numberline {5.13.1}Dokumentation der Funktionen}{68}{subsection.5.13.1}%
-\contentsline {subsubsection}{\numberline {5.13.1.1}ConfigureOscillator()}{69}{subsubsection.5.13.1.1}%
-\contentsline {subsubsection}{\numberline {5.13.1.2}delay\_ms()}{69}{subsubsection.5.13.1.2}%
-\contentsline {subsubsection}{\numberline {5.13.1.3}init\_ms\_t4()}{69}{subsubsection.5.13.1.3}%
-\contentsline {subsubsection}{\numberline {5.13.1.4}init\_timer1()}{70}{subsubsection.5.13.1.4}%
-\contentsline {section}{\numberline {5.14}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{70}{section.5.14}%
-\contentsline {section}{\numberline {5.15}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{72}{section.5.15}%
-\contentsline {subsection}{\numberline {5.15.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{72}{subsection.5.15.1}%
-\contentsline {subsubsection}{\numberline {5.15.1.1}FCY}{72}{subsubsection.5.15.1.1}%
-\contentsline {subsubsection}{\numberline {5.15.1.2}SYS\_FREQ}{73}{subsubsection.5.15.1.2}%
-\contentsline {subsection}{\numberline {5.15.2}Dokumentation der Funktionen}{73}{subsection.5.15.2}%
-\contentsline {subsubsection}{\numberline {5.15.2.1}ConfigureOscillator()}{73}{subsubsection.5.15.2.1}%
-\contentsline {subsubsection}{\numberline {5.15.2.2}delay\_ms()}{73}{subsubsection.5.15.2.2}%
-\contentsline {subsubsection}{\numberline {5.15.2.3}init\_ms\_t4()}{74}{subsubsection.5.15.2.3}%
-\contentsline {subsubsection}{\numberline {5.15.2.4}init\_timer1()}{74}{subsubsection.5.15.2.4}%
-\contentsline {subsection}{\numberline {5.15.3}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{74}{subsection.5.15.3}%
-\contentsline {subsubsection}{\numberline {5.15.3.1}DELAY\_ANPASSUNG}{75}{subsubsection.5.15.3.1}%
-\contentsline {section}{\numberline {5.16}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{75}{section.5.16}%
-\contentsline {section}{\numberline {5.17}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{75}{section.5.17}%
-\contentsline {subsection}{\numberline {5.17.1}Dokumentation der Funktionen}{76}{subsection.5.17.1}%
-\contentsline {subsubsection}{\numberline {5.17.1.1}\_AddressError()}{76}{subsubsection.5.17.1.1}%
-\contentsline {subsubsection}{\numberline {5.17.1.2}\_DefaultInterrupt()}{76}{subsubsection.5.17.1.2}%
-\contentsline {subsubsection}{\numberline {5.17.1.3}\_MathError()}{76}{subsubsection.5.17.1.3}%
-\contentsline {subsubsection}{\numberline {5.17.1.4}\_OscillatorFail()}{76}{subsubsection.5.17.1.4}%
-\contentsline {subsubsection}{\numberline {5.17.1.5}\_StackError()}{77}{subsubsection.5.17.1.5}%
-\contentsline {section}{\numberline {5.18}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{77}{section.5.18}%
-\contentsline {section}{\numberline {5.19}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{79}{section.5.19}%
-\contentsline {subsection}{\numberline {5.19.1}Dokumentation der Funktionen}{79}{subsection.5.19.1}%
-\contentsline {subsubsection}{\numberline {5.19.1.1}\_U1TXInterrupt()}{80}{subsubsection.5.19.1.1}%
-\contentsline {subsubsection}{\numberline {5.19.1.2}getcFIFO\_TX()}{80}{subsubsection.5.19.1.2}%
-\contentsline {subsubsection}{\numberline {5.19.1.3}initUART()}{80}{subsubsection.5.19.1.3}%
-\contentsline {subsubsection}{\numberline {5.19.1.4}putcFIFO\_TX()}{81}{subsubsection.5.19.1.4}%
-\contentsline {subsubsection}{\numberline {5.19.1.5}putcUART()}{81}{subsubsection.5.19.1.5}%
-\contentsline {subsubsection}{\numberline {5.19.1.6}putsUART()}{82}{subsubsection.5.19.1.6}%
-\contentsline {section}{\numberline {5.20}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{82}{section.5.20}%
-\contentsline {section}{\numberline {5.21}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{83}{section.5.21}%
-\contentsline {subsection}{\numberline {5.21.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{85}{subsection.5.21.1}%
-\contentsline {subsubsection}{\numberline {5.21.1.1}BAUDRATE}{85}{subsubsection.5.21.1.1}%
-\contentsline {subsubsection}{\numberline {5.21.1.2}BRGVAL}{85}{subsubsection.5.21.1.2}%
-\contentsline {subsection}{\numberline {5.21.2}Dokumentation der Funktionen}{85}{subsection.5.21.2}%
-\contentsline {subsubsection}{\numberline {5.21.2.1}getcFIFO\_TX()}{85}{subsubsection.5.21.2.1}%
-\contentsline {subsubsection}{\numberline {5.21.2.2}initUART()}{86}{subsubsection.5.21.2.2}%
-\contentsline {subsubsection}{\numberline {5.21.2.3}putcFIFO\_TX()}{86}{subsubsection.5.21.2.3}%
-\contentsline {subsubsection}{\numberline {5.21.2.4}putsUART()}{87}{subsubsection.5.21.2.4}%
-\contentsline {subsection}{\numberline {5.21.3}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{87}{subsection.5.21.3}%
-\contentsline {subsubsection}{\numberline {5.21.3.1}FIFO}{87}{subsubsection.5.21.3.1}%
-\contentsline {section}{\numberline {5.22}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{87}{section.5.22}%
-\contentsline {section}{\numberline {5.23}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{88}{section.5.23}%
-\contentsline {subsection}{\numberline {5.23.1}Dokumentation der Funktionen}{89}{subsection.5.23.1}%
-\contentsline {subsubsection}{\numberline {5.23.1.1}InitApp()}{89}{subsubsection.5.23.1.1}%
-\contentsline {subsubsection}{\numberline {5.23.1.2}setLED()}{89}{subsubsection.5.23.1.2}%
-\contentsline {section}{\numberline {5.24}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{89}{section.5.24}%
-\contentsline {section}{\numberline {5.25}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{90}{section.5.25}%
-\contentsline {subsection}{\numberline {5.25.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{91}{subsection.5.25.1}%
-\contentsline {subsubsection}{\numberline {5.25.1.1}BUFFER\_FAIL}{91}{subsubsection.5.25.1.1}%
-\contentsline {subsubsection}{\numberline {5.25.1.2}BUFFER\_SIZE}{91}{subsubsection.5.25.1.2}%
-\contentsline {subsubsection}{\numberline {5.25.1.3}BUFFER\_SUCCESS}{91}{subsubsection.5.25.1.3}%
-\contentsline {subsubsection}{\numberline {5.25.1.4}LED0}{91}{subsubsection.5.25.1.4}%
-\contentsline {subsubsection}{\numberline {5.25.1.5}LED1}{91}{subsubsection.5.25.1.5}%
-\contentsline {subsubsection}{\numberline {5.25.1.6}LED2}{92}{subsubsection.5.25.1.6}%
-\contentsline {subsubsection}{\numberline {5.25.1.7}LED3}{92}{subsubsection.5.25.1.7}%
-\contentsline {subsubsection}{\numberline {5.25.1.8}SENSOR\_TIME}{92}{subsubsection.5.25.1.8}%
-\contentsline {subsubsection}{\numberline {5.25.1.9}T0}{92}{subsubsection.5.25.1.9}%
-\contentsline {subsubsection}{\numberline {5.25.1.10}T1}{92}{subsubsection.5.25.1.10}%
-\contentsline {subsubsection}{\numberline {5.25.1.11}T2}{92}{subsubsection.5.25.1.11}%
-\contentsline {subsubsection}{\numberline {5.25.1.12}T3}{93}{subsubsection.5.25.1.12}%
-\contentsline {subsection}{\numberline {5.25.2}Dokumentation der Funktionen}{93}{subsection.5.25.2}%
-\contentsline {subsubsection}{\numberline {5.25.2.1}InitApp()}{93}{subsubsection.5.25.2.1}%
-\contentsline {section}{\numberline {5.26}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{93}{section.5.26}%
-\contentsline {section}{\numberline {5.27}Code Style.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}markdown-\/Dateireferenz}{93}{section.5.27}%
-\contentsline {section}{\numberline {5.28}Dokumentation.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}markdown-\/Dateireferenz}{93}{section.5.28}%
-\contentsline {chapter}{Index}{95}{section*.144}%
+\contentsline {chapter}{\numberline {1}Programmdokumentation}{1}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Aufgabe I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C Lichtsensor}{1}{subsection.1.0.1}%
+\contentsline {chapter}{\numberline {2}Code-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Style}{3}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Einrückung, Klammern und Formatierung}{3}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}Kommentare}{3}{subsection.2.0.2}%
+\contentsline {subsection}{\numberline {2.0.3}Bezeichner / Namen von Variablen, Funktionen \& Konstanten}{4}{subsection.2.0.3}%
+\contentsline {subsection}{\numberline {2.0.4}Bibliotheken}{4}{subsection.2.0.4}%
+\contentsline {subsection}{\numberline {2.0.5}Doxygen}{4}{subsection.2.0.5}%
+\contentsline {chapter}{\numberline {3}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Datenstrukturen}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Verzeichnis}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Auflistung der Dateien}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Datenstruktur-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Buffer Strukturreferenz}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Ausführliche Beschreibung}{9}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Dokumentation der Felder}{9}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}data}{10}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}read}{10}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}write}{10}{subsubsection.5.1.2.3}%
+\contentsline {section}{\numberline {5.2}Buffer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}FSM Strukturreferenz}{10}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Ausführliche Beschreibung}{11}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Dokumentation der Felder}{11}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}data}{11}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}read}{11}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}write}{11}{subsubsection.5.2.2.3}%
+\contentsline {section}{\numberline {5.3}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Strukturreferenz}{12}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Ausführliche Beschreibung}{12}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Dokumentation der Felder}{12}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}address}{12}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}num\_read}{13}{subsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}num\_write}{13}{subsubsection.5.3.2.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.4}readbuf}{13}{subsubsection.5.3.2.4}%
+\contentsline {subsubsection}{\numberline {5.3.2.5}status}{13}{subsubsection.5.3.2.5}%
+\contentsline {subsubsection}{\numberline {5.3.2.6}writebuf}{13}{subsubsection.5.3.2.6}%
+\contentsline {chapter}{\numberline {6}Datei-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}configuration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bits.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{16}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Dokumentation der Funktionen}{17}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}doI2C()}{17}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}exchangeI2C()}{18}{subsubsection.6.3.1.2}%
+\contentsline {subsubsection}{\numberline {6.3.1.3}FSM\_Adresse\_Read()}{19}{subsubsection.6.3.1.3}%
+\contentsline {subsubsection}{\numberline {6.3.1.4}FSM\_Adresse\_Write()}{20}{subsubsection.6.3.1.4}%
+\contentsline {subsubsection}{\numberline {6.3.1.5}FSM\_Idle()}{21}{subsubsection.6.3.1.5}%
+\contentsline {subsubsection}{\numberline {6.3.1.6}FSM\_RECV\_EN()}{22}{subsubsection.6.3.1.6}%
+\contentsline {subsubsection}{\numberline {6.3.1.7}FSM\_Repeated\_Start()}{23}{subsubsection.6.3.1.7}%
+\contentsline {subsubsection}{\numberline {6.3.1.8}FSM\_Start()}{24}{subsubsection.6.3.1.8}%
+\contentsline {subsubsection}{\numberline {6.3.1.9}FSM\_Stop()}{24}{subsubsection.6.3.1.9}%
+\contentsline {subsubsection}{\numberline {6.3.1.10}get\_I2C\_struct\_FIFO()}{25}{subsubsection.6.3.1.10}%
+\contentsline {subsubsection}{\numberline {6.3.1.11}initI2C()}{26}{subsubsection.6.3.1.11}%
+\contentsline {subsubsection}{\numberline {6.3.1.12}print\_sensor\_values()}{27}{subsubsection.6.3.1.12}%
+\contentsline {subsubsection}{\numberline {6.3.1.13}put\_I2C\_struct\_FIFO()}{27}{subsubsection.6.3.1.13}%
+\contentsline {section}{\numberline {6.4}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{28}{section.6.4}%
+\contentsline {section}{\numberline {6.5}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{32}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{33}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}I2C\_SCL}{34}{subsubsection.6.5.1.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.2}I2C\_SCL\_TRIS}{34}{subsubsection.6.5.1.2}%
+\contentsline {subsubsection}{\numberline {6.5.1.3}I2C\_SDA}{34}{subsubsection.6.5.1.3}%
+\contentsline {subsubsection}{\numberline {6.5.1.4}I2C\_SDA\_TRIS}{34}{subsubsection.6.5.1.4}%
+\contentsline {subsection}{\numberline {6.5.2}Dokumentation der benutzerdefinierten Typen}{34}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}StateFunc}{34}{subsubsection.6.5.2.1}%
+\contentsline {subsection}{\numberline {6.5.3}Dokumentation der Aufzählungstypen}{34}{subsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.3.1}i2c\_status\_t}{34}{subsubsection.6.5.3.1}%
+\contentsline {subsection}{\numberline {6.5.4}Dokumentation der Funktionen}{35}{subsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.4.1}doI2C()}{35}{subsubsection.6.5.4.1}%
+\contentsline {subsubsection}{\numberline {6.5.4.2}exchangeI2C()}{36}{subsubsection.6.5.4.2}%
+\contentsline {subsubsection}{\numberline {6.5.4.3}FSM\_Adresse\_Read()}{37}{subsubsection.6.5.4.3}%
+\contentsline {subsubsection}{\numberline {6.5.4.4}FSM\_Adresse\_Write()}{38}{subsubsection.6.5.4.4}%
+\contentsline {subsubsection}{\numberline {6.5.4.5}FSM\_Idle()}{39}{subsubsection.6.5.4.5}%
+\contentsline {subsubsection}{\numberline {6.5.4.6}FSM\_RECV\_EN()}{40}{subsubsection.6.5.4.6}%
+\contentsline {subsubsection}{\numberline {6.5.4.7}FSM\_Repeated\_Start()}{41}{subsubsection.6.5.4.7}%
+\contentsline {subsubsection}{\numberline {6.5.4.8}FSM\_Start()}{42}{subsubsection.6.5.4.8}%
+\contentsline {subsubsection}{\numberline {6.5.4.9}FSM\_Stop()}{43}{subsubsection.6.5.4.9}%
+\contentsline {subsubsection}{\numberline {6.5.4.10}initI2C()}{43}{subsubsection.6.5.4.10}%
+\contentsline {subsubsection}{\numberline {6.5.4.11}print\_sensor\_values()}{44}{subsubsection.6.5.4.11}%
+\contentsline {subsection}{\numberline {6.5.5}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{45}{subsection.6.5.5}%
+\contentsline {subsubsection}{\numberline {6.5.5.1}FIFO\_I2C}{45}{subsubsection.6.5.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.5.2}I2C\_test\_struct}{45}{subsubsection.6.5.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.5.3}read\_data\_buffer\_light}{45}{subsubsection.6.5.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.5.4}read\_data\_buffer\_temp}{45}{subsubsection.6.5.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.5.5}status\_licht}{45}{subsubsection.6.5.5.5}%
+\contentsline {subsubsection}{\numberline {6.5.5.6}status\_temperatur}{45}{subsubsection.6.5.5.6}%
+\contentsline {subsubsection}{\numberline {6.5.5.7}trigger\_FSM}{45}{subsubsection.6.5.5.7}%
+\contentsline {subsubsection}{\numberline {6.5.5.8}write\_data\_buffer\_light}{46}{subsubsection.6.5.5.8}%
+\contentsline {subsubsection}{\numberline {6.5.5.9}write\_data\_buffer\_temp}{46}{subsubsection.6.5.5.9}%
+\contentsline {section}{\numberline {6.6}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{46}{section.6.6}%
+\contentsline {section}{\numberline {6.7}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{47}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Dokumentation der Funktionen}{48}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}\_T1Interrupt()}{48}{subsubsection.6.7.1.1}%
+\contentsline {section}{\numberline {6.8}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{48}{section.6.8}%
+\contentsline {section}{\numberline {6.9}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{49}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{49}{subsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.1}HEARTBEAT\_MS}{49}{subsubsection.6.9.1.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.2}MAIN}{50}{subsubsection.6.9.1.2}%
+\contentsline {subsection}{\numberline {6.9.2}Dokumentation der Funktionen}{50}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}main()}{50}{subsubsection.6.9.2.1}%
+\contentsline {section}{\numberline {6.10}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{50}{section.6.10}%
+\contentsline {section}{\numberline {6.11}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}less.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{51}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{52}{subsection.6.11.1}%
+\contentsline {subsubsection}{\numberline {6.11.1.1}BAUDRATE}{53}{subsubsection.6.11.1.1}%
+\contentsline {subsubsection}{\numberline {6.11.1.2}BRGVAL}{53}{subsubsection.6.11.1.2}%
+\contentsline {subsubsection}{\numberline {6.11.1.3}BUFFER\_FAIL}{53}{subsubsection.6.11.1.3}%
+\contentsline {subsubsection}{\numberline {6.11.1.4}BUFFER\_SIZE}{53}{subsubsection.6.11.1.4}%
+\contentsline {subsubsection}{\numberline {6.11.1.5}BUFFER\_SUCCESS}{53}{subsubsection.6.11.1.5}%
+\contentsline {subsubsection}{\numberline {6.11.1.6}HEARTBEAT\_MS}{53}{subsubsection.6.11.1.6}%
+\contentsline {subsubsection}{\numberline {6.11.1.7}I2C\_SCL}{54}{subsubsection.6.11.1.7}%
+\contentsline {subsubsection}{\numberline {6.11.1.8}I2C\_SCL\_TRIS}{54}{subsubsection.6.11.1.8}%
+\contentsline {subsubsection}{\numberline {6.11.1.9}I2C\_SDA}{54}{subsubsection.6.11.1.9}%
+\contentsline {subsubsection}{\numberline {6.11.1.10}I2C\_SDA\_TRIS}{54}{subsubsection.6.11.1.10}%
+\contentsline {subsection}{\numberline {6.11.2}Dokumentation der benutzerdefinierten Typen}{54}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}StateFunc}{54}{subsubsection.6.11.2.1}%
+\contentsline {subsection}{\numberline {6.11.3}Dokumentation der Funktionen}{54}{subsection.6.11.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.1}\_T1Interrupt()}{55}{subsubsection.6.11.3.1}%
+\contentsline {subsubsection}{\numberline {6.11.3.2}\_U1TXInterrupt()}{55}{subsubsection.6.11.3.2}%
+\contentsline {subsubsection}{\numberline {6.11.3.3}delay\_ms()}{55}{subsubsection.6.11.3.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.4}FSM2\_ACK\_Receive()}{56}{subsubsection.6.11.3.4}%
+\contentsline {subsubsection}{\numberline {6.11.3.5}FSM2\_Adresse()}{57}{subsubsection.6.11.3.5}%
+\contentsline {subsubsection}{\numberline {6.11.3.6}FSM2\_Data\_Receive()}{57}{subsubsection.6.11.3.6}%
+\contentsline {subsubsection}{\numberline {6.11.3.7}FSM2\_Idle()}{58}{subsubsection.6.11.3.7}%
+\contentsline {subsubsection}{\numberline {6.11.3.8}FSM2\_Start()}{58}{subsubsection.6.11.3.8}%
+\contentsline {subsubsection}{\numberline {6.11.3.9}FSM2\_Stop()}{59}{subsubsection.6.11.3.9}%
+\contentsline {subsubsection}{\numberline {6.11.3.10}getcFIFO\_TX()}{60}{subsubsection.6.11.3.10}%
+\contentsline {subsubsection}{\numberline {6.11.3.11}init\_ms\_t4()}{60}{subsubsection.6.11.3.11}%
+\contentsline {subsubsection}{\numberline {6.11.3.12}init\_timer1()}{60}{subsubsection.6.11.3.12}%
+\contentsline {subsubsection}{\numberline {6.11.3.13}initI2C()}{61}{subsubsection.6.11.3.13}%
+\contentsline {subsubsection}{\numberline {6.11.3.14}initUART()}{61}{subsubsection.6.11.3.14}%
+\contentsline {subsubsection}{\numberline {6.11.3.15}main()}{62}{subsubsection.6.11.3.15}%
+\contentsline {subsubsection}{\numberline {6.11.3.16}putcFIFO\_TX()}{63}{subsubsection.6.11.3.16}%
+\contentsline {subsubsection}{\numberline {6.11.3.17}putcUART()}{63}{subsubsection.6.11.3.17}%
+\contentsline {subsubsection}{\numberline {6.11.3.18}putsUART()}{63}{subsubsection.6.11.3.18}%
+\contentsline {subsubsection}{\numberline {6.11.3.19}Temp\_FSM2()}{64}{subsubsection.6.11.3.19}%
+\contentsline {subsection}{\numberline {6.11.4}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{64}{subsection.6.11.4}%
+\contentsline {subsubsection}{\numberline {6.11.4.1}data}{64}{subsubsection.6.11.4.1}%
+\contentsline {subsubsection}{\numberline {6.11.4.2}DELAY\_ANPASSUNG}{65}{subsubsection.6.11.4.2}%
+\contentsline {subsubsection}{\numberline {6.11.4.3}FIFO}{65}{subsubsection.6.11.4.3}%
+\contentsline {section}{\numberline {6.12}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}less.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{65}{section.6.12}%
+\contentsline {section}{\numberline {6.13}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{70}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Dokumentation der Funktionen}{70}{subsection.6.13.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.1}ConfigureOscillator()}{71}{subsubsection.6.13.1.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.2}delay\_ms()}{71}{subsubsection.6.13.1.2}%
+\contentsline {subsubsection}{\numberline {6.13.1.3}init\_ms\_t4()}{71}{subsubsection.6.13.1.3}%
+\contentsline {subsubsection}{\numberline {6.13.1.4}init\_timer1()}{72}{subsubsection.6.13.1.4}%
+\contentsline {section}{\numberline {6.14}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{72}{section.6.14}%
+\contentsline {section}{\numberline {6.15}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{74}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{74}{subsection.6.15.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.1}FCY}{74}{subsubsection.6.15.1.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.2}SYS\_FREQ}{75}{subsubsection.6.15.1.2}%
+\contentsline {subsection}{\numberline {6.15.2}Dokumentation der Funktionen}{75}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}ConfigureOscillator()}{75}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}delay\_ms()}{75}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}init\_ms\_t4()}{76}{subsubsection.6.15.2.3}%
+\contentsline {subsubsection}{\numberline {6.15.2.4}init\_timer1()}{76}{subsubsection.6.15.2.4}%
+\contentsline {subsection}{\numberline {6.15.3}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{76}{subsection.6.15.3}%
+\contentsline {subsubsection}{\numberline {6.15.3.1}DELAY\_ANPASSUNG}{77}{subsubsection.6.15.3.1}%
+\contentsline {section}{\numberline {6.16}system.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{77}{section.6.16}%
+\contentsline {section}{\numberline {6.17}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{77}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Dokumentation der Funktionen}{78}{subsection.6.17.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.1}\_AddressError()}{78}{subsubsection.6.17.1.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.2}\_DefaultInterrupt()}{78}{subsubsection.6.17.1.2}%
+\contentsline {subsubsection}{\numberline {6.17.1.3}\_MathError()}{78}{subsubsection.6.17.1.3}%
+\contentsline {subsubsection}{\numberline {6.17.1.4}\_OscillatorFail()}{78}{subsubsection.6.17.1.4}%
+\contentsline {subsubsection}{\numberline {6.17.1.5}\_StackError()}{79}{subsubsection.6.17.1.5}%
+\contentsline {section}{\numberline {6.18}traps.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{79}{section.6.18}%
+\contentsline {section}{\numberline {6.19}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{81}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Dokumentation der Funktionen}{81}{subsection.6.19.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.1}\_U1TXInterrupt()}{82}{subsubsection.6.19.1.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.2}getcFIFO\_TX()}{82}{subsubsection.6.19.1.2}%
+\contentsline {subsubsection}{\numberline {6.19.1.3}initUART()}{82}{subsubsection.6.19.1.3}%
+\contentsline {subsubsection}{\numberline {6.19.1.4}putcFIFO\_TX()}{83}{subsubsection.6.19.1.4}%
+\contentsline {subsubsection}{\numberline {6.19.1.5}putcUART()}{83}{subsubsection.6.19.1.5}%
+\contentsline {subsubsection}{\numberline {6.19.1.6}putsUART()}{84}{subsubsection.6.19.1.6}%
+\contentsline {section}{\numberline {6.20}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{84}{section.6.20}%
+\contentsline {section}{\numberline {6.21}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{86}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{87}{subsection.6.21.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.1}BAUDRATE}{87}{subsubsection.6.21.1.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.2}BRGVAL}{87}{subsubsection.6.21.1.2}%
+\contentsline {subsection}{\numberline {6.21.2}Dokumentation der Funktionen}{87}{subsection.6.21.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.1}getcFIFO\_TX()}{87}{subsubsection.6.21.2.1}%
+\contentsline {subsubsection}{\numberline {6.21.2.2}initUART()}{88}{subsubsection.6.21.2.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.3}putcFIFO\_TX()}{88}{subsubsection.6.21.2.3}%
+\contentsline {subsubsection}{\numberline {6.21.2.4}putsUART()}{89}{subsubsection.6.21.2.4}%
+\contentsline {subsection}{\numberline {6.21.3}Variablen-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{89}{subsection.6.21.3}%
+\contentsline {subsubsection}{\numberline {6.21.3.1}FIFO}{89}{subsubsection.6.21.3.1}%
+\contentsline {section}{\numberline {6.22}UART.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{89}{section.6.22}%
+\contentsline {section}{\numberline {6.23}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c-\/Dateireferenz}{90}{section.6.23}%
+\contentsline {subsection}{\numberline {6.23.1}Dokumentation der Funktionen}{91}{subsection.6.23.1}%
+\contentsline {subsubsection}{\numberline {6.23.1.1}InitApp()}{91}{subsubsection.6.23.1.1}%
+\contentsline {subsubsection}{\numberline {6.23.1.2}setLED()}{91}{subsubsection.6.23.1.2}%
+\contentsline {section}{\numberline {6.24}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{91}{section.6.24}%
+\contentsline {section}{\numberline {6.25}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h-\/Dateireferenz}{92}{section.6.25}%
+\contentsline {subsection}{\numberline {6.25.1}Makro-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dokumentation}{93}{subsection.6.25.1}%
+\contentsline {subsubsection}{\numberline {6.25.1.1}BUFFER\_FAIL}{93}{subsubsection.6.25.1.1}%
+\contentsline {subsubsection}{\numberline {6.25.1.2}BUFFER\_SIZE}{93}{subsubsection.6.25.1.2}%
+\contentsline {subsubsection}{\numberline {6.25.1.3}BUFFER\_SUCCESS}{93}{subsubsection.6.25.1.3}%
+\contentsline {subsubsection}{\numberline {6.25.1.4}LED0}{93}{subsubsection.6.25.1.4}%
+\contentsline {subsubsection}{\numberline {6.25.1.5}LED1}{93}{subsubsection.6.25.1.5}%
+\contentsline {subsubsection}{\numberline {6.25.1.6}LED2}{94}{subsubsection.6.25.1.6}%
+\contentsline {subsubsection}{\numberline {6.25.1.7}LED3}{94}{subsubsection.6.25.1.7}%
+\contentsline {subsubsection}{\numberline {6.25.1.8}SENSOR\_TIME}{94}{subsubsection.6.25.1.8}%
+\contentsline {subsubsection}{\numberline {6.25.1.9}T0}{94}{subsubsection.6.25.1.9}%
+\contentsline {subsubsection}{\numberline {6.25.1.10}T1}{94}{subsubsection.6.25.1.10}%
+\contentsline {subsubsection}{\numberline {6.25.1.11}T2}{94}{subsubsection.6.25.1.11}%
+\contentsline {subsubsection}{\numberline {6.25.1.12}T3}{95}{subsubsection.6.25.1.12}%
+\contentsline {subsection}{\numberline {6.25.2}Dokumentation der Funktionen}{95}{subsection.6.25.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.1}InitApp()}{95}{subsubsection.6.25.2.1}%
+\contentsline {section}{\numberline {6.26}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{95}{section.6.26}%
+\contentsline {section}{\numberline {6.27}Code Style.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}markdown-\/Dateireferenz}{95}{section.6.27}%
+\contentsline {section}{\numberline {6.28}Dokumentation.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}markdown-\/Dateireferenz}{95}{section.6.28}%
+\contentsline {chapter}{Index}{97}{section*.144}%
