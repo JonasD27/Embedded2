@@ -18,6 +18,7 @@
 
 #include "UART.h"
 #include "I2C.h"
+#include "lcd_gpio.h"
 
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp              */
@@ -43,6 +44,7 @@ int16_t main(void)
     init_timer1();
     init_ms_t4();
     initI2C();
+    lcd_init();
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;

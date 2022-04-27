@@ -125,6 +125,18 @@ void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
     T4CONbits.TON = 1; // Start 32-bit Timer
 }
 
+void init_timer2() //20ns pro tick im timer register
+{
+    T2CONbits.TON = 0; // Stop any 16/32-bit Timer3 operation
+    T2CONbits.TCS = 0; // Select internal instruction cycle clock
+    
+    T2CONbits.TGATE = 0; // Disable Gated Timer mode
+    T2CONbits.TCKPS = 0b00; // Select 1:1 Prescaler
+    TMR2 = 0x00; // Clear 
+    PR2 = (FCY/64000)-1; // 
+    T2CONbits.TON = 1; // 
+}
+
 
 void delay_ms(uint16_t milliseconds) 
 {    

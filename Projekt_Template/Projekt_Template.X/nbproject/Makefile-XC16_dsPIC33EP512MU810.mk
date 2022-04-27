@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c
+SOURCEFILES_QUOTED_IF_SPACED=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/lcd_gpio.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/code/configuration_bits.o.d ${OBJECTDIR}/code/interrupts.o.d ${OBJECTDIR}/code/main.o.d ${OBJECTDIR}/code/system.o.d ${OBJECTDIR}/code/traps.o.d ${OBJECTDIR}/code/user.o.d ${OBJECTDIR}/code/I2C.o.d ${OBJECTDIR}/code/UART.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/lcd_gpio.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/code/configuration_bits.o.d ${OBJECTDIR}/code/interrupts.o.d ${OBJECTDIR}/code/main.o.d ${OBJECTDIR}/code/system.o.d ${OBJECTDIR}/code/traps.o.d ${OBJECTDIR}/code/user.o.d ${OBJECTDIR}/code/I2C.o.d ${OBJECTDIR}/code/UART.o.d ${OBJECTDIR}/code/lcd_gpio.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o
+OBJECTFILES=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/lcd_gpio.o
 
 # Source Files
-SOURCEFILES=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c
+SOURCEFILES=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/lcd_gpio.c
 
 
 
@@ -143,6 +143,12 @@ ${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512M
 	@${RM} ${OBJECTDIR}/code/UART.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/code/lcd_gpio.o: code/lcd_gpio.c  .generated_files/flags/XC16_dsPIC33EP512MU810/6914db56f04a726dab28610772b8dadfb937b036 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+	@${MKDIR} "${OBJECTDIR}/code" 
+	@${RM} ${OBJECTDIR}/code/lcd_gpio.o.d 
+	@${RM} ${OBJECTDIR}/code/lcd_gpio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/lcd_gpio.c  -o ${OBJECTDIR}/code/lcd_gpio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/lcd_gpio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/code/configuration_bits.o: code/configuration_bits.c  .generated_files/flags/XC16_dsPIC33EP512MU810/3fe02131a9fa3121ff1f735fba929361eceddd93 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
 	@${MKDIR} "${OBJECTDIR}/code" 
@@ -191,6 +197,12 @@ ${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512M
 	@${RM} ${OBJECTDIR}/code/UART.o.d 
 	@${RM} ${OBJECTDIR}/code/UART.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/code/lcd_gpio.o: code/lcd_gpio.c  .generated_files/flags/XC16_dsPIC33EP512MU810/4f782b876ec00dd4717cdd03b6e84b0922af9d62 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+	@${MKDIR} "${OBJECTDIR}/code" 
+	@${RM} ${OBJECTDIR}/code/lcd_gpio.o.d 
+	@${RM} ${OBJECTDIR}/code/lcd_gpio.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/lcd_gpio.c  -o ${OBJECTDIR}/code/lcd_gpio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/lcd_gpio.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 
