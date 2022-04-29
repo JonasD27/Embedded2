@@ -174,10 +174,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 .const                      0x17ae                0x3e            0x5d  (93)
 .text                       0x17ec               0x2d6           0x441  (1089)
 .dinit                      0x1ac2               0x184           0x246  (582)
-.text                       0x1c46               0x504           0x786  (1926)
-.init.delay32               0x214a                0x1c            0x2a  (42)
+.text                       0x1c46               0x502           0x783  (1923)
+.init.delay32               0x2148                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):         0x2f19  (12057) 2%
+                 Total "program" memory used (bytes):         0x2f16  (12054) 2%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -293,9 +293,9 @@ External Symbols in Program Memory (by address):
                   0x00117e                  _memcpy
                   0x00118c                  _strlen
                   0x00121c                  ___adddf3
+                  0x001318                  ___eqdf2
                   0x001318                  ___ledf2
                   0x001318                  ___ltdf2
-                  0x001318                  ___eqdf2
                   0x001322                  ___gedf2
                   0x001322                  ___gtdf2
                   0x00132c                  ___divdf3
@@ -333,30 +333,31 @@ External Symbols in Program Memory (by address):
                   0x001a12                  _FSM_Adresse_Read
                   0x001a74                  _FSM_RECV_EN
                   0x001aae                  _FSM_Stop
-                  0x001c46                  _lcd_init
-                  0x001d82                  _print_sensor_values
-                  0x001e0e                  _get_Temperatur
-                  0x001e3a                  _get_Light
-                  0x001e66                  _main
-                  0x001ebc                  _initUART
-                  0x001f0a                  _putcFIFO_TX
-                  0x001f5a                  _getcFIFO_TX
-                  0x001f96                  _putcUART
-                  0x001fac                  _putsUART
-                  0x001ff6                  _ConfigureOscillator
-                  0x00204e                  _init_timer1
-                  0x002086                  _init_ms_t4
-                  0x0020a4                  _init_timer2
-                  0x0020c0                  _delay_ms
-                  0x0020f6                  _delay_us
-                  0x002122                  _InitApp
-                  0x002128                  _setLED
-                  0x00214a                  ___delay32
+                  0x001c46                  _print_sensor_values
+                  0x001cd2                  _get_Temperatur
+                  0x001cfe                  _get_Light
+                  0x001d2a                  _main
+                  0x001d94                  _initUART
+                  0x001de2                  _putcFIFO_TX
+                  0x001e32                  _getcFIFO_TX
+                  0x001e6e                  _putcUART
+                  0x001e84                  _putsUART
+                  0x001ece                  _ConfigureOscillator
+                  0x001f26                  _init_timer1
+                  0x001f5e                  _init_ms_t4
+                  0x001f7c                  _init_timer2
+                  0x001f98                  _delay_ms
+                  0x001fce                  _delay_us
+                  0x001ffa                  _lcd_init
+                  0x0020fa                  _lcd_write_data
+                  0x002120                  _InitApp
+                  0x002126                  _setLED
+                  0x002148                  ___delay32
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x001ff6                  _ConfigureOscillator
+                  0x001ece                  _ConfigureOscillator
                   0x001a12                  _FSM_Adresse_Read
                   0x001998                  _FSM_Adresse_Write
                   0x001948                  _FSM_Idle
@@ -364,7 +365,7 @@ External Symbols in Program Memory (by name):
                   0x0019f2                  _FSM_Repeated_Start
                   0x00195e                  _FSM_Start
                   0x001aae                  _FSM_Stop
-                  0x002122                  _InitApp
+                  0x002120                  _InitApp
                   0x000364                  __AddressError
                   0x000376                  __DMACError
                   0x00037c                  __DefaultInterrupt
@@ -377,7 +378,7 @@ External Symbols in Program Memory (by name):
                   0x000316                  __T1Interrupt
                   0x000388                  __U1TXInterrupt
                   0x00121c                  ___adddf3
-                  0x00214a                  ___delay32
+                  0x002148                  ___delay32
                   0x00132c                  ___divdf3
                   0x00042e                  ___divsf3
                   0x001318                  ___eqdf2
@@ -420,30 +421,31 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x0005dc                  __sprintf_fF
                   0x0007c8                  __vfprintf_fF
-                  0x0020c0                  _delay_ms
-                  0x0020f6                  _delay_us
+                  0x001f98                  _delay_ms
+                  0x001fce                  _delay_us
                   0x0018f0                  _doI2C
                   0x0018ae                  _exchangeI2C
                   0x001518                  _frexp
                   0x001518                  _frexpl
                   0x00185e                  _get_I2C_struct_FIFO
-                  0x001e3a                  _get_Light
-                  0x001e0e                  _get_Temperatur
-                  0x001f5a                  _getcFIFO_TX
+                  0x001cfe                  _get_Light
+                  0x001cd2                  _get_Temperatur
+                  0x001e32                  _getcFIFO_TX
                   0x0018fc                  _initI2C
-                  0x001ebc                  _initUART
-                  0x002086                  _init_ms_t4
-                  0x00204e                  _init_timer1
-                  0x0020a4                  _init_timer2
-                  0x001c46                  _lcd_init
-                  0x001e66                  _main
+                  0x001d94                  _initUART
+                  0x001f5e                  _init_ms_t4
+                  0x001f26                  _init_timer1
+                  0x001f7c                  _init_timer2
+                  0x001ffa                  _lcd_init
+                  0x0020fa                  _lcd_write_data
+                  0x001d2a                  _main
                   0x00117e                  _memcpy
-                  0x001d82                  _print_sensor_values
+                  0x001c46                  _print_sensor_values
                   0x0017ec                  _put_I2C_struct_FIFO
-                  0x001f0a                  _putcFIFO_TX
-                  0x001f96                  _putcUART
-                  0x001fac                  _putsUART
-                  0x002128                  _setLED
+                  0x001de2                  _putcFIFO_TX
+                  0x001e6e                  _putcUART
+                  0x001e84                  _putsUART
+                  0x002126                  _setLED
                   0x00118c                  _strlen
 
 Memory Configuration
@@ -647,7 +649,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS°Wf
+ __FGS.sec        0xf80004          0x2 /CW/_FGS &^
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -674,7 +676,7 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x4b58
+.debug_info       0x000000       0x4b99
  *(.debug_info)
  .debug_info      0x000000        0x145 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_info      0x000145        0x42e build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -684,10 +686,10 @@ __FUID0
  .debug_info      0x00223d        0x1d4 build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_info      0x002411        0xf54 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_info      0x003365        0xc60 build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_info      0x003fc5        0xb93 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_info      0x003fc5        0xbd4 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x84d
+.debug_abbrev     0x000000        0x873
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x1f build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_abbrev    0x00001f         0xd4 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -697,21 +699,21 @@ __FUID0
  .debug_abbrev    0x000406         0x7f build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_abbrev    0x000485        0x1e2 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_abbrev    0x000667        0x14b build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_abbrev    0x0007b2         0x9b build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_abbrev    0x0007b2         0xc1 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
-.debug_line       0x000000        0xab0
+.debug_line       0x000000        0xaad
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_line      0x00001a        0x123 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
- .debug_line      0x00013d        0x165 build/XC16_dsPIC33EP512MU810/production/code/main.o
- .debug_line      0x0002a2        0x157 build/XC16_dsPIC33EP512MU810/production/code/system.o
- .debug_line      0x0003f9        0x125 build/XC16_dsPIC33EP512MU810/production/code/traps.o
- .debug_line      0x00051e        0x114 build/XC16_dsPIC33EP512MU810/production/code/user.o
- .debug_line      0x000632        0x1aa build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_line      0x0007dc        0x171 build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_line      0x00094d        0x163 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_line      0x00013d        0x16a build/XC16_dsPIC33EP512MU810/production/code/main.o
+ .debug_line      0x0002a7        0x157 build/XC16_dsPIC33EP512MU810/production/code/system.o
+ .debug_line      0x0003fe        0x125 build/XC16_dsPIC33EP512MU810/production/code/traps.o
+ .debug_line      0x000523        0x114 build/XC16_dsPIC33EP512MU810/production/code/user.o
+ .debug_line      0x000637        0x1aa build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+ .debug_line      0x0007e1        0x171 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_line      0x000952        0x15b build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
-.debug_frame      0x000000        0x514
+.debug_frame      0x000000        0x52e
  *(.debug_frame)
  .debug_frame     0x000000         0x52 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
  .debug_frame     0x000052         0x98 build/XC16_dsPIC33EP512MU810/production/code/main.o
@@ -720,7 +722,7 @@ __FUID0
  .debug_frame     0x00027e         0x48 build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_frame     0x0002c6        0x14c build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_frame     0x000412         0xd4 build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_frame     0x0004e6         0x2e build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_frame     0x0004e6         0x48 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
 .debug_str        0x000000        0x27c
  *(.debug_str)
@@ -739,7 +741,7 @@ __FUID0
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x3fc
+                  0x000000        0x40f
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x23 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -756,7 +758,7 @@ __FUID0
  .debug_pubnames
                   0x000371         0x6c build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_pubnames
-                  0x0003dd         0x1f build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+                  0x0003dd         0x32 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -3475,12 +3477,12 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGS°Wf
+LOAD /CW/_FGS &^
 LOAD jump_table
 LOAD data_init
 
 .debug_pubtypes
-                  0x0000c0        0x600
+                  0x0000c0        0x60c
  .debug_pubtypes
                   0x0000c0         0x12 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_pubtypes
@@ -3498,112 +3500,112 @@ LOAD data_init
  .debug_pubtypes
                   0x0004c8         0xfc build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_pubtypes
-                  0x0005c4         0xfc build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+                  0x0005c4        0x108 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
 __c30_signature
-                  0x0006c0        0x132
+                  0x0006cc        0x132
  __c30_signature
-                  0x0006c0          0x6 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
+                  0x0006cc          0x6 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  __c30_signature
-                  0x0006c6          0x6 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
+                  0x0006d2          0x6 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
  __c30_signature
-                  0x0006cc          0x6 build/XC16_dsPIC33EP512MU810/production/code/main.o
+                  0x0006d8          0x6 build/XC16_dsPIC33EP512MU810/production/code/main.o
  __c30_signature
-                  0x0006d2          0x6 build/XC16_dsPIC33EP512MU810/production/code/system.o
+                  0x0006de          0x6 build/XC16_dsPIC33EP512MU810/production/code/system.o
  __c30_signature
-                  0x0006d8          0x6 build/XC16_dsPIC33EP512MU810/production/code/traps.o
+                  0x0006e4          0x6 build/XC16_dsPIC33EP512MU810/production/code/traps.o
  __c30_signature
-                  0x0006de          0x6 build/XC16_dsPIC33EP512MU810/production/code/user.o
+                  0x0006ea          0x6 build/XC16_dsPIC33EP512MU810/production/code/user.o
  __c30_signature
-                  0x0006e4          0x6 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+                  0x0006f0          0x6 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  __c30_signature
-                  0x0006ea          0x6 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+                  0x0006f6          0x6 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  __c30_signature
-                  0x0006f0          0x6 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+                  0x0006fc          0x6 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
  __c30_signature
-                  0x0006f6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+                  0x000702          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x0006fc          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(data_init_extended.o)
+                  0x000708          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(data_init_extended.o)
  __c30_signature
-                  0x000702          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x00070e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
  __c30_signature
-                  0x000708          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(divsf3.epeo)
+                  0x000714          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(divsf3.epeo)
  __c30_signature
-                  0x00070e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
+                  0x00071a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
  __c30_signature
-                  0x000714          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(fpack.epeo)
+                  0x000720          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(fpack.epeo)
  __c30_signature
-                  0x00071a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
+                  0x000726          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
  __c30_signature
-                  0x000720          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x00072c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(futil.epeo)
  __c30_signature
-                  0x000726          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                  0x000732          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
  __c30_signature
-                  0x00072c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                  0x000738          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
  __c30_signature
-                  0x000732          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(funpack.epeo)
+                  0x00073e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(funpack.epeo)
  __c30_signature
-                  0x000738          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(sprintf_fF.EPeo)
+                  0x000744          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(sprintf_fF.EPeo)
  __c30_signature
-                  0x00073e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(doprnt_fF.EPeo)
+                  0x00074a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(doprnt_fF.EPeo)
  __c30_signature
-                  0x000744          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(fputc.epeo)
+                  0x000750          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(fputc.epeo)
  __c30_signature
-                  0x00074a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+                  0x000756          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
  __c30_signature
-                  0x000750          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(strlen.epeo)
+                  0x00075c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(strlen.epeo)
  __c30_signature
-                  0x000756          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                  0x000762          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(_iob.epeo)
  __c30_signature
-                  0x00075c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(powers.dEPeo)
+                  0x000768          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(powers.dEPeo)
  __c30_signature
-                  0x000762          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
+                  0x00076e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
  __c30_signature
-                  0x000768          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+                  0x000774          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
  __c30_signature
-                  0x00076e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
+                  0x00077a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
  __c30_signature
-                  0x000774          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(adddf3.epeo)
+                  0x000780          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(adddf3.epeo)
  __c30_signature
-                  0x00077a          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(deqltle.epeo)
+                  0x000786          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(deqltle.epeo)
  __c30_signature
-                  0x000780          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dgtge.epeo)
+                  0x00078c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dgtge.epeo)
  __c30_signature
-                  0x000786          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(divdf3.epeo)
+                  0x000792          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(divdf3.epeo)
  __c30_signature
-                  0x00078c          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dne.epeo)
+                  0x000798          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dne.epeo)
  __c30_signature
-                  0x000792          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dpack.epeo)
+                  0x00079e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dpack.epeo)
  __c30_signature
-                  0x000798          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dunpack2.epeo)
+                  0x0007a4          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dunpack2.epeo)
  __c30_signature
-                  0x00079e          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(extendsfdf.epeo)
+                  0x0007aa          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(extendsfdf.epeo)
  __c30_signature
-                  0x0007a4          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(fixunsdfdi.epeo)
+                  0x0007b0          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(fixunsdfdi.epeo)
  __c30_signature
-                  0x0007aa          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatunsidf.epeo)
+                  0x0007b6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatunsidf.epeo)
  __c30_signature
-                  0x0007b0          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(frexp.epeo)
+                  0x0007bc          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(frexp.epeo)
  __c30_signature
-                  0x0007b6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(muldf3.epeo)
+                  0x0007c2          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(muldf3.epeo)
  __c30_signature
-                  0x0007bc          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(subdf3.epeo)
+                  0x0007c8          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(subdf3.epeo)
  __c30_signature
-                  0x0007c2          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                  0x0007ce          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
  __c30_signature
-                  0x0007c8          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(umodsi3.epeo)
+                  0x0007d4          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(umodsi3.epeo)
  __c30_signature
-                  0x0007ce          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
+                  0x0007da          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
  __c30_signature
-                  0x0007d4          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dcompare.epeo)
+                  0x0007e0          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dcompare.epeo)
  __c30_signature
-                  0x0007da          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
+                  0x0007e6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
  __c30_signature
-                  0x0007e0          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dtype.epeo)
+                  0x0007ec          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dtype.epeo)
  __c30_signature
-                  0x0007e6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
+                  0x0007f2          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
  __c30_signature
-                  0x0007ec          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatundidf.epeo)
+                  0x0007f8          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a(floatundidf.epeo)
 
 .nbss               0x1000          0xa
  .nbss              0x1000          0xa build/XC16_dsPIC33EP512MU810/production/code/main.o
@@ -3744,31 +3746,32 @@ __c30_signature
 .dinit            0x001ac2        0x184
  .dinit           0x001ac2        0x184 data_init
 
-.text             0x001c46        0x504
- .text            0x001c46        0x13c build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
-                  0x001c46                  _lcd_init
- .text            0x001d82        0x13a build/XC16_dsPIC33EP512MU810/production/code/main.o
-                  0x001d82                  _print_sensor_values
-                  0x001e0e                  _get_Temperatur
-                  0x001e3a                  _get_Light
-                  0x001e66                  _main
- .text            0x001ebc        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
-                  0x001ebc                  _initUART
-                  0x001f0a                  _putcFIFO_TX
-                  0x001f5a                  _getcFIFO_TX
-                  0x001f96                  _putcUART
-                  0x001fac                  _putsUART
- .text            0x001ff6        0x12c build/XC16_dsPIC33EP512MU810/production/code/system.o
-                  0x001ff6                  _ConfigureOscillator
-                  0x00204e                  _init_timer1
-                  0x002086                  _init_ms_t4
-                  0x0020a4                  _init_timer2
-                  0x0020c0                  _delay_ms
-                  0x0020f6                  _delay_us
- .text            0x002122         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
-                  0x002122                  _InitApp
-                  0x002128                  _setLED
+.text             0x001c46        0x502
+ .text            0x001c46        0x14e build/XC16_dsPIC33EP512MU810/production/code/main.o
+                  0x001c46                  _print_sensor_values
+                  0x001cd2                  _get_Temperatur
+                  0x001cfe                  _get_Light
+                  0x001d2a                  _main
+ .text            0x001d94        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
+                  0x001d94                  _initUART
+                  0x001de2                  _putcFIFO_TX
+                  0x001e32                  _getcFIFO_TX
+                  0x001e6e                  _putcUART
+                  0x001e84                  _putsUART
+ .text            0x001ece        0x12c build/XC16_dsPIC33EP512MU810/production/code/system.o
+                  0x001ece                  _ConfigureOscillator
+                  0x001f26                  _init_timer1
+                  0x001f5e                  _init_ms_t4
+                  0x001f7c                  _init_timer2
+                  0x001f98                  _delay_ms
+                  0x001fce                  _delay_us
+ .text            0x001ffa        0x126 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+                  0x001ffa                  _lcd_init
+                  0x0020fa                  _lcd_write_data
+ .text            0x002120         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
+                  0x002120                  _InitApp
+                  0x002126                  _setLED
 
-.init.delay32     0x00214a         0x1c
- .init.delay32    0x00214a         0x1c c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x00214a                  ___delay32
+.init.delay32     0x002148         0x1c
+ .init.delay32    0x002148         0x1c c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x002148                  ___delay32

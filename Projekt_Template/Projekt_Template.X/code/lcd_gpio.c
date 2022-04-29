@@ -107,24 +107,17 @@ void lcd_init()
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
     
-    
-    //Schreiben
-    LCD_RS=1;
-    LCD_R_W=0;
-    LCD_ENABLE = 1;
-    LCD_DATA(LCD_WRITE);
-    __delay_cycles(33);
-    LCD_ENABLE = 0;
-    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen
-    
-      //Schreiben
-    LCD_RS=1;
-    LCD_R_W=0;
-    LCD_ENABLE = 1;
-    LCD_DATA('Y');
-    __delay_cycles(33);
-    LCD_ENABLE = 0;
-    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen
 #endif
  
+}
+
+void lcd_write_data(uint8_t data)
+{
+    LCD_RS=1;
+    LCD_R_W=0;
+    LCD_ENABLE = 1;
+    LCD_DATA(data);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
 }

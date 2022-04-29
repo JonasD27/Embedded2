@@ -25,8 +25,7 @@
 
 #define LCD_DISPLAY_ON      0b0000000000001111  //Schaltet das Display an
 
-#define LCD_WRITE           0b0000000000110000  //"0"
-#define LCD_WRITE1          0b0000000000110001  //"0"
 
 void lcd_init(void);
+void lcd_write_data(uint8_t data);
 
