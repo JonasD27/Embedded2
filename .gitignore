@@ -1,0 +1,28 @@
+#https://microchipdeveloper.com/mplabx:version-control-working-with
+#
+#am besten beim Commit Ã¼berprÃ¼fen ob nur relevante Dateien gelistet werden
+#und diesen nur dann ausfÃ¼hren wenn OK, sonst diese Datei erweitern 
+#und nochmals beim7vorm Commit Ã¼berprÃ¼fen
+
+#Michrochip: https://microchipdeveloper.com/mplabx:version-control-working-with
+/.generated_files/
+/build/
+/debug/
+/dist/
+/nbproject/Makefile-*
+/nbproject/Package-*
+
+#auch temporÃ¤re Daten von Michrochip MPLAB 
+/disassembly/
+
+#temporÃ¤re Daten von doxygen, cppcheck, etc.
+/doxygen/html/
+/doxygen/latex/
+/doxygen/rtf/
+/check-cppcheck-build-dir/
+
+#Messungen mit dem Logic Analyzer, ev. auch nicht ignorieren
+/measurement/
+
+#von Microsoft wenn Bilder im Verzeichnis sind
+Thumbs.db
