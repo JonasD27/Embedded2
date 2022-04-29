@@ -2,136 +2,129 @@
 #include "system.h"
 #include "lcd_gpio.h"
 
+#include "libpic30.h"
+
+
+/******************************************************************************/
+/* Functions                                                                  */
+/******************************************************************************/
+
 void lcd_init()
 {
-   init_timer2(); //Timer2 setzt alle 20ns Zählregister hoch
-   //Alle Signale als Ausgänge
-   
-   //RS als Ausgang
-   _TRISB15=0;
-   //R/W als Ausgang
-   _TRISD5=0;
-   //Enable als Ausgang
-   _TRISD4=0;
-   
-   //Datenbus als Ausgang
-   TRISE = TRISE & (0b1111111100000000);
-#if 0
-   //Datenbus als Eingang
-   TRISE = TRISE | (0b0000000011111111);
-#endif
-   
-   //Alle Datenbus-Signale als Digital
-   ANSELE = ANSELE & (0b1111111100000000);
-   
-   //RS auf digital
-   _ANSB15=0;
-   
-   
-
-   delay_ms(50);
-   //Function set 1
-   LCD_RS=0;
-   LCD_R_W=0;
-   
-   TMR2=0; while( TMR2<4); //80ns warten
-   //Schreiben
-   LATE = (LATE & 0b1111111100000000) | (0b00111000);
-   
-#if 0
-   //Lesen
-   uint8_t data = PORTE & 0b0000000011111111;
-#endif
-   
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   delay_ms(5);
-   
-   //Function set 2
-   TMR2=0; while( TMR2<4); //80ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   delay_ms(1);
-   
-   //Function set 3
-   TMR2=0; while( TMR2<4); //80ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   
-   delay_ms(50);
-   
-   //Function set
-   LATE = (LATE & 0b1111111100000000) | (0b00111000);
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   TMR2=0; while( TMR2<50); //1000ns warten
-   
-   //Display off
-   LATE = (LATE & 0b1111111100000000) | (0b00001000);
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   TMR2=0; while( TMR2<50); //1000ns warten
-   
-   //Display clear
-   LATE = (LATE & 0b1111111100000000) | (0b00000001);
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   TMR2=0; while( TMR2<50); //1000ns warten
-   
-   //Entry mode
-   LATE = (LATE & 0b1111111100000000) | (0b00000100);
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   TMR2=0; while( TMR2<50); //1000ns warten
-   delay_ms(5);
-   
-   
-   /********************************************************************/
 #if 1
-   //Display on
-   LATE = (LATE & 0b1111111100000000) | (0b00001111);
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
+    
+    //Alle Signale als Ausgänge
+   _TRISB15=0;
+   _TRISD5=0;
+   _TRISD4=0;
+   _TRISE0=0;
+   _TRISE1=0;
+   _TRISE2=0;
+   _TRISE3=0;
+   _TRISE4=0;
+   _TRISE5=0;
+   _TRISE6=0;
+   _TRISE7=0;
+   //Alle Ausgänge als Digital
+   _ANSB15=0;
+   _ANSE0=0;
+   _ANSE1=0;
+   _ANSE2=0;
+   _ANSE3=0;
+   _ANSE4=0;
+   _ANSE5=0;
+   _ANSE6=0;
+   _ANSE7=0;
    
-   TMR2=0; while( TMR2<50); //1000ns warten
-#endif 
-   //Display clear
-   LATE = (LATE & 0b1111111100000000) | (0b00000001);
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-   
-   TMR2=0; while( TMR2<50); //1000ns warten
-   
-   //Schreiben
-   LCD_RS=1;
-   LCD_R_W=0;
-   TMR2=0; while( TMR2<4); //80ns warten
-   LATE = (LATE & 0b1111111100000000) | (0b00110000); //"0"
-   TMR2=0; while( TMR2<1); //20ns warten
-   LCD_ENABLE=1;
-   TMR2=0; while( TMR2<25); //500ns warten
-   LCD_ENABLE=0;
-  
-   TMR2=0; while( TMR2<50); //1000ns warten
+    LCD_ENABLE = 0; //LCD Aktivierungssignal
+    LCD_RS = 0;     //LCD Registerauswahlsignal
+    LCD_R_W = 0;    //LCD Daten Lesen oder Schreiben
+    
+    
+    //Function Set 1
+    delay_ms(40); //40 ms warten
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_CMD_INIT);
+    __delay_cycles(33); 
+    LCD_ENABLE = 0;
+    
+    
+    //Function Set 2
+    __delay_us(4100); //4.1 ms warten
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_CMD_INIT);
+    __delay_cycles(33); 
+    LCD_ENABLE = 0;
+    
+    
+    //Function Set 3
+     __delay_us(100); //100 us warten
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_CMD_INIT);
+    __delay_cycles(33); 
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_CMD_INIT benötigt 38 us zum Ausführen 
+    
+    
+    /*************************Alle anderen Anweisungen*************************/
+    
+    //Function Set
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_FUNCTION_SET);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_FUNCTION_SET benötigt 38 us zum Ausführen
+    
+    
+    //Display off
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_DISPLAY_OFF); 
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_DISPLAY_OFF benötigt 38 us zum Ausführen
+
+    
+    //Display zurücksetzen
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_DISPLAY_CLEAR); 
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(1520);   //LCD_DISPLAY_CLEAR benötigt 1.52 ms zum Ausführen
+    
+
+    //Eingabemodus
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_ENTRY_MODE); 
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_ENTRY_MODE benötigt 38 us zum Ausführen
+    
+
+    //Display on
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_DISPLAY_ON);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
+    
+    
+    //Schreiben
+    LCD_RS=1;
+    LCD_R_W=0;
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_WRITE);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen
+    
+      //Schreiben
+    LCD_RS=1;
+    LCD_R_W=0;
+    LCD_ENABLE = 1;
+    LCD_DATA('d');
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen
+#endif
+ 
 }

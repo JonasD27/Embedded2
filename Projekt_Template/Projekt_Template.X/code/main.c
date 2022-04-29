@@ -38,6 +38,7 @@ uint8_t write_data_buffer_light=0b00010000;
 uint8_t read_data_buffer_temp[2];
 uint8_t read_data_buffer_light[2];
 
+int test=0;
 
 /*Prototypen*/
 
@@ -128,7 +129,7 @@ int16_t main(void)
     init_timer1();
     init_ms_t4();
     initI2C();
-    //lcd_init();
+    lcd_init();
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;

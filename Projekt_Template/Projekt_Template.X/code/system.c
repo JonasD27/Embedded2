@@ -13,6 +13,9 @@
     #endif
 #endif
 
+#define CYCLES_PER_MILLISECONDS ((335L*SYS_FREQ)/7370000L)
+#define CYCLES_PER_MIKROSECONDS CYCLES_PER_MILLISECONDS/1000
+
 
 #include <stdint.h>          /* For uint16_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
@@ -127,7 +130,7 @@ void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
 
 void init_timer2() //20ns pro tick im timer register
 {
-    T2CONbits.TON = 0; // Stop any 16/32-bit Timer2 operation
+    T2CONbits.TON = 0; // Stop any 16/32-bit Timer3 operation
     T2CONbits.TCS = 0; // Select internal instruction cycle clock
     
     T2CONbits.TGATE = 0; // Disable Gated Timer mode
@@ -143,6 +146,19 @@ void delay_ms(uint16_t milliseconds)
     uint32_t i=0;
     for (i=0;i<(DELAY_ANPASSUNG*(uint32_t)milliseconds);i++)
     {
+    }
+}
+
+void delay_us(uint16_t mikroseconds) 
+{
+    int i, j; 
+    for (i = 0; i < mikroseconds; i++)
+    {
+        for(j = 0; j < CYCLES_PER_MIKROSECONDS; j++){
+            
+            Nop();
+        
+        }
     }
 }
 
