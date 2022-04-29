@@ -6,27 +6,28 @@ void lcd_init()
 {
    init_timer2(); //Timer2 setzt alle 20ns Zählregister hoch
    //Alle Signale als Ausgänge
+   
+   //RS als Ausgang
    _TRISB15=0;
+   //R/W als Ausgang
    _TRISD5=0;
+   //Enable als Ausgang
    _TRISD4=0;
-   _TRISE0=0;
-   _TRISE1=0;
-   _TRISE2=0;
-   _TRISE3=0;
-   _TRISE4=0;
-   _TRISE5=0;
-   _TRISE6=0;
-   _TRISE7=0;
-   //Alle Ausgänge als Digital
+   
+   //Datenbus als Ausgang
+   TRISE = TRISE & (0b1111111100000000);
+#if 0
+   //Datenbus als Eingang
+   TRISE = TRISE | (0b0000000011111111);
+#endif
+   
+   //Alle Datenbus-Signale als Digital
+   ANSELE = ANSELE & (0b1111111100000000);
+   
+   //RS auf digital
    _ANSB15=0;
-   _ANSE0=0;
-   _ANSE1=0;
-   _ANSE2=0;
-   _ANSE3=0;
-   _ANSE4=0;
-   _ANSE5=0;
-   _ANSE6=0;
-   _ANSE7=0;
+   
+   
 
    delay_ms(50);
    //Function set 1
@@ -34,7 +35,14 @@ void lcd_init()
    LCD_R_W=0;
    
    TMR2=0; while( TMR2<4); //80ns warten
+   //Schreiben
    LATE = (LATE & 0b1111111100000000) | (0b00111000);
+   
+#if 0
+   //Lesen
+   uint8_t data = PORTE & 0b0000000011111111;
+#endif
+   
    LCD_ENABLE=1;
    TMR2=0; while( TMR2<25); //500ns warten
    LCD_ENABLE=0;
@@ -54,6 +62,7 @@ void lcd_init()
    LCD_ENABLE=1;
    TMR2=0; while( TMR2<25); //500ns warten
    LCD_ENABLE=0;
+   
    
    delay_ms(50);
    
@@ -92,6 +101,8 @@ void lcd_init()
    
    TMR2=0; while( TMR2<50); //1000ns warten
    delay_ms(5);
+   
+   
    /********************************************************************/
 #if 1
    //Display on

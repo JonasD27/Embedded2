@@ -58,45 +58,24 @@ typedef struct
 
 typedef void *(*StateFunc)();
 
-#ifdef MAIN
-
 /******************************************************************************/
 /* Global Variable Declaration                                                */
 /******************************************************************************/
-
-uint8_t write_data_buffer_temp;
-uint8_t write_data_buffer_light;
-uint8_t read_data_buffer_temp[2];
-uint8_t read_data_buffer_light[2];
-
-bool trigger_FSM;
-
-i2c_status_t status_temperatur;
-i2c_status_t status_licht;
-
-
-I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,NULL};
-
-Buffer_I2C_FSM FIFO_I2C = {{},0,0}; //FIFO für die I2C FSM
-#else
+//In Header nur Prototypen, genauso auch mit den Variablen. Varbiale sollte in c Datei deklariert sein. In Header nur mit extern.
 extern uint8_t write_data_buffer_temp;
 extern uint8_t write_data_buffer_light;
 extern uint8_t read_data_buffer_temp[2];
 extern uint8_t read_data_buffer_light[2];
 
-extern bool trigger_FSM;
 
 extern i2c_status_t status_temperatur;
 extern i2c_status_t status_licht;
 
 
+
 extern I2C_struct I2C_test_struct;
 
 extern Buffer_I2C_FSM FIFO_I2C; //FIFO für die I2C FSM
-#endif
-
-
-
 
 /******************************************************************************/
 /* Prototypen                                                                 */
@@ -108,7 +87,7 @@ void doI2C(void);
 
 void initI2C(void);
 
-void print_sensor_values(void);
+
 
 void *FSM_Idle(void);
 void *FSM_Start(void);

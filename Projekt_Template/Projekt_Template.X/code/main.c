@@ -30,6 +30,90 @@
 
 #define HEARTBEAT_MS 1
 
+i2c_status_t status_temperatur = Error;
+i2c_status_t status_licht = Error;
+
+uint8_t write_data_buffer_temp=0b00000000;
+uint8_t write_data_buffer_light=0b00010000;
+uint8_t read_data_buffer_temp[2];
+uint8_t read_data_buffer_light[2];
+
+
+/*Prototypen*/
+
+void print_sensor_values(void);
+
+double get_Temperatur(void); 
+double get_Light(void); 
+
+/*Funktionen*/
+
+/**
+ * Ausgabe der ausgelesenen Sensor-Werte per UART
+ */
+void print_sensor_values()
+{
+    static int count=0;
+
+    //Temperatur
+    if (status_temperatur==Finished)
+    {
+       char str[32]; 
+       sprintf(str,"Temperatur: %.1f Grad",get_Temperatur());
+       putsUART(str);
+       char lf[2];
+       sprintf(lf, "\n"); 
+       putsUART(lf);
+       status_temperatur=Pending;
+    }
+    
+    if (status_licht==Finished)
+    {
+       char str[16]; 
+       sprintf(str,"Licht: %.1f lux",get_Light());
+       putsUART(str);
+       char lf[2];
+       sprintf(lf, "\n"); 
+       putsUART(lf);
+       status_licht=Pending;
+    }
+    if (status_licht==Error || status_temperatur==Error)
+    {
+        if (count>=1000)
+        {
+           count=0;
+           char str[32]; 
+           sprintf(str, "Fehler beim Auslesen!");
+           putsUART(str); 
+           char lf[2];
+           sprintf(lf, "\n"); 
+           putsUART(lf);
+        } 
+        else
+        {
+           count++;
+        }
+    }
+
+       
+   
+ 
+} /* print_sensor_values() */
+
+double get_Temperatur(void)
+{
+    double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
+    temp = temp/256;
+    return temp;
+}
+
+double get_Light(void)
+{
+    double light = read_data_buffer_light[0]<<8 | read_data_buffer_light[1];
+    light = light/1.2;
+    return light;
+}
+
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -44,14 +128,11 @@ int16_t main(void)
     init_timer1();
     init_ms_t4();
     initI2C();
-    lcd_init();
+    //lcd_init();
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
-    
-    
-    write_data_buffer_temp=0b00000000;
-    write_data_buffer_light=0b00010000;
+
     while(1)
     {
         if(_T4IF)

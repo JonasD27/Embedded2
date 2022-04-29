@@ -1,3 +1,9 @@
+#include <stdint.h>        /* Includes uint16_t definition                    */
+#include <stdbool.h>       /* Includes true/false definition                  */
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <xc.h>
 /******************************************************************************/
 /* User Level #define Macros                                                  */
 /******************************************************************************/
@@ -15,6 +21,8 @@
 #define BUFFER_SIZE 256
 #define SENSOR_TIME 1
 /* TODO Application specific user parameters used in user.c may go here */
+
+
 
 /******************************************************************************/
 /* User Function Prototypes                                                   */

@@ -5,6 +5,14 @@
 #include "I2C.h"
 #include "system.h"
 #include "UART.h"
+#include "user.h"
+
+
+
+I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,NULL};
+
+Buffer_I2C_FSM FIFO_I2C = {{},0,0}; //FIFO für die I2C FSM
+
 
 /******************************************************************************/
 /* Funktionen                                                                 */
@@ -366,51 +374,3 @@ void *FSM_Stop(void)
     
 } /* *FSM_Stop() */
 
-/**
- * Ausgabe der ausgelesenen Sensor-Werte per UART
- */
-void print_sensor_values()
-{
-    //Temperatur
-    if (status_temperatur==Finished)
-    {
-        double temp = read_data_buffer_temp[0]<<8|read_data_buffer_temp[1];
-        char str[16];
-        sprintf(str,"Temperatur: %.1f Grad",temp/256);
-        putsUART(str);
-        
-        char lf[2];
-        sprintf(lf, "\n");
-        
-        putsUART(lf);
-        status_temperatur=Pending;
-    }
-    
-    if (status_licht==Finished)
-    {
-        //Licht
-        double light = read_data_buffer_light[0]<<8 | read_data_buffer_light[1];
-        char str[16];
-        sprintf(str,"Licht: %.1f lux",light/1.2);
-        putsUART(str);
-        
-        char lf[2];
-        sprintf(lf, "\n");
-        
-        putsUART(lf);
-        status_licht=Pending;
-    }
-    
-    if (status_licht==Error || status_temperatur==Error)
-    {
-       char str[16];
-       sprintf(str, "Fehler beim Auslesen eines Sensors!");
-       putsUART(str); 
-       
-       char lf[2];
-       sprintf(lf, "\n");
-        
-       putsUART(lf);
-    }
- 
-} /* print_sensor_values() */
