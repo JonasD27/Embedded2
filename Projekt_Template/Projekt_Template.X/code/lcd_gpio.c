@@ -121,7 +121,7 @@ void lcd_init()
     LCD_RS=1;
     LCD_R_W=0;
     LCD_ENABLE = 1;
-    LCD_DATA('d');
+    LCD_DATA('Y');
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen
