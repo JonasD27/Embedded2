@@ -130,11 +130,14 @@ int16_t main(void)
     init_ms_t4();
     initI2C();
     lcd_init();
+#if 0
     lcd_write_data('H');
     lcd_write_data('a');
     lcd_write_data('l');
     lcd_write_data('l');
-    lcd_write_data('i');
+    lcd_write_data('o');
+#endif
+    writeStrLCD("Hallo World");
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;

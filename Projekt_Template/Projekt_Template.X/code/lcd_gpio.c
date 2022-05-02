@@ -14,27 +14,15 @@ void lcd_init()
 #if 1
     
     //Alle Signale als Ausgänge
-   _TRISB15=0;
-   _TRISD5=0;
-   _TRISD4=0;
-   _TRISE0=0;
-   _TRISE1=0;
-   _TRISE2=0;
-   _TRISE3=0;
-   _TRISE4=0;
-   _TRISE5=0;
-   _TRISE6=0;
-   _TRISE7=0;
+   _TRISB15 = 0;
+   _TRISD5 = 0;
+   _TRISD4 = 0;
+    TRISE &= 0xFF00;//Datenbus
+    
+    
    //Alle Ausgänge als Digital
-   _ANSB15=0;
-   _ANSE0=0;
-   _ANSE1=0;
-   _ANSE2=0;
-   _ANSE3=0;
-   _ANSE4=0;
-   _ANSE5=0;
-   _ANSE6=0;
-   _ANSE7=0;
+   _ANSB15 = 0;
+   ANSELE &= 0xFF00;
    
     LCD_ENABLE = 0; //LCD Aktivierungssignal
     LCD_RS = 0;     //LCD Registerauswahlsignal
@@ -111,13 +99,53 @@ void lcd_init()
  
 }
 
+/******************************************************************************/
+/* Funktionen                                                                 */
+/******************************************************************************/
+
 void lcd_write_data(uint8_t data)
 {
-    LCD_RS=1;
-    LCD_R_W=0;
+    LCD_RS = 1;
+    LCD_R_W = 0;
     LCD_ENABLE = 1;
     LCD_DATA(data);
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
-}
+    
+}/*lcd_write_data()*/
+
+
+/*Gibt einen String auf dem Display aus*/
+void writeStrLCD(const char* str)
+{
+    uint8_t i = 0;
+    
+    while (str[i]!=0)
+    {
+        /*Beinhaltet die ASCII-Tabelle von Ausrufezeichen bis Tilde mit 
+         * Hex = 0x21 - 0x7F oder Dezimal von d033 - d126*/
+        if (str[i]>='!' && str[i]<='~')
+        {
+			lcd_write_data(LCD_ZEICHEN(str[i]));
+        }
+        
+		else if (str[i]==' ')
+        {
+			lcd_write_data(LCD_LEERZEICHEN);
+        } 
+        
+		else
+        {
+			break;
+        }
+        
+		i++;
+        
+	}
+    
+}/*writeStrLCD()*/
+
+
+
+
