@@ -168,13 +168,13 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x15ae          0x2085  (8325)
-.const                      0x17ae                0x4a            0x6f  (111)
-.text                       0x17f8               0x2d6           0x441  (1089)
-.dinit                      0x1ace               0x184           0x246  (582)
-.text                       0x1c52               0x53c           0x7da  (2010)
-.init.delay32               0x218e                0x1c            0x2a  (42)
+.const                      0x17ae                0x4c            0x72  (114)
+.text                       0x17fa               0x2d6           0x441  (1089)
+.dinit                      0x1ad0               0x184           0x246  (582)
+.text                       0x1c54               0x522           0x7b3  (1971)
+.init.delay32               0x2176                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):         0x2f7f  (12159) 2%
+                 Total "program" memory used (bytes):         0x2f5b  (12123) 2%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -318,52 +318,52 @@ External Symbols in Program Memory (by address):
                   0x0016e6                  __dtype
                   0x00170a                  __dunpack
                   0x001758                  ___floatundidf
-                  0x0017f8                  _put_I2C_struct_FIFO
-                  0x00186a                  _get_I2C_struct_FIFO
-                  0x0018ba                  _exchangeI2C
-                  0x0018fc                  _doI2C
-                  0x001908                  _initI2C
-                  0x001954                  _FSM_Idle
-                  0x00196a                  _FSM_Start
-                  0x0019a4                  _FSM_Adresse_Write
-                  0x0019fe                  _FSM_Repeated_Start
-                  0x001a1e                  _FSM_Adresse_Read
-                  0x001a80                  _FSM_RECV_EN
-                  0x001aba                  _FSM_Stop
-                  0x001c52                  _lcd_init
-                  0x001d42                  _lcd_write_data
-                  0x001d68                  _writeStrLCD
-                  0x001dc2                  _print_sensor_values
-                  0x001e4e                  _get_Temperatur
-                  0x001e7a                  _get_Light
-                  0x001ea6                  _main
-                  0x001f00                  _initUART
-                  0x001f4e                  _putcFIFO_TX
-                  0x001f9e                  _getcFIFO_TX
-                  0x001fda                  _putcUART
-                  0x001ff0                  _putsUART
-                  0x00203a                  _ConfigureOscillator
-                  0x002092                  _init_timer1
-                  0x0020ca                  _init_ms_t4
-                  0x0020e8                  _init_timer2
-                  0x002104                  _delay_ms
-                  0x00213a                  _delay_us
-                  0x002166                  _InitApp
-                  0x00216c                  _setLED
-                  0x00218e                  ___delay32
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x0018bc                  _exchangeI2C
+                  0x0018fe                  _doI2C
+                  0x00190a                  _initI2C
+                  0x001956                  _FSM_Idle
+                  0x00196c                  _FSM_Start
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001a00                  _FSM_Repeated_Start
+                  0x001a20                  _FSM_Adresse_Read
+                  0x001a82                  _FSM_RECV_EN
+                  0x001abc                  _FSM_Stop
+                  0x001c54                  _lcd_init
+                  0x001d44                  _lcd_write_data
+                  0x001d6a                  _writeStrLCD
+                  0x001daa                  _print_sensor_values
+                  0x001e36                  _get_Temperatur
+                  0x001e62                  _get_Light
+                  0x001e8e                  _main
+                  0x001ee8                  _initUART
+                  0x001f36                  _putcFIFO_TX
+                  0x001f86                  _getcFIFO_TX
+                  0x001fc2                  _putcUART
+                  0x001fd8                  _putsUART
+                  0x002022                  _ConfigureOscillator
+                  0x00207a                  _init_timer1
+                  0x0020b2                  _init_ms_t4
+                  0x0020d0                  _init_timer2
+                  0x0020ec                  _delay_ms
+                  0x002122                  _delay_us
+                  0x00214e                  _InitApp
+                  0x002154                  _setLED
+                  0x002176                  ___delay32
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x00203a                  _ConfigureOscillator
-                  0x001a1e                  _FSM_Adresse_Read
-                  0x0019a4                  _FSM_Adresse_Write
-                  0x001954                  _FSM_Idle
-                  0x001a80                  _FSM_RECV_EN
-                  0x0019fe                  _FSM_Repeated_Start
-                  0x00196a                  _FSM_Start
-                  0x001aba                  _FSM_Stop
-                  0x002166                  _InitApp
+                  0x002022                  _ConfigureOscillator
+                  0x001a20                  _FSM_Adresse_Read
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001956                  _FSM_Idle
+                  0x001a82                  _FSM_RECV_EN
+                  0x001a00                  _FSM_Repeated_Start
+                  0x00196c                  _FSM_Start
+                  0x001abc                  _FSM_Stop
+                  0x00214e                  _InitApp
                   0x000364                  __AddressError
                   0x000376                  __DMACError
                   0x00037c                  __DefaultInterrupt
@@ -376,7 +376,7 @@ External Symbols in Program Memory (by name):
                   0x000316                  __T1Interrupt
                   0x000388                  __U1TXInterrupt
                   0x00121c                  ___adddf3
-                  0x00218e                  ___delay32
+                  0x002176                  ___delay32
                   0x00132c                  ___divdf3
                   0x00042e                  ___divsf3
                   0x001318                  ___eqdf2
@@ -419,33 +419,33 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x0005dc                  __sprintf_fF
                   0x0007c8                  __vfprintf_fF
-                  0x002104                  _delay_ms
-                  0x00213a                  _delay_us
-                  0x0018fc                  _doI2C
-                  0x0018ba                  _exchangeI2C
+                  0x0020ec                  _delay_ms
+                  0x002122                  _delay_us
+                  0x0018fe                  _doI2C
+                  0x0018bc                  _exchangeI2C
                   0x001518                  _frexp
                   0x001518                  _frexpl
-                  0x00186a                  _get_I2C_struct_FIFO
-                  0x001e7a                  _get_Light
-                  0x001e4e                  _get_Temperatur
-                  0x001f9e                  _getcFIFO_TX
-                  0x001908                  _initI2C
-                  0x001f00                  _initUART
-                  0x0020ca                  _init_ms_t4
-                  0x002092                  _init_timer1
-                  0x0020e8                  _init_timer2
-                  0x001c52                  _lcd_init
-                  0x001d42                  _lcd_write_data
-                  0x001ea6                  _main
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x001e62                  _get_Light
+                  0x001e36                  _get_Temperatur
+                  0x001f86                  _getcFIFO_TX
+                  0x00190a                  _initI2C
+                  0x001ee8                  _initUART
+                  0x0020b2                  _init_ms_t4
+                  0x00207a                  _init_timer1
+                  0x0020d0                  _init_timer2
+                  0x001c54                  _lcd_init
+                  0x001d44                  _lcd_write_data
+                  0x001e8e                  _main
                   0x00117e                  _memcpy
-                  0x001dc2                  _print_sensor_values
-                  0x0017f8                  _put_I2C_struct_FIFO
-                  0x001f4e                  _putcFIFO_TX
-                  0x001fda                  _putcUART
-                  0x001ff0                  _putsUART
-                  0x00216c                  _setLED
+                  0x001daa                  _print_sensor_values
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x001f36                  _putcFIFO_TX
+                  0x001fc2                  _putcUART
+                  0x001fd8                  _putsUART
+                  0x002154                  _setLED
                   0x00118c                  _strlen
-                  0x001d68                  _writeStrLCD
+                  0x001d6a                  _writeStrLCD
 
 Memory Configuration
 
@@ -648,7 +648,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSPði
+ __FGS.sec        0xf80004          0x2 /CW/_FGS0ku
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -700,7 +700,7 @@ __FUID0
  .debug_abbrev    0x000667        0x14b build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_abbrev    0x0007b2         0xe0 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
-.debug_line       0x000000        0x913
+.debug_line       0x000000        0x910
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_line      0x00001a         0xf0 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -710,7 +710,7 @@ __FUID0
  .debug_line      0x000453         0xe1 build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_line      0x000534        0x177 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_line      0x0006ab        0x13e build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_line      0x0007e9        0x12a build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_line      0x0007e9        0x127 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
 .debug_frame      0x000000        0x548
  *(.debug_frame)
@@ -3476,7 +3476,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGSPði
+LOAD /CW/_FGS0ku
 LOAD jump_table
 LOAD data_init
 
@@ -3724,54 +3724,54 @@ __c30_signature
  .ivt._U1TXInterrupt
                   0x00002c          0x2 build/XC16_dsPIC33EP512MU810/production/code/UART.o
 
-.const              0x97ae         0x4a load address 0x0017ae  
- .const             0x97ae         0x4a build/XC16_dsPIC33EP512MU810/production/code/main.o
+.const              0x97ae         0x4c load address 0x0017ae  
+ .const             0x97ae         0x4c build/XC16_dsPIC33EP512MU810/production/code/main.o
 
-.text             0x0017f8        0x2d6
- .text            0x0017f8        0x2d6 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
-                  0x0017f8                  _put_I2C_struct_FIFO
-                  0x00186a                  _get_I2C_struct_FIFO
-                  0x0018ba                  _exchangeI2C
-                  0x0018fc                  _doI2C
-                  0x001908                  _initI2C
-                  0x001954                  _FSM_Idle
-                  0x00196a                  _FSM_Start
-                  0x0019a4                  _FSM_Adresse_Write
-                  0x0019fe                  _FSM_Repeated_Start
-                  0x001a1e                  _FSM_Adresse_Read
-                  0x001a80                  _FSM_RECV_EN
-                  0x001aba                  _FSM_Stop
+.text             0x0017fa        0x2d6
+ .text            0x0017fa        0x2d6 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
+                  0x0017fa                  _put_I2C_struct_FIFO
+                  0x00186c                  _get_I2C_struct_FIFO
+                  0x0018bc                  _exchangeI2C
+                  0x0018fe                  _doI2C
+                  0x00190a                  _initI2C
+                  0x001956                  _FSM_Idle
+                  0x00196c                  _FSM_Start
+                  0x0019a6                  _FSM_Adresse_Write
+                  0x001a00                  _FSM_Repeated_Start
+                  0x001a20                  _FSM_Adresse_Read
+                  0x001a82                  _FSM_RECV_EN
+                  0x001abc                  _FSM_Stop
 
-.dinit            0x001ace        0x184
- .dinit           0x001ace        0x184 data_init
+.dinit            0x001ad0        0x184
+ .dinit           0x001ad0        0x184 data_init
 
-.text             0x001c52        0x53c
- .text            0x001c52        0x170 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
-                  0x001c52                  _lcd_init
-                  0x001d42                  _lcd_write_data
-                  0x001d68                  _writeStrLCD
- .text            0x001dc2        0x13e build/XC16_dsPIC33EP512MU810/production/code/main.o
-                  0x001dc2                  _print_sensor_values
-                  0x001e4e                  _get_Temperatur
-                  0x001e7a                  _get_Light
-                  0x001ea6                  _main
- .text            0x001f00        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
-                  0x001f00                  _initUART
-                  0x001f4e                  _putcFIFO_TX
-                  0x001f9e                  _getcFIFO_TX
-                  0x001fda                  _putcUART
-                  0x001ff0                  _putsUART
- .text            0x00203a        0x12c build/XC16_dsPIC33EP512MU810/production/code/system.o
-                  0x00203a                  _ConfigureOscillator
-                  0x002092                  _init_timer1
-                  0x0020ca                  _init_ms_t4
-                  0x0020e8                  _init_timer2
-                  0x002104                  _delay_ms
-                  0x00213a                  _delay_us
- .text            0x002166         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
-                  0x002166                  _InitApp
-                  0x00216c                  _setLED
+.text             0x001c54        0x522
+ .text            0x001c54        0x156 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+                  0x001c54                  _lcd_init
+                  0x001d44                  _lcd_write_data
+                  0x001d6a                  _writeStrLCD
+ .text            0x001daa        0x13e build/XC16_dsPIC33EP512MU810/production/code/main.o
+                  0x001daa                  _print_sensor_values
+                  0x001e36                  _get_Temperatur
+                  0x001e62                  _get_Light
+                  0x001e8e                  _main
+ .text            0x001ee8        0x13a build/XC16_dsPIC33EP512MU810/production/code/UART.o
+                  0x001ee8                  _initUART
+                  0x001f36                  _putcFIFO_TX
+                  0x001f86                  _getcFIFO_TX
+                  0x001fc2                  _putcUART
+                  0x001fd8                  _putsUART
+ .text            0x002022        0x12c build/XC16_dsPIC33EP512MU810/production/code/system.o
+                  0x002022                  _ConfigureOscillator
+                  0x00207a                  _init_timer1
+                  0x0020b2                  _init_ms_t4
+                  0x0020d0                  _init_timer2
+                  0x0020ec                  _delay_ms
+                  0x002122                  _delay_us
+ .text            0x00214e         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
+                  0x00214e                  _InitApp
+                  0x002154                  _setLED
 
-.init.delay32     0x00218e         0x1c
- .init.delay32    0x00218e         0x1c c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x00218e                  ___delay32
+.init.delay32     0x002176         0x1c
+ .init.delay32    0x002176         0x1c c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x002176                  ___delay32

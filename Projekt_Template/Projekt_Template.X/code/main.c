@@ -137,7 +137,7 @@ int16_t main(void)
     lcd_write_data('l');
     lcd_write_data('o');
 #endif
-    writeStrLCD("Hallo World");
+    writeStrLCD("Guten Morgen");
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
