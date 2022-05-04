@@ -4,7 +4,11 @@
 
 #include "UART.h"
 #include "system.h"
+#include "lcd_gpio.h"
 
+
+Buffer FIFO = {{}, 0, 0}; //FIFO zum Versenden über UART
+Buffer FIFO_RX = {{}, 0, 0}; //FIFO zum Empfangen über UART
 /******************************************************************************/
 /* Funktionen                                                                 */
 /******************************************************************************/
@@ -32,9 +36,9 @@ void initUART()
     U1STAbits.UTXINV = 0;
     U1STAbits.URXISEL = 0;
     U1STA = U1STA | 0b0001000000000000;
-    //_URXEN = 1;
+    //_U1RXEN = 1;
     
-    //_U1RXIE = 1; // Enable UART RX interrupt
+    _U1RXIE = 1; // Enable UART RX interrupt
     
     U1MODEbits.UARTEN = 1; // Enable UART
     delay_ms(2);
@@ -52,6 +56,23 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
     _U1TXIF = 0; // Clear TX Interrupt flag
     getcFIFO_TX(&U1TXREG);
     
+}
+
+void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
+{   
+    _U1RXIF = 0; 
+    static int aufrufe = 0;
+    if (aufrufe != 0){
+        //putcFIFO_RX(U1RXREG);
+        received_UART[UART_RX_count]=U1RXREG;
+        received_UART[UART_RX_count+1]='\0';
+        UART_RX_count++;
+
+    }
+    else{
+        char temp = U1RXREG;
+    }
+    aufrufe = 1;
 }
 
 int16_t putcFIFO_TX(char c)
@@ -128,3 +149,49 @@ int16_t putsUART(const char *str)
     return erfolg;
     
 } /* putsUART() */
+
+
+int16_t putcFIFO_RX(char c)
+{
+  _GIE=0;
+  //if (buffer.write >= BUFFER_SIZE)
+  //  buffer.write = 0; // erhöht sicherheit
+  if ( ( FIFO_RX.write + 1 == FIFO_RX.read ) ||
+       ( FIFO_RX.read == 0 && FIFO_RX.write + 1 == BUFFER_SIZE ) )
+  {
+     return BUFFER_FAIL; // voll
+     _GIE=1;
+  }
+    
+
+  FIFO_RX.data[FIFO_RX.write] = c;
+
+  FIFO_RX.write++;
+  if (FIFO_RX.write >= BUFFER_SIZE)
+  {
+    FIFO_RX.write = 0;
+  }
+  _GIE=1;
+  return BUFFER_SUCCESS;
+}
+
+
+int16_t getcFIFO_RX(char *c)
+{
+  _GIE=0;
+  if (FIFO_RX.read == FIFO_RX.write)
+  {
+    _GIE=1;  
+    return BUFFER_FAIL;
+  }
+
+  *c = FIFO_RX.data[FIFO_RX.read];
+
+  FIFO_RX.read++;
+  if (FIFO_RX.read >= BUFFER_SIZE)
+  {
+    FIFO_RX.read = 0;
+  }
+  _GIE=1;
+  return BUFFER_SUCCESS;
+}

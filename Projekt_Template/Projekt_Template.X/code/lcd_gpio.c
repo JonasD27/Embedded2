@@ -11,8 +11,6 @@
 
 void lcd_init()
 {
-#if 1
-    
     //Alle Signale als Ausgänge
    _TRISB15 = 0;
    _TRISD5 = 0;
@@ -94,9 +92,7 @@ void lcd_init()
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
-    
-#endif
- 
+
 }
 
 /******************************************************************************/
@@ -116,6 +112,18 @@ void lcd_write_data(uint8_t data)
 }/*lcd_write_data()*/
 
 
+void lcd_clear(void)
+{
+    LCD_RS = 0;
+    LCD_R_W = 0;
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_DISPLAY_CLEAR);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    delay_ms(2); // Clear Display braucht 1.5ms  
+}
+
+
 /*Gibt einen String auf dem Display aus*/
 void writeStrLCD(const char* str)
 {
@@ -127,6 +135,7 @@ void writeStrLCD(const char* str)
          * Hex = 0x21 - 0x7F oder Dezimal von d033 - d126*/
         if (str[i]>='!' && str[i]<='~')
         {
+            //direkt lcd_write_data(str[i]))??
 			lcd_write_data(LCD_ZEICHEN(str[i]));
         }
         
@@ -146,6 +155,42 @@ void writeStrLCD(const char* str)
     
 }/*writeStrLCD()*/
 
-
+void lcd_set_pos(int line, int pos)
+{
+    //Position auf 0,0 setzten
+    LCD_RS = 0;
+    LCD_R_W = 0;
+    LCD_ENABLE = 1;
+    LCD_DATA(LCD_DISPLAY_HOME);
+    __delay_cycles(33);
+    LCD_ENABLE = 0;
+    delay_ms(2); // Home Display braucht 1.5ms 
+    
+    
+    
+    int i=0;
+    int to_shift=0;
+    
+    if (line==1) //Erste Linie
+    {
+        to_shift=pos;
+    }
+    
+    else //Zweite Linie
+    {
+        to_shift=pos+40;
+    }
+    
+    for(i=0; i<to_shift-1; i++)
+    {
+        LCD_RS = 0;
+        LCD_R_W = 0;
+        LCD_ENABLE = 1;
+        LCD_DATA(0b00010100);
+        __delay_cycles(33);
+        LCD_ENABLE = 0;
+        __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
+    }
+}
 
 

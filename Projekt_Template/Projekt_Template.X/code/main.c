@@ -38,7 +38,12 @@ uint8_t write_data_buffer_light=0b00010000;
 uint8_t read_data_buffer_temp[2];
 uint8_t read_data_buffer_light[2];
 
-int test=0;
+double latest_temperatur;
+float latest_cpu_load;
+
+char received_UART[20];
+int UART_RX_count;
+
 
 /*Prototypen*/
 
@@ -59,12 +64,15 @@ void print_sensor_values()
     //Temperatur
     if (status_temperatur==Finished)
     {
+       //Asugabe per UART
        char str[32]; 
        sprintf(str,"Temperatur: %.1f Grad",get_Temperatur());
        putsUART(str);
        char lf[2];
        sprintf(lf, "\n"); 
        putsUART(lf);
+       
+       latest_temperatur=get_Temperatur();
        status_temperatur=Pending;
     }
     
@@ -115,6 +123,79 @@ double get_Light(void)
     return light;
 }
 
+void measureProcesstime(){
+    static uint16_t time = 0;
+    time++;
+    if (time >= 10000) //Alle 10s Auslastung berechnen
+    {
+        float Auslastung;
+        uint16_t lsw = TMR2;
+        uint16_t msw = TMR3HLD;
+
+        float Auslastung1 = (float)lsw * 10;
+        float Auslastung2 = (float)msw *65535*10;
+        Auslastung = (Auslastung1 + Auslastung2) / (FCY);
+        
+        latest_cpu_load=Auslastung;
+        
+        time = 0;
+        TMR3HLD=0;
+        TMR3 = 0; // Clear 32-bit Timer (msw)
+        TMR2 = 0;
+    }
+ }
+
+
+void display_UART_RX()
+{
+    if (UART_RX_count>0)
+    {
+       lcd_set_pos(2,1);
+       writeStrLCD("                ");
+       lcd_set_pos(2,1);
+       writeStrLCD(received_UART);
+       memset(received_UART,0,sizeof(received_UART));
+       UART_RX_count=0;
+    }
+    
+}
+
+void display_temp_load()
+{
+   static uint16_t time = 0;
+   static bool switch_value=1;
+   time++;
+   
+   if (time >= 3000) //Alle 3s Auslastung berechnen
+   {
+       time=0;
+       if (switch_value) //Temperatur
+       {
+            char str[32]; 
+            sprintf(str,"Temperatur: %.1f",latest_temperatur);
+            lcd_set_pos(1,1);
+            writeStrLCD(str);
+            switch_value=0;
+       }
+       
+       else //Auslastung
+       {
+           char str[32]; 
+           sprintf(str,"Auslastung: %.1f",latest_cpu_load);
+           lcd_set_pos(1,1);
+           writeStrLCD(str);
+           switch_value=1;
+       }
+       
+       display_UART_RX();
+   }
+   
+   
+
+}
+
+
+
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -126,33 +207,44 @@ int16_t main(void)
 
     ConfigureOscillator();
     initUART();
-    init_timer1();
-    init_ms_t4();
+    init_timer1(); //Jede Sekunde I2C Anfrage
+    init_ms_t4(); //Heartbeat in Superloop
+    init_t2_t3();
     initI2C();
     lcd_init();
-#if 0
-    lcd_write_data('H');
-    lcd_write_data('a');
-    lcd_write_data('l');
-    lcd_write_data('l');
-    lcd_write_data('o');
-#endif
-    writeStrLCD("Hallo World");
+
+    writeStrLCD("Hello World");
+    delay_ms(2000);
+    lcd_clear();
+    //lcd_set_pos(2,10);
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
 
+    
+    _TRISF0 = 0;
+    _T2CKR = 96;//LATF0 auf Gated Timer Input mappen
+
+    _TRISE8 = 1;
+    _ANSE8 = 0;
+
+    
     while(1)
     {
+        _LATF0 = 0; //Gated Timer stoppen
         if(_T4IF)
         {
             _T4IF=0;
             Count++;
             if (Count >= HEARTBEAT_MS)
             {
+                _LATF0 = 1; //Gated Timer starten
                 Count = 0;
                 doI2C();
                 print_sensor_values();
+                measureProcesstime();
+                display_temp_load();
+                
             }         
         }
     }

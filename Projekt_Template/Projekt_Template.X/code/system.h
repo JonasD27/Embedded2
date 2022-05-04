@@ -37,5 +37,6 @@ void delay_ms(uint16_t milliseconds);
 
 void init_timer1(void);
 void init_ms_t4(void);
-void init_timer2(void);
+
+void init_t2_t3(void);
 
