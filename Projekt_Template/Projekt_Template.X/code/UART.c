@@ -60,17 +60,21 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
 
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 {   
-    _U1RXIF = 0; 
+    _U1RXIF = 0;
+    char dummy;
     static int aufrufe = 0;
-    if (aufrufe != 0){
+    if (aufrufe != 0)
+    {
         //putcFIFO_RX(U1RXREG);
         received_UART[UART_RX_count]=U1RXREG;
         received_UART[UART_RX_count+1]='\0';
         UART_RX_count++;
 
     }
-    else{
-        char dummy = U1RXREG;
+    
+    else
+    {
+        dummy = U1RXREG;
     }
     aufrufe = 1;
 }
