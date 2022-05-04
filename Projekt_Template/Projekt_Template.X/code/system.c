@@ -22,6 +22,9 @@
 
 #include "system.h"          /* variables/params used by system.c             */
 
+
+uint32_t DELAY_ANPASSUNG = ((SYS_FREQ/96)*2180ull)/1000000ull; //Berechnung der Delay Anpassung
+
 /******************************************************************************/
 /* System Level Functions                                                     */
 /*                                                                            */
@@ -123,9 +126,7 @@ void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
     T4CONbits.TCKPS = 0b10; // Select 1:64 Prescaler
     TMR4 = 0x00; // Clear 
     PR4 = (FCY/64000)-1; // Load 32-bit period value (lsw)
-    //IFS0bits.T2IF = 0; // Clear Timer2 Interrupt Flag
-    //IEC0bits.T2IE = 0; // Disable Timer2 interrupt
-    T4CONbits.TON = 1; // Start 32-bit Timer
+    T4CONbits.TON = 1; // Start Timer
 }
 
 void init_t2_t3(){

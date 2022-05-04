@@ -70,7 +70,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 
     }
     else{
-        char temp = U1RXREG;
+        char dummy = U1RXREG;
     }
     aufrufe = 1;
 }

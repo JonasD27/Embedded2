@@ -181,7 +181,7 @@ void display_temp_load()
        else //Auslastung
        {
            char str[32]; 
-           sprintf(str,"Auslastung: %.1f",latest_cpu_load);
+           sprintf(str,"Auslastung: %.1f",(double)latest_cpu_load);
            lcd_set_pos(1,1);
            writeStrLCD(str);
            switch_value=1;
@@ -202,7 +202,7 @@ void display_temp_load()
 
 int16_t main(void)
 {
-    DELAY_ANPASSUNG = ((SYS_FREQ/96)*2180ull)/1000000ull; //Berechnung der Delay Anpassung
+    
     uint16_t Count = 0;
 
     ConfigureOscillator();
@@ -216,16 +216,15 @@ int16_t main(void)
     writeStrLCD("Hello World");
     delay_ms(2000);
     lcd_clear();
-    //lcd_set_pos(2,10);
 
     _RP66R = _RPOUT_U1TX; //UART Pin Mapping
     RPINR18bits.U1RXR = 0b1011000;
 
     
-    _TRISF0 = 0;
+    _TRISF0 = 0; //Für Asuslastungsberechnung
     _T2CKR = 96;//LATF0 auf Gated Timer Input mappen
 
-    _TRISE8 = 1;
+    _TRISE8 = 1; //Uart RX als Input
     _ANSE8 = 0;
 
     

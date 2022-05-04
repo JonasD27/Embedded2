@@ -15,11 +15,10 @@
 #define FCY             SYS_FREQ/2
 
 
-#ifdef MAIN
-uint32_t DELAY_ANPASSUNG;
-#else
+
+
 extern uint32_t DELAY_ANPASSUNG;
-#endif
+
 
 
 /******************************************************************************/
