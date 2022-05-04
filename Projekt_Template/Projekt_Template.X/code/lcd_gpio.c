@@ -1,26 +1,27 @@
+/******************************************************************************/
+/* Files to Include                                                           */
+/******************************************************************************/
+
 #include "xc.h"
 #include "system.h"
 #include "lcd_gpio.h"
 
-#include "libpic30.h"
-
-
 /******************************************************************************/
-/* Functions                                                                  */
+/* Funktionen                                                                 */
 /******************************************************************************/
 
 void lcd_init()
 {
     //Alle Signale als Ausgänge
-   _TRISB15 = 0;
-   _TRISD5 = 0;
-   _TRISD4 = 0;
+    _TRISB15 = 0;
+    _TRISD5 = 0;
+    _TRISD4 = 0;
     TRISE &= 0xFF00;//Datenbus
     
     
    //Alle Ausgänge als Digital
-   _ANSB15 = 0;
-   ANSELE &= 0xFF00;
+    _ANSB15 = 0;
+    ANSELE &= 0xFF00;
    
     LCD_ENABLE = 0; //LCD Aktivierungssignal
     LCD_RS = 0;     //LCD Registerauswahlsignal
@@ -95,10 +96,6 @@ void lcd_init()
 
 }
 
-/******************************************************************************/
-/* Funktionen                                                                 */
-/******************************************************************************/
-
 void lcd_write_data(uint8_t data)
 {
     LCD_RS = 1;
@@ -129,21 +126,17 @@ void writeStrLCD(const char* str)
 {
     uint8_t i = 0;
     
-    while (str[i]!=0)
+     while (str[i]!=0)
     {
-        /*Beinhaltet die ASCII-Tabelle von Ausrufezeichen bis Tilde mit 
-         * Hex = 0x21 - 0x7F oder Dezimal von d033 - d126*/
-        if (str[i]>='!' && str[i]<='~')
+        /* Beinhaltet die ASCII-Tabelle von Leerzeichen bis Tilde mit 
+         * Hex = 0x20 - 0x7F oder Dezimal von d032 - d126.
+         * Die Zeichen mit den ASCII-Codes 32 bis 126 sind sog. druckbare 
+         * Zeichen, die für die Anzeige bzw. Ausgabe bestimmt sind.*/
+        if (str[i]>=' ' && str[i]<='~')
         {
-            //direkt lcd_write_data(str[i]))??
 			lcd_write_data(LCD_ZEICHEN(str[i]));
         }
-        
-		else if (str[i]==' ')
-        {
-			lcd_write_data(LCD_LEERZEICHEN);
-        } 
-        
+     
 		else
         {
 			break;
