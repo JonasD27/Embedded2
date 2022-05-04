@@ -181,7 +181,7 @@ void display_temp_load()
        else //Auslastung
        {
            char str[32]; 
-           sprintf(str,"Auslastung: %.1f",latest_cpu_load);
+           sprintf(str,"Auslastung: %.lf",(double)latest_cpu_load);
            lcd_set_pos(1,1);
            writeStrLCD(str);
            switch_value=1;
@@ -213,7 +213,7 @@ int16_t main(void)
     initI2C();
     lcd_init();
 
-    writeStrLCD("Hello World");
+    writeStrLCD("Hello world");
     delay_ms(2000);
     lcd_clear();
     //lcd_set_pos(2,10);

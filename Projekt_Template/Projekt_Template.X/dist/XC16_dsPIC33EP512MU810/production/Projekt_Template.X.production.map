@@ -697,7 +697,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS0ïi
+ __FGS.sec        0xf80004          0x2 /CW/_FGS@ìq
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -724,7 +724,7 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x5622
+.debug_info       0x000000       0x5618
  *(.debug_info)
  .debug_info      0x000000        0x146 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_info      0x000146        0x3e1 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -733,11 +733,11 @@ __FUID0
  .debug_info      0x0028eb        0x3c0 build/XC16_dsPIC33EP512MU810/production/code/traps.o
  .debug_info      0x002cab        0x1d5 build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_info      0x002e80        0xf55 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_info      0x003dd5        0xdac build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_info      0x004b81        0xaa1 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_info      0x003dd5        0xda2 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_info      0x004b77        0xaa1 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x8f1
+.debug_abbrev     0x000000        0x8e8
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x1f build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_abbrev    0x00001f         0xd4 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -746,8 +746,8 @@ __FUID0
  .debug_abbrev    0x000399         0x8a build/XC16_dsPIC33EP512MU810/production/code/traps.o
  .debug_abbrev    0x000423         0x7f build/XC16_dsPIC33EP512MU810/production/code/user.o
  .debug_abbrev    0x0004a2        0x1e2 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
- .debug_abbrev    0x000684        0x18d build/XC16_dsPIC33EP512MU810/production/code/UART.o
- .debug_abbrev    0x000811         0xe0 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
+ .debug_abbrev    0x000684        0x184 build/XC16_dsPIC33EP512MU810/production/code/UART.o
+ .debug_abbrev    0x000808         0xe0 build/XC16_dsPIC33EP512MU810/production/code/lcd_gpio.o
 
 .debug_line       0x000000        0x992
  *(.debug_line)
@@ -3525,7 +3525,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGS0ïi
+LOAD /CW/_FGS@ìq
 LOAD jump_table
 LOAD data_init
 

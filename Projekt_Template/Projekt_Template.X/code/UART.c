@@ -60,7 +60,8 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1TXInterrupt(void)
 
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 {   
-    _U1RXIF = 0; 
+    _U1RXIF = 0;
+    char temp;
     static int aufrufe = 0;
     if (aufrufe != 0){
         //putcFIFO_RX(U1RXREG);
@@ -70,7 +71,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 
     }
     else{
-        char temp = U1RXREG;
+        temp = U1RXREG;
     }
     aufrufe = 1;
 }
