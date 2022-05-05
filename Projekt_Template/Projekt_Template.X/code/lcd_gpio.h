@@ -60,11 +60,11 @@ void lcd_write_data(uint8_t data);
 void writeStrLCD(const char* str);
 void lcd_clear(void);
 void lcd_set_pos(int line, int pos);
+uint8_t lcd_get_status(void);
 
 /*noch machen*/
 
-uint8_t lcd_get_status(void);
-uint8_t waitForBusyLCD(void); //Brauch man das?
 
-void lcd_set_write_position(uint8_t pos);
+void waitForBusyLCD(void); //Brauch man das?
+
 

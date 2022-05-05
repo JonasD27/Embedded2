@@ -160,15 +160,26 @@ void display_UART_RX()
     
 }
 
+void send_lcd_status()
+{
+       char str[32]; 
+       sprintf(str,"Status: %02X",lcd_get_status());
+       putsUART(str);
+       char lf[2];
+       sprintf(lf, "\n"); 
+       putsUART(lf);
+}
+
 void display_temp_load()
 {
    static uint16_t time = 0;
    static bool switch_value=1;
    time++;
    
-   if (time >= 3000) //Alle 3s Auslastung berechnen
+   if (time >= 3000) //Alle 3s Refresh
    {
        time=0;
+
        if (switch_value) //Temperatur
        {
             char str[32]; 
@@ -181,7 +192,7 @@ void display_temp_load()
        else //Auslastung
        {
            char str[32]; 
-           sprintf(str,"Auslastung: %.1f",(double)latest_cpu_load);
+           sprintf(str,"Auslastung: %.2f",(double)latest_cpu_load);
            lcd_set_pos(1,1);
            writeStrLCD(str);
            switch_value=1;
@@ -193,6 +204,8 @@ void display_temp_load()
    
 
 }
+
+
 
 
 
@@ -242,8 +255,7 @@ int16_t main(void)
                 doI2C();
                 print_sensor_values();
                 measureProcesstime();
-                display_temp_load();
-                
+                display_temp_load(); 
             }         
         }
     }

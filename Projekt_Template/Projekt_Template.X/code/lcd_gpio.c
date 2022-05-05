@@ -13,10 +13,10 @@
 void lcd_init()
 {
     //Alle Signale als Ausgänge
-    _TRISB15 = 0;
-    _TRISD5 = 0;
-    _TRISD4 = 0;
-    TRISE &= 0xFF00;//Datenbus
+    _TRISB15 = 0; //RS
+    _TRISD5 = 0; //R_W
+    _TRISD4 = 0; //Enable
+    TRISE &= 0xFF00; //Datenbus
     
     
    //Alle Ausgänge als Digital
@@ -30,24 +30,24 @@ void lcd_init()
     
     //Function Set 1
     delay_ms(40); //40 ms warten
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_CMD_INIT);
+    LCD_ENABLE = 1;
     __delay_cycles(33); 
     LCD_ENABLE = 0;
     
     
     //Function Set 2
     __delay_us(4100); //4.1 ms warten
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_CMD_INIT);
+    LCD_ENABLE = 1;
     __delay_cycles(33); 
     LCD_ENABLE = 0;
     
     
     //Function Set 3
      __delay_us(100); //100 us warten
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_CMD_INIT);
+    LCD_ENABLE = 1;
     __delay_cycles(33); 
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_CMD_INIT benötigt 38 us zum Ausführen 
@@ -56,40 +56,40 @@ void lcd_init()
     /*************************Alle anderen Anweisungen*************************/
     
     //Function Set
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_FUNCTION_SET);
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_FUNCTION_SET benötigt 38 us zum Ausführen
     
     
     //Display off
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_DISPLAY_OFF); 
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_DISPLAY_OFF benötigt 38 us zum Ausführen
 
     
     //Display zurücksetzen
+    LCD_DATA(LCD_DISPLAY_CLEAR);
     LCD_ENABLE = 1;
-    LCD_DATA(LCD_DISPLAY_CLEAR); 
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(1520);   //LCD_DISPLAY_CLEAR benötigt 1.52 ms zum Ausführen
     
 
     //Eingabemodus
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_ENTRY_MODE); 
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_ENTRY_MODE benötigt 38 us zum Ausführen
     
 
     //Display on
-    LCD_ENABLE = 1;
     LCD_DATA(LCD_DISPLAY_ON);
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
@@ -98,10 +98,13 @@ void lcd_init()
 
 void lcd_write_data(uint8_t data)
 {
+    waitForBusyLCD();
+    
     LCD_RS = 1;
     LCD_R_W = 0;
-    LCD_ENABLE = 1;
+    __delay_cycles(4); //80ns 
     LCD_DATA(data);
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
@@ -111,10 +114,13 @@ void lcd_write_data(uint8_t data)
 
 void lcd_clear(void)
 {
+    waitForBusyLCD();
+    
     LCD_RS = 0;
     LCD_R_W = 0;
-    LCD_ENABLE = 1;
+    __delay_cycles(4);
     LCD_DATA(LCD_DISPLAY_CLEAR);
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     delay_ms(2); // Clear Display braucht 1.5ms  
@@ -134,7 +140,7 @@ void writeStrLCD(const char* str)
          * Zeichen, die für die Anzeige bzw. Ausgabe bestimmt sind.*/
         if (str[i]>=' ' && str[i]<='~')
         {
-			lcd_write_data(LCD_ZEICHEN(str[i]));
+			lcd_write_data((str[i]));
         }
      
 		else
@@ -150,11 +156,14 @@ void writeStrLCD(const char* str)
 
 void lcd_set_pos(int line, int pos)
 {
+    waitForBusyLCD();
+    
     //Position auf 0,0 setzten
     LCD_RS = 0;
     LCD_R_W = 0;
-    LCD_ENABLE = 1;
+    __delay_cycles(4);
     LCD_DATA(LCD_DISPLAY_HOME);
+    LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
     delay_ms(2); // Home Display braucht 1.5ms 
@@ -178,12 +187,42 @@ void lcd_set_pos(int line, int pos)
     {
         LCD_RS = 0;
         LCD_R_W = 0;
-        LCD_ENABLE = 1;
+        __delay_cycles(4);
         LCD_DATA(0b00010100);
+        LCD_ENABLE = 1;
         __delay_cycles(33);
         LCD_ENABLE = 0;
         __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
     }
+}
+
+uint8_t lcd_get_status(void)
+{
+    uint8_t received_data;
+    
+    //Datenbus als Eingang
+    TRISE = TRISE | 0x00FF;
+    
+    LCD_RS = 0;
+    LCD_R_W = 1;
+    __delay_cycles(4); //80 ns warten??
+    LCD_ENABLE = 1;
+    __delay_cycles(20); //min 360 ns warten -> 400ns
+    received_data = PORTE;
+    LCD_ENABLE = 0;
+    __delay_us(35); //zur sicherheit 1us warten
+    
+    TRISE &= 0xFF00; //Datenbus als Ausgang
+   
+    return received_data;
+}
+
+void waitForBusyLCD(void)
+{
+    while((lcd_get_status() & 0b10000000))
+    {
+    }
+    return;
 }
 
 
