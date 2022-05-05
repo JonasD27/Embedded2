@@ -87,32 +87,40 @@ $(document).ready(function(){initNavTree('user_8h_source.html',''); initResizabl
   <div class="headertitle"><div class="title">user.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="user_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* User Level #define Macros                                                  */</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="user_8h.html#ae8d5b4e7e2d9d21caaa4744d385d7cc7">    4</a></span><span class="preprocessor">#define LED0 _LATB8</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="user_8h.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">    5</a></span><span class="preprocessor">#define LED1 _LATB9</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="user_8h.html#ad09fe5bf321b9a2de26bd5e5b9af6424">    6</a></span><span class="preprocessor">#define LED2 _LATB10</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="user_8h.html#a4b7ff8e253a7412f83deba3a447028a8">    7</a></span><span class="preprocessor">#define LED3 _LATB11</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="user_8h.html#ad41b89d4eb6d63a0def5e5fd2a5ab326">    8</a></span><span class="preprocessor">#define T0 !_RG12</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="user_8h.html#ac16509a75e3d3fc46b9df1726be486ec">    9</a></span><span class="preprocessor">#define T1 !_RG13</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="user_8h.html#a259c2993ee45e06a4ea8150451a7a70e">   10</a></span><span class="preprocessor">#define T2 !_RG14</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="user_8h.html#a5d800c5f04f8638061876b9e32c6c508">   11</a></span><span class="preprocessor">#define T3 !_RG15</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="user_8h.html#a130a78573f3f044449912e5a564bab60">   13</a></span><span class="preprocessor">#define BUFFER_FAIL     0</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="user_8h.html#a6861758eca7b115454b77ded9d29eebd">   14</a></span><span class="preprocessor">#define BUFFER_SUCCESS  1</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="user_8h.html#a6b20d41d6252e9871430c242cb1a56e7">   15</a></span><span class="preprocessor">#define BUFFER_SIZE 256</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="user_8h.html#a29753842428f7af333a76486ce0286e2">   16</a></span><span class="preprocessor">#define SENSOR_TIME 1</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* TODO Application specific user parameters used in user.c may go here */</span></div>
+<a href="user_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>        <span class="comment">/* Includes uint16_t definition                    */</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span>       <span class="comment">/* Includes true/false definition                  */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* User Level #define Macros                                                  */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="user_8h.html#ae8d5b4e7e2d9d21caaa4744d385d7cc7">   10</a></span><span class="preprocessor">#define LED0 _LATB8</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="user_8h.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">   11</a></span><span class="preprocessor">#define LED1 _LATB9</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="user_8h.html#ad09fe5bf321b9a2de26bd5e5b9af6424">   12</a></span><span class="preprocessor">#define LED2 _LATB10</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="user_8h.html#a4b7ff8e253a7412f83deba3a447028a8">   13</a></span><span class="preprocessor">#define LED3 _LATB11</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="user_8h.html#ad41b89d4eb6d63a0def5e5fd2a5ab326">   14</a></span><span class="preprocessor">#define T0 !_RG12</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="user_8h.html#ac16509a75e3d3fc46b9df1726be486ec">   15</a></span><span class="preprocessor">#define T1 !_RG13</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="user_8h.html#a259c2993ee45e06a4ea8150451a7a70e">   16</a></span><span class="preprocessor">#define T2 !_RG14</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="user_8h.html#a5d800c5f04f8638061876b9e32c6c508">   17</a></span><span class="preprocessor">#define T3 !_RG15</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/* User Function Prototypes                                                   */</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* TODO User level functions prototypes (i.e. InitApp) go here */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="user_8h.html#a130a78573f3f044449912e5a564bab60">   19</a></span><span class="preprocessor">#define BUFFER_FAIL     0</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="user_8h.html#a6861758eca7b115454b77ded9d29eebd">   20</a></span><span class="preprocessor">#define BUFFER_SUCCESS  1</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="user_8h.html#a6b20d41d6252e9871430c242cb1a56e7">   21</a></span><span class="preprocessor">#define BUFFER_SIZE 256</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="user_8h.html#a29753842428f7af333a76486ce0286e2">   22</a></span><span class="preprocessor">#define SENSOR_TIME 1</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* TODO Application specific user parameters used in user.c may go here */</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="user_8h.html#addc0a16fa099430e2337628a38764b67">InitApp</a>(<span class="keywordtype">void</span>);         <span class="comment">/* I/O and Peripheral Initialization */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/* User Function Prototypes                                                   */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* TODO User level functions prototypes (i.e. InitApp) go here */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="user_8h.html#addc0a16fa099430e2337628a38764b67">InitApp</a>(<span class="keywordtype">void</span>);         <span class="comment">/* I/O and Peripheral Initialization */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="ttc" id="auser_8h_html_addc0a16fa099430e2337628a38764b67"><div class="ttname"><a href="user_8h.html#addc0a16fa099430e2337628a38764b67">InitApp</a></div><div class="ttdeci">void InitApp(void)</div><div class="ttdef"><b>Definition:</b> <a href="user_8c_source.html#l00026">user.c:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

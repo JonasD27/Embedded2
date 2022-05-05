@@ -4,6 +4,8 @@ var dir_050edd66366d13764f98250ef6db77f6 =
     [ "I2C.c", "_i2_c_8c.html", "_i2_c_8c" ],
     [ "I2C.h", "_i2_c_8h.html", "_i2_c_8h" ],
     [ "interrupts.c", "interrupts_8c.html", "interrupts_8c" ],
+    [ "lcd_gpio.c", "lcd__gpio_8c.html", "lcd__gpio_8c" ],
+    [ "lcd_gpio.h", "lcd__gpio_8h.html", "lcd__gpio_8h" ],
     [ "main.c", "main_8c.html", "main_8c" ],
     [ "main_less.c", "main__less_8c.html", "main__less_8c" ],
     [ "system.c", "system_8c.html", "system_8c" ],

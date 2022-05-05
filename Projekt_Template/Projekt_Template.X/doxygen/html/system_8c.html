@@ -85,7 +85,9 @@ $(document).ready(function(){initNavTree('system_8c.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Funktionen</a>  </div>
+<a href="#define-members">Makrodefinitionen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
   <div class="headertitle"><div class="title">system.c-Dateireferenz</div></div>
 </div><!--header-->
 <div class="contents">
@@ -106,6 +108,13 @@ Include-Abhängigkeitsdiagramm für system.c:</div>
 </div>
 <p><a href="system_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makrodefinitionen</h2></td></tr>
+<tr class="memitem:a16788948251eb0d3471982f29e589224"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a16788948251eb0d3471982f29e589224">CYCLES_PER_MILLISECONDS</a>&#160;&#160;&#160;((335ull*<a class="el" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>)/7370000ull)</td></tr>
+<tr class="separator:a16788948251eb0d3471982f29e589224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b138c5868e50f6f64ef6c020736e2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a81b138c5868e50f6f64ef6c020736e2d">CYCLES_PER_MIKROSECONDS</a>&#160;&#160;&#160;<a class="el" href="system_8c.html#a16788948251eb0d3471982f29e589224">CYCLES_PER_MILLISECONDS</a>/1000</td></tr>
+<tr class="separator:a81b138c5868e50f6f64ef6c020736e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:a9cf05fad20cabd4ca4a12ab9b1c6e7ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">ConfigureOscillator</a> (void)</td></tr>
@@ -114,10 +123,52 @@ Funktionen</h2></td></tr>
 <tr class="separator:af460918a62cf83ab0848c41f0ae852ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0bb063f480450e226799ab30cc6a3ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#ab0bb063f480450e226799ab30cc6a3ed">init_ms_t4</a> ()</td></tr>
 <tr class="separator:ab0bb063f480450e226799ab30cc6a3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f94a0dfff81bccb50e5cf5528c46c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a85f94a0dfff81bccb50e5cf5528c46c7">init_t2_t3</a> ()</td></tr>
+<tr class="separator:a85f94a0dfff81bccb50e5cf5528c46c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d9be562445321043224885018bc7da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a9d9be562445321043224885018bc7da3">delay_ms</a> (uint16_t milliseconds)</td></tr>
 <tr class="memdesc:a9d9be562445321043224885018bc7da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife.  <a href="system_8c.html#a9d9be562445321043224885018bc7da3">Mehr ...</a><br /></td></tr>
 <tr class="separator:a9d9be562445321043224885018bc7da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5aeb021ad85c23675337730148d5c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a4e5aeb021ad85c23675337730148d5c4">delay_us</a> (uint16_t mikroseconds)</td></tr>
+<tr class="separator:a4e5aeb021ad85c23675337730148d5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:a3674e1feb03e742150964aa79b8fe8df"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a3674e1feb03e742150964aa79b8fe8df">DELAY_ANPASSUNG</a> = ((<a class="el" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>/96)*2180ull)/1000000ull</td></tr>
+<tr class="separator:a3674e1feb03e742150964aa79b8fe8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Makro-Dokumentation</h2>
+<a id="a81b138c5868e50f6f64ef6c020736e2d" name="a81b138c5868e50f6f64ef6c020736e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b138c5868e50f6f64ef6c020736e2d">&#9670;&nbsp;</a></span>CYCLES_PER_MIKROSECONDS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CYCLES_PER_MIKROSECONDS&#160;&#160;&#160;<a class="el" href="system_8c.html#a16788948251eb0d3471982f29e589224">CYCLES_PER_MILLISECONDS</a>/1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00017">17</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+
+</div>
+</div>
+<a id="a16788948251eb0d3471982f29e589224" name="a16788948251eb0d3471982f29e589224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16788948251eb0d3471982f29e589224">&#9670;&nbsp;</a></span>CYCLES_PER_MILLISECONDS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CYCLES_PER_MILLISECONDS&#160;&#160;&#160;((335ull*<a class="el" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>)/7370000ull)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00016">16</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Dokumentation der Funktionen</h2>
 <a id="a9cf05fad20cabd4ca4a12ab9b1c6e7ea" name="a9cf05fad20cabd4ca4a12ab9b1c6e7ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cf05fad20cabd4ca4a12ab9b1c6e7ea">&#9670;&nbsp;</a></span>ConfigureOscillator()</h2>
@@ -135,7 +186,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00040">40</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00046">46</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
@@ -172,7 +223,27 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
   </dd>
 </dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00129">129</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00150">150</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+
+</div>
+</div>
+<a id="a4e5aeb021ad85c23675337730148d5c4" name="a4e5aeb021ad85c23675337730148d5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5aeb021ad85c23675337730148d5c4">&#9670;&nbsp;</a></span>delay_us()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delay_us </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>mikroseconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00158">158</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
 
 </div>
 </div>
@@ -192,13 +263,42 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00114">114</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00120">120</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
 <div class="center"><img src="system_8c_ab0bb063f480450e226799ab30cc6a3ed_icgraph.png" border="0" usemap="#asystem_8c_ab0bb063f480450e226799ab30cc6a3ed_icgraph" alt=""/></div>
 <map name="asystem_8c_ab0bb063f480450e226799ab30cc6a3ed_icgraph" id="asystem_8c_ab0bb063f480450e226799ab30cc6a3ed_icgraph">
 <area shape="rect" title=" " alt="" coords="104,5,187,32"/>
+<area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a85f94a0dfff81bccb50e5cf5528c46c7" name="a85f94a0dfff81bccb50e5cf5528c46c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f94a0dfff81bccb50e5cf5528c46c7">&#9670;&nbsp;</a></span>init_t2_t3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_t2_t3 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00132">132</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+<div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><img src="system_8c_a85f94a0dfff81bccb50e5cf5528c46c7_icgraph.png" border="0" usemap="#asystem_8c_a85f94a0dfff81bccb50e5cf5528c46c7_icgraph" alt=""/></div>
+<map name="asystem_8c_a85f94a0dfff81bccb50e5cf5528c46c7_icgraph" id="asystem_8c_a85f94a0dfff81bccb50e5cf5528c46c7_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,179,32"/>
 <area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
@@ -221,7 +321,24 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00098">98</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00104">104</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variablen-Dokumentation</h2>
+<a id="a3674e1feb03e742150964aa79b8fe8df" name="a3674e1feb03e742150964aa79b8fe8df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3674e1feb03e742150964aa79b8fe8df">&#9670;&nbsp;</a></span>DELAY_ANPASSUNG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t DELAY_ANPASSUNG = ((<a class="el" href="system_8h.html#a7d5ce7b79462bbfb630ee53075540b65">SYS_FREQ</a>/96)*2180ull)/1000000ull</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="system_8c_source.html#l00026">26</a> der Datei <a class="el" href="system_8c_source.html">system.c</a>.</p>
 
 </div>
 </div>

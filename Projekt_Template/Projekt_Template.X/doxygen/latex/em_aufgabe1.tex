@@ -1,0 +1,21 @@
+Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-\/302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.
+
+Da der grundliegende I2C Kommunikationsablauf immer ähnlich ist, soll eine universelle FSM entwickelt werden, welche im Interrupt aber auch wahlweise in der Super Loop verwendet werden kann.
+
+Diese wird mittels der Funktion \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchange\+I2\+C()}} getriggert, welche alls Schnittstelle zwischen Anwendungsprogramm und FSM fungiert.
+
+Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden
+
+Die grundlegende Funktion ist wie folgt\+:
+
+Im Interrupt des Timer1 \mbox{\hyperlink{interrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077}{\+\_\+\+T1\+Interrupt()}} wird zyklisch eine Anfrage mit der Funktion \mbox{\hyperlink{_i2_c_8c_afebf0d256affa0109e46790328ec5985}{exchange\+I2\+C()}} getätigt. In der Superloop befindet sich die Funktion \mbox{\hyperlink{_i2_c_8c_a7335126c4448cdb02cd6fa5973398fbf}{do\+I2\+C()}}, welche die FSM enthält. Außerdem befindet sich dort die Funktion \mbox{\hyperlink{main_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\+\_\+sensor\+\_\+values()}}, welche die Sensor-\/\+Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt.
+
+Die Funktionen in der I2C funktionieren wie folgt\+:
+
+In der Funktion \mbox{\hyperlink{_i2_c_8c_a62fb187ee2d04a1b9eccfdf1821f9d47}{put\+\_\+\+I2\+C\+\_\+struct\+\_\+\+FIFO()}} wird eine I2\+C-\/\+Anfrage im I2\+C-\/\+FIFO abgelegt. Die Funktion \mbox{\hyperlink{_i2_c_8c_a50f7c11fd579b79244a99ff3f5c79991}{get\+\_\+\+I2\+C\+\_\+struct\+\_\+\+FIFO()}} entnimmt die I2\+C-\/\+Anfrage aus dem I2\+C-\/\+FIFO. Mit der \mbox{\hyperlink{_i2_c_8c_abe298a3c1d98035cebe8b0535db549fa}{init\+I2\+C()}} wird die I2\+C-\/\+Kommunikation initialisiert.
+
+Anschließend kommen die Funktionen der FSM\+:
+
+Zu Beginn die Funktion \mbox{\hyperlink{_i2_c_8c_a84e14be148fa92abff4048271a969ec7}{FSM\+\_\+\+Idle()}}. Diese kopiert die Anfrage aus dem FIFO und leitet die Start-\/\+Sequenz ein. Wenn es eine Anfrage gibt, werden die Startbedingungen weitergeleitet. Mit der Funktion \mbox{\hyperlink{_i2_c_8c_a956838411a5e4289993cb2bdeb699c82}{FSM\+\_\+\+Start()}} wird das Trancieve-\/\+Register mit der Adresse beschrieben. Entweder wird geschrieben oder gelesen. Wenn geschrieben wird, wird die Funktion \mbox{\hyperlink{_i2_c_8c_a6147b1d310d535a45c9260b25c72f087}{FSM\+\_\+\+Adresse\+\_\+\+Write()}} aufgerufen und die zu übertragenden Daten werden in das Tranceive-\/\+Register geschrieben. Wenn es nichts mehr zu senden gibt, dann kommt es zum Restart und die Funktion \mbox{\hyperlink{_i2_c_8c_ac22d155fd8127afb0dd9aca7b71e390c}{FSM\+\_\+\+Repeated\+\_\+\+Start()}} wird aufgerufen. Hier wird wieder das Tranceive-\/\+Register mit der Adresse beschrieben. Wenn der Restart erfolgreich war, wird geschaut ob noch gelesen werden kann. Hierbei wird die Funktion \mbox{\hyperlink{_i2_c_8c_aa10d853ad3747605d8729d26d7676ee1}{FSM\+\_\+\+Adresse\+\_\+\+Read()}} aufgerufen. Hier wird das Lesen der Daten des Slaves initiiert. Gibt es noch etwas zum Lesen wird die Funktion \mbox{\hyperlink{_i2_c_8c_a7c5db52646d82b6f4dc89cda29fbbbb5}{FSM\+\_\+\+RECV\+\_\+\+EN()}} aufgerufen. Diese liest das Receive Register aus und bestätigt dies mit einem ACK oder NACK. Treten Fehlerfälle beim Lesen oder Schreiben auf, wird eine Stopp-\/\+Bedingung eingeleitet. Dies hat zur Folge das die Funktion \mbox{\hyperlink{_i2_c_8c_ace8745b63f67ec9eb023dcaf341f84fd}{FSM\+\_\+\+Stop()}} aufgerufen wird. Diese verursacht die Rückkehr in den Idle-\/\+State.
+
+Der Status der Anfragen wird innerhalb der FSM gesetzt. Falls der Status auf Finished gesetzt wird, gibt \mbox{\hyperlink{main_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\+\_\+sensor\+\_\+values()}} die gemessenen Werte aus. 

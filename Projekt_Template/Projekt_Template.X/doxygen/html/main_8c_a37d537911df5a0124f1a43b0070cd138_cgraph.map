@@ -1,0 +1,6 @@
+<map id="send_lcd_status" name="send_lcd_status">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,123,57"/>
+<area shape="rect" id="node2" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="171,5,277,32"/>
+<area shape="rect" id="node3" href="$main__less_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f" title=" " alt="" coords="183,56,265,83"/>
+<area shape="rect" id="node4" href="$main__less_8c.html#a6e64850d41714e4e58d22bea4caf1b67" title=" " alt="" coords="325,56,423,83"/>
+</map>

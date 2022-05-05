@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['pending_0',['Pending',['../_i2_c_8h.html#ada1e8e589688e2d6626421d8d85d9c53a1f7a25007001fe77317521028b7af642',1,'I2C.h']]],
-  ['print_5fsensor_5fvalues_1',['print_sensor_values',['../_i2_c_8c.html#adebdefdb6d4ef0fb996c5495257e938e',1,'print_sensor_values():&#160;I2C.c'],['../_i2_c_8h.html#a8a04c6bbc751721e41e25af6d8f10915',1,'print_sensor_values(void):&#160;I2C.c']]],
-  ['programmdokumentation_2',['Programmdokumentation',['../index.html',1,'']]],
-  ['put_5fi2c_5fstruct_5ffifo_3',['put_I2C_struct_FIFO',['../_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47',1,'I2C.c']]],
-  ['putcfifo_5ftx_4',['putcFIFO_TX',['../main__less_8c.html#a6e64850d41714e4e58d22bea4caf1b67',1,'putcFIFO_TX(char c):&#160;main_less.c'],['../_u_a_r_t_8c.html#a6e64850d41714e4e58d22bea4caf1b67',1,'putcFIFO_TX(char c):&#160;UART.c'],['../_u_a_r_t_8h.html#a6e64850d41714e4e58d22bea4caf1b67',1,'putcFIFO_TX(char c):&#160;main_less.c']]],
-  ['putcuart_5',['putcUART',['../main__less_8c.html#a8fc294bd40e64c3058e55556e3d6d9f4',1,'putcUART(char c):&#160;main_less.c'],['../_u_a_r_t_8c.html#a8fc294bd40e64c3058e55556e3d6d9f4',1,'putcUART(char c):&#160;UART.c']]],
-  ['putsuart_6',['putsUART',['../main__less_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f',1,'putsUART(const char *str):&#160;main_less.c'],['../_u_a_r_t_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f',1,'putsUART(const char *str):&#160;UART.c'],['../_u_a_r_t_8h.html#a69a22a2e161c1c4207b694f38f5c3f8f',1,'putsUART(const char *str):&#160;main_less.c']]]
+  ['num_5fread_0',['num_read',['../struct_i2_c__struct.html#ae857bf437b3affb977fd897f7a9f5cd1',1,'I2C_struct']]],
+  ['num_5fwrite_1',['num_write',['../struct_i2_c__struct.html#ae9c7d283903af4094018e1975ae70719',1,'I2C_struct']]]
 ];

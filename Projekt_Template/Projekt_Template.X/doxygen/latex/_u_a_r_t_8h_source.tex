@@ -30,26 +30,26 @@
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00029}00029   uint8\_t write; \textcolor{comment}{// zeigt immer auf leeres Feld}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00030}00030 \}\mbox{\hyperlink{struct_buffer}{Buffer}};}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00032}00032 \textcolor{preprocessor}{\#ifdef MAIN}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00032}00032 }
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00033}00033 }
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00034}00034 }
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00035}00035 \textcolor{comment}{/* Globale Variable Declaration                                               */}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00038}00038 \mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{_u_a_r_t_8h_afbb5e0bf6441fdc2255eef795638c146}{FIFO}} = \{\{\}, 0, 0\}; \textcolor{comment}{//FIFO zum Versenden über UART}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00039}00039 \textcolor{preprocessor}{\#else}}
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00040}00040 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{_u_a_r_t_8h_afbb5e0bf6441fdc2255eef795638c146}{FIFO}}; }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00041}00041 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00044}00044 \textcolor{comment}{/* Prototypen                                                                 */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00041}00041 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{_u_a_r_t_8h_a3d4cbb77f9817974934af60690782d9b}{FIFO\_RX}}; }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00042}00042 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} \mbox{\hyperlink{_u_a_r_t_8h_a00c6bb525f28a5f4d4a47a82479b2790}{received\_UART}}[20];}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00043}00043 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{_u_a_r_t_8h_ad0e60ba05c0f067879e9c46e5bce10d6}{UART\_RX\_count}};}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00044}00044 }
 \DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00047}00047 \textcolor{keywordtype}{void} \mbox{\hyperlink{_u_a_r_t_8h_a52324117efdddb08bf0078d965a0f865}{initUART}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00049}00049 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00050}00050 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00051}00051 \textcolor{comment}{//int16\_t getcFIFO\_RX(char *c);}}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00053}00053 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(\textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00054}00054 \textcolor{comment}{//int16\_t putcFIFO\_RX(char c);}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00046}00046 \textcolor{comment}{/* Prototypen                                                                 */}}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00049}00049 \textcolor{keywordtype}{void} \mbox{\hyperlink{_u_a_r_t_8h_a52324117efdddb08bf0078d965a0f865}{initUART}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00051}00051 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a69a22a2e161c1c4207b694f38f5c3f8f}{putsUART}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00052}00052 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a796981d39e7cf9a0ebf1842b2e48e0ca}{getcFIFO\_TX}}(\textcolor{keyword}{volatile} uint16\_t *c);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00053}00053 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_ad730fcbd787c10b5ae3a6f013a4dee87}{getcFIFO\_RX}}(\textcolor{keywordtype}{char} *c);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00055}00055 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_a6e64850d41714e4e58d22bea4caf1b67}{putcFIFO\_TX}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{\Hypertarget{_u_a_r_t_8h_source_l00056}00056 int16\_t \mbox{\hyperlink{_u_a_r_t_8h_aa4ea086fa42f34571abd3561c811b3b6}{putcFIFO\_RX}}(\textcolor{keywordtype}{char} c);}
 
 \end{DoxyCode}

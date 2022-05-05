@@ -2,6 +2,7 @@
 \label{_u_a_r_t_8c}\index{UART.c@{UART.c}}
 {\ttfamily \#include \char`\"{}UART.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lcd\+\_\+gpio.\+h\char`\"{}}\newline
 Include-\/\+Abhängigkeitsdiagramm für UART.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -16,6 +17,8 @@ void \mbox{\hyperlink{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931}{init\+UART}
 \item 
 void \mbox{\hyperlink{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}{\+\_\+\+U1\+TXInterrupt}} (void)
 \item 
+void \mbox{\hyperlink{_u_a_r_t_8c_ab5b5e10f6df73914ef26fc0f76e30d91}{\+\_\+\+U1\+RXInterrupt}} (void)
+\item 
 int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}{putc\+FIFO\+\_\+\+TX}} (char c)
 \item 
 int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{getc\+FIFO\+\_\+\+TX}} (volatile uint16\+\_\+t $\ast$c)
@@ -23,10 +26,31 @@ int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}{get
 int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a8fc294bd40e64c3058e55556e3d6d9f4}{putc\+UART}} (char c)
 \item 
 int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{puts\+UART}} (const char $\ast$str)
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_aa4ea086fa42f34571abd3561c811b3b6}{putc\+FIFO\+\_\+\+RX}} (char c)
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_ad730fcbd787c10b5ae3a6f013a4dee87}{getc\+FIFO\+\_\+\+RX}} (char $\ast$c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{_u_a_r_t_8c_afbb5e0bf6441fdc2255eef795638c146}{FIFO}} = \{\{\}, 0, 0\}
+\item 
+\mbox{\hyperlink{struct_buffer}{Buffer}} \mbox{\hyperlink{_u_a_r_t_8c_a3d4cbb77f9817974934af60690782d9b}{FIFO\+\_\+\+RX}} = \{\{\}, 0, 0\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{_u_a_r_t_8c_ab5b5e10f6df73914ef26fc0f76e30d91}\label{_u_a_r_t_8c_ab5b5e10f6df73914ef26fc0f76e30d91}} 
+\index{UART.c@{UART.c}!\_U1RXInterrupt@{\_U1RXInterrupt}}
+\index{\_U1RXInterrupt@{\_U1RXInterrupt}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{\_U1RXInterrupt()}{\_U1RXInterrupt()}}
+{\footnotesize\ttfamily void \+\_\+\+U1\+RXInterrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00061}{61}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+
 \mbox{\Hypertarget{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}\label{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa}} 
 \index{UART.c@{UART.c}!\_U1TXInterrupt@{\_U1TXInterrupt}}
 \index{\_U1TXInterrupt@{\_U1TXInterrupt}!UART.c@{UART.c}}
@@ -35,7 +59,7 @@ int16\+\_\+t \mbox{\hyperlink{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f}{put
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00050}{50}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00054}{54}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -44,6 +68,16 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \includegraphics[width=269pt]{_u_a_r_t_8c_a677ede9c0b46557fafb2142bea4eddfa_cgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{_u_a_r_t_8c_ad730fcbd787c10b5ae3a6f013a4dee87}\label{_u_a_r_t_8c_ad730fcbd787c10b5ae3a6f013a4dee87}} 
+\index{UART.c@{UART.c}!getcFIFO\_RX@{getcFIFO\_RX}}
+\index{getcFIFO\_RX@{getcFIFO\_RX}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{getcFIFO\_RX()}{getcFIFO\_RX()}}
+{\footnotesize\ttfamily int16\+\_\+t getc\+FIFO\+\_\+\+RX (\begin{DoxyParamCaption}\item[{char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00183}{183}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+
 \mbox{\Hypertarget{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}\label{_u_a_r_t_8c_a796981d39e7cf9a0ebf1842b2e48e0ca}} 
 \index{UART.c@{UART.c}!getcFIFO\_TX@{getcFIFO\_TX}}
 \index{getcFIFO\_TX@{getcFIFO\_TX}!UART.c@{UART.c}}
@@ -52,7 +86,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00082}{82}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00107}{107}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -69,7 +103,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00012}{12}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00016}{16}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -78,6 +112,16 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \includegraphics[width=230pt]{_u_a_r_t_8c_a2cb50cd9b95f3b32212def6b17da3931_cgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{_u_a_r_t_8c_aa4ea086fa42f34571abd3561c811b3b6}\label{_u_a_r_t_8c_aa4ea086fa42f34571abd3561c811b3b6}} 
+\index{UART.c@{UART.c}!putcFIFO\_RX@{putcFIFO\_RX}}
+\index{putcFIFO\_RX@{putcFIFO\_RX}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{putcFIFO\_RX()}{putcFIFO\_RX()}}
+{\footnotesize\ttfamily int16\+\_\+t putc\+FIFO\+\_\+\+RX (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00158}{158}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+
 \mbox{\Hypertarget{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}\label{_u_a_r_t_8c_a6e64850d41714e4e58d22bea4caf1b67}} 
 \index{UART.c@{UART.c}!putcFIFO\_TX@{putcFIFO\_TX}}
 \index{putcFIFO\_TX@{putcFIFO\_TX}!UART.c@{UART.c}}
@@ -86,7 +130,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00057}{57}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00082}{82}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -103,7 +147,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00102}{102}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00127}{127}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -120,7 +164,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00112}{112}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00137}{137}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -129,3 +173,26 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \includegraphics[width=250pt]{_u_a_r_t_8c_a69a22a2e161c1c4207b694f38f5c3f8f_cgraph}
 \end{center}
 \end{figure}
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{_u_a_r_t_8c_afbb5e0bf6441fdc2255eef795638c146}\label{_u_a_r_t_8c_afbb5e0bf6441fdc2255eef795638c146}} 
+\index{UART.c@{UART.c}!FIFO@{FIFO}}
+\index{FIFO@{FIFO}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{FIFO}{FIFO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_buffer}{Buffer}} FIFO = \{\{\}, 0, 0\}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00010}{10}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+
+\mbox{\Hypertarget{_u_a_r_t_8c_a3d4cbb77f9817974934af60690782d9b}\label{_u_a_r_t_8c_a3d4cbb77f9817974934af60690782d9b}} 
+\index{UART.c@{UART.c}!FIFO\_RX@{FIFO\_RX}}
+\index{FIFO\_RX@{FIFO\_RX}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{FIFO\_RX}{FIFO\_RX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_buffer}{Buffer}} FIFO\+\_\+\+RX = \{\{\}, 0, 0\}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_u_a_r_t_8c_source_l00011}{11}} der Datei \mbox{\hyperlink{_u_a_r_t_8c_source}{UART.\+c}}.
+

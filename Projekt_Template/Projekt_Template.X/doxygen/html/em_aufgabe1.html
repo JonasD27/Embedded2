@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Embedded 2 Dokumentation: &quot;Aufgabe I2C Lichtsensor&quot;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Embedded 2 Dokumentation
+   </div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('em_aufgabe1.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">"Aufgabe I2C Lichtsensor" </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p >Es sollen weitere I2C Busteilnehmer an den I2C Bus angeschlossen und angesteuert werden. Für diese Aufgabe zumindest ein I2C Lichtsensor vom Typ BH1750 (Modul GY-302). Sie können gerne auch weitere eigene oder von mir gestellte Sensoren verwenden.</p>
+<p >Da der grundliegende I2C Kommunikationsablauf immer ähnlich ist, soll eine universelle FSM entwickelt werden, welche im Interrupt aber auch wahlweise in der Super Loop verwendet werden kann.</p>
+<p >Diese wird mittels der Funktion <a class="el" href="_i2_c_8c.html#afebf0d256affa0109e46790328ec5985" title="Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status.">exchangeI2C()</a> getriggert, welche alls Schnittstelle zwischen Anwendungsprogramm und FSM fungiert.</p>
+<p >Das Auslesen der Sensor Daten soll mit frei variierbaren Zeitintervallen erfolgen, im Bereich von 1 Sekunde bis 3600 Sekunden. (Makrodefine) Nach dem erfolgreichen Lesen der Sensordaten sollen diese über die UART ausgegeben werden</p>
+<p >Die grundlegende Funktion ist wie folgt:</p>
+<p >Im Interrupt des Timer1 <a class="el" href="interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt()</a> wird zyklisch eine Anfrage mit der Funktion <a class="el" href="_i2_c_8c.html#afebf0d256affa0109e46790328ec5985" title="Übergibt angeforderte I2C-Anfrage an das FIFO und liefert den akutellen Status.">exchangeI2C()</a> getätigt. In der Superloop befindet sich die Funktion <a class="el" href="_i2_c_8c.html#a7335126c4448cdb02cd6fa5973398fbf" title="Wird jede ms in der Superloop ausgeführt und beinhalten die FSM für die I2C-Kommunikation.">doI2C()</a>, welche die FSM enthält. Außerdem befindet sich dort die Funktion <a class="el" href="main_8c.html#adebdefdb6d4ef0fb996c5495257e938e" title="Ausgabe der ausgelesenen Sensor-Werte per UART.">print_sensor_values()</a>, welche die Sensor-Wert nach erfolgreicher Abarbeitung der Anfrage ausgibt.</p>
+<p >Die Funktionen in der I2C funktionieren wie folgt:</p>
+<p >In der Funktion <a class="el" href="_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47" title="Legt eine I2C-Anfrage in dem I2C-FIFO ab.">put_I2C_struct_FIFO()</a> wird eine I2C-Anfrage im I2C-FIFO abgelegt. Die Funktion <a class="el" href="_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991" title="Entnimmt I2C-Anfrage aus dem I2C-FIFO.">get_I2C_struct_FIFO()</a> entnimmt die I2C-Anfrage aus dem I2C-FIFO. Mit der <a class="el" href="_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa" title="Initialisiert die I2C-Kommunikation.">initI2C()</a> wird die I2C-Kommunikation initialisiert.</p>
+<p >Anschließend kommen die Funktionen der FSM:</p>
+<p >Zu Beginn die Funktion <a class="el" href="_i2_c_8c.html#a84e14be148fa92abff4048271a969ec7" title="Kopiert die Anfrage aus dem FIFO und leitet Start-Sequenz ein.">FSM_Idle()</a>. Diese kopiert die Anfrage aus dem FIFO und leitet die Start-Sequenz ein. Wenn es eine Anfrage gibt, werden die Startbedingungen weitergeleitet. Mit der Funktion <a class="el" href="_i2_c_8c.html#a956838411a5e4289993cb2bdeb699c82" title="Beschreibt das Trancieve-Register mit der Adresse.">FSM_Start()</a> wird das Trancieve-Register mit der Adresse beschrieben. Entweder wird geschrieben oder gelesen. Wenn geschrieben wird, wird die Funktion <a class="el" href="_i2_c_8c.html#a6147b1d310d535a45c9260b25c72f087" title="Schreibt die zu übertragende Daten in das Tranceive-Register.">FSM_Adresse_Write()</a> aufgerufen und die zu übertragenden Daten werden in das Tranceive-Register geschrieben. Wenn es nichts mehr zu senden gibt, dann kommt es zum Restart und die Funktion <a class="el" href="_i2_c_8c.html#ac22d155fd8127afb0dd9aca7b71e390c" title="Leitet einen Repeated Start ein und beschreibt das Tranceive Register mit der Adresse.">FSM_Repeated_Start()</a> wird aufgerufen. Hier wird wieder das Tranceive-Register mit der Adresse beschrieben. Wenn der Restart erfolgreich war, wird geschaut ob noch gelesen werden kann. Hierbei wird die Funktion <a class="el" href="_i2_c_8c.html#aa10d853ad3747605d8729d26d7676ee1" title="Initiiert das Lesen der Daten des Slaves.">FSM_Adresse_Read()</a> aufgerufen. Hier wird das Lesen der Daten des Slaves initiiert. Gibt es noch etwas zum Lesen wird die Funktion <a class="el" href="_i2_c_8c.html#a7c5db52646d82b6f4dc89cda29fbbbb5" title="Auslesen des Receive Registers und Bestätigung mit ACK bzw.">FSM_RECV_EN()</a> aufgerufen. Diese liest das Receive Register aus und bestätigt dies mit einem ACK oder NACK. Treten Fehlerfälle beim Lesen oder Schreiben auf, wird eine Stopp-Bedingung eingeleitet. Dies hat zur Folge das die Funktion <a class="el" href="_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd" title="Überprüfung auf Abschluss der Stop-Sequenz und Rückkehr in den Idle-State.">FSM_Stop()</a> aufgerufen wird. Diese verursacht die Rückkehr in den Idle-State.</p>
+<p >Der Status der Anfragen wird innerhalb der FSM gesetzt. Falls der Status auf Finished gesetzt wird, gibt <a class="el" href="main_8c.html#adebdefdb6d4ef0fb996c5495257e938e" title="Ausgabe der ausgelesenen Sensor-Werte per UART.">print_sensor_values()</a> die gemessenen Werte aus. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

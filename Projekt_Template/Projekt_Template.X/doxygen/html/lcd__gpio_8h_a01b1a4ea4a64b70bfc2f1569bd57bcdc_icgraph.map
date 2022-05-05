@@ -1,0 +1,10 @@
+<map id="waitForBusyLCD" name="waitForBusyLCD">
+<area shape="rect" id="node1" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="751,81,869,108"/>
+<area shape="rect" id="node2" href="$lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="309,5,383,32"/>
+<area shape="rect" id="node4" href="$lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="457,81,549,108"/>
+<area shape="rect" id="node7" href="$lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="597,132,703,159"/>
+<area shape="rect" id="node3" href="$main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,107,56,133"/>
+<area shape="rect" id="node5" href="$main_8c.html#add65c2bbc4a328fc893abeded917bc66" title=" " alt="" coords="104,107,235,133"/>
+<area shape="rect" id="node6" href="$main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="283,107,409,133"/>
+<area shape="rect" id="node8" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="458,132,549,159"/>
+</map>

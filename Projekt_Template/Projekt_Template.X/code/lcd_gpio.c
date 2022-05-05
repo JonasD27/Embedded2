@@ -111,7 +111,7 @@ void lcd_write_data(uint8_t data)
     
 }/*lcd_write_data()*/
 
-
+/**Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen.*/
 void lcd_clear(void)
 {
     waitForBusyLCD();
@@ -154,6 +154,11 @@ void writeStrLCD(const char* str)
     
 }/*writeStrLCD()*/
 
+/**
+ * Setzt die Position des Cursors
+ * @param line Linie, entweder 1 oder 2
+ * @param pos Position
+ */
 void lcd_set_pos(int line, int pos)
 {
     waitForBusyLCD();
@@ -196,6 +201,10 @@ void lcd_set_pos(int line, int pos)
     }
 }
 
+/**
+ * Liest den akutellen Status des LCDs aus.
+ * @return 8bit breiter Status, Bit 7 ist Busy Flag
+ */
 uint8_t lcd_get_status(void)
 {
     uint8_t received_data;
@@ -217,6 +226,9 @@ uint8_t lcd_get_status(void)
     return received_data;
 }
 
+/**
+ * Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.
+ */
 void waitForBusyLCD(void)
 {
     while((lcd_get_status() & 0b10000000))

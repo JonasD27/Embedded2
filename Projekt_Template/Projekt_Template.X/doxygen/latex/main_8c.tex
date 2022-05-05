@@ -8,6 +8,7 @@
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}UART.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lcd\+\_\+gpio.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
 Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:\nopagebreak
@@ -27,7 +28,44 @@ Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:\nopagebreak
 \doxysubsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{main_8c_adebdefdb6d4ef0fb996c5495257e938e}{print\+\_\+sensor\+\_\+values}} ()
+\begin{DoxyCompactList}\small\item\em Ausgabe der ausgelesenen Sensor-\/\+Werte per UART. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8c_a1b7d65e89a8c4488df180a296015b1b6}{get\+\_\+\+Temperatur}} (void)
+\item 
+double \mbox{\hyperlink{main_8c_a93551653b71e7a2a6bcc02a359a35d6a}{get\+\_\+\+Light}} (void)
+\item 
+void \mbox{\hyperlink{main_8c_a6188587bd216339104622b4a766d00b2}{measure\+Processtime}} ()
+\item 
+void \mbox{\hyperlink{main_8c_a394ee1d3ce36d2ac7f571753a6a99a9d}{display\+\_\+\+UART\+\_\+\+RX}} ()
+\item 
+void \mbox{\hyperlink{main_8c_a37d537911df5a0124f1a43b0070cd138}{send\+\_\+lcd\+\_\+status}} ()
+\item 
+void \mbox{\hyperlink{main_8c_add65c2bbc4a328fc893abeded917bc66}{display\+\_\+temp\+\_\+load}} ()
+\item 
 int16\+\_\+t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{main_8c_a11becdc58f1b623b42ad75744dfa6461}{status\+\_\+temperatur}} = \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}
+\item 
+\mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{main_8c_a9b4d29ba3bf357b320400e1f01a35610}{status\+\_\+licht}} = \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_adff71d8937a9a0e682b3a195f98be0df}{write\+\_\+data\+\_\+buffer\+\_\+temp}} =0b00000000
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a2d5347585325c234d8c68be50f2eb6a0}{write\+\_\+data\+\_\+buffer\+\_\+light}} =0b00010000
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_aef8997c71403e269e83a8e8478ccf73c}{read\+\_\+data\+\_\+buffer\+\_\+temp}} \mbox{[}2\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a812b49b4aafdf99e12c75ed8005948a1}{read\+\_\+data\+\_\+buffer\+\_\+light}} \mbox{[}2\mbox{]}
+\item 
+double \mbox{\hyperlink{main_8c_adcd199297f9a8146dd65366775e2cf7d}{latest\+\_\+temperatur}}
+\item 
+float \mbox{\hyperlink{main_8c_af832cfb864cc3aedc004597d490001f5}{latest\+\_\+cpu\+\_\+load}}
+\item 
+char \mbox{\hyperlink{main_8c_a00c6bb525f28a5f4d4a47a82479b2790}{received\+\_\+\+UART}} \mbox{[}20\mbox{]}
+\item 
+int \mbox{\hyperlink{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}{UART\+\_\+\+RX\+\_\+count}}
 \end{DoxyCompactItemize}
 
 
@@ -40,7 +78,7 @@ int16\+\_\+t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}} 
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00030}{30}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00031}{31}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a34b04bd23b07b485921a728ad0805ac4}\label{main_8c_a34b04bd23b07b485921a728ad0805ac4}} 
 \index{main.c@{main.c}!MAIN@{MAIN}}
@@ -55,6 +93,88 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00010}{10}} der Datei \mbox{
 
 
 \doxysubsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{main_8c_add65c2bbc4a328fc893abeded917bc66}\label{main_8c_add65c2bbc4a328fc893abeded917bc66}} 
+\index{main.c@{main.c}!display\_temp\_load@{display\_temp\_load}}
+\index{display\_temp\_load@{display\_temp\_load}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{display\_temp\_load()}{display\_temp\_load()}}
+{\footnotesize\ttfamily void display\+\_\+temp\+\_\+load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00173}{173}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_add65c2bbc4a328fc893abeded917bc66_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{main_8c_add65c2bbc4a328fc893abeded917bc66_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_a394ee1d3ce36d2ac7f571753a6a99a9d}\label{main_8c_a394ee1d3ce36d2ac7f571753a6a99a9d}} 
+\index{main.c@{main.c}!display\_UART\_RX@{display\_UART\_RX}}
+\index{display\_UART\_RX@{display\_UART\_RX}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{display\_UART\_RX()}{display\_UART\_RX()}}
+{\footnotesize\ttfamily void display\+\_\+\+UART\+\_\+\+RX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00149}{149}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a394ee1d3ce36d2ac7f571753a6a99a9d_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a394ee1d3ce36d2ac7f571753a6a99a9d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_a93551653b71e7a2a6bcc02a359a35d6a}\label{main_8c_a93551653b71e7a2a6bcc02a359a35d6a}} 
+\index{main.c@{main.c}!get\_Light@{get\_Light}}
+\index{get\_Light@{get\_Light}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{get\_Light()}{get\_Light()}}
+{\footnotesize\ttfamily double get\+\_\+\+Light (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00119}{119}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{main_8c_a93551653b71e7a2a6bcc02a359a35d6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_a1b7d65e89a8c4488df180a296015b1b6}\label{main_8c_a1b7d65e89a8c4488df180a296015b1b6}} 
+\index{main.c@{main.c}!get\_Temperatur@{get\_Temperatur}}
+\index{get\_Temperatur@{get\_Temperatur}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{get\_Temperatur()}{get\_Temperatur()}}
+{\footnotesize\ttfamily double get\+\_\+\+Temperatur (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00112}{112}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a1b7d65e89a8c4488df180a296015b1b6_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{main_8c_aec570f4ab450e8224be63b7dcfa62b35}\label{main_8c_aec570f4ab450e8224be63b7dcfa62b35}} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
@@ -63,7 +183,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00010}{10}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00036}{36}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00216}{216}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -72,3 +192,168 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \includegraphics[width=350pt]{main_8c_aec570f4ab450e8224be63b7dcfa62b35_cgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{main_8c_a6188587bd216339104622b4a766d00b2}\label{main_8c_a6188587bd216339104622b4a766d00b2}} 
+\index{main.c@{main.c}!measureProcesstime@{measureProcesstime}}
+\index{measureProcesstime@{measureProcesstime}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{measureProcesstime()}{measureProcesstime()}}
+{\footnotesize\ttfamily void measure\+Processtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00126}{126}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{main_8c_a6188587bd216339104622b4a766d00b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_adebdefdb6d4ef0fb996c5495257e938e}\label{main_8c_adebdefdb6d4ef0fb996c5495257e938e}} 
+\index{main.c@{main.c}!print\_sensor\_values@{print\_sensor\_values}}
+\index{print\_sensor\_values@{print\_sensor\_values}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{print\_sensor\_values()}{print\_sensor\_values()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+values (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Ausgabe der ausgelesenen Sensor-\/\+Werte per UART. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00060}{60}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_adebdefdb6d4ef0fb996c5495257e938e_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{main_8c_adebdefdb6d4ef0fb996c5495257e938e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_a37d537911df5a0124f1a43b0070cd138}\label{main_8c_a37d537911df5a0124f1a43b0070cd138}} 
+\index{main.c@{main.c}!send\_lcd\_status@{send\_lcd\_status}}
+\index{send\_lcd\_status@{send\_lcd\_status}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{send\_lcd\_status()}{send\_lcd\_status()}}
+{\footnotesize\ttfamily void send\+\_\+lcd\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00163}{163}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a37d537911df5a0124f1a43b0070cd138_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{main_8c_af832cfb864cc3aedc004597d490001f5}\label{main_8c_af832cfb864cc3aedc004597d490001f5}} 
+\index{main.c@{main.c}!latest\_cpu\_load@{latest\_cpu\_load}}
+\index{latest\_cpu\_load@{latest\_cpu\_load}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{latest\_cpu\_load}{latest\_cpu\_load}}
+{\footnotesize\ttfamily float latest\+\_\+cpu\+\_\+load}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00042}{42}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_adcd199297f9a8146dd65366775e2cf7d}\label{main_8c_adcd199297f9a8146dd65366775e2cf7d}} 
+\index{main.c@{main.c}!latest\_temperatur@{latest\_temperatur}}
+\index{latest\_temperatur@{latest\_temperatur}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{latest\_temperatur}{latest\_temperatur}}
+{\footnotesize\ttfamily double latest\+\_\+temperatur}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00041}{41}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a812b49b4aafdf99e12c75ed8005948a1}\label{main_8c_a812b49b4aafdf99e12c75ed8005948a1}} 
+\index{main.c@{main.c}!read\_data\_buffer\_light@{read\_data\_buffer\_light}}
+\index{read\_data\_buffer\_light@{read\_data\_buffer\_light}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{read\_data\_buffer\_light}{read\_data\_buffer\_light}}
+{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data\+\_\+buffer\+\_\+light\mbox{[}2\mbox{]}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00039}{39}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_aef8997c71403e269e83a8e8478ccf73c}\label{main_8c_aef8997c71403e269e83a8e8478ccf73c}} 
+\index{main.c@{main.c}!read\_data\_buffer\_temp@{read\_data\_buffer\_temp}}
+\index{read\_data\_buffer\_temp@{read\_data\_buffer\_temp}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{read\_data\_buffer\_temp}{read\_data\_buffer\_temp}}
+{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data\+\_\+buffer\+\_\+temp\mbox{[}2\mbox{]}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00038}{38}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a00c6bb525f28a5f4d4a47a82479b2790}\label{main_8c_a00c6bb525f28a5f4d4a47a82479b2790}} 
+\index{main.c@{main.c}!received\_UART@{received\_UART}}
+\index{received\_UART@{received\_UART}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{received\_UART}{received\_UART}}
+{\footnotesize\ttfamily char received\+\_\+\+UART\mbox{[}20\mbox{]}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00044}{44}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a9b4d29ba3bf357b320400e1f01a35610}\label{main_8c_a9b4d29ba3bf357b320400e1f01a35610}} 
+\index{main.c@{main.c}!status\_licht@{status\_licht}}
+\index{status\_licht@{status\_licht}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{status\_licht}{status\_licht}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} status\+\_\+licht = \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00034}{34}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a11becdc58f1b623b42ad75744dfa6461}\label{main_8c_a11becdc58f1b623b42ad75744dfa6461}} 
+\index{main.c@{main.c}!status\_temperatur@{status\_temperatur}}
+\index{status\_temperatur@{status\_temperatur}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{status\_temperatur}{status\_temperatur}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} status\+\_\+temperatur = \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00033}{33}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}\label{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}} 
+\index{main.c@{main.c}!UART\_RX\_count@{UART\_RX\_count}}
+\index{UART\_RX\_count@{UART\_RX\_count}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{UART\_RX\_count}{UART\_RX\_count}}
+{\footnotesize\ttfamily int UART\+\_\+\+RX\+\_\+count}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00045}{45}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a2d5347585325c234d8c68be50f2eb6a0}\label{main_8c_a2d5347585325c234d8c68be50f2eb6a0}} 
+\index{main.c@{main.c}!write\_data\_buffer\_light@{write\_data\_buffer\_light}}
+\index{write\_data\_buffer\_light@{write\_data\_buffer\_light}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{write\_data\_buffer\_light}{write\_data\_buffer\_light}}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+light =0b00010000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00037}{37}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_adff71d8937a9a0e682b3a195f98be0df}\label{main_8c_adff71d8937a9a0e682b3a195f98be0df}} 
+\index{main.c@{main.c}!write\_data\_buffer\_temp@{write\_data\_buffer\_temp}}
+\index{write\_data\_buffer\_temp@{write\_data\_buffer\_temp}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{write\_data\_buffer\_temp}{write\_data\_buffer\_temp}}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+temp =0b00000000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00036}{36}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

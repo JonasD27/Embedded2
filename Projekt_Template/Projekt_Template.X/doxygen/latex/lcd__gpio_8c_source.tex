@@ -1,0 +1,230 @@
+\hypertarget{lcd__gpio_8c_source}{}\doxysection{lcd\+\_\+gpio.\+c}
+\label{lcd__gpio_8c_source}\index{lcd\_gpio.c@{lcd\_gpio.c}}
+\mbox{\hyperlink{lcd__gpio_8c}{gehe zur Dokumentation dieser Datei}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00005}00005 \textcolor{preprocessor}{\#include "{}xc.h"{}}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lcd__gpio_8h}{lcd\_gpio.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00010}00010 \textcolor{comment}{/* Funktionen                                                                 */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00013}\mbox{\hyperlink{lcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6}{00013}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6}{lcd\_init}}()}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00015}00015     \textcolor{comment}{//Alle Signale als Ausgänge}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00016}00016     \_TRISB15 = 0; \textcolor{comment}{//RS}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00017}00017     \_TRISD5 = 0; \textcolor{comment}{//R\_W}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00018}00018     \_TRISD4 = 0; \textcolor{comment}{//Enable}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00019}00019     TRISE \&= 0xFF00; \textcolor{comment}{//Datenbus}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00020}00020     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00021}00021     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00022}00022    \textcolor{comment}{//Alle Ausgänge als Digital}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00023}00023     \_ANSB15 = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00024}00024     ANSELE \&= 0xFF00;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00025}00025    }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00026}00026     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0; \textcolor{comment}{//LCD Aktivierungssignal}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00027}00027     \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 0;     \textcolor{comment}{//LCD Registerauswahlsignal}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00028}00028     \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 0;    \textcolor{comment}{//LCD Daten Lesen oder Schreiben}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00029}00029     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00030}00030     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00031}00031     \textcolor{comment}{//Function Set 1}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00032}00032     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(40); \textcolor{comment}{//40 ms warten}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00033}00033     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00034}00034     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00035}00035     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00036}00036     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00037}00037     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00038}00038     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00039}00039     \textcolor{comment}{//Function Set 2}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00040}00040     \_\_delay\_us(4100); \textcolor{comment}{//4.1 ms warten}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00041}00041     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00042}00042     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00043}00043     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00044}00044     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00045}00045     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00047}00047     \textcolor{comment}{//Function Set 3}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00048}00048      \_\_delay\_us(100); \textcolor{comment}{//100 us warten}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00049}00049     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00050}00050     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00051}00051     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00052}00052     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00053}00053     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_CMD\_INIT benötigt 38 us zum Ausführen }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00054}00054     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00055}00055     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00058}00058     \textcolor{comment}{//Function Set}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00059}00059     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00060}00060     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00061}00061     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00062}00062     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00063}00063     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_FUNCTION\_SET benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00064}00064     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00065}00065     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00066}00066     \textcolor{comment}{//Display off}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00067}00067     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_ab1b96426e59139b68ae95df45d697087}{LCD\_DISPLAY\_OFF}}); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00068}00068     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00069}00069     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00070}00070     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00071}00071     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_DISPLAY\_OFF benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00073}00073     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00074}00074     \textcolor{comment}{//Display zurücksetzen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00075}00075     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00076}00076     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00077}00077     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00078}00078     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00079}00079     \_\_delay\_us(1520);   \textcolor{comment}{//LCD\_DISPLAY\_CLEAR benötigt 1.52 ms zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00080}00080     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00082}00082     \textcolor{comment}{//Eingabemodus}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00083}00083     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_ae5d757ddb6d94de8c82191b60b40e442}{LCD\_ENTRY\_MODE}}); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00084}00084     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00085}00085     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00086}00086     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00087}00087     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_ENTRY\_MODE benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00088}00088     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00090}00090     \textcolor{comment}{//Display on}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00091}00091     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\_DISPLAY\_ON}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00092}00092     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00093}00093     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00094}00094     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00095}00095     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_DISPLAY\_ON benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00097}00097 \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00099}\mbox{\hyperlink{lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d}{00099}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}(uint8\_t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}})}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00100}00100 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00101}00101     \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00102}00102     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00103}00103     \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00104}00104     \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00105}00105     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(4); \textcolor{comment}{//80ns }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00106}00106     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00107}00107     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00108}00108     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00109}00109     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00110}00110     \_\_delay\_us(38);     \textcolor{comment}{//LCD\_WRITE benötigt 38 us zum Ausführen }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00111}00111     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00112}00112 \}\textcolor{comment}{/*lcd\_write\_data()*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00115}\mbox{\hyperlink{lcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a}{00115}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a}{lcd\_clear}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00116}00116 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00117}00117     \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00118}00118     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00119}00119     \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00120}00120     \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00121}00121     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(4);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00122}00122     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00123}00123     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00124}00124     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00125}00125     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00126}00126     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(2); \textcolor{comment}{// Clear Display braucht 1.5ms  }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00130}00130 \textcolor{comment}{/*Gibt einen String auf dem Display aus*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00131}\mbox{\hyperlink{lcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{00131}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{writeStrLCD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str)}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00132}00132 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00133}00133     uint8\_t i = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00134}00134     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00135}00135      \textcolor{keywordflow}{while} (str[i]!=0)}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00136}00136     \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00137}00137         \textcolor{comment}{/* Beinhaltet die ASCII-\/Tabelle von Leerzeichen bis Tilde mit }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00138}00138 \textcolor{comment}{         * Hex = 0x20 -\/ 0x7F oder Dezimal von d032 -\/ d126.}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00139}00139 \textcolor{comment}{         * Die Zeichen mit den ASCII-\/Codes 32 bis 126 sind sog. druckbare }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00140}00140 \textcolor{comment}{         * Zeichen, die für die Anzeige bzw. Ausgabe bestimmt sind.*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00141}00141         \textcolor{keywordflow}{if} (str[i]>=\textcolor{charliteral}{' '} \&\& str[i]<=\textcolor{charliteral}{'\string~'})}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00142}00142         \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00143}00143             \mbox{\hyperlink{lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}((str[i]));}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00144}00144         \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00145}00145      }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00146}00146         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00147}00147         \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00148}00148             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00149}00149         \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00150}00150         }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00151}00151         i++;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00152}00152         }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00153}00153     \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00154}00154     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00155}00155 \}\textcolor{comment}{/*writeStrLCD()*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00162}\mbox{\hyperlink{lcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526}{00162}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\_set\_pos}}(\textcolor{keywordtype}{int} line, \textcolor{keywordtype}{int} pos)}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00163}00163 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00164}00164     \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00165}00165     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00166}00166     \textcolor{comment}{//Position auf 0,0 setzten}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00167}00167     \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00168}00168     \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00169}00169     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(4);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00170}00170     \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(\mbox{\hyperlink{lcd__gpio_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{LCD\_DISPLAY\_HOME}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00171}00171     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00172}00172     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00173}00173     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00174}00174     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(2); \textcolor{comment}{// Home Display braucht 1.5ms }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00175}00175     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00176}00176     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00177}00177     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00178}00178     \textcolor{keywordtype}{int} i=0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00179}00179     \textcolor{keywordtype}{int} to\_shift=0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00180}00180     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00181}00181     \textcolor{keywordflow}{if} (line==1) \textcolor{comment}{//Erste Linie}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00182}00182     \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00183}00183         to\_shift=pos;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00184}00184     \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00185}00185     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00186}00186     \textcolor{keywordflow}{else} \textcolor{comment}{//Zweite Linie}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00187}00187     \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00188}00188         to\_shift=pos+40;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00189}00189     \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00190}00190     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00191}00191     \textcolor{keywordflow}{for}(i=0; i<to\_shift-\/1; i++)}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00192}00192     \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00193}00193         \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00194}00194         \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00195}00195         \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(4);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00196}00196         \mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\_DATA}}(0b00010100);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00197}00197         \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00198}00198         \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(33);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00199}00199         \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00200}00200         \_\_delay\_us(38);     \textcolor{comment}{//LCD\_WRITE benötigt 38 us zum Ausführen }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00201}00201     \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00202}00202 \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00208}\mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{00208}} uint8\_t \mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00209}00209 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00210}00210     uint8\_t received\_data;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00211}00211     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00212}00212     \textcolor{comment}{//Datenbus als Eingang}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00213}00213     TRISE = TRISE | 0x00FF;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00214}00214     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00215}00215     \mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\_RS}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00216}00216     \mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\_R\_W}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00217}00217     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(4); \textcolor{comment}{//80 ns warten??}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00218}00218     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 1;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00219}00219     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(20); \textcolor{comment}{//min 360 ns warten -\/> 400ns}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00220}00220     received\_data = PORTE;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00221}00221     \mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\_ENABLE}} = 0;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00222}00222     \_\_delay\_us(35); \textcolor{comment}{//zur sicherheit 1us warten}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00223}00223     }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00224}00224     TRISE \&= 0xFF00; \textcolor{comment}{//Datenbus als Ausgang}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00225}00225    }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00226}00226     \textcolor{keywordflow}{return} received\_data;}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00227}00227 \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00232}\mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{00232}} \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00233}00233 \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00234}00234     \textcolor{keywordflow}{while}((\mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}() \& 0b10000000))}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00235}00235     \{}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00236}00236     \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00237}00237     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00238}00238 \}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00239}00239 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8c_source_l00240}00240 }
+
+\end{DoxyCode}

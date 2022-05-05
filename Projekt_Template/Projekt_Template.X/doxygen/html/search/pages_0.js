@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['code_2dstyle_0',['Code-Style',['../md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style.html',1,'']]]
+  ['_22aufgabe_20i2c_20lichtsensor_22_0',['&quot;Aufgabe I2C Lichtsensor&quot;',['../em_aufgabe1.html',1,'']]],
+  ['_22aufgabe_20lcd_20display_20gpio_22_1',['&quot;Aufgabe LCD Display GPIO&quot;',['../em_aufgabe2.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['num_5fread_0',['num_read',['../struct_i2_c__struct.html#ae857bf437b3affb977fd897f7a9f5cd1',1,'I2C_struct']]],
-  ['num_5fwrite_1',['num_write',['../struct_i2_c__struct.html#ae9c7d283903af4094018e1975ae70719',1,'I2C_struct']]]
+  ['latest_5fcpu_5fload_0',['latest_cpu_load',['../main_8c.html#af832cfb864cc3aedc004597d490001f5',1,'main.c']]],
+  ['latest_5ftemperatur_1',['latest_temperatur',['../main_8c.html#adcd199297f9a8146dd65366775e2cf7d',1,'main.c']]]
 ];

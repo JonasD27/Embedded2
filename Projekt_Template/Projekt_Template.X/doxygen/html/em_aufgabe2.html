@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Embedded 2 Dokumentation: &quot;Aufgabe LCD Display GPIO&quot;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Embedded 2 Dokumentation
+   </div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('em_aufgabe2.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">"Aufgabe LCD Display GPIO" </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p >In dieser Aufgabe sollte das LCD Display in Betrieb genommen werden. Es wurde dafür die Bibliothek <a class="el" href="lcd__gpio_8h.html">lcd_gpio.h</a> geschrieben. Der Zugriff erfolgt dabei noch über die GPIOs. Um das LCD anzusteuern muss dieses vorher einmalig initialisiert werden. Dies geschieht in der Funktion <a class="el" href="lcd__gpio_8c.html#ac23e73124dc9fabae95671fe71d074a6">lcd_init()</a>.</p>
+<p >Ist das LCD initialisiert, können über die Funktion <a class="el" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d">lcd_write_data()</a> Daten über den Bus versendet werden. Mit der Funktion <a class="el" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus.">lcd_get_status()</a> wird das Busy-Flag und der Adress-Zähler abgefragt. Die Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> liest das Busy-Flag und blockiert solange dies gesetzt ist. In den anderen Funktionen, welche einen Schreib-Zugriff implementieren wird immer zuerst die Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> ausgeführt um zu gewährleisten, dass die zu sendenden Daten auch vom LCD interpretiert werden können.</p>
+<p >Es wurde eine Funktion <a class="el" href="lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8">writeStrLCD()</a> geschrieben, welche es erlaubt komplette Strings auf dem LCD anzuzeigen.</p>
+<p >Weiter Funktionen sind <a class="el" href="lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen.">lcd_clear()</a>, welche das LCD zurücksetzt und den Inhalt löscht sowie <a class="el" href="lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors.">lcd_set_pos()</a>, welche den Cursor auf die gewünschte Position bewegt.</p>
+<p >Um die geforderten Timings einzuhalten wurden zwei unterschiedliche Delay-Mechanismen verwendet: <a class="el" href="lcd__gpio_8h.html#ad836aa0703fbad4b9fed4a4582496e03">__delay_cycles()</a> verzögert um die angegebenen Zyklen. In unserem Fall beträgt FCY 50MHZ also ist ein Taktzyklus 20ns lang. __delay_us() verzögert um die angegebenen Mikrosekunden.</p>
+<p >In der SuperLoop wird die Funktion <a class="el" href="main_8c.html#add65c2bbc4a328fc893abeded917bc66">display_temp_load()</a> jede ms aufgerufen und gibt in einem Takt von 3s abwechselnd die akutelle Temperatur und Aulastung in der ersten Zeile des LCDs aus. Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile des LCDs ausgegeben. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

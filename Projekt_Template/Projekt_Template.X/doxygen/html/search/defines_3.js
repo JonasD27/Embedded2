@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['i2c_5fscl_0',['I2C_SCL',['../_i2_c_8h.html#a212ca328a6409c98f8c3dfbbe1ba561d',1,'I2C_SCL():&#160;I2C.h'],['../main__less_8c.html#a212ca328a6409c98f8c3dfbbe1ba561d',1,'I2C_SCL():&#160;main_less.c']]],
-  ['i2c_5fscl_5ftris_1',['I2C_SCL_TRIS',['../_i2_c_8h.html#a2f01e56beefeda2b3e4d6ebce68a19ad',1,'I2C_SCL_TRIS():&#160;I2C.h'],['../main__less_8c.html#a2f01e56beefeda2b3e4d6ebce68a19ad',1,'I2C_SCL_TRIS():&#160;main_less.c']]],
-  ['i2c_5fsda_2',['I2C_SDA',['../_i2_c_8h.html#a18aefd12ad84d4c33dc97923cb821e47',1,'I2C_SDA():&#160;I2C.h'],['../main__less_8c.html#a18aefd12ad84d4c33dc97923cb821e47',1,'I2C_SDA():&#160;main_less.c']]],
-  ['i2c_5fsda_5ftris_3',['I2C_SDA_TRIS',['../_i2_c_8h.html#a20b430ca785a0b3041fc6cf3050f2de4',1,'I2C_SDA_TRIS():&#160;I2C.h'],['../main__less_8c.html#a20b430ca785a0b3041fc6cf3050f2de4',1,'I2C_SDA_TRIS():&#160;main_less.c']]]
+  ['fcy_0',['FCY',['../system_8h.html#a99d7c812ba23bfdba5d29ec2fddf1e83',1,'system.h']]]
 ];

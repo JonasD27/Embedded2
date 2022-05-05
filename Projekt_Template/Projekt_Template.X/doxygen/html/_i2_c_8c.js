@@ -11,6 +11,7 @@ var _i2_c_8c =
     [ "FSM_Stop", "_i2_c_8c.html#ace8745b63f67ec9eb023dcaf341f84fd", null ],
     [ "get_I2C_struct_FIFO", "_i2_c_8c.html#a50f7c11fd579b79244a99ff3f5c79991", null ],
     [ "initI2C", "_i2_c_8c.html#abe298a3c1d98035cebe8b0535db549fa", null ],
-    [ "print_sensor_values", "_i2_c_8c.html#adebdefdb6d4ef0fb996c5495257e938e", null ],
-    [ "put_I2C_struct_FIFO", "_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47", null ]
+    [ "put_I2C_struct_FIFO", "_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47", null ],
+    [ "FIFO_I2C", "_i2_c_8c.html#a704bb8674396325fb9ed2f65997b9d42", null ],
+    [ "I2C_test_struct", "_i2_c_8c.html#a290a8009ff32ac27f0687325153ddcba", null ]
 ];

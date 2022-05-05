@@ -10,6 +10,13 @@ Include-\/\+Abhängigkeitsdiagramm für system.\+c\+:\nopagebreak
 \includegraphics[width=279pt]{system_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{system_8c_a16788948251eb0d3471982f29e589224}{CYCLES\+\_\+\+PER\+\_\+\+MILLISECONDS}}~((335ull$\ast$\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\+\_\+\+FREQ}})/7370000ull)
+\item 
+\#define \mbox{\hyperlink{system_8c_a81b138c5868e50f6f64ef6c020736e2d}{CYCLES\+\_\+\+PER\+\_\+\+MIKROSECONDS}}~\mbox{\hyperlink{system_8c_a16788948251eb0d3471982f29e589224}{CYCLES\+\_\+\+PER\+\_\+\+MILLISECONDS}}/1000
+\end{DoxyCompactItemize}
 \doxysubsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,8 +26,40 @@ void \mbox{\hyperlink{system_8c_af460918a62cf83ab0848c41f0ae852ea}{init\+\_\+tim
 \item 
 void \mbox{\hyperlink{system_8c_ab0bb063f480450e226799ab30cc6a3ed}{init\+\_\+ms\+\_\+t4}} ()
 \item 
+void \mbox{\hyperlink{system_8c_a85f94a0dfff81bccb50e5cf5528c46c7}{init\+\_\+t2\+\_\+t3}} ()
+\item 
 void \mbox{\hyperlink{system_8c_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms}} (uint16\+\_\+t milliseconds)
-\begin{DoxyCompactList}\small\item\em Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Schleife. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_a4e5aeb021ad85c23675337730148d5c4}{delay\+\_\+us}} (uint16\+\_\+t mikroseconds)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{system_8c_a3674e1feb03e742150964aa79b8fe8df}{DELAY\+\_\+\+ANPASSUNG}} = ((\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\+\_\+\+FREQ}}/96)$\ast$2180ull)/1000000ull
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Makro-\/\+Dokumentation}
+\mbox{\Hypertarget{system_8c_a81b138c5868e50f6f64ef6c020736e2d}\label{system_8c_a81b138c5868e50f6f64ef6c020736e2d}} 
+\index{system.c@{system.c}!CYCLES\_PER\_MIKROSECONDS@{CYCLES\_PER\_MIKROSECONDS}}
+\index{CYCLES\_PER\_MIKROSECONDS@{CYCLES\_PER\_MIKROSECONDS}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{CYCLES\_PER\_MIKROSECONDS}{CYCLES\_PER\_MIKROSECONDS}}
+{\footnotesize\ttfamily \#define CYCLES\+\_\+\+PER\+\_\+\+MIKROSECONDS~\mbox{\hyperlink{system_8c_a16788948251eb0d3471982f29e589224}{CYCLES\+\_\+\+PER\+\_\+\+MILLISECONDS}}/1000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00017}{17}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
+\mbox{\Hypertarget{system_8c_a16788948251eb0d3471982f29e589224}\label{system_8c_a16788948251eb0d3471982f29e589224}} 
+\index{system.c@{system.c}!CYCLES\_PER\_MILLISECONDS@{CYCLES\_PER\_MILLISECONDS}}
+\index{CYCLES\_PER\_MILLISECONDS@{CYCLES\_PER\_MILLISECONDS}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{CYCLES\_PER\_MILLISECONDS}{CYCLES\_PER\_MILLISECONDS}}
+{\footnotesize\ttfamily \#define CYCLES\+\_\+\+PER\+\_\+\+MILLISECONDS~((335ull$\ast$\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\+\_\+\+FREQ}})/7370000ull)}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00016}{16}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
 
 
 \doxysubsection{Dokumentation der Funktionen}
@@ -32,7 +71,7 @@ void \mbox{\hyperlink{system_8c_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms
 
 
 
-Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00040}{40}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00046}{46}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -58,7 +97,17 @@ Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung m
 \end{DoxyParams}
 
 
-Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00129}{129}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00150}{150}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
+\mbox{\Hypertarget{system_8c_a4e5aeb021ad85c23675337730148d5c4}\label{system_8c_a4e5aeb021ad85c23675337730148d5c4}} 
+\index{system.c@{system.c}!delay\_us@{delay\_us}}
+\index{delay\_us@{delay\_us}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{delay\_us()}{delay\_us()}}
+{\footnotesize\ttfamily void delay\+\_\+us (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mikroseconds }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00158}{158}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
 
 \mbox{\Hypertarget{system_8c_ab0bb063f480450e226799ab30cc6a3ed}\label{system_8c_ab0bb063f480450e226799ab30cc6a3ed}} 
 \index{system.c@{system.c}!init\_ms\_t4@{init\_ms\_t4}}
@@ -68,13 +117,30 @@ Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00129}{129}} der Datei \mb
 
 
 
-Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00114}{114}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00120}{120}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=216pt]{system_8c_ab0bb063f480450e226799ab30cc6a3ed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{system_8c_a85f94a0dfff81bccb50e5cf5528c46c7}\label{system_8c_a85f94a0dfff81bccb50e5cf5528c46c7}} 
+\index{system.c@{system.c}!init\_t2\_t3@{init\_t2\_t3}}
+\index{init\_t2\_t3@{init\_t2\_t3}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{init\_t2\_t3()}{init\_t2\_t3()}}
+{\footnotesize\ttfamily void init\+\_\+t2\+\_\+t3 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00132}{132}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{system_8c_a85f94a0dfff81bccb50e5cf5528c46c7_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{system_8c_af460918a62cf83ab0848c41f0ae852ea}\label{system_8c_af460918a62cf83ab0848c41f0ae852ea}} 
@@ -85,5 +151,18 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00098}{98}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00104}{104}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
+
+
+
+\doxysubsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{system_8c_a3674e1feb03e742150964aa79b8fe8df}\label{system_8c_a3674e1feb03e742150964aa79b8fe8df}} 
+\index{system.c@{system.c}!DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}}
+\index{DELAY\_ANPASSUNG@{DELAY\_ANPASSUNG}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{DELAY\_ANPASSUNG}{DELAY\_ANPASSUNG}}
+{\footnotesize\ttfamily uint32\+\_\+t DELAY\+\_\+\+ANPASSUNG = ((\mbox{\hyperlink{system_8h_a7d5ce7b79462bbfb630ee53075540b65}{SYS\+\_\+\+FREQ}}/96)$\ast$2180ull)/1000000ull}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{system_8c_source_l00026}{26}} der Datei \mbox{\hyperlink{system_8c_source}{system.\+c}}.
 
