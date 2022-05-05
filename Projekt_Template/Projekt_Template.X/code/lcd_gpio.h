@@ -44,7 +44,10 @@
 #define LCD_ENTRY_MODE      0b0000000000000110  
 
 /*Schaltet Display und Cursor ein und lässt den Cursor blinken. Benötigt 38us*/
-#define LCD_DISPLAY_ON      0b0000000000001111 
+/*#define LCD_DISPLAY_ON      0b0000000000001111*/
+/*Schaltet Display und Cursor ein und lässt den Cursor nicht mehr blinken. 
+ *Benötigt 38us*/
+#define LCD_DISPLAY_ON      0b0000000000001110
 
 /*Zeichen definieren*/
 #define LCD_ZEICHEN
