@@ -195,11 +195,11 @@ void lcd_set_pos(int line, int pos)
         LCD_RS = 0;
         LCD_R_W = 0;
         __delay_cycles(4);
-        LCD_DATA(0b00010100);
+        LCD_DATA(CURSOR_OR_DISPLAY);
         LCD_ENABLE = 1;
         __delay_cycles(33);
         LCD_ENABLE = 0;
-        __delay_us(38);     //??? benötigt 38 us zum Ausführen 
+        __delay_us(38);     //CURSOR_OR_DISPLAY benötigt 38 us zum Ausführen 
     }
     
 }/*lcd_set_pos()*/
@@ -237,7 +237,7 @@ uint8_t lcd_get_status(void)
  */
 void waitForBusyLCD(void)
 {
-    while((lcd_get_status() & 0b10000000))
+    while((lcd_get_status() & READ_BUSY_FLAG))
     {
         
     }

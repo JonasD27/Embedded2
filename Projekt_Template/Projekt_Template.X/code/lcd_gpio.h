@@ -52,6 +52,16 @@
  *Benötigt 38us*/
 #define LCD_DISPLAY_ON      0b0000000000001110
 
+/*Definiert den IC und gibt an das dieser in Betrieb ist. Interne Operation ist
+ *im Gange es soll gewartet werden*/
+#define READ_BUSY_FLAG      0b0000000010000000
+
+/*Cursor nach rechts schieben, AC wird um 1 erhöht und gesamte Anzeige nach
+ * rechts verschieben (der Cursor bewegt sich entsprechend der Anzeige).
+ * In der Anzeige wird nicht gelesen oder geschrieben. Diese Anweisung wird
+ * verwendet, um Anzeigedaten zu korrigieren oder zu suchen. */
+#define CURSOR_OR_DISPLAY   0b0000000000010100
+
 /*Zeichen definieren*/
 #define LCD_ZEICHEN
 //#define LCD_ZEICHEN(zeichen)zeichen
@@ -60,7 +70,6 @@
 /* Prototypen                                                                 */
 /******************************************************************************/
 
-
 void lcd_init(void);
 void lcd_write_data(uint8_t data);
 void writeStrLCD(const char* str);
@@ -68,6 +77,3 @@ void lcd_clear(void);
 void lcd_set_pos(int line, int pos);
 void waitForBusyLCD(void); 
 uint8_t lcd_get_status(void);
-
-
-
