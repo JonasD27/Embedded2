@@ -14,11 +14,11 @@
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp              */
 
-#include "libpic30.h"       /*Beinhaltet Delay-Funktionen
+#include "libpic30.h"      /*Beinhaltet Delay-Funktionen                      */
 
 
 /******************************************************************************/
-/* Functions                                                                  */
+/* Funktionen                                                                 */
 /******************************************************************************/
 
 void initPMP(void)
