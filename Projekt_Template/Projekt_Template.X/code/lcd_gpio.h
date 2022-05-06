@@ -2,15 +2,17 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-//#include "UART.h"
-#include "user.h"
-#include <stdint.h>        /* Includes uint16_t definition*/
-#include <stdbool.h>       /* Includes true/false definition*/
+#include "user.h"          /* User funct/params, such as InitApp              */
+
+#include <stdint.h>        /* Includes uint16_t definition                    */
+#include <stdbool.h>       /* Includes true/false definition                  */
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include <xc.h>
-#include "libpic30.h"       /*Beinhaltet Delay-Funktionen*/
+
+#include "libpic30.h"       /*Beinhaltet Delay-Funktionen                     */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -37,7 +39,8 @@
 /*Löschen der Anzeigedaten. Benötigt 1.52ms*/
 #define LCD_DISPLAY_CLEAR   0b0000000000000001
 
-/*Home Position. Benötigt 1.52ms*/
+/*Cursor und Anzeige werden an ihren ursprünglichen Zustand versetzt.
+ *Benötigt 1.52ms*/
 #define LCD_DISPLAY_HOME    0b0000000000000010
 
 /*Eingabemodus eingestellt. Cursor bewegt sich nach Rechts. Benötigt 38us*/
@@ -57,17 +60,14 @@
 /* Prototypen                                                                 */
 /******************************************************************************/
 
-/*gemacht*/
+
 void lcd_init(void);
 void lcd_write_data(uint8_t data);
 void writeStrLCD(const char* str);
 void lcd_clear(void);
 void lcd_set_pos(int line, int pos);
+void waitForBusyLCD(void); 
 uint8_t lcd_get_status(void);
 
-/*noch machen*/
-
-
-void waitForBusyLCD(void); //Brauch man das?
 
 
