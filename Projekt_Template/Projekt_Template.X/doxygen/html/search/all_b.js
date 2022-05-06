@@ -1,28 +1,8 @@
 var searchData=
 [
-  ['latest_5fcpu_5fload_0',['latest_cpu_load',['../main_8c.html#af832cfb864cc3aedc004597d490001f5',1,'main.c']]],
-  ['latest_5ftemperatur_1',['latest_temperatur',['../main_8c.html#adcd199297f9a8146dd65366775e2cf7d',1,'main.c']]],
-  ['lcd_5fclear_2',['lcd_clear',['../lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a',1,'lcd_clear(void):&#160;lcd_gpio.c'],['../lcd__gpio_8h.html#ad235a86241458b1e7b8771688bfdaf9a',1,'lcd_clear(void):&#160;lcd_gpio.c']]],
-  ['lcd_5fcmd_5finit_3',['LCD_CMD_INIT',['../lcd__gpio_8h.html#a24238d7a01f9554d653acb83f0591d8b',1,'lcd_gpio.h']]],
-  ['lcd_5fdata_4',['LCD_DATA',['../lcd__gpio_8h.html#aa3d8c5404f0c011ebb896ff7d925b03d',1,'lcd_gpio.h']]],
-  ['lcd_5fdisplay_5fclear_5',['LCD_DISPLAY_CLEAR',['../lcd__gpio_8h.html#a48de81d41dd1a70f8ab5a593c40c0ef4',1,'lcd_gpio.h']]],
-  ['lcd_5fdisplay_5fhome_6',['LCD_DISPLAY_HOME',['../lcd__gpio_8h.html#a44df1119c6c6ce5a44c979fe4b93d0f7',1,'lcd_gpio.h']]],
-  ['lcd_5fdisplay_5foff_7',['LCD_DISPLAY_OFF',['../lcd__gpio_8h.html#ab1b96426e59139b68ae95df45d697087',1,'lcd_gpio.h']]],
-  ['lcd_5fdisplay_5fon_8',['LCD_DISPLAY_ON',['../lcd__gpio_8h.html#a846dac5d1bb72bef7a76ee110c0445b6',1,'lcd_gpio.h']]],
-  ['lcd_5fenable_9',['LCD_ENABLE',['../lcd__gpio_8h.html#a9e68ed137ca4a61c3977dcdad091f27c',1,'lcd_gpio.h']]],
-  ['lcd_5fentry_5fmode_10',['LCD_ENTRY_MODE',['../lcd__gpio_8h.html#ae5d757ddb6d94de8c82191b60b40e442',1,'lcd_gpio.h']]],
-  ['lcd_5ffunction_5fset_11',['LCD_FUNCTION_SET',['../lcd__gpio_8h.html#af8ec7e043a3b67ee423b97783d08aeb1',1,'lcd_gpio.h']]],
-  ['lcd_5fget_5fstatus_12',['lcd_get_status',['../lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408',1,'lcd_get_status(void):&#160;lcd_gpio.c'],['../lcd__gpio_8h.html#a6bcfd73d519832504e3b8bc7b3f6f408',1,'lcd_get_status(void):&#160;lcd_gpio.c']]],
-  ['lcd_5fgpio_2ec_13',['lcd_gpio.c',['../lcd__gpio_8c.html',1,'']]],
-  ['lcd_5fgpio_2eh_14',['lcd_gpio.h',['../lcd__gpio_8h.html',1,'']]],
-  ['lcd_5finit_15',['lcd_init',['../lcd__gpio_8c.html#ac23e73124dc9fabae95671fe71d074a6',1,'lcd_init():&#160;lcd_gpio.c'],['../lcd__gpio_8h.html#a6842775ba83d166f02b8fef8bb63b1e6',1,'lcd_init(void):&#160;lcd_gpio.c']]],
-  ['lcd_5fr_5fw_16',['LCD_R_W',['../lcd__gpio_8h.html#a87c24c96c4230435f0c282b1ec352e4e',1,'lcd_gpio.h']]],
-  ['lcd_5frs_17',['LCD_RS',['../lcd__gpio_8h.html#a4781e073871c6f27f89b9463ad3a4ed1',1,'lcd_gpio.h']]],
-  ['lcd_5fset_5fpos_18',['lcd_set_pos',['../lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526',1,'lcd_set_pos(int line, int pos):&#160;lcd_gpio.c'],['../lcd__gpio_8h.html#acfc4f2670ecb8c7c07fb015adb54a526',1,'lcd_set_pos(int line, int pos):&#160;lcd_gpio.c']]],
-  ['lcd_5fwrite_5fdata_19',['lcd_write_data',['../lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d',1,'lcd_write_data(uint8_t data):&#160;lcd_gpio.c'],['../lcd__gpio_8h.html#a9958d5441d79af42a23a03f6229de09d',1,'lcd_write_data(uint8_t data):&#160;lcd_gpio.c']]],
-  ['lcd_5fzeichen_20',['LCD_ZEICHEN',['../lcd__gpio_8h.html#add7af1708bcce2284cff78811194fcc8',1,'lcd_gpio.h']]],
-  ['led0_21',['LED0',['../user_8h.html#ae8d5b4e7e2d9d21caaa4744d385d7cc7',1,'user.h']]],
-  ['led1_22',['LED1',['../user_8h.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9',1,'user.h']]],
-  ['led2_23',['LED2',['../user_8h.html#ad09fe5bf321b9a2de26bd5e5b9af6424',1,'user.h']]],
-  ['led3_24',['LED3',['../user_8h.html#a4b7ff8e253a7412f83deba3a447028a8',1,'user.h']]]
+  ['main_0',['MAIN',['../main_8c.html#a34b04bd23b07b485921a728ad0805ac4',1,'main.c']]],
+  ['main_1',['main',['../main_8c.html#aec570f4ab450e8224be63b7dcfa62b35',1,'main(void):&#160;main.c'],['../main__less_8c.html#aec570f4ab450e8224be63b7dcfa62b35',1,'main(void):&#160;main_less.c']]],
+  ['main_2ec_2',['main.c',['../main_8c.html',1,'']]],
+  ['main_5fless_2ec_3',['main_less.c',['../main__less_8c.html',1,'']]],
+  ['measureprocesstime_4',['measureProcesstime',['../main_8c.html#a6188587bd216339104622b4a766d00b2',1,'main.c']]]
 ];

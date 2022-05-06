@@ -1,7 +1,7 @@
 /******************************************************************************/
 /* Files to Include                                                           */
 /******************************************************************************/
-
+//TODO: Logic Analyzer Doku mit Stuersignalen, Bit7 +...
 #include "xc.h"
 
 #include "system.h"/* System funct/params, like osc/peripheral config         */
@@ -106,6 +106,8 @@ void lcd_write_data(uint8_t data)
 {
     waitForBusyLCD();
     
+    TRISE &= 0xFF00;        //Datenbus als Ausgang
+    
     LCD_RS = 1;
     LCD_R_W = 0;
     __delay_cycles(4);  //80ns 
@@ -113,7 +115,7 @@ void lcd_write_data(uint8_t data)
     LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
-    __delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
+    //__delay_us(38);     //LCD_WRITE benötigt 38 us zum Ausführen 
     
 }/*lcd_write_data()*/
 
@@ -123,6 +125,9 @@ void lcd_clear(void)
 {
     waitForBusyLCD();
     
+    
+    TRISE &= 0xFF00;        //Datenbus als Ausgang
+    
     LCD_RS = 0;
     LCD_R_W = 0;
     __delay_cycles(4);
@@ -130,7 +135,7 @@ void lcd_clear(void)
     LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
-    __delay_us(1520);   //LCD_DISPLAY_CLEAR benötigt 1.52 ms zum Ausführen
+    //__delay_us(1520);   //LCD_DISPLAY_CLEAR benötigt 1.52 ms zum Ausführen
     
 }/*lcd_clear()*/
 
@@ -146,6 +151,9 @@ void writeStrLCD(const char* str)
          * Hex = 0x20 - 0x7F oder Dezimal von d032 - d126.
          * Die Zeichen mit den ASCII-Codes 32 bis 126 sind sog. druckbare 
          * Zeichen, die für die Anzeige bzw. Ausgabe bestimmt sind.*/
+        lcd_write_data((str[i]));
+        i++;
+#if 0
         if (str[i]>=' ' && str[i]<='~')
         {
 			lcd_write_data((str[i]));
@@ -155,8 +163,8 @@ void writeStrLCD(const char* str)
         {
 			break;
         }
-        
-		i++;       
+#endif
+		       
 	}
     
 }/*writeStrLCD()*/
@@ -170,6 +178,8 @@ void lcd_set_pos(int line, int pos)
 {
     waitForBusyLCD();
     
+    TRISE &= 0xFF00;        //Datenbus als Ausgang
+    
     //Position auf 0,0 setzten
     LCD_RS = 0;
     LCD_R_W = 0;
@@ -178,7 +188,7 @@ void lcd_set_pos(int line, int pos)
     LCD_ENABLE = 1;
     __delay_cycles(33);
     LCD_ENABLE = 0;
-    __delay_us(1520);       //LCD_DISPLAY_HOME benötigt 1.52 ms zum Ausführen 
+    //__delay_us(1520);       //LCD_DISPLAY_HOME benötigt 1.52 ms zum Ausführen 
      
     int i = 0;
     int to_shift = 0;
@@ -195,6 +205,8 @@ void lcd_set_pos(int line, int pos)
     
     for(i = 0; i < to_shift - 1; i++)
     {
+        waitForBusyLCD();
+        TRISE &= 0xFF00;        //Datenbus als Ausgang
         LCD_RS = 0;
         LCD_R_W = 0;
         __delay_cycles(4);
@@ -202,7 +214,7 @@ void lcd_set_pos(int line, int pos)
         LCD_ENABLE = 1;
         __delay_cycles(33);
         LCD_ENABLE = 0;
-        __delay_us(38);     //CURSOR_OR_DISPLAY benötigt 38 us zum Ausführen 
+        //__delay_us(38);     //CURSOR_OR_DISPLAY benötigt 38 us zum Ausführen 
     }
     
 }/*lcd_set_pos()*/
@@ -226,9 +238,9 @@ uint8_t lcd_get_status(void)
     __delay_cycles(20);     //min 360 ns warten -> 400ns
     received_data = PORTE;
     LCD_ENABLE = 0;
-    __delay_us(35);         //zur sicherheit 1us warten
+    //__delay_us(35);         //zur sicherheit 1us warten
     
-    TRISE &= 0xFF00;        //Datenbus als Ausgang
+    
    
     return received_data;
     

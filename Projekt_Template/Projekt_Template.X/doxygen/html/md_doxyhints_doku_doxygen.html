@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Embedded 2 Dokumentation: Doxygen Formatierungshinweise</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Embedded 2 Dokumentation
+   </div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_doxyhints_doku_doxygen.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Doxygen Formatierungshinweise </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p ><a class="anchor" id="p_formatierung"></a></p>
+<h1><a class="anchor" id="s_fo_textformat"></a>
+Textformat kursiv / fett</h1>
+<pre class="fragment">- This is a *rather important* and this is a **very important** topic (markdown: asterisk)
+- This is a _rather important_ and this is a __very important__  topic (markdown: underscore)
+- This is a &lt;em&gt;rather important&lt;/em&gt; and this is a &lt;strong&gt;very important&lt;/strong&gt; topic (html tags: em, strong)
+- This is a &lt;i&gt;rather important&lt;/i&gt; and this is a &lt;b&gt;very important&lt;/b&gt; topic (html tags: i, b)
+- \a italic \b bold \c typewriter
+</pre><ul>
+<li>This is a <em>rather important</em> and this is a <b>very important</b> topic (markdown: asterisk)</li>
+<li>This is a <em>rather important</em> and this is a <b>very important</b> topic (markdown: underscore)</li>
+<li>This is a <em>rather important</em> and this is a <b>very important</b> topic (html tags: em, strong)</li>
+<li>This is a <em>rather important</em> and this is a <b>very important</b> topic (html tags: i, b)</li>
+<li><em>italic</em> <b>bold</b> <code>typewriter</code> </li>
+</ul>
+<h1><a class="anchor" id="s_fo_links"></a>
+Links</h1>
+<pre class="fragment">- Simple external link: http://www.doxygen.org/ (no special format needed)
+- External link with user defined name: [DoxyGen](http://www.doxygen.org/) (markdown [])
+- [The link text](http://example.net/)
+- [The link text](http://example.net/ "Link title")
+- [The link text](/relative/path/to/index.html "Link title") 
+- [The link text](somefile.html) 
+</pre><ul>
+<li>Simple external link: <a href="http://www.doxygen.org/">http://www.doxygen.org/</a> (no special format needed)</li>
+<li>External link with user defined name: <a href="http://www.doxygen.org/">DoxyGen</a> (markdown [])</li>
+<li><a href="http://example.net/">The link text</a></li>
+<li><a href="http://example.net/" title="Link title">The link text</a></li>
+<li><a href="/relative/path/to/index.html" title="Link title">The link text</a></li>
+<li><a href="somefile.html">The link text</a></li>
+</ul>
+<h2><a class="anchor" id="autolinks"></a>
+Automatische Linkgenerierung</h2>
+<pre class="fragment">Das Hauptprogramm main() steht in main.c 
+</pre><p >Das Hauptprogramm <a class="el" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main()</a> steht in <a class="el" href="main_8c.html">main.c</a></p>
+<p >In addition doxygen provides a similar way to link a documented entity:</p>
+<pre class="fragment">[Link zu: Eine Überschrift](#autolinks) --- [Links](@ref autolinks) 
+</pre><p ><a class="el" href="md_doxyhints_doku_doxygen.html#autolinks">Link zu: Eine Überschrift</a> &mdash; <a class="el" href="md_doxyhints_doku_doxygen.html#autolinks">Links</a></p>
+<h1><a class="anchor" id="listen"></a>
+(Aufzählungs-)Listen</h1>
+<h2><a class="anchor" id="bulletlist"></a>
+Bulletlist mit - / + / *</h2>
+<pre class="fragment">- test 
+- test
+  - test
+    - test
+    - test
+  - test
+- test
+</pre><ul>
+<li>test</li>
+<li>test<ul>
+<li>test<ul>
+<li>test</li>
+<li>test</li>
+</ul>
+</li>
+<li>test</li>
+</ul>
+</li>
+<li>test</li>
+</ul>
+<h2><a class="anchor" id="numberedlist"></a>
+Aufzählungsliste mit -#</h2>
+<pre class="fragment">-# test 
+-# test
+  -# test
+  -# test
+    -# test
+    -# test
+  -# test
+-# test
+</pre><ol type="1">
+<li>test</li>
+<li>test<ol type="a">
+<li>test</li>
+<li>test<ol type="i">
+<li>test</li>
+<li>test</li>
+</ol>
+</li>
+<li>test</li>
+</ol>
+</li>
+<li>test</li>
+</ol>
+<h1><a class="anchor" id="s_fo_images"></a>
+Bilder einbinden</h1>
+<ul>
+<li>Bilder sind im angegebenen Image Pfad</li>
+<li>auch Unterverzeichnisse adressierbar</li>
+</ul>
+<pre class="fragment">@image html aFSM.png "Simple Finite Statemachine" width=300px
+@image latex aFSM.png "Simple Finite Statemachine" width=5cm
+</pre><div class="image">
+<img src="aFSM.png" alt="" width="300px"/>
+<div class="caption">
+Simple Finite Statemachine</div></div>
+ <h1><a class="anchor" id="s_fo_plantuml"></a>
+Plantuml Diagramme</h1>
+<pre class="fragment">@startuml Projekt
+scale 600 height
+title Projekt
+[*] --&gt; Idee
+Idee --&gt; Projektbeschreibung
+...
+Präsentation --&gt; [*]
+@enduml
+</pre><h1><a class="anchor" id="s_fo_tabellen"></a>
+Tabellen</h1>
+<pre class="fragment">First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+</pre><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">First Header   </th><th class="markdownTableHeadNone">Second Header    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Content Cell   </td><td class="markdownTableBodyNone">Content Cell    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Content Cell   </td><td class="markdownTableBodyNone">Content Cell   </td></tr>
+</table>
+<p ><b>Mit Text Align:</b></p>
+<pre class="fragment">| Right | Center | Left  |
+| ----: | :----: | :---- |
+| 10    | 10     | 10    |
+| 1000  | 1000   | 1000  |
+</pre><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Right   </th><th class="markdownTableHeadCenter">Center   </th><th class="markdownTableHeadLeft">Left    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyCenter">10   </td><td class="markdownTableBodyLeft">10    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">1000   </td><td class="markdownTableBodyCenter">1000   </td><td class="markdownTableBodyLeft">1000   </td></tr>
+</table>
+<h1><a class="anchor" id="s_fo_quellcode"></a>
+Quellcode</h1>
+<h2><a class="anchor" id="embeddeecode"></a>
+Eingebetteter Code</h2>
+<pre class="fragment">Die Funktion `int16_t main(void)` ist in main.c (markdown: backtick)
+</pre><p >Die Funktion <code>int16_t <a class="el" href="main__less_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main(void)</a></code> ist in <a class="el" href="main_8c.html">main.c</a> (markdown: backtick)</p>
+<h2><a class="anchor" id="codeblock"></a>
+Code Block</h2>
+<p ><b>Doxygen Style</b></p>
+<pre class="fragment">@code
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+@endcode
+</pre><p >min. 4x Space am Anfang jeder Zeile</p>
+<pre class="fragment">....int func(int a,int b) 
+....{
+....  return a*b;
+....}
+</pre><p >min. 3x ~ an Anfang und Ende vom Block</p>
+<pre class="fragment">~~~
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+~~~
+</pre><p ><b>Ergebnis:</b></p>
+<div class="fragment"><div class="line">int func(int a,int b) </div>
+<div class="line">{ </div>
+<div class="line">  return a*b; </div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="codeblocklang"></a>
+Codeblock mit Language Syntax Highlight</h2>
+<p ><b>Doxygen Codeblock</b></p>
+<pre class="fragment">@code {.c}
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+int16_t main(void)
+{
+  // .....
+}
+@endcode
+</pre><p >min 3x ~ + opt. <b>Language</b> Angabe z.B. {.c} oder {.cpp}</p>
+<pre class="fragment">~~~~~~~~~~~~~~~{.c}
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+int16_t main(void)
+{
+  // .....
+}
+~~~~~~~~~~~~~~~
+</pre><p ><b>Ergebnis:</b></p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> func(<span class="keywordtype">int</span> a,<span class="keywordtype">int</span> b) </div>
+<div class="line">{ </div>
+<div class="line">  <span class="keywordflow">return</span> a*b; </div>
+<div class="line">}</div>
+<div class="line">int16_t <a class="code hl_function" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a>(<span class="keywordtype">void</span>)</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// .....</span></div>
+<div class="line">}</div>
+<div class="ttc" id="amain_8c_html_aec570f4ab450e8224be63b7dcfa62b35"><div class="ttname"><a href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a></div><div class="ttdeci">int16_t main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00227">main.c:227</a></div></div>
+</div><!-- fragment --><h1><a class="anchor" id="s_fo_include_code"></a>
+Quellcode einbinden</h1>
+<h2><a class="anchor" id="includecode"></a>
+Komplette Quellcodedatei</h2>
+<pre class="fragment">@include doxy_exam1.c 
+@include{lineno} doxy_exam1.c 
+</pre><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keywordtype">int</span> func(<span class="keywordtype">int</span> a,<span class="keywordtype">int</span> b) { </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>  <span class="keywordflow">return</span> a*b; </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>} <span class="comment">/* func() */</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">int</span> testfunc(<span class="keywordtype">int</span> a,<span class="keywordtype">int</span> b) { </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keywordtype">int</span> res = a * b;  </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordflow">return</span> a*b; </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>} <span class="comment">/* testfunc() */</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>int16_t <a class="code hl_function" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> func(1,5);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>} <span class="comment">/* main() */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> test(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// do something ...</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+</div><!-- fragment --><h2><a class="anchor" id="dontincludecode"></a>
+Teile einer Quellcodedatei</h2>
+<ul>
+<li><b>dontinclude</b> filename<ul>
+<li>Includiert die Datei aber ohne Sie anzuzeigen</li>
+</ul>
+</li>
+<li><b>skip</b> pattern<ul>
+<li>Überspringt alle Zeilen, bis eine Zeile das Pattern enthält</li>
+</ul>
+</li>
+<li><b>skipline</b> pattern<ul>
+<li>wie skip nur dass die gefundene Zeile gedruckt wird</li>
+</ul>
+</li>
+<li><b>until</b> pattern<ul>
+<li>druckt alle folgenden Zeilen, einschließlich der bei der das Pattern gefunden wurde</li>
+</ul>
+</li>
+<li><b>line</b> pattern<ul>
+<li>unterdrückt folgende Leerzeilen bis zur nächsten nicht leeren Zeile, fallse diese das Pattern enthät wird diese gedruckt</li>
+</ul>
+</li>
+</ul>
+<pre class="fragment">@dontinclude doxy_exam1.c
+@skip int16_t main(void)
+@until } /* main()
+</pre> <div class="fragment"><div class="line">int16_t <a class="code hl_function" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line">    <span class="keywordflow">return</span> func(1,5);</div>
+<div class="line">} <span class="comment">/* main() */</span></div>
+</div><!-- fragment --> <h2><a class="anchor" id="codesnippet"></a>
+Teile einer Quellcodedatei - Snippet</h2>
+<p >Includiert alles zwischen (genau) zwei identischen Doxygen Markern in einer Quellcode Datei. Die Marker werden in [...] angegeben.</p>
+<p >Hint: z.B. in eine Doxygen Funktionsbeschreibung.</p>
+<p ><a class="el" href="doxy_exam1_8c-example.html">doxy_exam1.c</a> </p><pre class="fragment">/// @noop [Test Function]
+... some code
+/// @noop [Test Function]
+</pre><pre class="fragment">@snippet doxy_exam1.c Test Function
+</pre><div class="fragment"><div class="line">  <span class="keywordtype">int</span> res = a * b;  </div>
+<div class="line">  <span class="keywordflow">return</span> a*b; </div>
+</div><!-- fragment --><h2><a class="anchor" id="codeexamples"></a>
+Dateien als Codeexamples in die Dokumentation</h2>
+<p >Dateien im Examples Verzeichnis können als Beispieldateien mit <b>examples</b> in die Dokumentation aufgenommen werden. Diese Dateien werden dann im Hauptmenü unter Beispiele/Examples angezeigt und können mit <b>ref</b> auch verlinkt werden. Es kann noch eine textdokumentation der Seite hinzugefügt werden, diese wird vor dem Code angezeigt.</p>
+<pre class="fragment">@example{lineno} doxy_exam1.c
+Beschreibender Text ....
+</pre><pre class="fragment">@ref doxy_exam1.c
+</pre><p ><a class="el" href="doxy_exam1_8c-example.html">doxy_exam1.c</a></p>
+<h1><a class="anchor" id="s_fo_block_quote"></a>
+Block Quote</h1>
+<pre class="fragment">&gt; asdjkasdjk  asjdk  asjdkjas d 
+&gt; sjdfh sd fhhsdhfweuewjnc  sdjsduen  sdjfhsduwnc 
+&gt; asjh asjdqw7w weursxn2ednds sdufd2n sdjf 
+&gt; dlfd lksdlfk sdkfls lks klskdflk skdlfk kdlkflsk sdkflksdlkf skdlfklskdf s
+&gt; sjdkfj jsk fksdjfkjsd fjksdjfkj jfksj skdjfk jskdjfk sf
+</pre><blockquote class="doxtable">
+<p >&zwj;asdjkasdjk asjdk asjdkjas d sjdfh sd fhhsdhfweuewjnc sdjsduen sdjfhsduwnc asjh asjdqw7w weursxn2ednds sdufd2n sdjf </p>
+</blockquote>
+<h1><a class="anchor" id="s_fo_chapter"></a>
+Überschriften formatieren</h1>
+<p ><b>Diverse Möglichkeiten von Kapitel / Überschriften zu definieren</b></p>
+<p >Kapitel mit den Doxygen Tags <b>section subsection subsubsection</b> erzeugt</p>
+<pre class="fragment">@Section chap1 Überschrift (1te Ebene)
+@section chap2 Überschrift (1te Ebene)
+@subsection chap21 Überschrift (2te Ebene)
+@subsubsection chap211 Überschrift (3te Ebene)
+</pre><p >Kapitel Überschriften mit === bzw &mdash; in der nächsten Zeile erzeugt</p>
+<pre class="fragment">    Überschrift (1te Ebene)  {#Ueb1}
+    ================
+
+    Überschrift (2te Ebene)  {#Ueb12}
+    ---------------------
+</pre><p >Überschriften mit #, ##, ###, #### erzeugt (nicht im Inhaltsverzeichnis)</p>
+<pre class="fragment">    # Überschrift (1te Ebene)
+    ## Überschrift (2te Ebene)
+    ## Überschrift (2te Ebene)
+    ### Überschrift (3te Ebene)
+    #### Überschrift (4te Ebene)
+</pre><p >Überschriften mit HTML Tags erzeugt</p>
+<pre class="fragment">    &lt;h1&gt;Überschrift (1te Ebene) (html tag h1)&lt;/h1&gt;
+    &lt;h2&gt;Überschrift (2te Ebene) (html tag h2)&lt;/h2&gt;
+    &lt;h3&gt;Überschrift (3te Ebene) (html tag h3)&lt;/h3&gt;
+    &lt;h4&gt;Überschrift (4te Ebene) (html tag h4)&lt;/h4&gt;
+</pre><h1><a class="anchor" id="s_fo_pages"></a>
+Seiten anlegen</h1>
+<ul>
+<li>@mainpage - Hauptseite der Doku</li>
+<li>@page - Eine neue Seite</li>
+<li>@subpage - Link auf eine Seite, diese wird zusätzlich in den Index mit aufgenommen</li>
+</ul>
+<pre class="fragment">@mainpage Programmdokumentaion
+@page p_doxy_page1 Doxygen Formatierungshinweise subpage 1
+  ...  Seitentext ...
+
+- @subpage p_doxy_page1
+- @subpage p_doxy_page2
+</pre><ul>
+<li><a class="el" href="p_doxy_page1.html">Doxygen Formatierungshinweise subpage 1</a></li>
+<li><a class="el" href="p_doxy_page2.html">Doxygen Formatierungshinweise subpage 2</a></li>
+</ul>
+<h1><a class="anchor" id="doxyww"></a>
+Doxygen Dokumentation im WWW</h1>
+<ul>
+<li><a href="http://www.doxygen.nl/">http://www.doxygen.nl/</a></li>
+<li><a href="http://www.doxygen.nl/manual/markdown.html">http://www.doxygen.nl/manual/markdown.html</a></li>
+<li><a href="http://www.doxygen.nl/manual/commands.html">http://www.doxygen.nl/manual/commands.html</a></li>
+<li><a href="http://www.doxygen.nl/manual/htmlcmds.html">http://www.doxygen.nl/manual/htmlcmds.html</a></li>
+</ul>
+<h1><a class="anchor" id="doxycomments"></a>
+Doxygen Kommentare</h1>
+<p >Dieser Text könnte auch in einer C/H Datei stehen, sowie auch jeglicher doxygen Text in eigenständigen Dateien stehen könnte und Bezug auf die Codefragmente nimmt.</p>
+<p >Es gibt verschiedene Arten Doxygen Kommentare zu schreiben.</p><ul>
+<li>In den Code Dateien wurde 3x / verwendet da dies den Vorteil hat größe Quellcodevereiche mittels Blockkommentaren auszukommentieren</li>
+<li>hier wurde mit Blockkommentaren gearbeitet von / * * bis * / für jeweils einen Block, damit nicht in jeder Zeile 3x / geschrieben werden muss</li>
+<li>in *.markup Dateien die nur für Dokumentationszwecke gedacht sind, werden keine einleitenden Kommentare benötigt. Natürlich wird aber auch kein Programmcode darin geparst!</li>
+<li><b>noop</b> weisst Doxygen an den Rest der Zeile zu ignorieren<ul>
+<li>gut für Kommentare oder Trennerzeilen in der Doku</li>
+<li>gut geeignet zur Auskommentierung von Kommandos wie <b>bug</b> <b>todo</b> ...</li>
+</ul>
+</li>
+</ul>
+<dl class="section remark"><dt>Bemerkungen</dt><dd>Noch lange nicht fertig ...</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Josef Hahn-Dambacher </dd></dl>
+<dl class="section date"><dt>Datum</dt><dd>9.4.2021</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 Erster Test von C Code mit den speziellen Header Files und Ordner Struktur</dd>
+<dd>
+0.2 Kommentare für Doxygen eingebaut</dd>
+<dd>
+0.3 (14.12.2018 JHD) Aufbau eines Dokuments mit Textformatierungen für einfache Doxygen Dokumente</dd>
+<dd>
+0.4 (9.4.2021 JHD) Etwas angepasst, insbesondere Entfernung von Zeilenkommentaren. Noch lange nicht fertig</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Noch zu erledigen:</a></b></dt><dd>Beispiele für Doxygen Kommentare für die Beschreibung der diversen C Elemete C Coding Style</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

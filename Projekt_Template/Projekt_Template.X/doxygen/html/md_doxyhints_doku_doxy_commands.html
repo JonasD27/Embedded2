@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Embedded 2 Dokumentation: Doxygen Commands</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="htw_logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Embedded 2 Dokumentation
+   </div>
+   <div id="projectbrief">Embedded 2 Dokumentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_doxyhints_doku_doxy_commands.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Doxygen Commands </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p ><a class="anchor" id="p_doxy_cmd"></a> Ausführliche Beschreibung auf: <a href="https://www.doxygen.nl/manual/commands.html">https://www.doxygen.nl/manual/commands.html</a></p>
+<h1><a class="anchor" id="cmd_descr"></a>
+Für die Beschreibung der Elemente</h1>
+<ul>
+<li>@brief { brief description } - mit autobrief nicht nötig</li>
+<li>@details { detailed description } - automatisch nach erster Leerzeile nach @brief <br  />
+ <br  />
+</li>
+<li>@author { list of authors }</li>
+<li>@version { version number }</li>
+<li>@date { date description }</li>
+<li>@copyright { copyright description } <br  />
+ <br  />
+</li>
+<li>@remark { remark text }</li>
+<li>@attention { attention text }</li>
+<li>@note { text }</li>
+<li>@warning { warning message }</li>
+<li>@error { error text }</li>
+<li>@see { references }</li>
+<li>@since { text }</li>
+<li>@test { paragraph describing a test case }</li>
+<li>@par [(paragraph title)] { paragraph } - user defined paragraph</li>
+</ul>
+<p >Eintrag in Listen:</p><ul>
+<li>@bug { bug description }</li>
+<li>@todo { paragraph describing what is to be done }</li>
+<li>@deprecated { description }</li>
+<li>@xrefitem &lt;key&gt; "(heading)" "(list title)" { text } - generalization of commands such as @todo and @bug <br  />
+ <br  />
+</li>
+<li>@pre { description of the pprecondition }</li>
+<li>@post { description of the postcondition }</li>
+<li>@invariant { description of invariant } <br  />
+<br  />
+</li>
+<li>@headerfile &lt;header-file&gt; [&lt;header-name&gt;] - header file that should be included for use this element, overrides default from parser</li>
+</ul>
+<h1><a class="anchor" id="cmd_doxycodeused"></a>
+Steuerung ob Doxygen Code beachtet/verarbeitet wird</h1>
+<ul>
+<li>@cond [(section-label)] <br  />
+</li>
+<li>@endcond <br  />
+<br  />
+</li>
+<li>@if (section-label)</li>
+<li>@ifnot (section-label)</li>
+<li>@else <br  />
+</li>
+<li>@elseif (section-label)</li>
+<li>@endif <br  />
+<br  />
+</li>
+<li>@noop ( text to be ignored ) <br  />
+<br  />
+</li>
+<li>@internal - INTERNAL_DOCS is set to YES</li>
+<li>@endinternal</li>
+</ul>
+<h1><a class="anchor" id="cmd_groups"></a>
+Gruppierung von Elementen</h1>
+<ul>
+<li>@name [(header)]</li>
+<li>@{ <br  />
+</li>
+<li>@} <br  />
+ <br  />
+<br  />
+</li>
+<li>@defgroup &lt;name&gt; (group title)</li>
+<li>@ingroup (&lt;groupname&gt; [&lt;groupname&gt; &lt;groupname&gt;])</li>
+<li>@addtogroup &lt;name&gt; [(title)]</li>
+<li>@weakgroup &lt;name&gt; [(title)]</li>
+</ul>
+<h1><a class="anchor" id="cmd_textformat"></a>
+Textformatierung</h1>
+<ul>
+<li>@a @e @em &lt;word&gt; - next word italic</li>
+<li>@b &lt;word&gt; - next word bold</li>
+<li>@c @p &lt;word&gt; - next word typewriter font</li>
+<li>@li @arg { item-description } - list</li>
+<li>@n - new line <br  />
+<br  />
+</li>
+<li>@parblock <br  />
+</li>
+<li>@endparblock <br  />
+<br  />
+</li>
+<li>@emoji "name" - <a href="https://gist.github.com/rxaviers/7360908">https://gist.github.com/rxaviers/7360908</a></li>
+<li>@n - new line <br  />
+<br  />
+</li>
+<li>@~[LanguageId] - english, german - sprachenabhängige Texte</li>
+<li>Char Escape:<ul>
+<li>@$ @@ @\ @&amp; @&lt; @= @&gt; @# @% @"  @@.  @@::  @@|  @@&amp;ndash;  @@&amp;mdash; 
+- latex formula
+ - @@f$  @@f[  @@f]  @@f{environment}{  @@f} 
+
+
+
+@section cmd_links Links auf Elemente
+
+- @@anchor @&lt;word@&gt;
+- @@ref @&lt;name@&gt; ["(text)"]
+- @@refitem @&lt;name@&gt;
+ - @@secreflist  &lt;br&gt;
+ - @@endsecreflist
+- @@link @&lt;link-object@&gt; 
+ - @@endlink
+
+
+
+@section cmd_page Seiten, Überschriften und Index
+
+
+- @@mainpage [(title)]
+- @@page @&lt;name@&gt; (title) 
+\n\n
+- @@subpage @&lt;name@&gt; ["(text)"]
+- @@section @&lt;section-name@&gt; (section title)
+- @@subsection @&lt;subsection-name@&gt; (subsection title)
+- @@subsubsection @&lt;subsubsection-name@&gt; (subsubsection title)
+ - @@paragraph @&lt;paragraph-name@&gt; (paragraph title)- only works in subsubsection of a page
+\n\n
+- @@tableofcontents['{'[option[:level]][,option[:level]]*'}']
+- @@addindex (text) - adds Text to Index
+- @@cite @&lt;label@&gt; - bibliographic reference, BibTeX label in .bib file
+
+
+
+@section cmd_image Bilder einbinden
+
+- @@image ['{'option'}'] @&lt;format@&gt; @&lt;file@&gt; ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;] - {inline} - html, latex, docbook and rtf
+\n\n
+- @@dot ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;] 
+- @@enddot 
+- @@dotfile @&lt;file@&gt; ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;]
+\n\n
+- @@startuml [{file}] ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;] - PlantUML diagram - https://plantuml.com/
+- @@enduml
+\n\n
+- @@msc ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;] - message sequence chart - http://www.mcternan.me.uk/mscgen/
+- @@endmsc  &lt;br&gt;
+- @@mscfile @&lt;file@&gt; ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;]
+\n\n
+- @@diafile @&lt;file@&gt; ["caption"] [@&lt;sizeindication@&gt;=@&lt;size@&gt;]
+\n\n
+- @@vhdlflow [(title for the flow chart)] - VHDl flow view from process/procedure source code
+
+
+
+@section cmd_code Quellcode
+
+- @@code['{'@&lt;word@&gt;'}'] - .c, .cpp, .py, .unparsed
+- @@endcode
+\n\n
+- @@verbatim  &lt;br&gt;
+- @@endverbatim  &lt;br&gt;
+- @@verbinclude @&lt;file-name@&gt;
+
+
+
+@section cmd_inc_code Quellcode von Datei includieren
+
+- @@include[{lineno,doc}] @&lt;file-name@&gt; 
+\n\n
+- @@dontinclude ['{lineno}'] @&lt;file-name@&gt; 
+- @@line ( pattern )  &lt;br&gt;
+- @@skip ( pattern )
+- @@skipline ( pattern )
+- @@until ( pattern )
+\n\n
+- @@snippet[{lineno,doc}] @&lt;file-name@&gt; ( block_id )
+\n\n
+- @@example['{lineno}'] @&lt;file-name@&gt; 
+
+
+
+@section cmd_copy Elementbeschreibungen kopieren
+
+- @@copybrief @&lt;link-object@
+- @@copydetails @&lt;link-object@&gt;
+- @@copydoc @&lt;link-object@&gt;
+
+
+
+@section cmd_elements Explizite Einleitung von Doxygen Code für diverse Elemente
+
+
+
+&lt;strong&gt;Implizit direkt vor dem Element&lt;/strong&gt;
+
+- @@def @&lt;name@&gt; - to document a @#define
+- @@dir [@&lt;path fragment@&gt;]- to document a directory
+- @@enum @&lt;name@&gt; - to document an enumeration type
+- @@fn (function declaration) - to document a function
+- @@struct @&lt;name@&gt; [@&lt;header-file@&gt;] [@&lt;header-name@&gt;] - to document a C-struct
+- @@union @&lt;name@&gt; [@&lt;header-file@&gt;] [@&lt;header-name@&gt;] - to document a union
+- @@typedef (typedef declaration) - to document a type definition
+- @@var (variable declaration) - to document a variable or typedef or enum value
+- @@file [@&lt;name@&gt;] - to document a file
+ - @@file muss immer angegeben werden! Ohne @&lt;name@&gt; wird aktueller Dateiname verwendet
+
+
+
+&lt;strong&gt;Object orientated&lt;/strong&gt;
+
+- @@namespace @&lt;name@&gt; - to document a namespace
+- @@class @&lt;name@&gt; [&lt;header-file&gt;] [&lt;header-name&gt;] - to document a class
+- @@interface @&lt;name@&gt; [&lt;header-file&gt;] [&lt;header-name&gt;] - to document an IDL interface
+- @@protocol @&lt;name@&gt; [&lt;header-file&gt;] [&lt;header-name&gt;]
+- @@category @&lt;name@&gt; [&lt;header-file&gt;] [&lt;header-name&gt;] - only Objective C
+- @@package @&lt;name@&gt; - to document a Java package
+- @@public    &lt;br&gt;
+- @@private    &lt;br&gt;
+- @@protected  &lt;br&gt;
+- @@publicsection
+- @@privatesection
+- @@protectedsection  &lt;br&gt;
+- @@nosubgrouping
+- @@overload [(function declaration)]
+- @@pure
+- @@exception @&lt;exception-object@&gt; { exception description }
+- @@throw @&lt;exception-object@&gt; { exception description }
+- @@idlexcept @&lt;name@&gt;
+- @@relates @&lt;name@&gt;
+- @@relatesalso @&lt;name@&gt;
+- @@memberof @&lt;name@&gt;
+- @@property (qualified property name)
+- @@static
+- @@implements @&lt;name@&gt;
+- @@extends @&lt;name@&gt;
+- @@tparam @&lt;template-parameter-name@&gt; { description }
+
+
+
+@section cmd_par_ret Parameter und Rückgabewerte
+
+- @@param '['dir']' @&lt;parameter-name@&gt; { parameter description }
+- @@return { description of the return value }
+- @@retval @&lt;return value@&gt; { description }
+
+
+
+@section cmd_doku_dest Dokumentation desitionabhängig verwenden oder includieren
+
+- html
+ - @@htmlonly     &lt;br&gt;
+ - @@endhtmlonly      &lt;br&gt;
+ - @@htmlinclude ["[block]"] &lt;file-name&gt;</li>
+</ul>
+</li>
+<li>latex / PDF<ul>
+<li>@latexonly <br  />
+</li>
+<li>@endlatexonly <br  />
+</li>
+<li>@latexinclude &lt;file-name&gt;</li>
+</ul>
+</li>
+<li>rtf<ul>
+<li>@rtfonly</li>
+<li>@endrtfonly <br  />
+</li>
+<li>@rtfinclude &lt;file-name&gt;</li>
+</ul>
+</li>
+<li>docbook<ul>
+<li>@docbookonly <br  />
+</li>
+<li>@enddocbookonly <br  />
+</li>
+<li>@docbookinclude &lt;file-name&gt;</li>
+</ul>
+</li>
+<li>man<ul>
+<li>@manonly <br  />
+</li>
+<li>@endmanonly <br  />
+</li>
+<li>@maninclude &lt;file-name&gt;</li>
+</ul>
+</li>
+<li>xml<ul>
+<li>@xmlonly <br  />
+</li>
+<li>@endxmlonly <br  />
+</li>
+<li>@xmlinclude &lt;file-name&gt;</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="cmd_showhide"></a>
+Sichtbarkeit von Beschreibungen zu Elementen</h1>
+<p >Überschreibt die Konfigurationseinstellung für aktuelles Element</p><ul>
+<li>@callergraph @hidecallergraph <br  />
+</li>
+<li>@callgraph @hidecallgraph</li>
+<li>@showrefby @hiderefby</li>
+<li>@showrefs @hiderefs</li>
+<li>@showinitializer @hideinitializer </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

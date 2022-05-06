@@ -1,0 +1,148 @@
+\label{md_doxyhints_doku_doxy_commands_p_doxy_cmd}%
+\Hypertarget{md_doxyhints_doku_doxy_commands_p_doxy_cmd}%
+ Ausführliche Beschreibung auf\+: \href{https://www.doxygen.nl/manual/commands.html}{\texttt{ https\+://www.\+doxygen.\+nl/manual/commands.\+html}}\hypertarget{md_doxyhints_doku_doxy_commands_cmd_descr}{}\doxysection{Für die Beschreibung der Elemente}\label{md_doxyhints_doku_doxy_commands_cmd_descr}
+
+\begin{DoxyItemize}
+\item @brief \{ brief description \} -\/ mit autobrief nicht nötig
+\item @details \{ detailed description \} -\/ automatisch nach erster Leerzeile nach @brief ~\newline
+ ~\newline
+
+\item @author \{ list of authors \}
+\item @version \{ version number \}
+\item @date \{ date description \}
+\item @copyright \{ copyright description \} ~\newline
+ ~\newline
+
+\item @remark \{ remark text \}
+\item @attention \{ attention text \}
+\item @note \{ text \}
+\item @warning \{ warning message \}
+\item @error \{ error text \}
+\item @see \{ references \}
+\item @since \{ text \}
+\item @test \{ paragraph describing a test case \}
+\item @par \mbox{[}(paragraph title)\mbox{]} \{ paragraph \} -\/ user defined paragraph
+\end{DoxyItemize}
+
+Eintrag in Listen\+:
+\begin{DoxyItemize}
+\item @bug \{ bug description \}
+\item @todo \{ paragraph describing what is to be done \}
+\item @deprecated \{ description \}
+\item @xrefitem \texorpdfstring{$<$}{<}key\texorpdfstring{$>$}{>} \char`\"{}(heading)\char`\"{} \char`\"{}(list title)\char`\"{} \{ text \} -\/ generalization of commands such as @todo and @bug ~\newline
+ ~\newline
+
+\item @pre \{ description of the pprecondition \}
+\item @post \{ description of the postcondition \}
+\item @invariant \{ description of invariant \} ~\newline
+~\newline
+
+\item @headerfile \texorpdfstring{$<$}{<}header-\/file\texorpdfstring{$>$}{>} \mbox{[}\texorpdfstring{$<$}{<}header-\/name\texorpdfstring{$>$}{>}\mbox{]} -\/ header file that should be included for use this element, overrides default from parser
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxy_commands_cmd_doxycodeused}{}\doxysection{Steuerung ob Doxygen Code beachtet/verarbeitet wird}\label{md_doxyhints_doku_doxy_commands_cmd_doxycodeused}
+
+\begin{DoxyItemize}
+\item @cond \mbox{[}(section-\/label)\mbox{]} ~\newline
+
+\item @endcond ~\newline
+~\newline
+
+\item @if (section-\/label)
+\item @ifnot (section-\/label)
+\item @else ~\newline
+
+\item @elseif (section-\/label)
+\item @endif ~\newline
+~\newline
+
+\item @noop ( text to be ignored ) ~\newline
+~\newline
+
+\item @internal -\/ INTERNAL\+\_\+\+DOCS is set to YES
+\item @endinternal
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxy_commands_cmd_groups}{}\doxysection{Gruppierung von Elementen}\label{md_doxyhints_doku_doxy_commands_cmd_groups}
+
+\begin{DoxyItemize}
+\item @name \mbox{[}(header)\mbox{]}
+\item @\{ ~\newline
+
+\item @\} ~\newline
+ ~\newline
+~\newline
+
+\item @defgroup \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} (group title)
+\item @ingroup (\texorpdfstring{$<$}{<}groupname\texorpdfstring{$>$}{>} \mbox{[}\texorpdfstring{$<$}{<}groupname\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}groupname\texorpdfstring{$>$}{>}\mbox{]})
+\item @addtogroup \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} \mbox{[}(title)\mbox{]}
+\item @weakgroup \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} \mbox{[}(title)\mbox{]}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxy_commands_cmd_textformat}{}\doxysection{Textformatierung}\label{md_doxyhints_doku_doxy_commands_cmd_textformat}
+
+\begin{DoxyItemize}
+\item @a @e @em \texorpdfstring{$<$}{<}word\texorpdfstring{$>$}{>} -\/ next word italic
+\item @b \texorpdfstring{$<$}{<}word\texorpdfstring{$>$}{>} -\/ next word bold
+\item @c @p \texorpdfstring{$<$}{<}word\texorpdfstring{$>$}{>} -\/ next word typewriter font
+\item @li @arg \{ item-\/description \} -\/ list
+\item @n -\/ new line ~\newline
+~\newline
+
+\item @parblock ~\newline
+
+\item @endparblock ~\newline
+~\newline
+
+\item @emoji \char`\"{}name\char`\"{} -\/ \href{https://gist.github.com/rxaviers/7360908}{\texttt{ https\+://gist.\+github.\+com/rxaviers/7360908}}
+\item @n -\/ new line ~\newline
+~\newline
+
+\item @$\sim$\mbox{[}Language\+Id\mbox{]} -\/ english, german -\/ sprachenabhängige Texte
+\item Char Escape\+:
+\begin{DoxyItemize}
+\item @\$ @@ @\textbackslash{} @\& @\texorpdfstring{$<$}{<} @= @\texorpdfstring{$>$}{>} @\# @\% @\char`\"{}  @@.  @@\+::  @@$\vert$  @@--  @@---  -\/ latex formula  -\/ @@f\$  @@f\mbox{[}  @@f\mbox{]}  @@f\{environment\}\{  @@f\}     @section cmd\+\_\+links Links auf Elemente  -\/ @@anchor @$<$word@$>$ -\/ @@ref @$<$name@$>$ \mbox{[}\char`\"{}(text)\char`\"{}\mbox{]} -\/ @@refitem @$<$name@$>$  -\/ @@secreflist  $<$br$>$  -\/ @@endsecreflist -\/ @@link @$<$link-\/object@$>$   -\/ @@endlink    @section cmd\+\_\+page Seiten, Überschriften und Index   -\/ @@mainpage \mbox{[}(title)\mbox{]} -\/ @@page @$<$name@$>$ (title)  \textbackslash{}n\textbackslash{}n -\/ @@subpage @$<$name@$>$ \mbox{[}\char`\"{}(text)\char`\"{}\mbox{]} -\/ @@section @$<$section-\/name@$>$ (section title) -\/ @@subsection @$<$subsection-\/name@$>$ (subsection title) -\/ @@subsubsection @$<$subsubsection-\/name@$>$ (subsubsection title)  -\/ @@paragraph @$<$paragraph-\/name@$>$ (paragraph title)-\/ only works in subsubsection of a page \textbackslash{}n\textbackslash{}n -\/ @@tableofcontents\mbox{[}\textquotesingle{}\{\textquotesingle{}\mbox{[}option\mbox{[}\+:level\mbox{]}\mbox{]}\mbox{[},option\mbox{[}\+:level\mbox{]}\mbox{]}$\ast$\textquotesingle{}\}\textquotesingle{}\mbox{]} -\/ @@addindex (text) -\/ adds Text to Index -\/ @@cite @$<$label@$>$ -\/ bibliographic reference, Bib\+Te\+X label in .\+bib file    @section cmd\+\_\+image Bilder einbinden  -\/ @@image \mbox{[}\textquotesingle{}\{\textquotesingle{}option\textquotesingle{}\}\textquotesingle{}\mbox{]} @$<$format@$>$ @$<$file@$>$ \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} -\/ \{inline\} -\/ html, latex, docbook and rtf \textbackslash{}n\textbackslash{}n -\/ @@dot \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]}  -\/ @@enddot  -\/ @@dotfile @$<$file@$>$ \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} \textbackslash{}n\textbackslash{}n -\/ @@startuml \mbox{[}\{file\}\mbox{]} \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} -\/ Plant\+UML diagram -\/ https\+://plantuml.\+com/ -\/ @@enduml \textbackslash{}n\textbackslash{}n -\/ @@msc \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} -\/ message sequence chart -\/ http\+://www.\+mcternan.\+me.\+uk/mscgen/ -\/ @@endmsc  $<$br$>$ -\/ @@mscfile @$<$file@$>$ \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} \textbackslash{}n\textbackslash{}n -\/ @@diafile @$<$file@$>$ \mbox{[}\char`\"{}caption\char`\"{}\mbox{]} \mbox{[}@$<$sizeindication@$>$=@$<$size@$>$\mbox{]} \textbackslash{}n\textbackslash{}n -\/ @@vhdlflow \mbox{[}(title for the flow chart)\mbox{]} -\/ VHDl flow view from process/procedure source code    @section cmd\+\_\+code Quellcode  -\/ @@code\mbox{[}\textquotesingle{}\{\textquotesingle{}@$<$word@$>$\textquotesingle{}\}\textquotesingle{}\mbox{]} -\/ .\+c, .\+cpp, .\+py, .\+unparsed -\/ @@endcode \textbackslash{}n\textbackslash{}n -\/ @@verbatim  $<$br$>$ -\/ @@endverbatim  $<$br$>$ -\/ @@verbinclude @$<$file-\/name@$>$    @section cmd\+\_\+inc\+\_\+code Quellcode von Datei includieren  -\/ @@include\mbox{[}\{lineno,doc\}\mbox{]} @$<$file-\/name@$>$  \textbackslash{}n\textbackslash{}n -\/ @@dontinclude \mbox{[}\textquotesingle{}\{lineno\}\textquotesingle{}\mbox{]} @$<$file-\/name@$>$  -\/ @@line ( pattern )  $<$br$>$ -\/ @@skip ( pattern ) -\/ @@skipline ( pattern ) -\/ @@until ( pattern ) \textbackslash{}n\textbackslash{}n -\/ @@snippet\mbox{[}\{lineno,doc\}\mbox{]} @$<$file-\/name@$>$ ( block\+\_\+id ) \textbackslash{}n\textbackslash{}n -\/ @@example\mbox{[}\textquotesingle{}\{lineno\}\textquotesingle{}\mbox{]} @$<$file-\/name@$>$     @section cmd\+\_\+copy Elementbeschreibungen kopieren  -\/ @@copybrief @$<$link-\/object@ -\/ @@copydetails @$<$link-\/object@$>$ -\/ @@copydoc @$<$link-\/object@$>$    @section cmd\+\_\+elements Explizite Einleitung von Doxygen Code für diverse Elemente    $<$strong$>$\+Implizit direkt vor dem Element$<$/strong$>$  -\/ @@def @$<$name@$>$ -\/ to document a @\#define -\/ @@dir \mbox{[}@$<$path fragment@$>$\mbox{]}-\/ to document a directory -\/ @@enum @$<$name@$>$ -\/ to document an enumeration type -\/ @@fn (function declaration) -\/ to document a function -\/ @@struct @$<$name@$>$ \mbox{[}@$<$header-\/file@$>$\mbox{]} \mbox{[}@$<$header-\/name@$>$\mbox{]} -\/ to document a C-\/struct -\/ @@union @$<$name@$>$ \mbox{[}@$<$header-\/file@$>$\mbox{]} \mbox{[}@$<$header-\/name@$>$\mbox{]} -\/ to document a union -\/ @@typedef (typedef declaration) -\/ to document a type definition -\/ @@var (variable declaration) -\/ to document a variable or typedef or enum value -\/ @@file \mbox{[}@$<$name@$>$\mbox{]} -\/ to document a file  -\/ @@file muss immer angegeben werden! Ohne @$<$name@$>$ wird aktueller Dateiname verwendet    $<$strong$>$\+Object orientated$<$/strong$>$  -\/ @@namespace @$<$name@$>$ -\/ to document a namespace -\/ @@class @$<$name@$>$ \mbox{[}$<$header-\/file$>$\mbox{]} \mbox{[}$<$header-\/name$>$\mbox{]} -\/ to document a class -\/ @@interface @$<$name@$>$ \mbox{[}$<$header-\/file$>$\mbox{]} \mbox{[}$<$header-\/name$>$\mbox{]} -\/ to document an IDL interface -\/ @@protocol @$<$name@$>$ \mbox{[}$<$header-\/file$>$\mbox{]} \mbox{[}$<$header-\/name$>$\mbox{]} -\/ @@category @$<$name@$>$ \mbox{[}$<$header-\/file$>$\mbox{]} \mbox{[}$<$header-\/name$>$\mbox{]} -\/ only Objective C -\/ @@package @$<$name@$>$ -\/ to document a Java package -\/ @@public    $<$br$>$ -\/ @@private    $<$br$>$ -\/ @@protected  $<$br$>$ -\/ @@publicsection -\/ @@privatesection -\/ @@protectedsection  $<$br$>$ -\/ @@nosubgrouping -\/ @@overload \mbox{[}(function declaration)\mbox{]} -\/ @@pure -\/ @@exception @$<$exception-\/object@$>$ \{ exception description \} -\/ @@throw @$<$exception-\/object@$>$ \{ exception description \} -\/ @@idlexcept @$<$name@$>$ -\/ @@relates @$<$name@$>$ -\/ @@relatesalso @$<$name@$>$ -\/ @@memberof @$<$name@$>$ -\/ @@property (qualified property name) -\/ @@static -\/ @@implements @$<$name@$>$ -\/ @@extends @$<$name@$>$ -\/ @@tparam @$<$template-\/parameter-\/name@$>$ \{ description \}    @section cmd\+\_\+par\+\_\+ret Parameter und Rückgabewerte  -\/ @@param \textquotesingle{}\mbox{[}\textquotesingle{}dir\textquotesingle{}\mbox{]}\textquotesingle{} @$<$parameter-\/name@$>$ \{ parameter description \} -\/ @@return \{ description of the return value \} -\/ @@retval @$<$return value@$>$ \{ description \}    @section cmd\+\_\+doku\+\_\+dest Dokumentation desitionabhängig verwenden oder includieren  -\/ html  -\/ @@htmlonly     $<$br$>$  -\/ @@endhtmlonly      $<$br$>$  -\/ @@htmlinclude \mbox{[}\char`\"{}\mbox{[}block\mbox{]}"{}\mbox{]} \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item latex / PDF
+\begin{DoxyItemize}
+\item @latexonly ~\newline
+
+\item @endlatexonly ~\newline
+
+\item @latexinclude \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item rtf
+\begin{DoxyItemize}
+\item @rtfonly
+\item @endrtfonly ~\newline
+
+\item @rtfinclude \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item docbook
+\begin{DoxyItemize}
+\item @docbookonly ~\newline
+
+\item @enddocbookonly ~\newline
+
+\item @docbookinclude \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item man
+\begin{DoxyItemize}
+\item @manonly ~\newline
+
+\item @endmanonly ~\newline
+
+\item @maninclude \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item xml
+\begin{DoxyItemize}
+\item @xmlonly ~\newline
+
+\item @endxmlonly ~\newline
+
+\item @xmlinclude \texorpdfstring{$<$}{<}file-\/name\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxy_commands_cmd_showhide}{}\doxysection{Sichtbarkeit von Beschreibungen zu Elementen}\label{md_doxyhints_doku_doxy_commands_cmd_showhide}
+Überschreibt die Konfigurationseinstellung für aktuelles Element
+\begin{DoxyItemize}
+\item @callergraph @hidecallergraph ~\newline
+
+\item @callgraph @hidecallgraph
+\item @showrefby @hiderefby
+\item @showrefs @hiderefs
+\item @showinitializer @hideinitializer 
+\end{DoxyItemize}

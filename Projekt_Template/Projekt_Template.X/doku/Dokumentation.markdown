@@ -62,6 +62,8 @@ __delay_us() verzögert um die angegebenen Mikrosekunden.
 In der SuperLoop wird die Funktion display_temp_load() jede ms aufgerufen und gibt in einem Takt von 3s abwechselnd die akutelle Temperatur und Aulastung in der ersten Zeile des LCDs aus.
 Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile des LCDs ausgegeben.
 
+@image html LCD_Timing.png
+
    
 
   

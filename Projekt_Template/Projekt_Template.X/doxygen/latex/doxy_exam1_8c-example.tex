@@ -1,0 +1,30 @@
+\hypertarget{doxy_exam1_8c-example}{}\doxysection{doxy\+\_\+exam1.\+c}
+Dies ist eine Beispiel Datei, welche für die \mbox{\hyperlink{doxygen_8markdown}{doxygen.\+markdown}} die diverse Formatierungshinweise bereit stellt, generiert wurde.
+
+
+\begin{DoxyItemize}
+\item Für {\bfseries{dontinclude}} wurden End Tags an das Ende einer Funktion gesetzt.
+\item Für {\bfseries{snippet}} wurden Maker mit {\bfseries{noop}} davor eingefügt, so dass der Maker nicht der der Doxygen Beschreibung aufgenommen wird.
+\end{DoxyItemize}
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} func(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b) \{ }
+\DoxyCodeLine{  \textcolor{keywordflow}{return} a*b; }
+\DoxyCodeLine{\} \textcolor{comment}{/* func() */} }
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} testfunc(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b) \{ }
+\DoxyCodeLine{  \textcolor{keywordtype}{int} res = a * b;  }
+\DoxyCodeLine{  \textcolor{keywordflow}{return} a*b; }
+\DoxyCodeLine{\} \textcolor{comment}{/* testfunc() */} }
+\DoxyCodeLine{}
+\DoxyCodeLine{int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} func(1,5);}
+\DoxyCodeLine{\} \textcolor{comment}{/* main() */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} test(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{    \textcolor{comment}{// do something ...}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCodeInclude}
+ 

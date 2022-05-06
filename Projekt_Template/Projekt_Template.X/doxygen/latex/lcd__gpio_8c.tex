@@ -14,9 +14,9 @@ Include-\/\+Abhängigkeitsdiagramm für lcd\+\_\+gpio.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{lcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6}{lcd\+\_\+init}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initilisierung des LCDs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\+\_\+write\+\_\+data}} (uint8\+\_\+t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}})
-\item 
+\begin{DoxyCompactList}\small\item\em Schreiben von Daten auf den Speicher des LCDs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{lcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a}{lcd\+\_\+clear}} (void)
 \begin{DoxyCompactList}\small\item\em Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{lcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{write\+Str\+LCD}} (const char $\ast$str)
@@ -42,7 +42,7 @@ Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen.
 
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00115}{115}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00124}{124}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -73,7 +73,7 @@ Liest den akutellen Status des LCDs aus.
 \end{DoxyReturn}
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00208}{208}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00227}{227}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -90,7 +90,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00013}{13}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Initilisierung des LCDs. 
+
+Drei Function Sets und anschließend die Konfiguartion des LCDs. 
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00017}{17}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -125,7 +129,7 @@ Setzt die Position des Cursors.
 \end{DoxyParams}
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00162}{162}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00177}{177}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -149,7 +153,11 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00099}{99}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Schreiben von Daten auf den Speicher des LCDs. 
+
+Vor dem Zugriff wird Funktion \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{wait\+For\+Busy\+LCD()}} solange blockieren, bis Busy Flag nicht gesetzt. 
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00105}{105}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -177,7 +185,7 @@ Ruft \mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\+\_\+g
 
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00232}{232}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00253}{253}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -201,7 +209,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00131}{131}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00144}{144}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]

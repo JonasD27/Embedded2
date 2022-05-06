@@ -1,10 +1,9 @@
 <map id="display_temp_load" name="display_temp_load">
-<area shape="rect" id="node1" title=" " alt="" coords="5,68,136,95"/>
-<area shape="rect" id="node2" href="$main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="184,68,311,95"/>
-<area shape="rect" id="node3" href="$lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="359,31,451,57"/>
-<area shape="rect" id="node7" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="359,107,450,133"/>
-<area shape="rect" id="node4" href="$main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="512,5,591,32"/>
-<area shape="rect" id="node5" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="652,81,771,108"/>
-<area shape="rect" id="node6" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="819,81,925,108"/>
-<area shape="rect" id="node8" href="$lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="499,107,604,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,136,57"/>
+<area shape="rect" id="node2" href="$main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="184,31,311,57"/>
+<area shape="rect" id="node3" href="$lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="359,5,451,32"/>
+<area shape="rect" id="node6" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="359,56,450,83"/>
+<area shape="rect" id="node4" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="652,31,771,57"/>
+<area shape="rect" id="node5" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="819,31,925,57"/>
+<area shape="rect" id="node7" href="$lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="499,56,604,83"/>
 </map>

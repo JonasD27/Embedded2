@@ -192,7 +192,7 @@ void display_temp_load()
    static bool switch_value = 1;
    time++;
    
-   if (time >= 3000) //Alle 3s Refresh
+   if (time >= 2000) //Alle 2s Refresh
    {
        time = 0;
 
@@ -251,6 +251,7 @@ int16_t main(void)
 
     while(1)
     {
+
         _LATF0 = 0;             //Gated Timer stoppen
         
         if(_T4IF)

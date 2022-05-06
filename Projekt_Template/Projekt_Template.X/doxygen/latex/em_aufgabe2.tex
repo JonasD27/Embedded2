@@ -8,4 +8,6 @@ Weiter Funktionen sind \mbox{\hyperlink{lcd__gpio_8c_ad235a86241458b1e7b8771688b
 
 Um die geforderten Timings einzuhalten wurden zwei unterschiedliche Delay-\/\+Mechanismen verwendet\+: \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\+\_\+\+\_\+delay\+\_\+cycles()}} verzögert um die angegebenen Zyklen. In unserem Fall beträgt FCY 50MHZ also ist ein Taktzyklus 20ns lang. \+\_\+\+\_\+delay\+\_\+us() verzögert um die angegebenen Mikrosekunden.
 
-In der Super\+Loop wird die Funktion \mbox{\hyperlink{main_8c_add65c2bbc4a328fc893abeded917bc66}{display\+\_\+temp\+\_\+load()}} jede ms aufgerufen und gibt in einem Takt von 3s abwechselnd die akutelle Temperatur und Aulastung in der ersten Zeile des LCDs aus. Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile des LCDs ausgegeben. 
+In der Super\+Loop wird die Funktion \mbox{\hyperlink{main_8c_add65c2bbc4a328fc893abeded917bc66}{display\+\_\+temp\+\_\+load()}} jede ms aufgerufen und gibt in einem Takt von 3s abwechselnd die akutelle Temperatur und Aulastung in der ersten Zeile des LCDs aus. Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile des LCDs ausgegeben.
+
+ 

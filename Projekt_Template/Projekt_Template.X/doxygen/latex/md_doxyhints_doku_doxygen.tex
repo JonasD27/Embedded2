@@ -1,0 +1,478 @@
+\label{md_doxyhints_doku_doxygen_p_formatierung}%
+\Hypertarget{md_doxyhints_doku_doxygen_p_formatierung}%
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_textformat}{}\doxysection{Textformat kursiv / fett}\label{md_doxyhints_doku_doxygen_s_fo_textformat}
+\begin{DoxyVerb}- This is a *rather important* and this is a **very important** topic (markdown: asterisk)
+- This is a _rather important_ and this is a __very important__  topic (markdown: underscore)
+- This is a <em>rather important</em> and this is a <strong>very important</strong> topic (html tags: em, strong)
+- This is a <i>rather important</i> and this is a <b>very important</b> topic (html tags: i, b)
+- \a italic \b bold \c typewriter
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item This is a {\itshape rather important} and this is a {\bfseries{very important}} topic (markdown\+: asterisk)
+\item This is a {\itshape rather important} and this is a {\bfseries{very important}} topic (markdown\+: underscore)
+\item This is a {\itshape rather important} and this is a {\bfseries{very important}} topic (html tags\+: em, strong)
+\item This is a {\itshape rather important} and this is a {\bfseries{very important}} topic (html tags\+: i, b)
+\item {\itshape italic} {\bfseries{bold}} {\ttfamily typewriter} 
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxygen_s_fo_links}{}\doxysection{Links}\label{md_doxyhints_doku_doxygen_s_fo_links}
+\begin{DoxyVerb}- Simple external link: http://www.doxygen.org/ (no special format needed)
+- External link with user defined name: [DoxyGen](http://www.doxygen.org/) (markdown [])
+- [The link text](http://example.net/)
+- [The link text](http://example.net/ "Link title")
+- [The link text](/relative/path/to/index.html "Link title") 
+- [The link text](somefile.html) 
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Simple external link\+: \href{http://www.doxygen.org/}{\texttt{ http\+://www.\+doxygen.\+org/}} (no special format needed)
+\item External link with user defined name\+: \href{http://www.doxygen.org/}{\texttt{ Doxy\+Gen}} (markdown \mbox{[}\mbox{]})
+\item \href{http://example.net/}{\texttt{ The link text}}
+\item \href{http://example.net/}{\texttt{ The link text}}
+\item \href{/relative/path/to/index.html}{\texttt{ The link text}}
+\item \href{somefile.html}{\texttt{ The link text}}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxygen_autolinks}{}\doxysubsection{Automatische Linkgenerierung}\label{md_doxyhints_doku_doxygen_autolinks}
+\begin{DoxyVerb}Das Hauptprogramm main() steht in main.c 
+\end{DoxyVerb}
+
+
+Das Hauptprogramm \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main()}} steht in \mbox{\hyperlink{main_8c}{main.\+c}}
+
+In addition doxygen provides a similar way to link a documented entity\+:
+
+\begin{DoxyVerb}[Link zu: Eine Überschrift](#autolinks) --- [Links](@ref autolinks) 
+\end{DoxyVerb}
+
+
+\mbox{\hyperlink{md_doxyhints_doku_doxygen_autolinks}{Link zu\+: Eine Überschrift}} --- \mbox{\hyperlink{md_doxyhints_doku_doxygen_autolinks}{Links}}\hypertarget{md_doxyhints_doku_doxygen_listen}{}\doxysection{(\+Aufzählungs-\/)\+Listen}\label{md_doxyhints_doku_doxygen_listen}
+\hypertarget{md_doxyhints_doku_doxygen_bulletlist}{}\doxysubsection{Bulletlist mit -\/ / + / $\ast$}\label{md_doxyhints_doku_doxygen_bulletlist}
+\begin{DoxyVerb}- test 
+- test
+  - test
+    - test
+    - test
+  - test
+- test
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item test
+\item test
+\begin{DoxyItemize}
+\item test
+\begin{DoxyItemize}
+\item test
+\item test
+\end{DoxyItemize}
+\item test
+\end{DoxyItemize}
+\item test
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxygen_numberedlist}{}\doxysubsection{Aufzählungsliste mit -\/\#}\label{md_doxyhints_doku_doxygen_numberedlist}
+\begin{DoxyVerb}-# test 
+-# test
+  -# test
+  -# test
+    -# test
+    -# test
+  -# test
+-# test
+\end{DoxyVerb}
+
+
+
+\begin{DoxyEnumerate}
+\item test
+\item test
+\begin{DoxyEnumerate}
+\item test
+\item test
+\begin{DoxyEnumerate}
+\item test
+\item test
+\end{DoxyEnumerate}
+\item test
+\end{DoxyEnumerate}
+\item test
+\end{DoxyEnumerate}\hypertarget{md_doxyhints_doku_doxygen_s_fo_images}{}\doxysection{Bilder einbinden}\label{md_doxyhints_doku_doxygen_s_fo_images}
+
+\begin{DoxyItemize}
+\item Bilder sind im angegebenen Image Pfad
+\item auch Unterverzeichnisse adressierbar
+\end{DoxyItemize}
+
+\begin{DoxyVerb}@image html aFSM.png "Simple Finite Statemachine" width=300px
+@image latex aFSM.png "Simple Finite Statemachine" width=5cm
+\end{DoxyVerb}
+
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=5cm]{aFSM.png}}
+\end{DoxyImageNoCaption}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_plantuml}{}\doxysection{Plantuml Diagramme}\label{md_doxyhints_doku_doxygen_s_fo_plantuml}
+\begin{DoxyVerb}@startuml Projekt
+scale 600 height
+title Projekt
+[*] --> Idee
+Idee --> Projektbeschreibung
+...
+Präsentation --> [*]
+@enduml
+\end{DoxyVerb}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_tabellen}{}\doxysection{Tabellen}\label{md_doxyhints_doku_doxygen_s_fo_tabellen}
+\begin{DoxyVerb}First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+\end{DoxyVerb}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ First Header   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Second Header    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ First Header   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Second Header    }\\\cline{1-2}
+\endhead
+Content Cell   &Content Cell    \\\cline{1-2}
+Content Cell   &Content Cell   \\\cline{1-2}
+\end{longtabu}
+
+
+{\bfseries{Mit Text Align\+:}}
+
+\begin{DoxyVerb}| Right | Center | Left  |
+| ----: | :----: | :---- |
+| 10    | 10     | 10    |
+| 1000  | 1000   | 1000  |
+\end{DoxyVerb}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Right   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Center   }&\cellcolor{\tableheadbgcolor}\textbf{ Left    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Right   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Center   }&\cellcolor{\tableheadbgcolor}\textbf{ Left    }\\\cline{1-3}
+\endhead
+\PBS\raggedleft 10   &\PBS\centering 10   &10    \\\cline{1-3}
+\PBS\raggedleft 1000   &\PBS\centering 1000   &1000   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_quellcode}{}\doxysection{Quellcode}\label{md_doxyhints_doku_doxygen_s_fo_quellcode}
+\hypertarget{md_doxyhints_doku_doxygen_embeddeecode}{}\doxysubsection{Eingebetteter Code}\label{md_doxyhints_doku_doxygen_embeddeecode}
+\begin{DoxyVerb}Die Funktion `int16_t main(void)` ist in main.c (markdown: backtick)
+\end{DoxyVerb}
+
+
+Die Funktion {\ttfamily int16\+\_\+t \mbox{\hyperlink{main__less_8c_aec570f4ab450e8224be63b7dcfa62b35}{main(void)}}} ist in \mbox{\hyperlink{main_8c}{main.\+c}} (markdown\+: backtick)\hypertarget{md_doxyhints_doku_doxygen_codeblock}{}\doxysubsection{Code Block}\label{md_doxyhints_doku_doxygen_codeblock}
+{\bfseries{Doxygen Style}}
+
+\begin{DoxyVerb}@code
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+@endcode
+\end{DoxyVerb}
+
+
+min. 4x Space am Anfang jeder Zeile
+
+\begin{DoxyVerb}....int func(int a,int b) 
+....{
+....  return a*b;
+....}
+\end{DoxyVerb}
+
+
+min. 3x $\sim$ an Anfang und Ende vom Block
+
+\begin{DoxyVerb}~~~
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+~~~
+\end{DoxyVerb}
+
+
+{\bfseries{Ergebnis\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int func(int a,int b) }
+\DoxyCodeLine{\{ }
+\DoxyCodeLine{  return a*b; }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_doxyhints_doku_doxygen_codeblocklang}{}\doxysubsection{Codeblock mit Language Syntax Highlight}\label{md_doxyhints_doku_doxygen_codeblocklang}
+{\bfseries{Doxygen Codeblock}}
+
+\begin{DoxyVerb}@code {.c}
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+int16_t main(void)
+{
+  // .....
+}
+@endcode
+\end{DoxyVerb}
+
+
+min 3x $\sim$ + opt. {\bfseries{Language}} Angabe z.\+B. \{.c\} oder \{.cpp\}
+
+\begin{DoxyVerb}~~~~~~~~~~~~~~~{.c}
+int func(int a,int b) 
+{ 
+  return a*b; 
+}
+int16_t main(void)
+{
+  // .....
+}
+~~~~~~~~~~~~~~~
+\end{DoxyVerb}
+
+
+{\bfseries{Ergebnis\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} func(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b) }
+\DoxyCodeLine{\{ }
+\DoxyCodeLine{  \textcolor{keywordflow}{return} a*b; }
+\DoxyCodeLine{\}}
+\DoxyCodeLine{int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{// .....}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_include_code}{}\doxysection{Quellcode einbinden}\label{md_doxyhints_doku_doxygen_s_fo_include_code}
+\hypertarget{md_doxyhints_doku_doxygen_includecode}{}\doxysubsection{Komplette Quellcodedatei}\label{md_doxyhints_doku_doxygen_includecode}
+\begin{DoxyVerb}@include doxy_exam1.c 
+@include{lineno} doxy_exam1.c 
+\end{DoxyVerb}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00001}00001 \textcolor{keywordtype}{int} func(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b) \{ }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00002}00002   \textcolor{keywordflow}{return} a*b; }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00003}00003 \} \textcolor{comment}{/* func() */} }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00005}00005 \textcolor{keywordtype}{int} testfunc(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b) \{ }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00007}00007   \textcolor{keywordtype}{int} res = a * b;  }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00008}00008   \textcolor{keywordflow}{return} a*b; }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00010}00010 \} \textcolor{comment}{/* testfunc() */} }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00012}00012 int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00013}00013     \textcolor{keywordflow}{return} func(1,5);}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00014}00014 \} \textcolor{comment}{/* main() */}}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00016}00016 \textcolor{keywordtype}{void} test(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00017}00017     \textcolor{comment}{// do something ...}}
+\DoxyCodeLine{\Hypertarget{md_doxyhints_doku_doxygen_l00018}00018 \};}
+
+\end{DoxyCodeInclude}
+\hypertarget{md_doxyhints_doku_doxygen_dontincludecode}{}\doxysubsection{Teile einer Quellcodedatei}\label{md_doxyhints_doku_doxygen_dontincludecode}
+
+\begin{DoxyItemize}
+\item {\bfseries{dontinclude}} filename
+\begin{DoxyItemize}
+\item Includiert die Datei aber ohne Sie anzuzeigen
+\end{DoxyItemize}
+\item {\bfseries{skip}} pattern
+\begin{DoxyItemize}
+\item Überspringt alle Zeilen, bis eine Zeile das Pattern enthält
+\end{DoxyItemize}
+\item {\bfseries{skipline}} pattern
+\begin{DoxyItemize}
+\item wie skip nur dass die gefundene Zeile gedruckt wird
+\end{DoxyItemize}
+\item {\bfseries{until}} pattern
+\begin{DoxyItemize}
+\item druckt alle folgenden Zeilen, einschließlich der bei der das Pattern gefunden wurde
+\end{DoxyItemize}
+\item {\bfseries{line}} pattern
+\begin{DoxyItemize}
+\item unterdrückt folgende Leerzeilen bis zur nächsten nicht leeren Zeile, fallse diese das Pattern enthät wird diese gedruckt
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\begin{DoxyVerb}@dontinclude doxy_exam1.c
+@skip int16_t main(void)
+@until } /* main()
+\end{DoxyVerb}
+
+
+ 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{int16\_t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} func(1,5);}
+\DoxyCodeLine{\} \textcolor{comment}{/* main() */}}
+
+\end{DoxyCodeInclude}
+ \hypertarget{md_doxyhints_doku_doxygen_codesnippet}{}\doxysubsection{Teile einer Quellcodedatei -\/ Snippet}\label{md_doxyhints_doku_doxygen_codesnippet}
+Includiert alles zwischen (genau) zwei identischen Doxygen Markern in einer Quellcode Datei. Die Marker werden in \mbox{[}...\mbox{]} angegeben.
+
+Hint\+: z.\+B. in eine Doxygen Funktionsbeschreibung.
+
+\mbox{\hyperlink{doxy_exam1_8c-example}{doxy\+\_\+exam1.\+c}} \begin{DoxyVerb}/// @noop [Test Function]
+... some code
+/// @noop [Test Function]
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}@snippet doxy_exam1.c Test Function
+\end{DoxyVerb}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} res = a * b;  }
+\DoxyCodeLine{  \textcolor{keywordflow}{return} a*b; }
+
+\end{DoxyCodeInclude}
+\hypertarget{md_doxyhints_doku_doxygen_codeexamples}{}\doxysubsection{Dateien als Codeexamples in die Dokumentation}\label{md_doxyhints_doku_doxygen_codeexamples}
+Dateien im Examples Verzeichnis können als Beispieldateien mit {\bfseries{examples}} in die Dokumentation aufgenommen werden. Diese Dateien werden dann im Hauptmenü unter Beispiele/\+Examples angezeigt und können mit {\bfseries{ref}} auch verlinkt werden. Es kann noch eine textdokumentation der Seite hinzugefügt werden, diese wird vor dem Code angezeigt.
+
+\begin{DoxyVerb}@example{lineno} doxy_exam1.c
+Beschreibender Text ....
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}@ref doxy_exam1.c
+\end{DoxyVerb}
+
+
+\mbox{\hyperlink{doxy_exam1_8c-example}{doxy\+\_\+exam1.\+c}}\hypertarget{md_doxyhints_doku_doxygen_s_fo_block_quote}{}\doxysection{Block Quote}\label{md_doxyhints_doku_doxygen_s_fo_block_quote}
+\begin{DoxyVerb}> asdjkasdjk  asjdk  asjdkjas d 
+> sjdfh sd fhhsdhfweuewjnc  sdjsduen  sdjfhsduwnc 
+> asjh asjdqw7w weursxn2ednds sdufd2n sdjf 
+> dlfd lksdlfk sdkfls lks klskdflk skdlfk kdlkflsk sdkflksdlkf skdlfklskdf s
+> sjdkfj jsk fksdjfkjsd fjksdjfkj jfksj skdjfk jskdjfk sf
+\end{DoxyVerb}
+
+
+\begin{quote}
+asdjkasdjk asjdk asjdkjas d sjdfh sd fhhsdhfweuewjnc sdjsduen sdjfhsduwnc asjh asjdqw7w weursxn2ednds sdufd2n sdjf \end{quote}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_chapter}{}\doxysection{Überschriften formatieren}\label{md_doxyhints_doku_doxygen_s_fo_chapter}
+{\bfseries{Diverse Möglichkeiten von Kapitel / Überschriften zu definieren}}
+
+Kapitel mit den Doxygen Tags {\bfseries{section subsection subsubsection}} erzeugt
+
+\begin{DoxyVerb}@Section chap1 Überschrift (1te Ebene)
+@section chap2 Überschrift (1te Ebene)
+@subsection chap21 Überschrift (2te Ebene)
+@subsubsection chap211 Überschrift (3te Ebene)
+\end{DoxyVerb}
+
+
+Kapitel Überschriften mit === bzw --- in der nächsten Zeile erzeugt
+
+\begin{DoxyVerb}    Überschrift (1te Ebene)  {#Ueb1}
+    ================
+
+    Überschrift (2te Ebene)  {#Ueb12}
+    ---------------------
+\end{DoxyVerb}
+
+
+Überschriften mit \#, \#\#, \#\#\#, \#\#\#\# erzeugt (nicht im Inhaltsverzeichnis)
+
+\begin{DoxyVerb}    # Überschrift (1te Ebene)
+    ## Überschrift (2te Ebene)
+    ## Überschrift (2te Ebene)
+    ### Überschrift (3te Ebene)
+    #### Überschrift (4te Ebene)
+\end{DoxyVerb}
+
+
+Überschriften mit HTML Tags erzeugt
+
+\begin{DoxyVerb}    <h1>Überschrift (1te Ebene) (html tag h1)</h1>
+    <h2>Überschrift (2te Ebene) (html tag h2)</h2>
+    <h3>Überschrift (3te Ebene) (html tag h3)</h3>
+    <h4>Überschrift (4te Ebene) (html tag h4)</h4>
+\end{DoxyVerb}
+\hypertarget{md_doxyhints_doku_doxygen_s_fo_pages}{}\doxysection{Seiten anlegen}\label{md_doxyhints_doku_doxygen_s_fo_pages}
+
+\begin{DoxyItemize}
+\item @mainpage -\/ Hauptseite der Doku
+\item @page -\/ Eine neue Seite
+\item @subpage -\/ Link auf eine Seite, diese wird zusätzlich in den Index mit aufgenommen
+\end{DoxyItemize}
+
+\begin{DoxyVerb}@mainpage Programmdokumentaion
+@page p_doxy_page1 Doxygen Formatierungshinweise subpage 1
+  ...  Seitentext ...
+
+- @subpage p_doxy_page1
+- @subpage p_doxy_page2
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{p_doxy_page1}{Doxygen Formatierungshinweise subpage 1}}
+\item \mbox{\hyperlink{p_doxy_page2}{Doxygen Formatierungshinweise subpage 2}}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxygen_doxyww}{}\doxysection{Doxygen Dokumentation im WWW}\label{md_doxyhints_doku_doxygen_doxyww}
+
+\begin{DoxyItemize}
+\item \href{http://www.doxygen.nl/}{\texttt{ http\+://www.\+doxygen.\+nl/}}
+\item \href{http://www.doxygen.nl/manual/markdown.html}{\texttt{ http\+://www.\+doxygen.\+nl/manual/markdown.\+html}}
+\item \href{http://www.doxygen.nl/manual/commands.html}{\texttt{ http\+://www.\+doxygen.\+nl/manual/commands.\+html}}
+\item \href{http://www.doxygen.nl/manual/htmlcmds.html}{\texttt{ http\+://www.\+doxygen.\+nl/manual/htmlcmds.\+html}}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_doxygen_doxycomments}{}\doxysection{Doxygen Kommentare}\label{md_doxyhints_doku_doxygen_doxycomments}
+Dieser Text könnte auch in einer C/H Datei stehen, sowie auch jeglicher doxygen Text in eigenständigen Dateien stehen könnte und Bezug auf die Codefragmente nimmt.
+
+Es gibt verschiedene Arten Doxygen Kommentare zu schreiben.
+\begin{DoxyItemize}
+\item In den Code Dateien wurde 3x / verwendet da dies den Vorteil hat größe Quellcodevereiche mittels Blockkommentaren auszukommentieren
+\item hier wurde mit Blockkommentaren gearbeitet von / $\ast$ $\ast$ bis $\ast$ / für jeweils einen Block, damit nicht in jeder Zeile 3x / geschrieben werden muss
+\item in $\ast$.markup Dateien die nur für Dokumentationszwecke gedacht sind, werden keine einleitenden Kommentare benötigt. Natürlich wird aber auch kein Programmcode darin geparst!
+\item {\bfseries{noop}} weisst Doxygen an den Rest der Zeile zu ignorieren
+\begin{DoxyItemize}
+\item gut für Kommentare oder Trennerzeilen in der Doku
+\item gut geeignet zur Auskommentierung von Kommandos wie {\bfseries{bug}} {\bfseries{todo}} ...
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\begin{DoxyRemark}{Bemerkungen}
+Noch lange nicht fertig ...
+\end{DoxyRemark}
+\begin{DoxyAuthor}{Autor}
+Josef Hahn-\/\+Dambacher 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+9.\+4.\+2021
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+1 Erster Test von C Code mit den speziellen Header Files und Ordner Struktur
+
+0.\+2 Kommentare für Doxygen eingebaut
+
+0.\+3 (14.\+12.\+2018 JHD) Aufbau eines Dokuments mit Textformatierungen für einfache Doxygen Dokumente
+
+0.\+4 (9.\+4.\+2021 JHD) Etwas angepasst, insbesondere Entfernung von Zeilenkommentaren. Noch lange nicht fertig
+\end{DoxyVersion}
+\begin{DoxyRefDesc}{Noch zu erledigen}
+\item[\mbox{\hyperlink{todo__todo000001}{Noch zu erledigen}}]Beispiele für Doxygen Kommentare für die Beschreibung der diversen C Elemete C Coding Style\end{DoxyRefDesc}
+\hypertarget{p_doxy_page1}{}\doxysection{Doxygen Formatierungshinweise subpage 1}\label{p_doxy_page1}
+ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh \hypertarget{p_doxy_page2}{}\doxysection{Doxygen Formatierungshinweise subpage 2}\label{p_doxy_page2}
+ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh ksjhd sakdj hask dhjkas hdjkahsdk jha sdkhj ahkjsdh 

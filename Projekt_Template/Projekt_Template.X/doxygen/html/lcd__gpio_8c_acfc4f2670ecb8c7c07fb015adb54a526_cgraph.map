@@ -1,6 +1,5 @@
 <map id="lcd_set_pos" name="lcd_set_pos">
-<area shape="rect" id="node1" title="Setzt die Position des Cursors." alt="" coords="5,31,97,57"/>
-<area shape="rect" id="node2" href="$main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="165,5,244,32"/>
-<area shape="rect" id="node3" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="145,56,264,83"/>
-<area shape="rect" id="node4" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="312,56,419,83"/>
+<area shape="rect" id="node1" title="Setzt die Position des Cursors." alt="" coords="5,5,97,32"/>
+<area shape="rect" id="node2" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="145,5,264,32"/>
+<area shape="rect" id="node3" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="312,5,419,32"/>
 </map>

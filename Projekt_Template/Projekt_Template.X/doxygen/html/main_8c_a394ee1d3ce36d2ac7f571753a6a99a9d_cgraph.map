@@ -1,9 +1,8 @@
 <map id="display_UART_RX" name="display_UART_RX">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,132,108"/>
-<area shape="rect" id="node2" href="$lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="180,56,272,83"/>
-<area shape="rect" id="node6" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="181,107,271,133"/>
-<area shape="rect" id="node3" href="$main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="333,5,412,32"/>
-<area shape="rect" id="node4" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="473,81,592,108"/>
-<area shape="rect" id="node5" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="640,81,747,108"/>
-<area shape="rect" id="node7" href="$lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="320,107,425,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,132,57"/>
+<area shape="rect" id="node2" href="$lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="325,5,417,32"/>
+<area shape="rect" id="node5" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="180,56,271,83"/>
+<area shape="rect" id="node3" href="$lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="472,31,591,57"/>
+<area shape="rect" id="node4" href="$lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="639,31,745,57"/>
+<area shape="rect" id="node6" href="$lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="319,56,424,83"/>
 </map>

@@ -1,0 +1,100 @@
+\label{md_doxyhints_doku_comment_code_p_doxygen}%
+\Hypertarget{md_doxyhints_doku_comment_code_p_doxygen}%
+
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{md_doxyhints_doku_doxygen_p_formatierung}{p\+\_\+formatierung}}
+\item \mbox{\hyperlink{md_doxyhints_doku_doxy_commands_p_doxy_cmd}{p\+\_\+doxy\+\_\+cmd}}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_comment_code_s_doxycomments}{}\doxysection{Doxykommentare}\label{md_doxyhints_doku_comment_code_s_doxycomments}
+
+\begin{DoxyItemize}
+\item Vor dem Element
+\begin{DoxyItemize}
+\item Blockkommentare /$\ast$$\ast$ ... $\ast$/ oder /$\ast$! ...$\ast$/
+\begin{DoxyItemize}
+\item $\ast$ als erstes Zeichen einer Zeile wird ignoriert
+\item Mit Banner aktiv auch\+: /$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ... $\ast$/
+\end{DoxyItemize}
+\item Zeilenkommentare /// oder //!
+\end{DoxyItemize}
+\item In der Zeile hinter dem Element
+\begin{DoxyItemize}
+\item /$\ast$$\ast$\texorpdfstring{$<$}{<} ... $\ast$/ oder /$\ast$!\texorpdfstring{$<$}{<} --- $\ast$/
+\item ///\texorpdfstring{$<$}{<} oder //!\texorpdfstring{$<$}{<}
+\item VHDL\+: --!
+\end{DoxyItemize}
+\item @ oder \textbackslash{} leitet ein Doxy Command ein
+\begin{DoxyItemize}
+\item @brief {\itshape kurzer Beschreibungstext}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_doxyhints_doku_comment_code_s_doxy_file_template}{}\doxysection{File Template}\label{md_doxyhints_doku_comment_code_s_doxy_file_template}
+\begin{DoxyVerb}/*******************************************************************************
+ * @file unbenannt.?
+ * @brief Testprogramm  
+ * 
+ * bla bla bla
+ * bla bla bla
+ * 
+ * @author Josef Hahn-Dambacher <josef.hahn-dambacher@htw-aalen.de> JHD
+ * @date   2021-03-15
+ * 
+ * @version 0.1
+ * (JHD  15.03.2021)
+ * Funktionen vom ersten Main-Testprogramm wurden gekapselt
+ * 
+ * @noop bug
+ * 
+ * @noop attention
+ * 
+ * @noop warning
+ * 
+ * @noop todo
+ * 
+ ******************************************************************************/
+\end{DoxyVerb}
+\hypertarget{md_doxyhints_doku_comment_code_s_doxy_funktion_template}{}\doxysection{Funktion Template}\label{md_doxyhints_doku_comment_code_s_doxy_funktion_template}
+\begin{DoxyVerb}/*******************************************************************************
+ * @brief Eine Test Funktion
+ * 
+ * bla bla bla
+ * 
+ * @param[in] c1 eine Eingangsvariable
+ * @param[out] c2 eine Ausgangsvariable
+ * @param[in,out] c3 eine Variable
+ * @param c3 eine variable
+ * @return Wert c1, wenn ... else 0
+ * @retval 0, wenn ....
+ * @retval 1, wenn ....
+ * @retval 2, wenn ....
+ * @noop pre
+ * @noop post 
+ * @noop todo
+ * @noop bug
+ * 
+ ******************************************************************************/
+\end{DoxyVerb}
+\hypertarget{md_doxyhints_doku_comment_code_s_doxy_hints}{}\doxysection{Diverse gesammelte Hints}\label{md_doxyhints_doku_comment_code_s_doxy_hints}
+\hypertarget{md_doxyhints_doku_comment_code_s_doxy_noop}{}\doxysubsection{Doxygen Kommandos mit @noop auskommentieren}\label{md_doxyhints_doku_comment_code_s_doxy_noop}
+Mit dem Kommando @noop wird der Rest der Zeile von Doxygen ignoriert
+\begin{DoxyItemize}
+\item Für Auskommentierung von Doxygen Code
+\item Gut geeignet für Tags wie @bug, @todo, ... auszukommentieren, damit diese nicht im jeweiligen Index erscheinen. Auch wenn kein beschreibender Text hinterlegt ist, werden diese dennoch im Index mit aufgenommen.
+\end{DoxyItemize}
+
+\begin{DoxyVerb}@todo 
+in 
+@noop todo
+\end{DoxyVerb}
+\hypertarget{md_doxyhints_doku_comment_code_s_inputformat}{}\doxysubsection{Input Dateiformate}\label{md_doxyhints_doku_comment_code_s_inputformat}
+
+\begin{DoxyItemize}
+\item MPLABX IDE\+: ANSI / ISO-\/8859-\/1
+\item Quartus\+: UTF-\/8
+\end{DoxyItemize}
+
+Bei falschem Dateiformat (Encoding) werden z.\+B. Umlaute falsch dargestellt.
+\begin{DoxyItemize}
+\item Input Codierung im Doxyfile entsprechend der Entwicklungsumgebung einstellen
+\item Falls es Probleme mit einer Datei gibt kann z.\+B. mit Notepad++ das Encoding Überprüft und ev. in das zum Projekt passende Encoding konvertiert werden. (z.\+B. diese Doxygen Dokumentationsseiten) 
+\end{DoxyItemize}

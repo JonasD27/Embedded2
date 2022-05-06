@@ -5,69 +5,78 @@
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00005}00005 \textcolor{comment}{//\#include "{}UART.h"{}}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}          \textcolor{comment}{/* User funct/params, such as InitApp              */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition                    */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition                  */}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <string.h>}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <stdio.h>}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <xc.h>}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}libpic30.h"{}}       \textcolor{comment}{/*Beinhaltet Delay-\/Funktionen*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <xc.h>}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00016}00016 \textcolor{comment}{/* Konstanten                                                                 */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}libpic30.h"{}}       \textcolor{comment}{/*Beinhaltet Delay-\/Funktionen                     */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00016}00016 }
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00019}00019 \textcolor{comment}{/*volatile darf nicht vom Compiler wegoptimiert werden und kann extern }}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00020}00020 \textcolor{comment}{ *verändert werden z.b. von Interruptroutine oder Timer*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00021}\mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{00021}} \textcolor{preprocessor}{\#define \_\_delay\_cycles(cycles)asm volatile ("{}repeat \#\%0 \(\backslash\)n nop"{}} : : "{}i"{} (cycles-\/2))}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00023}\mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{00023}} \textcolor{preprocessor}{\#define LCD\_DATA(d) LATE = (LATE \& 0xFF00) | d}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00024}\mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{00024}} \textcolor{preprocessor}{\#define LCD\_RS \_RB15        }\textcolor{comment}{/*LCD Registerauswahlsignal*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00025}\mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{00025}} \textcolor{preprocessor}{\#define LCD\_R\_W \_RD5        }\textcolor{comment}{/*LCD Daten Lesen oder Schreiben*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00026}\mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{00026}} \textcolor{preprocessor}{\#define LCD\_ENABLE \_RD4     }\textcolor{comment}{/*LCD Aktivierungssignal*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00028}\mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{00028}} \textcolor{preprocessor}{\#define LCD\_CMD\_INIT        0b0000000000110000 }\textcolor{comment}{/*LCD wird Initialliert*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00018}00018 \textcolor{comment}{/* Konstanten                                                                 */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00021}00021 \textcolor{comment}{/*volatile darf nicht vom Compiler wegoptimiert werden und kann extern }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00022}00022 \textcolor{comment}{ *verändert werden z.b. von Interruptroutine oder Timer*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00023}\mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{00023}} \textcolor{preprocessor}{\#define \_\_delay\_cycles(cycles)asm volatile ("{}repeat \#\%0 \(\backslash\)n nop"{}} : : "{}i"{} (cycles-\/2))}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00025}\mbox{\hyperlink{lcd__gpio_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{00025}} \textcolor{preprocessor}{\#define LCD\_DATA(d) LATE = (LATE \& 0xFF00) | d}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00026}\mbox{\hyperlink{lcd__gpio_8h_a4781e073871c6f27f89b9463ad3a4ed1}{00026}} \textcolor{preprocessor}{\#define LCD\_RS \_RB15        }\textcolor{comment}{/*LCD Registerauswahlsignal*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00027}\mbox{\hyperlink{lcd__gpio_8h_a87c24c96c4230435f0c282b1ec352e4e}{00027}} \textcolor{preprocessor}{\#define LCD\_R\_W \_RD5        }\textcolor{comment}{/*LCD Daten Lesen oder Schreiben*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00028}\mbox{\hyperlink{lcd__gpio_8h_a9e68ed137ca4a61c3977dcdad091f27c}{00028}} \textcolor{preprocessor}{\#define LCD\_ENABLE \_RD4     }\textcolor{comment}{/*LCD Aktivierungssignal*/}\textcolor{preprocessor}{}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00030}00030 \textcolor{comment}{/*Einstellen der Bewegungsrichtung von Cursor und Display.(8-\/Bit-\/Busbetrieb, }}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00031}00031 \textcolor{comment}{ *2-\/zeilige Anzeigemodus eingestellt) Benötigt 38us*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00032}\mbox{\hyperlink{lcd__gpio_8h_af8ec7e043a3b67ee423b97783d08aeb1}{00032}} \textcolor{preprocessor}{\#define LCD\_FUNCTION\_SET    0b0000000000111000  }}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00034}00034 \textcolor{comment}{/*Schaltet das Display aus. Benötigt 38us*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00035}\mbox{\hyperlink{lcd__gpio_8h_ab1b96426e59139b68ae95df45d697087}{00035}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_OFF     0b0000000000001000 }}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00037}00037 \textcolor{comment}{/*Löschen der Anzeigedaten. Benötigt 1.52ms*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00038}\mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{00038}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_CLEAR   0b0000000000000001}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00040}00040 \textcolor{comment}{/*Home Position. Benötigt 1.52ms*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00041}\mbox{\hyperlink{lcd__gpio_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{00041}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_HOME    0b0000000000000010}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00043}00043 \textcolor{comment}{/*Eingabemodus eingestellt. Cursor bewegt sich nach Rechts. Benötigt 38us*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00044}\mbox{\hyperlink{lcd__gpio_8h_ae5d757ddb6d94de8c82191b60b40e442}{00044}} \textcolor{preprocessor}{\#define LCD\_ENTRY\_MODE      0b0000000000000110  }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00030}\mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{00030}} \textcolor{preprocessor}{\#define LCD\_CMD\_INIT        0b0000000000110000 }\textcolor{comment}{/*LCD wird Initialliert*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00032}00032 \textcolor{comment}{/*Einstellen der Bewegungsrichtung von Cursor und Display.(8-\/Bit-\/Busbetrieb, }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00033}00033 \textcolor{comment}{ *2-\/zeilige Anzeigemodus eingestellt) Benötigt 38us*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00034}\mbox{\hyperlink{lcd__gpio_8h_af8ec7e043a3b67ee423b97783d08aeb1}{00034}} \textcolor{preprocessor}{\#define LCD\_FUNCTION\_SET    0b0000000000111000  }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00036}00036 \textcolor{comment}{/*Schaltet das Display aus. Benötigt 38us*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00037}\mbox{\hyperlink{lcd__gpio_8h_ab1b96426e59139b68ae95df45d697087}{00037}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_OFF     0b0000000000001000 }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00039}00039 \textcolor{comment}{/*Löschen der Anzeigedaten. Benötigt 1.52ms*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00040}\mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{00040}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_CLEAR   0b0000000000000001}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00042}00042 \textcolor{comment}{/*Cursor und Anzeige werden an ihren ursprünglichen Zustand versetzt.}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00043}00043 \textcolor{comment}{ *Benötigt 1.52ms*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00044}\mbox{\hyperlink{lcd__gpio_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{00044}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_HOME    0b0000000000000010}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00046}00046 \textcolor{comment}{/*Schaltet Display und Cursor ein und lässt den Cursor blinken. Benötigt 38us*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00047}\mbox{\hyperlink{lcd__gpio_8h_a846dac5d1bb72bef7a76ee110c0445b6}{00047}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_ON      0b0000000000001111 }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00046}00046 \textcolor{comment}{/*Eingabemodus eingestellt. Cursor bewegt sich nach Rechts. Benötigt 38us*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00047}\mbox{\hyperlink{lcd__gpio_8h_ae5d757ddb6d94de8c82191b60b40e442}{00047}} \textcolor{preprocessor}{\#define LCD\_ENTRY\_MODE      0b0000000000000110  }}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00049}00049 \textcolor{comment}{/*Zeichen definieren*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00050}\mbox{\hyperlink{lcd__gpio_8h_add7af1708bcce2284cff78811194fcc8}{00050}} \textcolor{preprocessor}{\#define LCD\_ZEICHEN}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00051}00051 \textcolor{comment}{//\#define LCD\_ZEICHEN(zeichen)zeichen}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00054}00054 \textcolor{comment}{/* Prototypen                                                                 */}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00057}00057 \textcolor{comment}{/*gemacht*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00058}00058 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\_init}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00059}00059 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}(uint8\_t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}});}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00060}00060 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a151abba6f7ca2f5cd5060fbaa26697e8}{writeStrLCD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str);}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00061}00061 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_ad235a86241458b1e7b8771688bfdaf9a}{lcd\_clear}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00062}00062 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\_set\_pos}}(\textcolor{keywordtype}{int} line, \textcolor{keywordtype}{int} pos);}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00063}00063 uint8\_t \mbox{\hyperlink{lcd__gpio_8h_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00049}00049 \textcolor{comment}{/*Schaltet Display und Cursor ein und lässt den Cursor blinken. Benötigt 38us*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00050}00050 \textcolor{comment}{/*\#define LCD\_DISPLAY\_ON      0b0000000000001111*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00051}00051 \textcolor{comment}{/*Schaltet Display und Cursor ein und lässt den Cursor nicht mehr blinken. }}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00052}00052 \textcolor{comment}{ *Benötigt 38us*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00053}\mbox{\hyperlink{lcd__gpio_8h_a846dac5d1bb72bef7a76ee110c0445b6}{00053}} \textcolor{preprocessor}{\#define LCD\_DISPLAY\_ON      0b0000000000001110}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00055}00055 \textcolor{comment}{/*Definiert den IC und gibt an das dieser in Betrieb ist. Interne Operation ist}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00056}00056 \textcolor{comment}{ *im Gange es soll gewartet werden*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00057}\mbox{\hyperlink{lcd__gpio_8h_ab89a4168a44c82d86ceda9801c3a1bf6}{00057}} \textcolor{preprocessor}{\#define READ\_BUSY\_FLAG      0b0000000010000000}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00059}00059 \textcolor{comment}{/*Cursor nach rechts schieben, AC wird um 1 erhöht und gesamte Anzeige nach}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00060}00060 \textcolor{comment}{ * rechts verschieben (der Cursor bewegt sich entsprechend der Anzeige).}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00061}00061 \textcolor{comment}{ * In der Anzeige wird nicht gelesen oder geschrieben. Diese Anweisung wird}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00062}00062 \textcolor{comment}{ * verwendet, um Anzeigedaten zu korrigieren oder zu suchen. */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00063}\mbox{\hyperlink{lcd__gpio_8h_a15da8436a10120ffbbb20b0bb2d91efa}{00063}} \textcolor{preprocessor}{\#define CURSOR\_OR\_DISPLAY   0b0000000000010100}}
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00065}00065 \textcolor{comment}{/*noch machen*/}}
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00068}00068 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}(\textcolor{keywordtype}{void}); \textcolor{comment}{//Brauch man das?}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00065}00065 \textcolor{comment}{/*Zeichen definieren*/}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00066}\mbox{\hyperlink{lcd__gpio_8h_add7af1708bcce2284cff78811194fcc8}{00066}} \textcolor{preprocessor}{\#define LCD\_ZEICHEN}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00067}00067 \textcolor{comment}{//\#define LCD\_ZEICHEN(zeichen)zeichen}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00068}00068 }
 \DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00070}00070 \textcolor{comment}{/* Prototypen                                                                 */}}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00073}00073 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00074}00074 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}(uint8\_t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00075}00075 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a151abba6f7ca2f5cd5060fbaa26697e8}{writeStrLCD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00076}00076 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_ad235a86241458b1e7b8771688bfdaf9a}{lcd\_clear}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00077}00077 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\_set\_pos}}(\textcolor{keywordtype}{int} line, \textcolor{keywordtype}{int} pos);}
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00078}00078 \textcolor{keywordtype}{void} \mbox{\hyperlink{lcd__gpio_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}(\textcolor{keywordtype}{void}); }
+\DoxyCodeLine{\Hypertarget{lcd__gpio_8h_source_l00079}00079 uint8\_t \mbox{\hyperlink{lcd__gpio_8h_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}(\textcolor{keywordtype}{void});}
 
 \end{DoxyCode}

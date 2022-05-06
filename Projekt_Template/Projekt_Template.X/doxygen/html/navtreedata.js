@@ -27,8 +27,8 @@ var NAVTREE =
   [ "Embedded 2 Dokumentation", "index.html", [
     [ "Programmdokumentation", "index.html", null ],
     [ "Code-Style", "md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style.html", null ],
-    [ "\"Aufgabe I2C Lichtsensor\"", "em_aufgabe1.html", null ],
-    [ "\"Aufgabe LCD Display GPIO\"", "em_aufgabe2.html", null ],
+    [ "Aufgabe I2C Lichtsensor", "em_aufgabe1.html", null ],
+    [ "Aufgabe LCD Display GPIO", "em_aufgabe2.html", null ],
     [ "Datenstrukturen", "annotated.html", [
       [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
       [ "Datenstruktur-Verzeichnis", "classes.html", null ],

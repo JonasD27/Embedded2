@@ -116,8 +116,10 @@ Include-Abhängigkeitsdiagramm für lcd_gpio.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:ac23e73124dc9fabae95671fe71d074a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8c.html#ac23e73124dc9fabae95671fe71d074a6">lcd_init</a> ()</td></tr>
+<tr class="memdesc:ac23e73124dc9fabae95671fe71d074a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initilisierung des LCDs.  <a href="lcd__gpio_8c.html#ac23e73124dc9fabae95671fe71d074a6">Mehr ...</a><br /></td></tr>
 <tr class="separator:ac23e73124dc9fabae95671fe71d074a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9958d5441d79af42a23a03f6229de09d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d">lcd_write_data</a> (uint8_t <a class="el" href="main__less_8c.html#a1cc545950661d96524585c500b3b68d1">data</a>)</td></tr>
+<tr class="memdesc:a9958d5441d79af42a23a03f6229de09d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreiben von Daten auf den Speicher des LCDs.  <a href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d">Mehr ...</a><br /></td></tr>
 <tr class="separator:a9958d5441d79af42a23a03f6229de09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad235a86241458b1e7b8771688bfdaf9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a">lcd_clear</a> (void)</td></tr>
 <tr class="memdesc:ad235a86241458b1e7b8771688bfdaf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen.  <a href="lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a">Mehr ...</a><br /></td></tr>
@@ -153,16 +155,15 @@ Funktionen</h2></td></tr>
 
 <p>Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00115">115</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00124">124</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a_cgraph.png" border="0" usemap="#alcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a_cgraph" alt=""/></div>
 <map name="alcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a_cgraph" id="alcd__gpio_8c_ad235a86241458b1e7b8771688bfdaf9a_cgraph">
-<area shape="rect" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="5,31,80,57"/>
-<area shape="rect" href="main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="148,5,227,32"/>
-<area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="128,56,247,83"/>
-<area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="295,56,401,83"/>
+<area shape="rect" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="5,5,80,32"/>
+<area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="128,5,247,32"/>
+<area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="295,5,401,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -196,7 +197,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <p>Liest den akutellen Status des LCDs aus. </p>
 <dl class="section return"><dt>Rückgabe</dt><dd>8bit breiter Status, Bit 7 ist Busy Flag </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00208">208</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00227">227</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
@@ -207,7 +208,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="751,81,869,108"/>
 <area shape="rect" href="lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="309,5,383,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="457,81,549,108"/>
-<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="597,132,703,159"/>
+<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="597,132,703,159"/>
 <area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,107,56,133"/>
 <area shape="rect" href="main_8c.html#add65c2bbc4a328fc893abeded917bc66" title=" " alt="" coords="104,107,235,133"/>
 <area shape="rect" href="main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="283,107,409,133"/>
@@ -233,13 +234,16 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00013">13</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p>Initilisierung des LCDs. </p>
+<p >Drei Function Sets und anschließend die Konfiguartion des LCDs. </p>
+
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00017">17</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_cgraph.png" border="0" usemap="#alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_cgraph" alt=""/></div>
 <map name="alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_cgraph" id="alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,68,32"/>
+<area shape="rect" title="Initilisierung des LCDs." alt="" coords="5,5,68,32"/>
 <area shape="rect" href="main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="116,5,195,32"/>
 </map>
 </div>
@@ -248,7 +252,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_icgraph.png" border="0" usemap="#alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_icgraph" alt=""/></div>
 <map name="alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_icgraph" id="alcd__gpio_8c_ac23e73124dc9fabae95671fe71d074a6_icgraph">
-<area shape="rect" title=" " alt="" coords="104,5,167,32"/>
+<area shape="rect" title="Initilisierung des LCDs." alt="" coords="104,5,167,32"/>
 <area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
@@ -290,16 +294,15 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
   </dd>
 </dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00162">162</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00177">177</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526_cgraph.png" border="0" usemap="#alcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526_cgraph" alt=""/></div>
 <map name="alcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526_cgraph" id="alcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526_cgraph">
-<area shape="rect" title="Setzt die Position des Cursors." alt="" coords="5,31,97,57"/>
-<area shape="rect" href="main__less_8c.html#a9d9be562445321043224885018bc7da3" title="Delay in ms Blockierende Delay Funktion, eventuell nicht perfekte Verzögerung mit Hilfe einer for Sch..." alt="" coords="165,5,244,32"/>
-<area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="145,56,264,83"/>
-<area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="312,56,419,83"/>
+<area shape="rect" title="Setzt die Position des Cursors." alt="" coords="5,5,97,32"/>
+<area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="145,5,264,32"/>
+<area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="312,5,419,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -332,13 +335,16 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00099">99</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p>Schreiben von Daten auf den Speicher des LCDs. </p>
+<p >Vor dem Zugriff wird Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> solange blockieren, bis Busy Flag nicht gesetzt. </p>
+
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00105">105</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_cgraph.png" border="0" usemap="#alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_cgraph" alt=""/></div>
 <map name="alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_cgraph" id="alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,111,32"/>
+<area shape="rect" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="5,5,111,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="159,5,277,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="325,5,432,32"/>
 </map>
@@ -348,7 +354,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_icgraph.png" border="0" usemap="#alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_icgraph" alt=""/></div>
 <map name="alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_icgraph" id="alcd__gpio_8c_a9958d5441d79af42a23a03f6229de09d_icgraph">
-<area shape="rect" title=" " alt="" coords="596,23,701,49"/>
+<area shape="rect" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="596,23,701,49"/>
 <area shape="rect" href="lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="457,23,548,49"/>
 <area shape="rect" href="main_8c.html#add65c2bbc4a328fc893abeded917bc66" title=" " alt="" coords="104,23,235,49"/>
 <area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,48,56,75"/>
@@ -376,7 +382,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 
 <p>Ruft <a class="el" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus.">lcd_get_status()</a> zyklisch auf, bis Busy Flag nicht mehr gesetzt ist. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00232">232</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00253">253</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -394,7 +400,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <area shape="rect" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="751,81,869,108"/>
 <area shape="rect" href="lcd__gpio_8c.html#ad235a86241458b1e7b8771688bfdaf9a" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="309,5,383,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors." alt="" coords="457,81,549,108"/>
-<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="597,132,703,159"/>
+<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="597,132,703,159"/>
 <area shape="rect" href="main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,107,56,133"/>
 <area shape="rect" href="main_8c.html#add65c2bbc4a328fc893abeded917bc66" title=" " alt="" coords="104,107,235,133"/>
 <area shape="rect" href="main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="283,107,409,133"/>
@@ -420,14 +426,14 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00131">131</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00144">144</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8_cgraph.png" border="0" usemap="#alcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8_cgraph" alt=""/></div>
 <map name="alcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8_cgraph" id="alcd__gpio_8c_a151abba6f7ca2f5cd5060fbaa26697e8_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,96,32"/>
-<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title=" " alt="" coords="144,5,249,32"/>
+<area shape="rect" href="lcd__gpio_8c.html#a9958d5441d79af42a23a03f6229de09d" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="144,5,249,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="297,5,416,32"/>
 <area shape="rect" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="464,5,571,32"/>
 </map>
