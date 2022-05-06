@@ -18,6 +18,7 @@
 #include "UART.h"
 #include "I2C.h"
 #include "lcd_gpio.h"
+#include "PMP.h"
 
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp              */

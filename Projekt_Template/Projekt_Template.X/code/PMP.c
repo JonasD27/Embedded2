@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "PMP.h"
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp              */
 
