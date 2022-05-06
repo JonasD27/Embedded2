@@ -235,7 +235,8 @@ int16_t main(void)
     init_ms_t4();               //Heartbeat in Superloop
     init_t2_t3();
     initI2C();
-    lcd_init();
+    //lcd_init();
+    initPMP();
 
     writeStrLCD("Hello World");
     delay_ms(2000);
@@ -267,7 +268,7 @@ int16_t main(void)
                 doI2C();
                 print_sensor_values();
                 measureProcesstime();
-                display_temp_load(); 
+                //display_temp_load(); 
             }         
         }
     }
