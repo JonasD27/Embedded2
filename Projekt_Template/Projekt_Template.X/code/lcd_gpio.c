@@ -11,7 +11,9 @@
 /******************************************************************************/
 /* Funktionen                                                                 */
 /******************************************************************************/
-
+/**
+ * Initilisierung des LCDs. Drei Function Sets und anschlieﬂend die Konfiguartion des LCDs.
+ */
 void lcd_init()
 {
     //Alle Signale als Ausg‰nge
@@ -98,7 +100,8 @@ void lcd_init()
 
 }/*lcd_init()*/
 
-
+/**Schreiben von Daten auf den Speicher des LCDs. Vor dem Zugriff wird Funktion waitForBusyLCD() solange blockieren, bis Busy Flag nicht gesetzt.
+ */
 void lcd_write_data(uint8_t data)
 {
     waitForBusyLCD();
