@@ -10,4 +10,6 @@ Um die geforderten Timings einzuhalten wurden zwei unterschiedliche Delay-\/\+Me
 
 In der Super\+Loop wird die Funktion \mbox{\hyperlink{main_8c_add65c2bbc4a328fc893abeded917bc66}{display\+\_\+temp\+\_\+load()}} jede ms aufgerufen und gibt in einem Takt von 3s abwechselnd die akutelle Temperatur und Aulastung in der ersten Zeile des LCDs aus. Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile des LCDs ausgegeben.
 
- 
+
+
+Hier zu sehen ist das Timing der LCD Signale. Als erstes wird hier die Funktion \mbox{\hyperlink{lcd__gpio_8c_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\+\_\+set\+\_\+pos()}} ausgeführt. In dieser wird das Display auf die Home position gesetzt. Danach wird zyklisch das Busy-\/\+Flag abgefragt. Es dauert ca 0.\+4ms bis es nicht mehr gesetzt ist. Danach erfolgen Schreib-\/\+Zugriffe, welche jeweils ca. 30us andauern. 

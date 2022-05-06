@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('em_aufgabe2.html',''); initResizable()
 <div class="image">
 <img src="LCD_Timing.png" alt=""/>
 </div>
- </div></div><!-- contents -->
+<p >Hier zu sehen ist das Timing der LCD Signale. Als erstes wird hier die Funktion <a class="el" href="lcd__gpio_8c.html#acfc4f2670ecb8c7c07fb015adb54a526" title="Setzt die Position des Cursors.">lcd_set_pos()</a> ausgeführt. In dieser wird das Display auf die Home position gesetzt. Danach wird zyklisch das Busy-Flag abgefragt. Es dauert ca 0.4ms bis es nicht mehr gesetzt ist. Danach erfolgen Schreib-Zugriffe, welche jeweils ca. 30us andauern. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

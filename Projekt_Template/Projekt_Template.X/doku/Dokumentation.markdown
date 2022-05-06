@@ -64,6 +64,9 @@ Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile de
 
 @image html LCD_Timing.png
 
+Hier zu sehen ist das Timing der LCD Signale. Als erstes wird hier die Funktion lcd_set_pos() ausgeführt. In dieser wird das Display auf die Home position gesetzt.
+Danach wird zyklisch das Busy-Flag abgefragt. Es dauert ca 0.4ms bis es nicht mehr gesetzt ist. Danach erfolgen Schreib-Zugriffe, welche jeweils ca. 30us andauern.
+
    
 
   
