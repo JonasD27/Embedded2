@@ -72,6 +72,12 @@
 /******************************************************************************/
 
 void initPMP(void);
+void lcd_write_data(uint8_t data);
+uint8_t lcd_get_status(void);
+void waitForBusyLCD(void); 
+void writeStrLCD(const char* str);
+void lcd_clear(void);
+void lcd_set_pos(int line, int pos);
 
 
 

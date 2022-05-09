@@ -17,7 +17,7 @@
 
 #include "UART.h"
 #include "I2C.h"
-#include "lcd_gpio.h"
+//#include "lcd_gpio.h"
 #include "PMP.h"
 
 #include "system.h"        /* System funct/params, like osc/peripheral config */
@@ -268,7 +268,7 @@ int16_t main(void)
                 doI2C();
                 print_sensor_values();
                 measureProcesstime();
-                //display_temp_load(); 
+                display_temp_load(); 
             }         
         }
     }

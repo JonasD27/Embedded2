@@ -23,6 +23,10 @@
 
 void initPMP(void)
 {
+    //Alle Ausg‰nge als Digital
+    _ANSB15 = 0;
+    ANSELE &= 0xFF00;
+    
     //CON
     PMCONbits.PMPEN = 1;
     PMCONbits.PSIDL = 0;
@@ -32,8 +36,8 @@ void initPMP(void)
     PMCONbits.PTRDEN = 1;
     PMCONbits.CSF = 0b00; 
     PMCONbits.ALP = 1;
-    PMCONbits.CS2P = 0;
-    PMCONbits.CS1P = 0;
+    PMCONbits.CS2P = 1;
+    PMCONbits.CS1P = 1;
     PMCONbits.BEP = 1;
     PMCONbits.WRSP = 1;
     PMCONbits.RDSP = 1;
@@ -49,6 +53,7 @@ void initPMP(void)
 
     //ADRESS ENABLE
     PMAEN = 0x0001;             // PMA0 enabled
+    PADCFG1bits.PMPTTL=0;
     delay_ms(40);       //40 ms warten
     
     /**************************************************************************/
@@ -72,12 +77,95 @@ void initPMP(void)
     PMDIN1 =LCD_DISPLAY_ON;
     __delay_us(38);
     
-    PMADDR = 1; //RS auf 1
-    PMDIN1 = 'T';
-    
-    
-    
-    
-    
-    
 }/*initPMP()*/
+
+uint8_t lcd_get_status(void)
+{
+    uint8_t dummy;
+    while( PMMODEbits.BUSY); //Warten bis PMP bereit
+    PMADDR = 0;
+    
+    dummy = PMDIN1; //lesen anstoﬂen durch dummy read
+    
+    while( PMMODEbits.BUSY);
+    return (PMDIN1);
+    
+
+}
+
+
+void waitForBusyLCD(void)
+{
+    while((lcd_get_status() & READ_BUSY_FLAG))
+    {
+        
+    }
+    return;
+
+}
+
+
+void lcd_write_data(uint8_t data)
+{
+    waitForBusyLCD();
+    while( PMMODEbits.BUSY ); 
+    PMADDR = 1;
+    PMDIN1 = data; 
+}
+
+void writeStrLCD(const char* str)
+{
+    uint8_t i = 0;
+    
+    while (str[i]!=0)
+    {
+        lcd_write_data((str[i]));
+        i++;
+		       
+	}
+}
+
+
+void lcd_clear(void)
+{
+    waitForBusyLCD();
+    while( PMMODEbits.BUSY ); 
+    PMADDR = 0;
+    PMDIN1 = LCD_DISPLAY_CLEAR;
+
+}
+
+
+void lcd_set_pos(int line, int pos)
+{
+    /*Display auf Home Position*/
+    waitForBusyLCD();
+    while( PMMODEbits.BUSY ); 
+    PMADDR = 0;
+    PMDIN1 = LCD_DISPLAY_HOME;
+    
+    /*Berechnung wieivel geshiftet werden muss*/
+    
+    int i = 0;
+    int to_shift = 0;
+    
+    if (line == 1)          //Erste Linie
+    {
+        to_shift = pos;
+    }
+    
+    else                    //Zweite Linie
+    {
+        to_shift = pos + 40;
+    }
+    
+    for(i = 0; i < to_shift - 1; i++)
+    {
+        waitForBusyLCD();
+        while( PMMODEbits.BUSY ); 
+        PMADDR = 0;
+        PMDIN1 = CURSOR_OR_DISPLAY;
+    }
+    
+
+}
