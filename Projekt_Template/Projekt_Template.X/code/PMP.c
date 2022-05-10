@@ -46,7 +46,7 @@ void initPMP(void)
     PMMODEbits.IRQM   = 0b00;
     PMMODEbits.INCM   = 0b00;
     PMMODEbits.MODE16 = 0;
-    PMMODEbits.MODE   = 0b11; //Master Mode 1
+    PMMODEbits.MODE   = 0b11;   //Master Mode 1
     PMMODEbits.WAITB  = 0b11;
     PMMODEbits.WAITM  = 0b1111;
     PMMODEbits.WAITE  = 0b11;
@@ -54,7 +54,7 @@ void initPMP(void)
     //ADRESS ENABLE
     PMAEN = 0x0001;             // PMA0 enabled
     PADCFG1bits.PMPTTL=0;
-    delay_ms(40);       //40 ms warten
+    delay_ms(40);               //40 ms warten
     
     /**************************************************************************/
     
@@ -79,6 +79,7 @@ void initPMP(void)
     
 }/*initPMP()*/
 
+
 uint8_t lcd_get_status(void)
 {
     uint8_t dummy;
@@ -90,8 +91,7 @@ uint8_t lcd_get_status(void)
     while( PMMODEbits.BUSY);
     return (PMDIN1);
     
-
-}
+}/*lcd_get_status()*/
 
 
 void waitForBusyLCD(void)
@@ -102,7 +102,7 @@ void waitForBusyLCD(void)
     }
     return;
 
-}
+}/*waitForBusyLCD()*/
 
 
 void lcd_write_data(uint8_t data)
@@ -111,7 +111,8 @@ void lcd_write_data(uint8_t data)
     while( PMMODEbits.BUSY ); 
     PMADDR = 1;
     PMDIN1 = data; 
-}
+    
+}/*lcd_write_data()*/
 
 void writeStrLCD(const char* str)
 {
@@ -120,10 +121,10 @@ void writeStrLCD(const char* str)
     while (str[i]!=0)
     {
         lcd_write_data((str[i]));
-        i++;
-		       
+        i++;		       
 	}
-}
+    
+}/*writeStrLCD()*/
 
 
 void lcd_clear(void)
@@ -133,7 +134,7 @@ void lcd_clear(void)
     PMADDR = 0;
     PMDIN1 = LCD_DISPLAY_CLEAR;
 
-}
+}/*lcd_clear()*/
 
 
 void lcd_set_pos(int line, int pos)
@@ -166,6 +167,5 @@ void lcd_set_pos(int line, int pos)
         PMADDR = 0;
         PMDIN1 = CURSOR_OR_DISPLAY;
     }
-    
-
-}
+   
+}/*lcd_set_pos()*/
