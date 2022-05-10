@@ -15,7 +15,7 @@ Include-\/\+Abhängigkeitsdiagramm für interrupts.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{interrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077}{\+\_\+\+T1\+Interrupt}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Dokumentation der Funktionen}
@@ -27,9 +27,14 @@ void \mbox{\hyperlink{interrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077}{\+\_\+\+T
 
 
 
-Definiert in Zeile \mbox{\hyperlink{interrupts_8c_source_l00025}{25}} der Datei \mbox{\hyperlink{interrupts_8c_source}{interrupts.\+c}}.
+Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Damit wird jede Sekunde eine I2\+C-\/\+Anfrage für den Licht-\/ und den Temperatursensor gestellt. Als Erweiterung wird nun ein Zeiger auf die auszuführende Callback-\/\+Funktion sowie eine ID bei den Anfragen übergeben. 
+
+Definiert in Zeile \mbox{\hyperlink{interrupts_8c_source_l00028}{28}} der Datei \mbox{\hyperlink{interrupts_8c_source}{interrupts.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

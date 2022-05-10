@@ -8,7 +8,7 @@ var main_8c =
     [ "get_Temperatur", "main_8c.html#a1b7d65e89a8c4488df180a296015b1b6", null ],
     [ "main", "main_8c.html#aec570f4ab450e8224be63b7dcfa62b35", null ],
     [ "measureProcesstime", "main_8c.html#a6188587bd216339104622b4a766d00b2", null ],
-    [ "print_sensor_values", "main_8c.html#adebdefdb6d4ef0fb996c5495257e938e", null ],
+    [ "print_sensor_values", "main_8c.html#a8a04c6bbc751721e41e25af6d8f10915", null ],
     [ "send_lcd_status", "main_8c.html#a37d537911df5a0124f1a43b0070cd138", null ],
     [ "latest_cpu_load", "main_8c.html#af832cfb864cc3aedc004597d490001f5", null ],
     [ "latest_temperatur", "main_8c.html#adcd199297f9a8146dd65366775e2cf7d", null ],

@@ -1,4 +1,4 @@
 <map id="Buffer_I2C_FSM" name="Buffer_I2C_FSM">
-<area shape="rect" id="node1" title=" " alt="" coords="5,219,121,311"/>
-<area shape="rect" id="node2" href="$struct_i2_c__struct.html" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b..." alt="" coords="17,5,110,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,248,121,340"/>
+<area shape="rect" id="node2" href="$struct_i2_c__struct.html" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b..." alt="" coords="17,5,110,185"/>
 </map>

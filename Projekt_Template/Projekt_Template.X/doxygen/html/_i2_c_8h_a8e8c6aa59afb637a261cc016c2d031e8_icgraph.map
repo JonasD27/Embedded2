@@ -1,0 +1,4 @@
+<map id="I2C_TempSens_Callback" name="I2C_TempSens_Callback">
+<area shape="rect" id="node1" title="Callback&#45;Funktion zum Augeben der Temperaturwerte." alt="" coords="144,5,311,32"/>
+<area shape="rect" id="node2" href="$interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077" title="Interrupt des Timer1, welcher jede Sekunde ausgeführt wird." alt="" coords="5,5,96,32"/>
+</map>

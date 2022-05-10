@@ -28,6 +28,7 @@ var NAVTREE =
     [ "Programmdokumentation", "index.html", null ],
     [ "Code-Style", "md__c___users__jonas__documents__git_hub__embedded2__projekt__template__projekt__template__x_doku__code__style.html", null ],
     [ "Aufgabe I2C Lichtsensor", "em_aufgabe1.html", null ],
+    [ "Erweiterung I2C Lichtsensor Callback", "em_aufgabe3.html", null ],
     [ "Aufgabe LCD Display GPIO", "em_aufgabe2.html", null ],
     [ "Datenstrukturen", "annotated.html", [
       [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
@@ -40,7 +41,7 @@ var NAVTREE =
     [ "Dateien", "files.html", [
       [ "Auflistung der Dateien", "files.html", "files_dup" ],
       [ "Globale Elemente", "globals.html", [
-        [ "Alle", "globals.html", null ],
+        [ "Alle", "globals.html", "globals_dup" ],
         [ "Funktionen", "globals_func.html", null ],
         [ "Variablen", "globals_vars.html", null ],
         [ "Typdefinitionen", "globals_type.html", null ],
@@ -54,7 +55,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_i2_c_8c.html"
+"_i2_c_8c.html",
+"struct_buffer___i2_c___f_s_m.html#a60e9c75aa693ad12f404344cffc12505"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';

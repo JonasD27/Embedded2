@@ -1,0 +1,5 @@
+<map id="lcd_write_data" name="lcd_write_data">
+<area shape="rect" id="node1" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="5,5,111,32"/>
+<area shape="rect" id="node2" href="$_p_m_p_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist." alt="" coords="159,5,277,32"/>
+<area shape="rect" id="node3" href="$_p_m_p_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus." alt="" coords="325,5,432,32"/>
+</map>

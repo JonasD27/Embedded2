@@ -84,12 +84,14 @@ int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
  * @param readbuf Zeiger auf Bereich, in welchem Daten abgespeichert werden 
  * sollen
  * @param status Zeiger, um akuellen Status zurückzugeben
+ * @param callback Zeiger auf eine Callback-Funktion, welche nach Abschluss der Anfrage aufgerufen werden soll
+ * @param ID ID zur Identifikation der Anfrage 
  * @retval 1, Anforderung wurde angenommen, die FSM wird getriggert
  * @retval 0, FSM ist beschäftig, Anforderung kann nicht angeommen werden
  */
-int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status)
+int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status, I2C_Callback_t callback, int16_t ID)
 {
-    I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,status};
+    I2C_struct temporary_struct = {address,num_write,writebuf,num_read,readbuf,status,callback,ID};
   
     if (put_I2C_struct_FIFO(temporary_struct))   //Erfolgreich in FIFO abgelegt?
     {
@@ -211,7 +213,7 @@ void *FSM_Start(void)
  * Schreibt die zu übertragende Daten in das Tranceive-Register
  * @param count Zaelervariable
  * @return FSM_Stop, sobald ein Fehler bei der Kommunikation auftritt, z.B kein
- * ACK vom Slave
+ * ACK vom Slave. Es wird die Callback Funktion aufgerufen
  * @return FSM_Adresse_Write, sobald keine Bytes mehr zu senden gibt
  * @return FSM_Repeated_Start, sobald die Bedigungen für den wiederholten Start
  * an die Pins SDAx und SClx weitergeleitet wurde.
@@ -224,6 +226,10 @@ void *FSM_Adresse_Write(void)
         {  
             I2C2CONbits.PEN=1;  //Fehler bei Kommunikation
             *I2C_test_struct.status=Error;
+            if (I2C_test_struct.callback != NULL)
+            {
+                 I2C_test_struct.callback(I2C_test_struct.readbuf, I2C_test_struct.num_read, I2C_test_struct.status, I2C_test_struct.ID);
+            }
             return FSM_Stop;
         }
         
@@ -274,10 +280,10 @@ void *FSM_Repeated_Start(void)
  * Initiiert das Lesen der Daten des Slaves
  * @param count Zaelervariable
  * @return FSM_Stop, sobald ein Fehler bei der Kommunikation auftritt, z.B kein
- * ACK vom Slave
+ * ACK vom Slave. Es wird die Callback Funktion aufgerufen
  * @return FSM_RECV_EN, sobald der Empfangsmodus für I2C aktiviert wurde
  * @return FSM_Stop, sobald die Stop-Bedigungen an die Pins SDAx und SCLx 
- * weitergeleitet wurden.
+ * weitergeleitet wurden. Es wird die Callback Funktion aufgerufen
  * @return FSM_Adresse_Read, wenn kein ACK vom Slave erhalten oder das Bit der 
  * ACK-Sequenz nicht freigegeben ist 
  */
@@ -289,6 +295,10 @@ void *FSM_Adresse_Read(void)
         {  
             I2C2CONbits.PEN=1;  // Leitet Stop-Bedigungen weiter 
             *I2C_test_struct.status=Error;   //Fehler bei Kommunikation
+            if (I2C_test_struct.callback != NULL)
+            {
+                 I2C_test_struct.callback(I2C_test_struct.readbuf, I2C_test_struct.num_read, I2C_test_struct.status, I2C_test_struct.ID);
+            }
             return FSM_Stop;
         }
         
@@ -309,8 +319,15 @@ void *FSM_Adresse_Read(void)
                 { 
                    count = 0; 
                    I2C2CONbits.PEN=1;   // Leitet Stop-Bedigungen weiter
+                   
                    *I2C_test_struct.status=Finished; //Anforderung abgearbeitet
+                   //Callback Funktion aufrufen
+                   if (I2C_test_struct.callback != NULL)
+                   {
+                        I2C_test_struct.callback(I2C_test_struct.readbuf, I2C_test_struct.num_read, I2C_test_struct.status, I2C_test_struct.ID);
+                   }
                    return FSM_Stop;
+                   
                 }
             }
             else
@@ -373,4 +390,85 @@ void *FSM_Stop(void)
     return FSM_Stop;
     
 } /* *FSM_Stop() */
+
+
+/**
+ * Callback-Funktion zum Augeben der Temperaturwerte
+ * @param readbuf Zeiger auf die ausgelesenen Daten
+ * @param num_read Anzahl der ausgelesenen Bytes
+ * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished werden die Daten interpretiert und ausgegeben.
+ * @param ID
+ */
+void I2C_TempSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID)
+{
+    if (ID==0) //Temperatur
+    {
+        if (*status==Finished)
+        {
+            
+            double temp = readbuf[0] << 8 | readbuf[1];
+            temp = temp / 256;
+
+            char str[32]; 
+            sprintf(str,"Temperatur: %.1f Grad",temp);
+            putsUART(str);
+            char lf[2];
+            sprintf(lf, "\n"); 
+            putsUART(lf);
+
+            latest_temperatur=temp;
+            *status=Pending;
+        }
+        if(*status==Error)
+        {
+            char str[32]; 
+            sprintf(str,"Fehler Auslesen des Temp-Sensors!");
+            putsUART(str);
+            char lf[2];
+            sprintf(lf, "\n"); 
+            putsUART(lf);
+        }
+    }
+
+}
+
+/**
+ * Callback-Funktion zum Augeben der Lichtwerte
+ * @param readbuf Zeiger auf die ausgelesenen Daten
+ * @param num_read Anzahl der ausgelesenen Bytes
+ * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished werden die Daten interpretiert und ausgegeben.
+ * @param ID
+ */
+void I2C_LightSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID)
+{
+    if (ID==1)//Licht
+    {
+        if (*status==Finished)
+        {
+        
+        double light = readbuf[0] << 8 | readbuf[1];
+        light = light / 1.2;
+
+        char str[16]; 
+        sprintf(str,"Licht: %.1f lux",light);
+        putsUART(str);
+        char lf[2];
+        sprintf(lf, "\n"); 
+        putsUART(lf);
+
+        *status=Pending;
+        }
+        
+        if(*status==Error)
+        {
+            char str[32]; 
+            sprintf(str,"Fehler Auslesen des Licht-Sensors!");
+            putsUART(str);
+            char lf[2];
+            sprintf(lf, "\n"); 
+            putsUART(lf);
+        }
+    }
+
+}
 

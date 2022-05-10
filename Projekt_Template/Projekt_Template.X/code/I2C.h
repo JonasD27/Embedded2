@@ -30,6 +30,7 @@
 /******************************************************************************/
 
 typedef enum {Pending, Finished, Error} i2c_status_t;
+typedef void (*I2C_Callback_t)(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID);
 
 /**
  * Datenstruktur für die Kapselung aller benötigten Variablen, welche für
@@ -46,6 +47,8 @@ typedef struct
     uint16_t num_read;
     uint8_t *readbuf;
     i2c_status_t *status;
+    I2C_Callback_t callback;
+    int16_t ID;
 }I2C_struct;
 
 
@@ -57,6 +60,8 @@ typedef struct
 }Buffer_I2C_FSM;
 
 typedef void *(*StateFunc)();
+
+
 
 /******************************************************************************/
 /* Global Variable Declaration                                                */
@@ -71,6 +76,8 @@ extern uint8_t read_data_buffer_light[2];
 extern i2c_status_t status_temperatur;
 extern i2c_status_t status_licht;
 
+extern double latest_temperatur;
+
 
 
 extern I2C_struct I2C_test_struct;
@@ -81,7 +88,10 @@ extern Buffer_I2C_FSM FIFO_I2C; //FIFO für die I2C FSM
 /* Prototypen                                                                 */
 /******************************************************************************/
 
-int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status);
+int16_t exchangeI2C(uint8_t address, uint16_t num_write, uint8_t *writebuf, uint16_t num_read, uint8_t *readbuf, i2c_status_t *status, I2C_Callback_t callback, int16_t ID);
+
+void I2C_TempSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID);
+void I2C_LightSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID);
 
 void doI2C(void);
 

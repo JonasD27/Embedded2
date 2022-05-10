@@ -61,6 +61,7 @@ double get_Light(void);
 /* Funktionen                                                                 */
 /******************************************************************************/
 
+#if 0
 /**
  * Ausgabe der ausgelesenen Sensor-Werte per UART
  */
@@ -115,8 +116,6 @@ void print_sensor_values()
     }
 
 } /* print_sensor_values() */
-
-
 double get_Temperatur(void)
 {
     double temp = read_data_buffer_temp[0] << 8 | read_data_buffer_temp[1];
@@ -124,8 +123,6 @@ double get_Temperatur(void)
     return temp;
     
 }/*get_Temperatur()*/
-
-
 double get_Light(void)
 {
     double light = read_data_buffer_light[0] << 8 | read_data_buffer_light[1];
@@ -133,6 +130,7 @@ double get_Light(void)
     return light;
     
 }/*get_Light()*/
+#endif
 
 
 void measureProcesstime()
@@ -265,8 +263,8 @@ int16_t main(void)
             {
                 _LATF0 = 1;     //Gated Timer starten
                 Count = 0;
+                
                 doI2C();
-                print_sensor_values();
                 measureProcesstime();
                 display_temp_load(); 
             }         
