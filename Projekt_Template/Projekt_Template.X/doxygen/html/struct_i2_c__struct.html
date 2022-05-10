@@ -99,7 +99,7 @@ Zusammengehörigkeiten von I2C_struct:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_i2_c__struct__coll__graph.png" border="0" usemap="#a_i2_c__struct_coll__map" alt="Collaboration graph"/></div>
 <map name="a_i2_c__struct_coll__map" id="a_i2_c__struct_coll__map">
-<area shape="rect" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b..." alt="" coords="5,5,99,156"/>
+<area shape="rect" title="Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO b..." alt="" coords="5,5,99,185"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -117,12 +117,16 @@ Datenfelder</h2></td></tr>
 <tr class="separator:a857014f4e286cf04cddf4447eb45430b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a7ee3550f0aea98fb7854e339e0e4fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_i2_c_8h.html#ada1e8e589688e2d6626421d8d85d9c53">i2c_status_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i2_c__struct.html#a1a7ee3550f0aea98fb7854e339e0e4fe">status</a></td></tr>
 <tr class="separator:a1a7ee3550f0aea98fb7854e339e0e4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec820d3b0250d8d4ddb99a8cafe79b09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_i2_c_8h.html#a076f05b1660b8e3cfd1d4b096ad97675">I2C_Callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i2_c__struct.html#aec820d3b0250d8d4ddb99a8cafe79b09">callback</a></td></tr>
+<tr class="separator:aec820d3b0250d8d4ddb99a8cafe79b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09a27c6b19d320176ceed96b54e9ab3"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i2_c__struct.html#aa09a27c6b19d320176ceed96b54e9ab3">ID</a></td></tr>
+<tr class="separator:aa09a27c6b19d320176ceed96b54e9ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
 <div class="textblock"><p >Datenstruktur für die Kapselung aller benötigten Variablen, welche für ein character basiertes FIFO benötigt werden. </p>
 <p >Diese Datenstruktur muss als globale Variable (z.B. mit Zusatz static) angelegt werden </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00041">41</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00042">42</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 </div><h2 class="groupheader">Dokumentation der Felder</h2>
 <a id="af3f726014b044194def151079f1f2d89" name="af3f726014b044194def151079f1f2d89"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3f726014b044194def151079f1f2d89">&#9670;&nbsp;</a></span>address</h2>
@@ -136,7 +140,39 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00043">43</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00044">44</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+
+</div>
+</div>
+<a id="aec820d3b0250d8d4ddb99a8cafe79b09" name="aec820d3b0250d8d4ddb99a8cafe79b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec820d3b0250d8d4ddb99a8cafe79b09">&#9670;&nbsp;</a></span>callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_i2_c_8h.html#a076f05b1660b8e3cfd1d4b096ad97675">I2C_Callback_t</a> callback</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00050">50</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+
+</div>
+</div>
+<a id="aa09a27c6b19d320176ceed96b54e9ab3" name="aa09a27c6b19d320176ceed96b54e9ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09a27c6b19d320176ceed96b54e9ab3">&#9670;&nbsp;</a></span>ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t ID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00051">51</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>
@@ -152,7 +188,7 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00046">46</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00047">47</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +204,7 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00044">44</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00045">45</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>
@@ -184,7 +220,7 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00047">47</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00048">48</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>
@@ -200,7 +236,7 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00048">48</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00049">49</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +252,7 @@ Datenfelder</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00045">45</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="_i2_c_8h_source.html#l00046">46</a> der Datei <a class="el" href="_i2_c_8h_source.html">I2C.h</a>.</p>
 
 </div>
 </div>

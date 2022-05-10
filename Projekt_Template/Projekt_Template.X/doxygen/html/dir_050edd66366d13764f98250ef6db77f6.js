@@ -8,6 +8,8 @@ var dir_050edd66366d13764f98250ef6db77f6 =
     [ "lcd_gpio.h", "lcd__gpio_8h.html", "lcd__gpio_8h" ],
     [ "main.c", "main_8c.html", "main_8c" ],
     [ "main_less.c", "main__less_8c.html", "main__less_8c" ],
+    [ "PMP.c", "_p_m_p_8c.html", "_p_m_p_8c" ],
+    [ "PMP.h", "_p_m_p_8h.html", "_p_m_p_8h" ],
     [ "system.c", "system_8c.html", "system_8c" ],
     [ "system.h", "system_8h.html", "system_8h" ],
     [ "traps.c", "traps_8c.html", "traps_8c" ],

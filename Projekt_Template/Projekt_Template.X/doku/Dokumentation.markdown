@@ -40,6 +40,14 @@ Treten Fehlerfälle beim Lesen oder Schreiben auf, wird eine Stopp-Bedingung eing
 Der Status der Anfragen wird innerhalb der FSM gesetzt. Falls der Status auf Finished gesetzt wird, gibt print_sensor_values() die gemessenen Werte aus.
 
 
+@page em_aufgabe3 Erweiterung I2C Lichtsensor Callback
+
+In dieser Aufgabe wurde die I2C-Funktionalität um die Möglichkeit erweitert, eine Callback Funktion zu definieren. Diese Funktion wird aufgerufen, sobald die FSM die Übertragung stoppt. 
+Das kann sowohl im Normal-Fall als auch im Fehlerfall erfolgen.
+Die zwei Callback-Funktionen I2C_TempSens_Callback() und I2C_LightSens_Callback() geben dann jweils die Temperatur oder den Lichtwert aus, falls der Status auf Finished gesetzt wurde.
+Die Funktionen müssen dabei vom Typ I2C_Callback_t sein, welcher die Weitergabe der benötigten Zegier und Daten erlaubt.
+
+
 @page em_aufgabe2 Aufgabe LCD Display GPIO
 
 In dieser Aufgabe sollte das LCD Display in Betrieb genommen werden. Es wurde dafür die Bibliothek lcd_gpio.h geschrieben.
@@ -67,7 +75,11 @@ Des Weiteren wird alle 3s die per UART empfangenen Daten in der zweiten Zeile de
 Hier zu sehen ist das Timing der LCD Signale. Als erstes wird hier die Funktion lcd_set_pos() ausgeführt. In dieser wird das Display auf die Home position gesetzt.
 Danach wird zyklisch das Busy-Flag abgefragt. Es dauert ca 0.4ms bis es nicht mehr gesetzt ist. Danach erfolgen Schreib-Zugriffe, welche jeweils ca. 30us andauern.
 
-   
+
+
+@page em_aufgabe2 Aufgabe LCD Display PMP
+
+In dieser Aufgabe sollte das LCD mit Hilfe des PMP-Moduls angesteuert werden.  
 
   
 

@@ -1,0 +1,435 @@
+\hypertarget{_p_m_p_8h}{}\doxysection{PMP.\+h-\/Dateireferenz}
+\label{_p_m_p_8h}\index{PMP.h@{PMP.h}}
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+Include-\/\+Abhängigkeitsdiagramm für PMP.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{_p_m_p_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_ad836aa0703fbad4b9fed4a4582496e03}{\+\_\+\+\_\+delay\+\_\+cycles}}(cycles)~asm volatile (\char`\"{}repeat \#\%0 \textbackslash{}n nop\char`\"{} \+: \+: \char`\"{}i\char`\"{} (cycles-\/2))
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_aa3d8c5404f0c011ebb896ff7d925b03d}{LCD\+\_\+\+DATA}}(d)~LATE = (LATE \& 0x\+FF00) $\vert$ d
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a4781e073871c6f27f89b9463ad3a4ed1}{LCD\+\_\+\+RS}}~\+\_\+\+RB15        /$\ast$LCD Registerauswahlsignal$\ast$/
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a87c24c96c4230435f0c282b1ec352e4e}{LCD\+\_\+\+R\+\_\+W}}~\+\_\+\+RD5        /$\ast$LCD Daten Lesen oder Schreiben$\ast$/
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a9e68ed137ca4a61c3977dcdad091f27c}{LCD\+\_\+\+ENABLE}}~\+\_\+\+RD4     /$\ast$LCD Aktivierungssignal$\ast$/
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\+\_\+\+CMD\+\_\+\+INIT}}~0b0000000000110000 /$\ast$LCD wird Initialliert$\ast$/
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\+\_\+\+FUNCTION\+\_\+\+SET}}~0b0000000000111000
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_ab1b96426e59139b68ae95df45d697087}{LCD\+\_\+\+DISPLAY\+\_\+\+OFF}}~0b0000000000001000
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\+\_\+\+DISPLAY\+\_\+\+CLEAR}}~0b0000000000000001
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{LCD\+\_\+\+DISPLAY\+\_\+\+HOME}}~0b0000000000000010
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_ae5d757ddb6d94de8c82191b60b40e442}{LCD\+\_\+\+ENTRY\+\_\+\+MODE}}~0b0000000000000110
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\+\_\+\+DISPLAY\+\_\+\+ON}}~0b0000000000001110
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_ab89a4168a44c82d86ceda9801c3a1bf6}{READ\+\_\+\+BUSY\+\_\+\+FLAG}}~0b0000000010000000
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_a15da8436a10120ffbbb20b0bb2d91efa}{CURSOR\+\_\+\+OR\+\_\+\+DISPLAY}}~0b0000000000010100
+\item 
+\#define \mbox{\hyperlink{_p_m_p_8h_add7af1708bcce2284cff78811194fcc8}{LCD\+\_\+\+ZEICHEN}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_m_p_8h_a1c6b9a91f316a3138c0c00014abe108a}{init\+PMP}} (void)
+\item 
+void \mbox{\hyperlink{_p_m_p_8h_a9958d5441d79af42a23a03f6229de09d}{lcd\+\_\+write\+\_\+data}} (uint8\+\_\+t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}})
+\begin{DoxyCompactList}\small\item\em Schreiben von Daten auf den Speicher des LCDs. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_p_8h_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\+\_\+get\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em Liest den akutellen Status des LCDs aus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_m_p_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{wait\+For\+Busy\+LCD}} (void)
+\begin{DoxyCompactList}\small\item\em Ruft \mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\+\_\+get\+\_\+status()}} zyklisch auf, bis Busy Flag nicht mehr gesetzt ist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_m_p_8h_a151abba6f7ca2f5cd5060fbaa26697e8}{write\+Str\+LCD}} (const char $\ast$str)
+\item 
+void \mbox{\hyperlink{_p_m_p_8h_ad235a86241458b1e7b8771688bfdaf9a}{lcd\+\_\+clear}} (void)
+\begin{DoxyCompactList}\small\item\em Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_m_p_8h_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\+\_\+set\+\_\+pos}} (int line, int pos)
+\begin{DoxyCompactList}\small\item\em Setzt die Position des Cursors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Makro-\/\+Dokumentation}
+\mbox{\Hypertarget{_p_m_p_8h_ad836aa0703fbad4b9fed4a4582496e03}\label{_p_m_p_8h_ad836aa0703fbad4b9fed4a4582496e03}} 
+\index{PMP.h@{PMP.h}!\_\_delay\_cycles@{\_\_delay\_cycles}}
+\index{\_\_delay\_cycles@{\_\_delay\_cycles}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{\_\_delay\_cycles}{\_\_delay\_cycles}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+delay\+\_\+cycles(\begin{DoxyParamCaption}\item[{}]{cycles }\end{DoxyParamCaption})~asm volatile (\char`\"{}repeat \#\%0 \textbackslash{}n nop\char`\"{} \+: \+: \char`\"{}i\char`\"{} (cycles-\/2))}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00023}{23}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a15da8436a10120ffbbb20b0bb2d91efa}\label{_p_m_p_8h_a15da8436a10120ffbbb20b0bb2d91efa}} 
+\index{PMP.h@{PMP.h}!CURSOR\_OR\_DISPLAY@{CURSOR\_OR\_DISPLAY}}
+\index{CURSOR\_OR\_DISPLAY@{CURSOR\_OR\_DISPLAY}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{CURSOR\_OR\_DISPLAY}{CURSOR\_OR\_DISPLAY}}
+{\footnotesize\ttfamily \#define CURSOR\+\_\+\+OR\+\_\+\+DISPLAY~0b0000000000010100}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00063}{63}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a24238d7a01f9554d653acb83f0591d8b}\label{_p_m_p_8h_a24238d7a01f9554d653acb83f0591d8b}} 
+\index{PMP.h@{PMP.h}!LCD\_CMD\_INIT@{LCD\_CMD\_INIT}}
+\index{LCD\_CMD\_INIT@{LCD\_CMD\_INIT}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CMD\_INIT}{LCD\_CMD\_INIT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CMD\+\_\+\+INIT~0b0000000000110000 /$\ast$LCD wird Initialliert$\ast$/}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00030}{30}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_aa3d8c5404f0c011ebb896ff7d925b03d}\label{_p_m_p_8h_aa3d8c5404f0c011ebb896ff7d925b03d}} 
+\index{PMP.h@{PMP.h}!LCD\_DATA@{LCD\_DATA}}
+\index{LCD\_DATA@{LCD\_DATA}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DATA}{LCD\_DATA}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DATA(\begin{DoxyParamCaption}\item[{}]{d }\end{DoxyParamCaption})~LATE = (LATE \& 0x\+FF00) $\vert$ d}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00025}{25}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}\label{_p_m_p_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}} 
+\index{PMP.h@{PMP.h}!LCD\_DISPLAY\_CLEAR@{LCD\_DISPLAY\_CLEAR}}
+\index{LCD\_DISPLAY\_CLEAR@{LCD\_DISPLAY\_CLEAR}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_CLEAR}{LCD\_DISPLAY\_CLEAR}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+CLEAR~0b0000000000000001}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00040}{40}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}\label{_p_m_p_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}} 
+\index{PMP.h@{PMP.h}!LCD\_DISPLAY\_HOME@{LCD\_DISPLAY\_HOME}}
+\index{LCD\_DISPLAY\_HOME@{LCD\_DISPLAY\_HOME}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_HOME}{LCD\_DISPLAY\_HOME}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+HOME~0b0000000000000010}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00044}{44}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_ab1b96426e59139b68ae95df45d697087}\label{_p_m_p_8h_ab1b96426e59139b68ae95df45d697087}} 
+\index{PMP.h@{PMP.h}!LCD\_DISPLAY\_OFF@{LCD\_DISPLAY\_OFF}}
+\index{LCD\_DISPLAY\_OFF@{LCD\_DISPLAY\_OFF}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_OFF}{LCD\_DISPLAY\_OFF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+OFF~0b0000000000001000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00037}{37}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a846dac5d1bb72bef7a76ee110c0445b6}\label{_p_m_p_8h_a846dac5d1bb72bef7a76ee110c0445b6}} 
+\index{PMP.h@{PMP.h}!LCD\_DISPLAY\_ON@{LCD\_DISPLAY\_ON}}
+\index{LCD\_DISPLAY\_ON@{LCD\_DISPLAY\_ON}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_ON}{LCD\_DISPLAY\_ON}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+ON~0b0000000000001110}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00053}{53}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a9e68ed137ca4a61c3977dcdad091f27c}\label{_p_m_p_8h_a9e68ed137ca4a61c3977dcdad091f27c}} 
+\index{PMP.h@{PMP.h}!LCD\_ENABLE@{LCD\_ENABLE}}
+\index{LCD\_ENABLE@{LCD\_ENABLE}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_ENABLE}{LCD\_ENABLE}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+ENABLE~\+\_\+\+RD4     /$\ast$LCD Aktivierungssignal$\ast$/}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00028}{28}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_ae5d757ddb6d94de8c82191b60b40e442}\label{_p_m_p_8h_ae5d757ddb6d94de8c82191b60b40e442}} 
+\index{PMP.h@{PMP.h}!LCD\_ENTRY\_MODE@{LCD\_ENTRY\_MODE}}
+\index{LCD\_ENTRY\_MODE@{LCD\_ENTRY\_MODE}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_ENTRY\_MODE}{LCD\_ENTRY\_MODE}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+ENTRY\+\_\+\+MODE~0b0000000000000110}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00047}{47}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_af8ec7e043a3b67ee423b97783d08aeb1}\label{_p_m_p_8h_af8ec7e043a3b67ee423b97783d08aeb1}} 
+\index{PMP.h@{PMP.h}!LCD\_FUNCTION\_SET@{LCD\_FUNCTION\_SET}}
+\index{LCD\_FUNCTION\_SET@{LCD\_FUNCTION\_SET}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_FUNCTION\_SET}{LCD\_FUNCTION\_SET}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+FUNCTION\+\_\+\+SET~0b0000000000111000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00034}{34}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a87c24c96c4230435f0c282b1ec352e4e}\label{_p_m_p_8h_a87c24c96c4230435f0c282b1ec352e4e}} 
+\index{PMP.h@{PMP.h}!LCD\_R\_W@{LCD\_R\_W}}
+\index{LCD\_R\_W@{LCD\_R\_W}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_R\_W}{LCD\_R\_W}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+R\+\_\+W~\+\_\+\+RD5        /$\ast$LCD Daten Lesen oder Schreiben$\ast$/}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00027}{27}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_a4781e073871c6f27f89b9463ad3a4ed1}\label{_p_m_p_8h_a4781e073871c6f27f89b9463ad3a4ed1}} 
+\index{PMP.h@{PMP.h}!LCD\_RS@{LCD\_RS}}
+\index{LCD\_RS@{LCD\_RS}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_RS}{LCD\_RS}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+RS~\+\_\+\+RB15        /$\ast$LCD Registerauswahlsignal$\ast$/}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00026}{26}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_add7af1708bcce2284cff78811194fcc8}\label{_p_m_p_8h_add7af1708bcce2284cff78811194fcc8}} 
+\index{PMP.h@{PMP.h}!LCD\_ZEICHEN@{LCD\_ZEICHEN}}
+\index{LCD\_ZEICHEN@{LCD\_ZEICHEN}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_ZEICHEN}{LCD\_ZEICHEN}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+ZEICHEN}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00066}{66}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+\mbox{\Hypertarget{_p_m_p_8h_ab89a4168a44c82d86ceda9801c3a1bf6}\label{_p_m_p_8h_ab89a4168a44c82d86ceda9801c3a1bf6}} 
+\index{PMP.h@{PMP.h}!READ\_BUSY\_FLAG@{READ\_BUSY\_FLAG}}
+\index{READ\_BUSY\_FLAG@{READ\_BUSY\_FLAG}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{READ\_BUSY\_FLAG}{READ\_BUSY\_FLAG}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+BUSY\+\_\+\+FLAG~0b0000000010000000}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8h_source_l00057}{57}} der Datei \mbox{\hyperlink{_p_m_p_8h_source}{PMP.\+h}}.
+
+
+
+\doxysubsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{_p_m_p_8h_a1c6b9a91f316a3138c0c00014abe108a}\label{_p_m_p_8h_a1c6b9a91f316a3138c0c00014abe108a}} 
+\index{PMP.h@{PMP.h}!initPMP@{initPMP}}
+\index{initPMP@{initPMP}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{initPMP()}{initPMP()}}
+{\footnotesize\ttfamily void init\+PMP (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{_p_m_p_8c_source_l00024}{24}} der Datei \mbox{\hyperlink{_p_m_p_8c_source}{PMP.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{_p_m_p_8h_a1c6b9a91f316a3138c0c00014abe108a_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{_p_m_p_8h_a1c6b9a91f316a3138c0c00014abe108a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_ad235a86241458b1e7b8771688bfdaf9a}\label{_p_m_p_8h_ad235a86241458b1e7b8771688bfdaf9a}} 
+\index{PMP.h@{PMP.h}!lcd\_clear@{lcd\_clear}}
+\index{lcd\_clear@{lcd\_clear}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_clear()}{lcd\_clear()}}
+{\footnotesize\ttfamily void lcd\+\_\+clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00124}{124}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_ad235a86241458b1e7b8771688bfdaf9a_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{_p_m_p_8h_ad235a86241458b1e7b8771688bfdaf9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_a6bcfd73d519832504e3b8bc7b3f6f408}\label{_p_m_p_8h_a6bcfd73d519832504e3b8bc7b3f6f408}} 
+\index{PMP.h@{PMP.h}!lcd\_get\_status@{lcd\_get\_status}}
+\index{lcd\_get\_status@{lcd\_get\_status}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_get\_status()}{lcd\_get\_status()}}
+{\footnotesize\ttfamily uint8\+\_\+t lcd\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Liest den akutellen Status des LCDs aus. 
+
+\begin{DoxyReturn}{Rückgabe}
+8bit breiter Status, Bit 7 ist Busy Flag 
+\end{DoxyReturn}
+
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00227}{227}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a6bcfd73d519832504e3b8bc7b3f6f408_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_acfc4f2670ecb8c7c07fb015adb54a526}\label{_p_m_p_8h_acfc4f2670ecb8c7c07fb015adb54a526}} 
+\index{PMP.h@{PMP.h}!lcd\_set\_pos@{lcd\_set\_pos}}
+\index{lcd\_set\_pos@{lcd\_set\_pos}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_set\_pos()}{lcd\_set\_pos()}}
+{\footnotesize\ttfamily void lcd\+\_\+set\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{line,  }\item[{int}]{pos }\end{DoxyParamCaption})}
+
+
+
+Setzt die Position des Cursors. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em line} & Linie, entweder 1 oder 2 \\
+\hline
+{\em pos} & Position \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00177}{177}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_acfc4f2670ecb8c7c07fb015adb54a526_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_acfc4f2670ecb8c7c07fb015adb54a526_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_a9958d5441d79af42a23a03f6229de09d}\label{_p_m_p_8h_a9958d5441d79af42a23a03f6229de09d}} 
+\index{PMP.h@{PMP.h}!lcd\_write\_data@{lcd\_write\_data}}
+\index{lcd\_write\_data@{lcd\_write\_data}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_write\_data()}{lcd\_write\_data()}}
+{\footnotesize\ttfamily void lcd\+\_\+write\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Schreiben von Daten auf den Speicher des LCDs. 
+
+Vor dem Zugriff wird Funktion \mbox{\hyperlink{lcd__gpio_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{wait\+For\+Busy\+LCD()}} solange blockieren, bis Busy Flag nicht gesetzt. 
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00105}{105}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a9958d5441d79af42a23a03f6229de09d_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a9958d5441d79af42a23a03f6229de09d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc}\label{_p_m_p_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc}} 
+\index{PMP.h@{PMP.h}!waitForBusyLCD@{waitForBusyLCD}}
+\index{waitForBusyLCD@{waitForBusyLCD}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{waitForBusyLCD()}{waitForBusyLCD()}}
+{\footnotesize\ttfamily void wait\+For\+Busy\+LCD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Ruft \mbox{\hyperlink{lcd__gpio_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\+\_\+get\+\_\+status()}} zyklisch auf, bis Busy Flag nicht mehr gesetzt ist. 
+
+
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00253}{253}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{_p_m_p_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a01b1a4ea4a64b70bfc2f1569bd57bcdc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_p_m_p_8h_a151abba6f7ca2f5cd5060fbaa26697e8}\label{_p_m_p_8h_a151abba6f7ca2f5cd5060fbaa26697e8}} 
+\index{PMP.h@{PMP.h}!writeStrLCD@{writeStrLCD}}
+\index{writeStrLCD@{writeStrLCD}!PMP.h@{PMP.h}}
+\doxysubsubsection{\texorpdfstring{writeStrLCD()}{writeStrLCD()}}
+{\footnotesize\ttfamily void write\+Str\+LCD (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Definiert in Zeile \mbox{\hyperlink{lcd__gpio_8c_source_l00144}{144}} der Datei \mbox{\hyperlink{lcd__gpio_8c_source}{lcd\+\_\+gpio.\+c}}.
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a151abba6f7ca2f5cd5060fbaa26697e8_cgraph}
+\end{center}
+\end{figure}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_m_p_8h_a151abba6f7ca2f5cd5060fbaa26697e8_icgraph}
+\end{center}
+\end{figure}

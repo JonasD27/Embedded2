@@ -1,0 +1,4 @@
+<map id="lcd_clear" name="lcd_clear">
+<area shape="rect" id="node1" title="Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen." alt="" coords="104,5,179,32"/>
+<area shape="rect" id="node2" href="$main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,5,56,32"/>
+</map>

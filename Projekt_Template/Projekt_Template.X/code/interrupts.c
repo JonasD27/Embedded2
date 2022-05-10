@@ -21,7 +21,10 @@
 /******************************************************************************/
 /* Interrupt Routines                                                         */
 /******************************************************************************/
-
+/**
+ * Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. Damit wird jede Sekunde eine I2C-Anfrage für den Licht- und den Temperatursensor gestellt.
+ * Als Erweiterung wird nun ein Zeiger auf die auszuführende Callback-Funktion sowie eine ID bei den Anfragen übergeben.
+ */
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
 {
     _T1IF = 0; //Clear Timer1 interrupt flag
@@ -31,9 +34,9 @@ void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
     {
         count=0;     
         //Anfrage Temperatur-Sensor
-        exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status_temperatur);
+        exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status_temperatur, &I2C_TempSens_Callback ,0);
         //Anfrage Licht-Sensor
-        //exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status_licht);   
+        exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status_licht, &I2C_LightSens_Callback, 1);   
     }
     else
     {
@@ -41,6 +44,3 @@ void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
     }
 
 }
-
-
-/* TODO Add interrupt routine code here. */

@@ -115,6 +115,7 @@ Include-Abhängigkeitsdiagramm für interrupts.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:a3b9d4f7573499d6acdb1ffd1064a9077"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt</a> (void)</td></tr>
+<tr class="memdesc:a3b9d4f7573499d6acdb1ffd1064a9077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt des Timer1, welcher jede Sekunde ausgeführt wird.  <a href="interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077">Mehr ...</a><br /></td></tr>
 <tr class="separator:a3b9d4f7573499d6acdb1ffd1064a9077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Dokumentation der Funktionen</h2>
@@ -134,15 +135,22 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="interrupts_8c_source.html#l00025">25</a> der Datei <a class="el" href="interrupts_8c_source.html">interrupts.c</a>.</p>
+<p>Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. </p>
+<p >Damit wird jede Sekunde eine I2C-Anfrage für den Licht- und den Temperatursensor gestellt. Als Erweiterung wird nun ein Zeiger auf die auszuführende Callback-Funktion sowie eine ID bei den Anfragen übergeben. </p>
+
+<p class="definition">Definiert in Zeile <a class="el" href="interrupts_8c_source.html#l00028">28</a> der Datei <a class="el" href="interrupts_8c_source.html">interrupts.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
 <div class="center"><img src="interrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077_cgraph.png" border="0" usemap="#ainterrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077_cgraph" alt=""/></div>
 <map name="ainterrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077_cgraph" id="ainterrupts_8c_a3b9d4f7573499d6acdb1ffd1064a9077_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,96,32"/>
-<area shape="rect" href="_i2_c_8c.html#afebf0d256affa0109e46790328ec5985" title="Übergibt angeforderte I2C&#45;Anfrage an das FIFO und liefert den akutellen Status." alt="" coords="144,5,241,32"/>
-<area shape="rect" href="_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47" title="Legt eine I2C&#45;Anfrage in dem I2C&#45;FIFO ab." alt="" coords="289,5,432,32"/>
+<area shape="rect" title="Interrupt des Timer1, welcher jede Sekunde ausgeführt wird." alt="" coords="5,56,96,83"/>
+<area shape="rect" href="_i2_c_8c.html#ab38b9329f69bcb0a02c3b1fc456337d2" title="Übergibt angeforderte I2C&#45;Anfrage an das FIFO und liefert den akutellen Status." alt="" coords="179,5,276,32"/>
+<area shape="rect" href="_i2_c_8c.html#afddc64db7c2a72b96ca854ba1c7709f6" title="Callback&#45;Funktion zum Augeben der Lichtwerte." alt="" coords="146,56,309,83"/>
+<area shape="rect" href="_i2_c_8c.html#a8e8c6aa59afb637a261cc016c2d031e8" title="Callback&#45;Funktion zum Augeben der Temperaturwerte." alt="" coords="144,107,311,133"/>
+<area shape="rect" href="_i2_c_8c.html#a62fb187ee2d04a1b9eccfdf1821f9d47" title="Legt eine I2C&#45;Anfrage in dem I2C&#45;FIFO ab." alt="" coords="359,5,501,32"/>
+<area shape="rect" href="main__less_8c.html#a69a22a2e161c1c4207b694f38f5c3f8f" title=" " alt="" coords="389,81,471,108"/>
+<area shape="rect" href="main__less_8c.html#a6e64850d41714e4e58d22bea4caf1b67" title=" " alt="" coords="549,81,647,108"/>
 </map>
 </div>
 
