@@ -7,21 +7,22 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-#include <xc.h>
+#include <xc.h>            /* Jede Prozessordatei ist geschützt.              */
 
-#include <stdint.h>        /* Includes uint16_t definition                    */
-#include <stdbool.h>       /* Includes true/false definition                  */
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+#include <string.h>        /* Enthält Zeichenketten                           */
+#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
-#include "UART.h"
-#include "I2C.h"
+#include "system.h"        /* System - Funktion/Parameter                     */
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
+
+/* Beinhaltet Konstanten, Typdefs, globale Variablen und Prototypen für main  */
+#include "UART.h"          
+#include "I2C.h"           
 //#include "lcd_gpio.h"
 #include "PMP.h"
-
-#include "system.h"        /* System funct/params, like osc/peripheral config */
-#include "user.h"          /* User funct/params, such as InitApp              */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -236,7 +237,7 @@ int16_t main(void)
     //lcd_init();
     initPMP();
 
-    writeStrLCD("Hello World");
+    writeStrLCD("Guten Morgen");
     delay_ms(2000);
     lcd_clear();
 

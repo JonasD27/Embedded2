@@ -2,17 +2,20 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
+/* Beinhaltet Konstanten, Typdefs, globale Variablen und Prototypen für main  */
 #include "I2C.h"
-#include "system.h"
 #include "UART.h"
-#include "user.h"
 
+#include "system.h"        /* System - Funktion/Parameter                     */
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
 
+/******************************************************************************/
+/* Global Variable Declaration                                                */
+/******************************************************************************/
 
 I2C_struct I2C_test_struct = {0,0,NULL,0,NULL,NULL};
 
 Buffer_I2C_FSM FIFO_I2C = {{},0,0}; //FIFO für die I2C FSM
-
 
 /******************************************************************************/
 /* Funktionen                                                                 */
@@ -84,7 +87,8 @@ int16_t get_I2C_struct_FIFO(volatile I2C_struct *s)
  * @param readbuf Zeiger auf Bereich, in welchem Daten abgespeichert werden 
  * sollen
  * @param status Zeiger, um akuellen Status zurückzugeben
- * @param callback Zeiger auf eine Callback-Funktion, welche nach Abschluss der Anfrage aufgerufen werden soll
+ * @param callback Zeiger auf eine Callback-Funktion, welche nach Abschluss der 
+ * Anfrage aufgerufen werden soll
  * @param ID ID zur Identifikation der Anfrage 
  * @retval 1, Anforderung wurde angenommen, die FSM wird getriggert
  * @retval 0, FSM ist beschäftig, Anforderung kann nicht angeommen werden
@@ -396,7 +400,9 @@ void *FSM_Stop(void)
  * Callback-Funktion zum Augeben der Temperaturwerte
  * @param readbuf Zeiger auf die ausgelesenen Daten
  * @param num_read Anzahl der ausgelesenen Bytes
- * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished werden die Daten interpretiert und ausgegeben.
+ * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen 
+ * hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished 
+ * werden die Daten interpretiert und ausgegeben.
  * @param ID
  */
 void I2C_TempSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID)
@@ -436,7 +442,9 @@ void I2C_TempSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *st
  * Callback-Funktion zum Augeben der Lichtwerte
  * @param readbuf Zeiger auf die ausgelesenen Daten
  * @param num_read Anzahl der ausgelesenen Bytes
- * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished werden die Daten interpretiert und ausgegeben.
+ * @param status Status mit welchem die FSM die Callback-Funktion aufgerufen 
+ * hat. Im Fall Error wird eine Fehlermeldung ausgegeben. Im Fall Finished 
+ * werden die Daten interpretiert und ausgegeben.
  * @param ID
  */
 void I2C_LightSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *status, int16_t ID)
@@ -470,5 +478,5 @@ void I2C_LightSens_Callback(uint8_t *readbuf, uint16_t num_read, i2c_status_t *s
         }
     }
 
-}
+}/*I2C_LightSens_Callback()*/
 

@@ -2,14 +2,15 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-#include "user.h"
-#include <stdint.h>        /* Includes uint16_t definition                    */
-#include <stdbool.h>       /* Includes true/false definition                  */
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <xc.h>            /* Jede Prozessordatei ist geschützt.              */
 
-#include <xc.h>
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+#include <string.h>        /* Enthält Zeichenketten                           */
+#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
+
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -29,13 +30,9 @@ typedef struct
   uint8_t write; // zeigt immer auf leeres Feld
 }Buffer;
 
-
-
 /******************************************************************************/
 /* Globale Variable Declaration                                               */
 /******************************************************************************/
-
-
 
 extern Buffer FIFO; 
 extern Buffer FIFO_RX; 
@@ -47,10 +44,8 @@ extern int UART_RX_count;
 /******************************************************************************/
 
 void initUART(void);
-
 int16_t putsUART(const char *str);
 int16_t getcFIFO_TX(volatile uint16_t *c);
 int16_t getcFIFO_RX(char *c);
-
 int16_t putcFIFO_TX(char c);
 int16_t putcFIFO_RX(char c);

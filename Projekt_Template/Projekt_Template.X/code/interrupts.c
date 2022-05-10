@@ -13,17 +13,23 @@
     #endif
 #endif
 
-#include <stdint.h>        /* Includes uint16_t definition   */
-#include <stdbool.h>       /* Includes true/false definition */
-#include "user.h"
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
+
+/* Beinhaltet Konstanten, Typdefs, globale Variablen und Prototypen für main  */
 #include "I2C.h"
 
 /******************************************************************************/
 /* Interrupt Routines                                                         */
 /******************************************************************************/
+
 /**
- * Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. Damit wird jede Sekunde eine I2C-Anfrage für den Licht- und den Temperatursensor gestellt.
- * Als Erweiterung wird nun ein Zeiger auf die auszuführende Callback-Funktion sowie eine ID bei den Anfragen übergeben.
+ * Interrupt des Timer1, welcher jede Sekunde ausgeführt wird. Damit wird jede 
+ * Sekunde eine I2C-Anfrage für den Licht- und den Temperatursensor gestellt.
+ * Als Erweiterung wird nun ein Zeiger auf die auszuführende Callback-Funktion 
+ * sowie eine ID bei den Anfragen übergeben.
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
 {

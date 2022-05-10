@@ -64,10 +64,15 @@ void initPMP(void)
     /**************************************************************************/
     
     PMADDR = 0;                 //RS auf 0
+    
+    delay_ms(40);               //40 ms warten
+    
     PMDIN1 = LCD_CMD_INIT;      //Function Set 1
-    delay_ms(5);
+    __delay_us(4100);           //4.1 ms warten
+    
     PMDIN1 = LCD_CMD_INIT;      //Function Set 2
-    __delay_cycles(6000);       //
+    __delay_us(100);            //100 us warten
+    
     PMDIN1 = LCD_CMD_INIT;      //Function Set 3
     __delay_us(38);             //LCD_CMD_INIT benötigt 38 us zum Ausführen
     
