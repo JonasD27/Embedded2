@@ -2,17 +2,15 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-#include "user.h"          /* User funct/params, such as InitApp              */
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+#include <string.h>        /* Enthält Zeichenketten                           */
+#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
-#include <stdint.h>        /* Includes uint16_t definition                    */
-#include <stdbool.h>       /* Includes true/false definition                  */
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <xc.h>            /* Jede Prozessordatei ist geschützt.              */
 
-#include <xc.h>
-
-#include "libpic30.h"       /*Beinhaltet Delay-Funktionen                     */
+#include "libpic30.h"      /* Beinhaltet Delay-Funktionen                     */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -53,18 +51,14 @@
 #define LCD_DISPLAY_ON      0b0000000000001110
 
 /*Definiert den IC und gibt an das dieser in Betrieb ist. Interne Operation ist
- *im Gange es soll gewartet werden*/
+ *im Gange es soll gewartet werden. Benötigt 0us.*/
 #define READ_BUSY_FLAG      0b0000000010000000
 
-/*Cursor nach rechts schieben, AC wird um 1 erhöht und gesamte Anzeige nach
+/* Cursor nach rechts schieben, AC wird um 1 erhöht und gesamte Anzeige nach
  * rechts verschieben (der Cursor bewegt sich entsprechend der Anzeige).
  * In der Anzeige wird nicht gelesen oder geschrieben. Diese Anweisung wird
- * verwendet, um Anzeigedaten zu korrigieren oder zu suchen. */
+ * verwendet, um Anzeigedaten zu korrigieren oder zu suchen. Benötigt 38us. */
 #define CURSOR_OR_DISPLAY   0b0000000000010100
-
-/*Zeichen definieren*/
-#define LCD_ZEICHEN
-//#define LCD_ZEICHEN(zeichen)zeichen
 
 /******************************************************************************/
 /* Prototypen                                                                 */

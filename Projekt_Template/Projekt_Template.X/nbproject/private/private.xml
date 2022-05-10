@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/PMP.c</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/lcd_gpio.c</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/PMP.h</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/lcd_gpio.h</file>
         </group>
     </open-files>
 </project-private>

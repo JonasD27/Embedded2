@@ -2,25 +2,30 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-#include <xc.h>            /* Device header file                              */
+#include <xc.h>            /* Jede Prozessordatei ist geschützt.              */
 
-#include <stdio.h>        
-#include <stdint.h>        /* Includes uint16_t definition                    */
-#include <stdbool.h>       /* Includes true/false definition                  */
-#include <stdlib.h>
-#include <string.h>
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+#include <string.h>        /* Enthält Zeichenketten                           */
+#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
-#include "PMP.h"
-#include "system.h"        /* System funct/params, like osc/peripheral config */
-#include "user.h"          /* User funct/params, such as InitApp              */
+#include "system.h"        /* System - Funktion/Parameter                     */
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
 
-#include "libpic30.h"      /*Beinhaltet Delay-Funktionen                      */
+#include "libpic30.h"      /* Beinhaltet Delay-Funktionen                     */
+#include "PMP.h"           /* Behinhaltet Konstanten und Prototypen           */
 
 
 /******************************************************************************/
 /* Funktionen                                                                 */
 /******************************************************************************/
 
+/**
+ * Initilisierung des PMPs. Drei Function Sets und anschließend die 
+ * Konfiguartion des LCDs. Diese beinhaltet das Funktion Set, Display off,
+ * Display clear, Entry mode und Display on. 
+ */
 void initPMP(void)
 {
     //Alle Ausgänge als Digital
@@ -58,35 +63,45 @@ void initPMP(void)
     
     /**************************************************************************/
     
-    PMADDR = 0; //RS auf 0
-    PMDIN1 = LCD_CMD_INIT; //Function Set 1
+    PMADDR = 0;                 //RS auf 0
+    PMDIN1 = LCD_CMD_INIT;      //Function Set 1
     delay_ms(5);
-    PMDIN1 = LCD_CMD_INIT; //Function Set 2
-    __delay_cycles(6000); //
-    PMDIN1 = LCD_CMD_INIT; //Function Set 3
-    __delay_us(38);
+    PMDIN1 = LCD_CMD_INIT;      //Function Set 2
+    __delay_cycles(6000);       //
+    PMDIN1 = LCD_CMD_INIT;      //Function Set 3
+    __delay_us(38);             //LCD_CMD_INIT benötigt 38 us zum Ausführen
     
-    PMDIN1 = LCD_FUNCTION_SET; 
-    __delay_us(38);
+    /*************************Alle anderen Anweisungen*************************/
+    
+    PMDIN1 = LCD_FUNCTION_SET;
+    __delay_us(38);             //LCD_FUNCTION_SET benötigt 38 us zum Ausführen
+    
     PMDIN1 = LCD_DISPLAY_OFF; 
-    __delay_us(38);
-    PMDIN1 = LCD_DISPLAY_CLEAR; 
+    __delay_us(38);             //LCD_DISPLAY_OFF benötigt 38 us zum Ausführen
+    
+    //LCD_DISPLAY_CLEAR benötigt 1520 us zum Ausführen
+    PMDIN1 = LCD_DISPLAY_CLEAR;  
     __delay_us(1520);
+    
     PMDIN1 = LCD_ENTRY_MODE;
-    __delay_us(38);
-    PMDIN1 =LCD_DISPLAY_ON;
-    __delay_us(38);
+    __delay_us(38);             //LCD_ENTRY_MODE benötigt 38 us zum Ausführen
+    
+    PMDIN1 = LCD_DISPLAY_ON;
+    __delay_us(38);             //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
     
 }/*initPMP()*/
 
-
+/**
+ * Liest den akutellen Status des LCDs aus.
+ * @return PMDIN1 wird zum Puffer eingehender Daten verwendet
+ */
 uint8_t lcd_get_status(void)
 {
     uint8_t dummy;
-    while( PMMODEbits.BUSY); //Warten bis PMP bereit
+    while( PMMODEbits.BUSY);    //Warten bis PMP bereit
     PMADDR = 0;
     
-    dummy = PMDIN1; //lesen anstoßen durch dummy read
+    dummy = PMDIN1;             //lesen anstoßen durch dummy read
     
     while( PMMODEbits.BUSY);
     return (PMDIN1);
@@ -94,6 +109,9 @@ uint8_t lcd_get_status(void)
 }/*lcd_get_status()*/
 
 
+/**
+ * Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.
+ */
 void waitForBusyLCD(void)
 {
     while((lcd_get_status() & READ_BUSY_FLAG))
@@ -105,6 +123,10 @@ void waitForBusyLCD(void)
 }/*waitForBusyLCD()*/
 
 
+/**
+ * Schreiben von Daten auf den Speicher des LCDs. Vor dem Zugriff wird Funktion 
+ * waitForBusyLCD() solange blockieren, bis Busy Flag nicht gesetzt.
+ */
 void lcd_write_data(uint8_t data)
 {
     waitForBusyLCD();
@@ -114,6 +136,11 @@ void lcd_write_data(uint8_t data)
     
 }/*lcd_write_data()*/
 
+
+/**
+ * Gibt einen String an der aktuellen Position im Display aus.
+ * @param str Zeichen
+ */
 void writeStrLCD(const char* str)
 {
     uint8_t i = 0;
@@ -127,6 +154,11 @@ void writeStrLCD(const char* str)
 }/*writeStrLCD()*/
 
 
+/**
+ * Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. Vor 
+ * dem Zugriff wird Funktion waitForBusyLCD() solange blockieren, bis Busy Flag 
+ * nicht gesetzt.
+ */
 void lcd_clear(void)
 {
     waitForBusyLCD();
@@ -137,6 +169,12 @@ void lcd_clear(void)
 }/*lcd_clear()*/
 
 
+/**
+ * Setzt die Position des Cursors. Vor dem Zugriff wird Funktion 
+ * waitForBusyLCD() solange blockieren, bis Busy Flag nicht gesetzt.
+ * @param line Linie, entweder 1 oder 2
+ * @param pos Position
+ */
 void lcd_set_pos(int line, int pos)
 {
     /*Display auf Home Position*/
@@ -146,7 +184,6 @@ void lcd_set_pos(int line, int pos)
     PMDIN1 = LCD_DISPLAY_HOME;
     
     /*Berechnung wieivel geshiftet werden muss*/
-    
     int i = 0;
     int to_shift = 0;
     
