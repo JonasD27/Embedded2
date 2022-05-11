@@ -7,7 +7,7 @@
 #include <stdint.h>        /* Enthält uint16_t-Definition                     */
 #include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
 #include <string.h>        /* Enthält Zeichenketten                           */
-#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdio.h>         /* Enthält Ein - und Ausgabefunktionen             */
 #include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
 #include "system.h"        /* System - Funktion/Parameter                     */
@@ -55,18 +55,35 @@ void initPMP(void)
     PMMODEbits.WAITB  = 0b11;
     PMMODEbits.WAITM  = 0b1111;
     PMMODEbits.WAITE  = 0b11;
+    
 
     //ADRESS ENABLE
+    
+    /* Parallel Master Port Address Enable Register (PMAEN). Dieses Register 
+     * steuert den Betrieb der Adress- und Chip-Select-Pins, die mit dem PMP 
+     * Modul zugeordnet sind.*/
     PMAEN = 0x0001;             // PMA0 enabled
+    
+    /* Pad Configuration Control Register (PADCFG1). Das PADCFG1 steuert, 
+     * welcher digitale Eingangspuffer vom PMP-Modul verwendet wird. 
+     * Das PMPTTL Bit ermöglicht dem Benutzer die Auswahl zwischen 
+     * Transistor-Transistor-Logik (TTL) und Schmitt-Trigger 
+     * (ST)-Eingangspuffern für eine bessere Kompatibilität mit externen 
+     * Schaltungen. PMPTTL = 0 ist die Standardkonfiguration und wählt die 
+     * ST-Puffer aus.*/
     PADCFG1bits.PMPTTL=0;
     delay_ms(40);               //40 ms warten
     
     /**************************************************************************/
     
+    /* Parallel Master Port Address Register (PMADDR) Dieses Register enthält 
+     * die Adresse, an die die ausgehenden Daten geschrieben werden sollen, 
+     * sowie die Chip Select Steuerbits für die Adressierung von parallelen 
+     * Slave-Geräten.*/
     PMADDR = 0;                 //RS auf 0
     
-    delay_ms(40);               //40 ms warten
-    
+    /* Der Register Parallel Master Port Data Input 1 (PMDIN1) dient der 
+     * Pufferung eingehender Daten.*/
     PMDIN1 = LCD_CMD_INIT;      //Function Set 1
     __delay_us(4100);           //4.1 ms warten
     
@@ -78,19 +95,25 @@ void initPMP(void)
     
     /*************************Alle anderen Anweisungen*************************/
     
+    /*LCD_FUNCTION_SET stellt die Bewegungsrichtig von Cursor und Display ein.*/
     PMDIN1 = LCD_FUNCTION_SET;
     __delay_us(38);             //LCD_FUNCTION_SET benötigt 38 us zum Ausführen
     
+    /*LCD_DISPLAY_OFF schaltet das Display aus.*/
     PMDIN1 = LCD_DISPLAY_OFF; 
     __delay_us(38);             //LCD_DISPLAY_OFF benötigt 38 us zum Ausführen
     
-    //LCD_DISPLAY_CLEAR benötigt 1520 us zum Ausführen
+    /*LCD_DISPLAY_CLEAR löscht die Anzeigedaten. LCD_DISPLAY_CLEAR benötigt 
+     * 1520 us zum Ausführen*/
     PMDIN1 = LCD_DISPLAY_CLEAR;  
     __delay_us(1520);
     
+    /*LCD_ENTRY_MODE stellt den Eingabemodus ein. Der Cursor bewegt sich dabei
+     *nach rechts.*/
     PMDIN1 = LCD_ENTRY_MODE;
     __delay_us(38);             //LCD_ENTRY_MODE benötigt 38 us zum Ausführen
     
+    /*LCD_DISPLAY_ON schaltet das Display ein.*/
     PMDIN1 = LCD_DISPLAY_ON;
     __delay_us(38);             //LCD_DISPLAY_ON benötigt 38 us zum Ausführen
     
@@ -103,6 +126,12 @@ void initPMP(void)
 uint8_t lcd_get_status(void)
 {
     uint8_t dummy;
+    
+    /* Parallel Master Port Mode Register (PMMODE). Dieses Register wählt den 
+     * Master/Slave-Modus aus und konfiguriert die Betriebsmodi des PMP-Moduls. 
+     * Dieses Register enthält das universelle Status-Flag BUSY, das in 
+     * Master-Modi verwendet wird, um anzuzeigen, dass eine Operation durch das 
+     * Modul im Gange ist*/
     while( PMMODEbits.BUSY);    //Warten bis PMP bereit
     PMADDR = 0;
     
@@ -119,6 +148,8 @@ uint8_t lcd_get_status(void)
  */
 void waitForBusyLCD(void)
 {
+    /* READ_BUSY_FLAG definiert den IC und gibt an das dieser in Betrieb ist. 
+     * Interne Operation ist im Gange es soll gewartet werden.*/
     while((lcd_get_status() & READ_BUSY_FLAG))
     {
         
@@ -144,7 +175,7 @@ void lcd_write_data(uint8_t data)
 
 /**
  * Gibt einen String an der aktuellen Position im Display aus.
- * @param str Zeichen
+ * @param str Zeichenkette
  */
 void writeStrLCD(const char* str)
 {
@@ -169,6 +200,8 @@ void lcd_clear(void)
     waitForBusyLCD();
     while( PMMODEbits.BUSY ); 
     PMADDR = 0;
+    
+    /*LCD_DISPLAY_CLEAR löscht die Anzeigedaten.*/
     PMDIN1 = LCD_DISPLAY_CLEAR;
 
 }/*lcd_clear()*/
@@ -186,6 +219,9 @@ void lcd_set_pos(int line, int pos)
     waitForBusyLCD();
     while( PMMODEbits.BUSY ); 
     PMADDR = 0;
+    
+    /* LCD_DISPLAY_HOME setzt Cursor und Anzeige an ihren ursprünglichen Zustand 
+     * zurück.*/
     PMDIN1 = LCD_DISPLAY_HOME;
     
     /*Berechnung wieivel geshiftet werden muss*/
@@ -207,6 +243,9 @@ void lcd_set_pos(int line, int pos)
         waitForBusyLCD();
         while( PMMODEbits.BUSY ); 
         PMADDR = 0;
+        
+        /*CURSOR_OR_DISPLAY schiebt Cursor und Anzeige nach rechts (der Cursor 
+         *bewegt sich entsprechend der Anzeige).*/
         PMDIN1 = CURSOR_OR_DISPLAY;
     }
    

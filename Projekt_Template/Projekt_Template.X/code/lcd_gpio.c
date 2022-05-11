@@ -152,7 +152,7 @@ void lcd_clear(void)
 
 /**
  * Gibt einen String an der aktuellen Position im Display aus.
- * @param str Zeichen
+ * @param str Zeichenkette
  */
 void writeStrLCD(const char* str)
 {
@@ -161,7 +161,7 @@ void writeStrLCD(const char* str)
     while (str[i]!=0)       //Solange es etwas zu schreiben gibt.
     {
         lcd_write_data((str[i]));
-        i++;		       
+        i++;      
 	}
     
 }/*writeStrLCD()*/
@@ -250,6 +250,8 @@ uint8_t lcd_get_status(void)
  */
 void waitForBusyLCD(void)
 {
+    /* READ_BUSY_FLAG definiert den IC und gibt an das dieser in Betrieb ist. 
+     * Interne Operation ist im Gange es soll gewartet werden.*/
     while((lcd_get_status() & READ_BUSY_FLAG))
     {
         

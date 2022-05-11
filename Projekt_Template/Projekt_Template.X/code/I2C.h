@@ -7,14 +7,15 @@
 /* Files to Include                                                           */
 /******************************************************************************/
 
-#include "user.h"
+#include "user.h"          /* Benutzer - Funktion/Parameter                   */
 //#include "UART.h"
-#include <stdint.h>        /* Includes uint16_t definition                    */
-#include <stdbool.h>       /* Includes true/false definition                  */
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <xc.h>
+#include <stdint.h>        /* Enthält uint16_t-Definition                     */
+#include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
+#include <string.h>        /* Enthält Zeichenketten                           */
+#include <stdio.h>         /* Enthält Ein - und Ausgabefunktionen             */
+#include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
+
+#include <xc.h>            /* Jede Prozessordatei ist geschützt.              */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -62,23 +63,20 @@ typedef struct
 typedef void *(*StateFunc)();
 
 
-
 /******************************************************************************/
 /* Global Variable Declaration                                                */
 /******************************************************************************/
+
 //In Header nur Prototypen, genauso auch mit den Variablen. Varbiale sollte in c Datei deklariert sein. In Header nur mit extern.
 extern uint8_t write_data_buffer_temp;
 extern uint8_t write_data_buffer_light;
 extern uint8_t read_data_buffer_temp[2];
 extern uint8_t read_data_buffer_light[2];
 
-
 extern i2c_status_t status_temperatur;
 extern i2c_status_t status_licht;
 
 extern double latest_temperatur;
-
-
 
 extern I2C_struct I2C_test_struct;
 
@@ -97,15 +95,10 @@ void doI2C(void);
 
 void initI2C(void);
 
-
-
 void *FSM_Idle(void);
 void *FSM_Start(void);
 void *FSM_Adresse_Read(void);
 void *FSM_Adresse_Write(void);
 void *FSM_Repeated_Start(void);
 void *FSM_RECV_EN(void);
-
 void *FSM_Stop(void);
-
-

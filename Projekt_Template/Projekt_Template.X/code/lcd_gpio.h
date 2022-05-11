@@ -5,7 +5,7 @@
 #include <stdint.h>        /* Enthält uint16_t-Definition                     */
 #include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
 #include <string.h>        /* Enthält Zeichenketten                           */
-#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdio.h>         /* Enthält Ein - und Ausgabefunktionen             */
 #include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
 #include <xc.h>            /* Jede Prozessordatei ist geschützt.              */

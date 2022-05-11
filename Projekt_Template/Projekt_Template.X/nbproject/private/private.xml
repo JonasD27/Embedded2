@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/main.c</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/PMP.c</file>
             <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/lcd_gpio.c</file>
-            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/PMP.h</file>
+            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/interrupts.c</file>
             <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c</file>
-            <file>file:/C:/Users/Marcel/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/lcd_gpio.h</file>
-=======
-            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Dokumentation.markdown</file>
-            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/interrupts.c</file>
-            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/main.c</file>
-            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c</file>
-            <file>file:/C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.h</file>
->>>>>>> 296b262f2baf52d07e0257101f3c74f2d7402e58
         </group>
     </open-files>
 </project-private>

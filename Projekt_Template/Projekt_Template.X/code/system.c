@@ -45,7 +45,8 @@ __builtin functions.*/
 /* TODO Add clock switching code if appropriate.  An example stub is below.   */
 void ConfigureOscillator(void)
 {
-    if (SYS_FREQ>7370000L) //Nur umschalten auf Primary (8 MHz) wenn höhere Frequenz erwünscht
+    //Nur umschalten auf Primary (8 MHz) wenn höhere Frequenz erwünscht
+    if (SYS_FREQ>7370000L) 
     {
         switch (SYS_FREQ)
         {
@@ -97,7 +98,8 @@ void ConfigureOscillator(void)
         }
 
     }
-}
+    
+}/*ConfigureOscillator()*/
 
 
 //Timer1
@@ -115,7 +117,8 @@ void init_timer1() //generiert in 1s Rythmus Interrupts
     IFS0bits.T1IF = 0; // Clear Timer 1 Interrupt Flag
     IEC0bits.T1IE = 1; // Enable Timer1 interrupt
     T1CONbits.TON = 1; // Start Timer
-}
+    
+}/*init_timer1()*/
 
 void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
 {
@@ -127,9 +130,11 @@ void init_ms_t4() //Interrupt Flag wird jede ms gesetzt
     TMR4 = 0x00; // Clear 
     PR4 = (FCY/64000)-1; // Load 32-bit period value (lsw)
     T4CONbits.TON = 1; // Start Timer
-}
+    
+}/*init_ms_t4()*/
 
-void init_t2_t3(){
+void init_t2_t3()
+{
     T3CONbits.TON = 0; // Stop any 16-bit Timer3 operation
     T2CONbits.TON = 0; // Stop any 16/32-bit Timer3 operation
     T2CONbits.T32 = 1; // Enable 32-bit Timer mode
@@ -144,7 +149,8 @@ void init_t2_t3(){
     IFS0bits.T3IF = 0; // Clear Timer3 Interrupt Flag
     IEC0bits.T3IE = 0; // Disable Timer3 interrupt
     T2CONbits.TON = 1; // Start 32-bit Timer
-}
+    
+}/*init_t2_t3()*/
 
 
 void delay_ms(uint16_t milliseconds) 
@@ -152,19 +158,20 @@ void delay_ms(uint16_t milliseconds)
     uint32_t i=0;
     for (i=0;i<(DELAY_ANPASSUNG*(uint32_t)milliseconds);i++)
     {
+        
     }
-}
+    
+}/*delay_ms()*/
 
 void delay_us(uint16_t mikroseconds) 
 {
     int i, j; 
     for (i = 0; i < mikroseconds; i++)
     {
-        for(j = 0; j < CYCLES_PER_MIKROSECONDS; j++){
-            
-            Nop();
-        
+        for(j = 0; j < CYCLES_PER_MIKROSECONDS; j++)
+        {  
+            Nop();       
         }
     }
-}
-
+    
+}/*delay_us()*/

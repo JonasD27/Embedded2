@@ -12,7 +12,7 @@
 #include <stdint.h>        /* Enthält uint16_t-Definition                     */
 #include <stdbool.h>       /* Enthält eine Wahr/Falsch-Definition             */
 #include <string.h>        /* Enthält Zeichenketten                           */
-#include <stdio.h>         /* Enhält Ein - und Ausgabefunktionen              */
+#include <stdio.h>         /* Enthält Ein - und Ausgabefunktionen             */
 #include <stdlib.h>        /* Enthält Hilfsfunktionen                         */
 
 #include "system.h"        /* System - Funktion/Parameter                     */
@@ -38,8 +38,8 @@
 i2c_status_t status_temperatur = Error;
 i2c_status_t status_licht = Error;
 
-uint8_t write_data_buffer_temp=0b00000000;
-uint8_t write_data_buffer_light=0b00010000;
+uint8_t write_data_buffer_temp = 0b00000000;
+uint8_t write_data_buffer_light = 0b00010000;
 uint8_t read_data_buffer_temp[2];
 uint8_t read_data_buffer_light[2];
 
@@ -237,7 +237,7 @@ int16_t main(void)
     //lcd_init();
     initPMP();
 
-    writeStrLCD("Guten Morgen");
+    writeStrLCD("Hello World");
     delay_ms(2000);
     lcd_clear();
 
@@ -252,7 +252,6 @@ int16_t main(void)
 
     while(1)
     {
-
         _LATF0 = 0;             //Gated Timer stoppen
         
         if(_T4IF)
