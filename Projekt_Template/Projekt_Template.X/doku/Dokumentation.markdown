@@ -79,7 +79,13 @@ Danach wird zyklisch das Busy-Flag abgefragt. Es dauert ca 0.4ms bis es nicht me
 
 @page em_aufgabe2 Aufgabe LCD Display PMP
 
-In dieser Aufgabe sollte das LCD mit Hilfe des PMP-Moduls angesteuert werden.  
+In dieser Aufgabe sollte das LCD mit Hilfe des PMP-Moduls angesteuert werden. Es wurde hierfür die Bibliothek PMP.h geschrieben. Der Parallel Master Port (PMP) ist ein paralleles Kommunikationsmodul, das speziell für
+die Kommunikation mit einer Vielzahl von parallelen Geräten, wie zum Beispiel in unserem Fall ein LCD, verwendbar ist. Um die Ansteuerung des LCDs zu ermöglichen, wird vorab eine Initialisierung vorgenommen. Hierfür 
+wurde die Funktion initPMP() implementiert.
+Anschließend wurde darauf geachtet, dass dieselben Funktionen verwendet wurden wie schon bei der Ansteuerung mittels GPIO. Diese wurden größtenteils angepasst, damit die Ansteuerung über PMP funktioniert. Dadurch das wir dieselben
+Funktionen verwendet haben, kann man jederzeit problemlos in der Hauptschleife zwischen der Ansteuerung über PMP oder GPIO wechseln.
+  
+  
 
   
 
