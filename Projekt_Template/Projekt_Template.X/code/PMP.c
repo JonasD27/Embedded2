@@ -71,7 +71,7 @@ void initPMP(void)
      * (ST)-Eingangspuffern für eine bessere Kompatibilität mit externen 
      * Schaltungen. PMPTTL = 0 ist die Standardkonfiguration und wählt die 
      * ST-Puffer aus.*/
-    PADCFG1bits.PMPTTL=0;
+    PADCFG1bits.PMPTTL = 0;
     delay_ms(40);               //40 ms warten
     
     /**************************************************************************/
