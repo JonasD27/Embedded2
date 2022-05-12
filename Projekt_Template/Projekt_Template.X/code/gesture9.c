@@ -233,7 +233,9 @@ void gesture_write(uint8_t addr, uint8_t data)
     uint8_t *ptr;
     //Reserviert Speicherplatz auf heap und liefert pointer zurück
     //free? speicherplatz freigeben?
-    ptr = calloc(2,sizeof(uint8_t));
+    
+    //i2c so anpassen das nicht mehr mit zeigern gearbeitet wird sondern call by value!
+    ptr = malloc(2*sizeof(uint8_t));
     
     if (ptr == NULL)
     {

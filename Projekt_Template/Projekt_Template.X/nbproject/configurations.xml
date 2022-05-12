@@ -10,7 +10,6 @@
       <itemPath>code/UART.h</itemPath>
       <itemPath>code/lcd_gpio.h</itemPath>
       <itemPath>code/PMP.h</itemPath>
-      <itemPath>code/gesture9.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -30,7 +29,6 @@
       <itemPath>code/UART.c</itemPath>
       <itemPath>code/lcd_gpio.c</itemPath>
       <itemPath>code/PMP.c</itemPath>
-      <itemPath>code/gesture9.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -535,10 +533,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.25"/>
       </Tool>
-      <item path="code/gesture9.c" ex="true" overriding="false">
-      </item>
-      <item path="code/gesture9.h" ex="true" overriding="false">
-      </item>
       <item path="code/lcd_gpio.c" ex="true" overriding="false">
         <C30>
         </C30>
