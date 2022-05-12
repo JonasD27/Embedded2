@@ -30,6 +30,7 @@ var NAVTREE =
     [ "Aufgabe I2C Lichtsensor", "em_aufgabe1.html", null ],
     [ "Erweiterung I2C Lichtsensor Callback", "em_aufgabe3.html", null ],
     [ "Aufgabe LCD Display GPIO", "em_aufgabe2.html", null ],
+    [ "Aufgabe LCD Display PMP", "em_aufgabe4.html", null ],
     [ "Datenstrukturen", "annotated.html", [
       [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
       [ "Datenstruktur-Verzeichnis", "classes.html", null ],
@@ -56,7 +57,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_i2_c_8c.html",
-"struct_buffer___i2_c___f_s_m.html#a60e9c75aa693ad12f404344cffc12505"
+"struct_buffer___i2_c___f_s_m.html#ad99a3f990d972bf0b87f25fd507eb599"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';

@@ -6,13 +6,12 @@
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}UART.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}PMP.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
-Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:
-\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -52,9 +51,9 @@ int16\+\_\+t \mbox{\hyperlink{main_8c_aec570f4ab450e8224be63b7dcfa62b35}{main}} 
 \item 
 \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{main_8c_a9b4d29ba3bf357b320400e1f01a35610}{status\+\_\+licht}} = \mbox{\hyperlink{_i2_c_8h_ada1e8e589688e2d6626421d8d85d9c53a4dfd42ec49d09d8c6555c218301cc30f}{Error}}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{main_8c_adff71d8937a9a0e682b3a195f98be0df}{write\+\_\+data\+\_\+buffer\+\_\+temp}} =0b00000000
+uint8\+\_\+t \mbox{\hyperlink{main_8c_adff71d8937a9a0e682b3a195f98be0df}{write\+\_\+data\+\_\+buffer\+\_\+temp}} = 0b00000000
 \item 
-uint8\+\_\+t \mbox{\hyperlink{main_8c_a2d5347585325c234d8c68be50f2eb6a0}{write\+\_\+data\+\_\+buffer\+\_\+light}} =0b00010000
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a2d5347585325c234d8c68be50f2eb6a0}{write\+\_\+data\+\_\+buffer\+\_\+light}} = 0b00010000
 \item 
 uint8\+\_\+t \mbox{\hyperlink{main_8c_aef8997c71403e269e83a8e8478ccf73c}{read\+\_\+data\+\_\+buffer\+\_\+temp}} \mbox{[}2\mbox{]}
 \item 
@@ -79,7 +78,7 @@ int \mbox{\hyperlink{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}{UART\+\_\+\+RX\+
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00031}{31}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00032}{32}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a34b04bd23b07b485921a728ad0805ac4}\label{main_8c_a34b04bd23b07b485921a728ad0805ac4}} 
 \index{main.c@{main.c}!MAIN@{MAIN}}
@@ -89,7 +88,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00031}{31}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00030}{30}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00031}{31}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 
 
@@ -102,7 +101,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00030}{30}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00188}{188}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00189}{189}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -126,7 +125,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00162}{162}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00163}{163}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -162,10 +161,9 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00226}{226}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00227}{227}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
-\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -180,7 +178,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00136}{136}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00137}{137}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
@@ -203,7 +201,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00176}{176}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00177}{177}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
@@ -223,7 +221,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00046}{46}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00047}{47}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_adcd199297f9a8146dd65366775e2cf7d}\label{main_8c_adcd199297f9a8146dd65366775e2cf7d}} 
 \index{main.c@{main.c}!latest\_temperatur@{latest\_temperatur}}
@@ -233,7 +231,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00046}{46}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00045}{45}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00046}{46}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a812b49b4aafdf99e12c75ed8005948a1}\label{main_8c_a812b49b4aafdf99e12c75ed8005948a1}} 
 \index{main.c@{main.c}!read\_data\_buffer\_light@{read\_data\_buffer\_light}}
@@ -243,7 +241,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00045}{45}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00043}{43}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00044}{44}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_aef8997c71403e269e83a8e8478ccf73c}\label{main_8c_aef8997c71403e269e83a8e8478ccf73c}} 
 \index{main.c@{main.c}!read\_data\_buffer\_temp@{read\_data\_buffer\_temp}}
@@ -253,7 +251,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00043}{43}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00042}{42}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00043}{43}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a00c6bb525f28a5f4d4a47a82479b2790}\label{main_8c_a00c6bb525f28a5f4d4a47a82479b2790}} 
 \index{main.c@{main.c}!received\_UART@{received\_UART}}
@@ -263,7 +261,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00042}{42}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00048}{48}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00049}{49}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a9b4d29ba3bf357b320400e1f01a35610}\label{main_8c_a9b4d29ba3bf357b320400e1f01a35610}} 
 \index{main.c@{main.c}!status\_licht@{status\_licht}}
@@ -273,7 +271,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00048}{48}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00038}{38}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00039}{39}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a11becdc58f1b623b42ad75744dfa6461}\label{main_8c_a11becdc58f1b623b42ad75744dfa6461}} 
 \index{main.c@{main.c}!status\_temperatur@{status\_temperatur}}
@@ -283,7 +281,7 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00038}{38}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00037}{37}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00038}{38}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}\label{main_8c_ad0e60ba05c0f067879e9c46e5bce10d6}} 
 \index{main.c@{main.c}!UART\_RX\_count@{UART\_RX\_count}}
@@ -293,25 +291,25 @@ Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00037}{37}} der Datei \mbox{
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00049}{49}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00050}{50}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_a2d5347585325c234d8c68be50f2eb6a0}\label{main_8c_a2d5347585325c234d8c68be50f2eb6a0}} 
 \index{main.c@{main.c}!write\_data\_buffer\_light@{write\_data\_buffer\_light}}
 \index{write\_data\_buffer\_light@{write\_data\_buffer\_light}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{write\_data\_buffer\_light}{write\_data\_buffer\_light}}
-{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+light =0b00010000}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+light = 0b00010000}
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00041}{41}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00042}{42}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 
 \mbox{\Hypertarget{main_8c_adff71d8937a9a0e682b3a195f98be0df}\label{main_8c_adff71d8937a9a0e682b3a195f98be0df}} 
 \index{main.c@{main.c}!write\_data\_buffer\_temp@{write\_data\_buffer\_temp}}
 \index{write\_data\_buffer\_temp@{write\_data\_buffer\_temp}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{write\_data\_buffer\_temp}{write\_data\_buffer\_temp}}
-{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+temp =0b00000000}
+{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data\+\_\+buffer\+\_\+temp = 0b00000000}
 
 
 
-Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00040}{40}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definiert in Zeile \mbox{\hyperlink{main_8c_source_l00041}{41}} der Datei \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 

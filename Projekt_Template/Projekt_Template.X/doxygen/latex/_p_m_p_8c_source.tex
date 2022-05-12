@@ -5,170 +5,219 @@
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00002}00002 \textcolor{comment}{/* Files to Include                                                           */}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00005}00005 \textcolor{preprocessor}{\#include <xc.h>}            \textcolor{comment}{/* Device header file                              */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00005}00005 \textcolor{preprocessor}{\#include <xc.h>}            \textcolor{comment}{/* Jede Prozessordatei ist geschützt.              */}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00006}00006 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00007}00007 \textcolor{preprocessor}{\#include <stdio.h>}        }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00008}00008 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Includes uint16\_t definition                    */}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00009}00009 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Includes true/false definition                  */}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00010}00010 \textcolor{preprocessor}{\#include <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00011}00011 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00007}00007 \textcolor{preprocessor}{\#include <stdint.h>}        \textcolor{comment}{/* Enthält uint16\_t-\/Definition                     */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00008}00008 \textcolor{preprocessor}{\#include <stdbool.h>}       \textcolor{comment}{/* Enthält eine Wahr/Falsch-\/Definition             */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00009}00009 \textcolor{preprocessor}{\#include <string.h>}        \textcolor{comment}{/* Enthält Zeichenketten                           */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00010}00010 \textcolor{preprocessor}{\#include <stdio.h>}         \textcolor{comment}{/* Enthält Ein -\/ und Ausgabefunktionen             */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00011}00011 \textcolor{preprocessor}{\#include <stdlib.h>}        \textcolor{comment}{/* Enthält Hilfsfunktionen                         */}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_p_m_p_8h}{PMP.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}        \textcolor{comment}{/* System funct/params, like osc/peripheral config */}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}          \textcolor{comment}{/* User funct/params, such as InitApp              */}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00017}00017 \textcolor{preprocessor}{\#include "{}libpic30.h"{}}      \textcolor{comment}{/*Beinhaltet Delay-\/Funktionen                      */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{system_8h}{system.h}}"{}}        \textcolor{comment}{/* System -\/ Funktion/Parameter                     */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}          \textcolor{comment}{/* Benutzer -\/ Funktion/Parameter                   */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00016}00016 \textcolor{preprocessor}{\#include "{}libpic30.h"{}}      \textcolor{comment}{/* Beinhaltet Delay-\/Funktionen                     */}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_p_m_p_8h}{PMP.h}}"{}}           \textcolor{comment}{/* Behinhaltet Konstanten und Prototypen           */}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00018}00018 }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00019}00019 }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00020}00020 }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00021}00021 \textcolor{comment}{/* Funktionen                                                                 */}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00024}\mbox{\hyperlink{_p_m_p_8c_a1c6b9a91f316a3138c0c00014abe108a}{00024}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a1c6b9a91f316a3138c0c00014abe108a}{initPMP}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00025}00025 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00026}00026     \textcolor{comment}{//Alle Ausgänge als Digital}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00027}00027     \_ANSB15 = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00028}00028     ANSELE \&= 0xFF00;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00029}00029     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00030}00030     \textcolor{comment}{//CON}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00031}00031     PMCONbits.PMPEN = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00032}00032     PMCONbits.PSIDL = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00033}00033     PMCONbits.ADRMUX = 0b00;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00034}00034     PMCONbits.PTBEEN = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00035}00035     PMCONbits.PTWREN = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00036}00036     PMCONbits.PTRDEN = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00037}00037     PMCONbits.CSF = 0b00; }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00038}00038     PMCONbits.ALP = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00039}00039     PMCONbits.CS2P = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00040}00040     PMCONbits.CS1P = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00041}00041     PMCONbits.BEP = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00042}00042     PMCONbits.WRSP = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00043}00043     PMCONbits.RDSP = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00045}00045     \textcolor{comment}{//MODE}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00046}00046     PMMODEbits.IRQM   = 0b00;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00047}00047     PMMODEbits.INCM   = 0b00;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00048}00048     PMMODEbits.MODE16 = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00049}00049     PMMODEbits.MODE   = 0b11; \textcolor{comment}{//Master Mode 1}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00050}00050     PMMODEbits.WAITB  = 0b11;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00051}00051     PMMODEbits.WAITM  = 0b1111;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00052}00052     PMMODEbits.WAITE  = 0b11;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00054}00054     \textcolor{comment}{//ADRESS ENABLE}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00055}00055     PMAEN = 0x0001;             \textcolor{comment}{// PMA0 enabled}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00056}00056     PADCFG1bits.PMPTTL=0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00057}00057     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(40);       \textcolor{comment}{//40 ms warten}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00029}\mbox{\hyperlink{_p_m_p_8c_a1c6b9a91f316a3138c0c00014abe108a}{00029}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a1c6b9a91f316a3138c0c00014abe108a}{initPMP}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00030}00030 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00031}00031     \textcolor{comment}{//Alle Ausgänge als Digital}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00032}00032     \_ANSB15 = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00033}00033     ANSELE \&= 0xFF00;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00034}00034     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00035}00035     \textcolor{comment}{//CON}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00036}00036     PMCONbits.PMPEN = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00037}00037     PMCONbits.PSIDL = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00038}00038     PMCONbits.ADRMUX = 0b00;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00039}00039     PMCONbits.PTBEEN = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00040}00040     PMCONbits.PTWREN = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00041}00041     PMCONbits.PTRDEN = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00042}00042     PMCONbits.CSF = 0b00; }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00043}00043     PMCONbits.ALP = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00044}00044     PMCONbits.CS2P = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00045}00045     PMCONbits.CS1P = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00046}00046     PMCONbits.BEP = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00047}00047     PMCONbits.WRSP = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00048}00048     PMCONbits.RDSP = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00050}00050     \textcolor{comment}{//MODE}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00051}00051     PMMODEbits.IRQM   = 0b00;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00052}00052     PMMODEbits.INCM   = 0b00;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00053}00053     PMMODEbits.MODE16 = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00054}00054     PMMODEbits.MODE   = 0b11;   \textcolor{comment}{//Master Mode 1}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00055}00055     PMMODEbits.WAITB  = 0b11;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00056}00056     PMMODEbits.WAITM  = 0b1111;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00057}00057     PMMODEbits.WAITE  = 0b11;}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00058}00058     }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00061}00061     PMADDR = 0; \textcolor{comment}{//RS auf 0}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00062}00062     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}}; \textcolor{comment}{//Function Set 1}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00063}00063     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(5);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00064}00064     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}}; \textcolor{comment}{//Function Set 2}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00065}00065     \mbox{\hyperlink{lcd__gpio_8h_ad836aa0703fbad4b9fed4a4582496e03}{\_\_delay\_cycles}}(6000); \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00066}00066     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}}; \textcolor{comment}{//Function Set 3}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00067}00067     \_\_delay\_us(38);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00068}00068     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00069}00069     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET}}; }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00070}00070     \_\_delay\_us(38);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00071}00071     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_ab1b96426e59139b68ae95df45d697087}{LCD\_DISPLAY\_OFF}}; }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00072}00072     \_\_delay\_us(38);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00073}00073     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}}; }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00074}00074     \_\_delay\_us(1520);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00075}00075     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_ae5d757ddb6d94de8c82191b60b40e442}{LCD\_ENTRY\_MODE}};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00076}00076     \_\_delay\_us(38);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00077}00077     PMDIN1 =\mbox{\hyperlink{lcd__gpio_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\_DISPLAY\_ON}};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00078}00078     \_\_delay\_us(38);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00079}00079     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00080}00080 \}\textcolor{comment}{/*initPMP()*/}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00082}\mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{00082}} uint8\_t \mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00083}00083 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00084}00084     uint8\_t dummy;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00085}00085     \textcolor{keywordflow}{while}( PMMODEbits.BUSY); \textcolor{comment}{//Warten bis PMP bereit}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00086}00086     PMADDR = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00087}00087     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00088}00088     dummy = PMDIN1; \textcolor{comment}{//lesen anstoßen durch dummy read}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00060}00060     \textcolor{comment}{//ADRESS ENABLE}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00061}00061     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00062}00062     \textcolor{comment}{/* Parallel Master Port Address Enable Register (PMAEN). Dieses Register }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00063}00063 \textcolor{comment}{     * steuert den Betrieb der Adress-\/ und Chip-\/Select-\/Pins, die mit dem PMP }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00064}00064 \textcolor{comment}{     * Modul zugeordnet sind.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00065}00065     PMAEN = 0x0001;             \textcolor{comment}{// PMA0 enabled}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00066}00066     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00067}00067     \textcolor{comment}{/* Pad Configuration Control Register (PADCFG1). Das PADCFG1 steuert, }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00068}00068 \textcolor{comment}{     * welcher digitale Eingangspuffer vom PMP-\/Modul verwendet wird. }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00069}00069 \textcolor{comment}{     * Das PMPTTL Bit ermöglicht dem Benutzer die Auswahl zwischen }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00070}00070 \textcolor{comment}{     * Transistor-\/Transistor-\/Logik (TTL) und Schmitt-\/Trigger }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00071}00071 \textcolor{comment}{     * (ST)-\/Eingangspuffern für eine bessere Kompatibilität mit externen }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00072}00072 \textcolor{comment}{     * Schaltungen. PMPTTL = 0 ist die Standardkonfiguration und wählt die }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00073}00073 \textcolor{comment}{     * ST-\/Puffer aus.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00074}00074     PADCFG1bits.PMPTTL = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00075}00075     \mbox{\hyperlink{main__less_8c_a9d9be562445321043224885018bc7da3}{delay\_ms}}(40);               \textcolor{comment}{//40 ms warten}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00076}00076     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00079}00079     \textcolor{comment}{/* Parallel Master Port Address Register (PMADDR) Dieses Register enthält }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00080}00080 \textcolor{comment}{     * die Adresse, an die die ausgehenden Daten geschrieben werden sollen, }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00081}00081 \textcolor{comment}{     * sowie die Chip Select Steuerbits für die Adressierung von parallelen }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00082}00082 \textcolor{comment}{     * Slave-\/Geräten.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00083}00083     PMADDR = 0;                 \textcolor{comment}{//RS auf 0}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00084}00084     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00085}00085     \textcolor{comment}{/* Der Register Parallel Master Port Data Input 1 (PMDIN1) dient der }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00086}00086 \textcolor{comment}{     * Pufferung eingehender Daten.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00087}00087     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}};      \textcolor{comment}{//Function Set 1}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00088}00088     \_\_delay\_us(4100);           \textcolor{comment}{//4.1 ms warten}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00089}00089     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00090}00090     \textcolor{keywordflow}{while}( PMMODEbits.BUSY);}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00091}00091     \textcolor{keywordflow}{return} (PMDIN1);}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00090}00090     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}};      \textcolor{comment}{//Function Set 2}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00091}00091     \_\_delay\_us(100);            \textcolor{comment}{//100 us warten}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00092}00092     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00093}00093 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00094}00094 \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00093}00093     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a24238d7a01f9554d653acb83f0591d8b}{LCD\_CMD\_INIT}};      \textcolor{comment}{//Function Set 3}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00094}00094     \_\_delay\_us(38);             \textcolor{comment}{//LCD\_CMD\_INIT benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00095}00095     }
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00096}00096 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00097}\mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{00097}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00098}00098 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00099}00099     \textcolor{keywordflow}{while}((\mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}() \& \mbox{\hyperlink{lcd__gpio_8h_ab89a4168a44c82d86ceda9801c3a1bf6}{READ\_BUSY\_FLAG}}))}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00100}00100     \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00101}00101         }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00102}00102     \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00103}00103     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00104}00104 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00105}00105 \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00106}00106 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00107}00107 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00108}\mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{00108}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}(uint8\_t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}})}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00109}00109 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00110}00110     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00111}00111     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00112}00112     PMADDR = 1;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00113}00113     PMDIN1 = \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}}; }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00114}00114 \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00116}\mbox{\hyperlink{_p_m_p_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{00116}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{writeStrLCD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str)}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00117}00117 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00118}00118     uint8\_t i = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00098}00098     \textcolor{comment}{/*LCD\_FUNCTION\_SET stellt die Bewegungsrichtig von Cursor und Display ein.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00099}00099     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00100}00100     \_\_delay\_us(38);             \textcolor{comment}{//LCD\_FUNCTION\_SET benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00101}00101     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00102}00102     \textcolor{comment}{/*LCD\_DISPLAY\_OFF schaltet das Display aus.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00103}00103     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_ab1b96426e59139b68ae95df45d697087}{LCD\_DISPLAY\_OFF}}; }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00104}00104     \_\_delay\_us(38);             \textcolor{comment}{//LCD\_DISPLAY\_OFF benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00105}00105     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00106}00106     \textcolor{comment}{/*LCD\_DISPLAY\_CLEAR löscht die Anzeigedaten. LCD\_DISPLAY\_CLEAR benötigt }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00107}00107 \textcolor{comment}{     * 1520 us zum Ausführen*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00108}00108     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}};  }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00109}00109     \_\_delay\_us(1520);}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00110}00110     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00111}00111     \textcolor{comment}{/*LCD\_ENTRY\_MODE stellt den Eingabemodus ein. Der Cursor bewegt sich dabei}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00112}00112 \textcolor{comment}{     *nach rechts.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00113}00113     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_ae5d757ddb6d94de8c82191b60b40e442}{LCD\_ENTRY\_MODE}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00114}00114     \_\_delay\_us(38);             \textcolor{comment}{//LCD\_ENTRY\_MODE benötigt 38 us zum Ausführen}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00115}00115     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00116}00116     \textcolor{comment}{/*LCD\_DISPLAY\_ON schaltet das Display ein.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00117}00117     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\_DISPLAY\_ON}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00118}00118     \_\_delay\_us(38);             \textcolor{comment}{//LCD\_DISPLAY\_ON benötigt 38 us zum Ausführen}}
 \DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00119}00119     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00120}00120     \textcolor{keywordflow}{while} (str[i]!=0)}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00121}00121     \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00122}00122         \mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}((str[i]));}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00123}00123         i++;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00124}00124                }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00125}00125     \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00126}00126 \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00127}00127 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00128}00128 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00129}\mbox{\hyperlink{_p_m_p_8c_ad235a86241458b1e7b8771688bfdaf9a}{00129}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_ad235a86241458b1e7b8771688bfdaf9a}{lcd\_clear}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00130}00130 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00131}00131     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00132}00132     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00133}00133     PMADDR = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00134}00134     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00135}00135 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00136}00136 \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00137}00137 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00138}00138 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00139}\mbox{\hyperlink{_p_m_p_8c_acfc4f2670ecb8c7c07fb015adb54a526}{00139}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\_set\_pos}}(\textcolor{keywordtype}{int} line, \textcolor{keywordtype}{int} pos)}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00140}00140 \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00141}00141     \textcolor{comment}{/*Display auf Home Position*/}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00142}00142     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00143}00143     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00144}00144     PMADDR = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00145}00145     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{LCD\_DISPLAY\_HOME}};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00146}00146     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00147}00147     \textcolor{comment}{/*Berechnung wieivel geshiftet werden muss*/}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00148}00148     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00149}00149     \textcolor{keywordtype}{int} i = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00150}00150     \textcolor{keywordtype}{int} to\_shift = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00151}00151     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00152}00152     \textcolor{keywordflow}{if} (line == 1)          \textcolor{comment}{//Erste Linie}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00153}00153     \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00154}00154         to\_shift = pos;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00155}00155     \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00156}00156     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00157}00157     \textcolor{keywordflow}{else}                    \textcolor{comment}{//Zweite Linie}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00158}00158     \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00159}00159         to\_shift = pos + 40;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00160}00160     \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00161}00161     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00162}00162     \textcolor{keywordflow}{for}(i = 0; i < to\_shift -\/ 1; i++)}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00163}00163     \{}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00164}00164         \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00165}00165         \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00166}00166         PMADDR = 0;}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00167}00167         PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a15da8436a10120ffbbb20b0bb2d91efa}{CURSOR\_OR\_DISPLAY}};}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00168}00168     \}}
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00169}00169     }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00170}00170 }
-\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00171}00171 \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00120}00120 \}\textcolor{comment}{/*initPMP()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00126}\mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{00126}} uint8\_t \mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00127}00127 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00128}00128     uint8\_t dummy;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00129}00129     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00130}00130     \textcolor{comment}{/* Parallel Master Port Mode Register (PMMODE). Dieses Register wählt den }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00131}00131 \textcolor{comment}{     * Master/Slave-\/Modus aus und konfiguriert die Betriebsmodi des PMP-\/Moduls. }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00132}00132 \textcolor{comment}{     * Dieses Register enthält das universelle Status-\/Flag BUSY, das in }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00133}00133 \textcolor{comment}{     * Master-\/Modi verwendet wird, um anzuzeigen, dass eine Operation durch das }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00134}00134 \textcolor{comment}{     * Modul im Gange ist*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00135}00135     \textcolor{keywordflow}{while}( PMMODEbits.BUSY);    \textcolor{comment}{//Warten bis PMP bereit}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00136}00136     PMADDR = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00137}00137     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00138}00138     dummy = PMDIN1;             \textcolor{comment}{//lesen anstoßen durch dummy read}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00139}00139     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00140}00140     \textcolor{keywordflow}{while}( PMMODEbits.BUSY);}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00141}00141     \textcolor{keywordflow}{return} (PMDIN1);}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00142}00142     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00143}00143 \}\textcolor{comment}{/*lcd\_get\_status()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00149}\mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{00149}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00150}00150 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00151}00151     \textcolor{comment}{/* READ\_BUSY\_FLAG definiert den IC und gibt an das dieser in Betrieb ist. }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00152}00152 \textcolor{comment}{     * Interne Operation ist im Gange es soll gewartet werden.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00153}00153     \textcolor{keywordflow}{while}((\mbox{\hyperlink{_p_m_p_8c_a6bcfd73d519832504e3b8bc7b3f6f408}{lcd\_get\_status}}() \& \mbox{\hyperlink{lcd__gpio_8h_ab89a4168a44c82d86ceda9801c3a1bf6}{READ\_BUSY\_FLAG}}))}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00154}00154     \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00155}00155         }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00156}00156     \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00157}00157     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00159}00159 \}\textcolor{comment}{/*waitForBusyLCD()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00166}\mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{00166}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}(uint8\_t \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}})}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00167}00167 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00168}00168     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00169}00169     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00170}00170     PMADDR = 1;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00171}00171     PMDIN1 = \mbox{\hyperlink{main__less_8c_a1cc545950661d96524585c500b3b68d1}{data}}; }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00172}00172     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00173}00173 \}\textcolor{comment}{/*lcd\_write\_data()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00180}\mbox{\hyperlink{_p_m_p_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{00180}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_a151abba6f7ca2f5cd5060fbaa26697e8}{writeStrLCD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str)}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00181}00181 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00182}00182     uint8\_t i = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00183}00183     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00184}00184     \textcolor{keywordflow}{while} (str[i]!=0)}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00185}00185     \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00186}00186         \mbox{\hyperlink{_p_m_p_8c_a9958d5441d79af42a23a03f6229de09d}{lcd\_write\_data}}((str[i]));}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00187}00187         i++;               }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00188}00188     \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00189}00189     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00190}00190 \}\textcolor{comment}{/*writeStrLCD()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00192}00192 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00198}\mbox{\hyperlink{_p_m_p_8c_ad235a86241458b1e7b8771688bfdaf9a}{00198}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_ad235a86241458b1e7b8771688bfdaf9a}{lcd\_clear}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00199}00199 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00200}00200     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00201}00201     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00202}00202     PMADDR = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00203}00203     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00204}00204     \textcolor{comment}{/*LCD\_DISPLAY\_CLEAR löscht die Anzeigedaten.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00205}00205     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a48de81d41dd1a70f8ab5a593c40c0ef4}{LCD\_DISPLAY\_CLEAR}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00206}00206 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00207}00207 \}\textcolor{comment}{/*lcd\_clear()*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00209}00209 }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00216}\mbox{\hyperlink{_p_m_p_8c_acfc4f2670ecb8c7c07fb015adb54a526}{00216}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_p_m_p_8c_acfc4f2670ecb8c7c07fb015adb54a526}{lcd\_set\_pos}}(\textcolor{keywordtype}{int} line, \textcolor{keywordtype}{int} pos)}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00217}00217 \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00218}00218     \textcolor{comment}{/*Display auf Home Position*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00219}00219     \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00220}00220     \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00221}00221     PMADDR = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00222}00222     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00223}00223     \textcolor{comment}{/* LCD\_DISPLAY\_HOME setzt Cursor und Anzeige an ihren ursprünglichen Zustand }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00224}00224 \textcolor{comment}{     * zurück.*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00225}00225     PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a44df1119c6c6ce5a44c979fe4b93d0f7}{LCD\_DISPLAY\_HOME}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00226}00226     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00227}00227     \textcolor{comment}{/*Berechnung wieivel geshiftet werden muss*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00228}00228     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00229}00229     \textcolor{keywordtype}{int} to\_shift = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00230}00230     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00231}00231     \textcolor{keywordflow}{if} (line == 1)          \textcolor{comment}{//Erste Linie}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00232}00232     \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00233}00233         to\_shift = pos;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00234}00234     \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00235}00235     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00236}00236     \textcolor{keywordflow}{else}                    \textcolor{comment}{//Zweite Linie}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00237}00237     \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00238}00238         to\_shift = pos + 40;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00239}00239     \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00240}00240     }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00241}00241     \textcolor{keywordflow}{for}(i = 0; i < to\_shift -\/ 1; i++)}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00242}00242     \{}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00243}00243         \mbox{\hyperlink{_p_m_p_8c_a01b1a4ea4a64b70bfc2f1569bd57bcdc}{waitForBusyLCD}}();}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00244}00244         \textcolor{keywordflow}{while}( PMMODEbits.BUSY ); }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00245}00245         PMADDR = 0;}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00246}00246         }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00247}00247         \textcolor{comment}{/*CURSOR\_OR\_DISPLAY schiebt Cursor und Anzeige nach rechts (der Cursor }}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00248}00248 \textcolor{comment}{         *bewegt sich entsprechend der Anzeige).*/}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00249}00249         PMDIN1 = \mbox{\hyperlink{lcd__gpio_8h_a15da8436a10120ffbbb20b0bb2d91efa}{CURSOR\_OR\_DISPLAY}};}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00250}00250     \}}
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00251}00251    }
+\DoxyCodeLine{\Hypertarget{_p_m_p_8c_source_l00252}00252 \}\textcolor{comment}{/*lcd\_set\_pos()*/}}
 
 \end{DoxyCode}

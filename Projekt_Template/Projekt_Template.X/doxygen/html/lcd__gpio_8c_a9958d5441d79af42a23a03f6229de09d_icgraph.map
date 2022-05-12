@@ -1,6 +1,6 @@
 <map id="lcd_write_data" name="lcd_write_data">
 <area shape="rect" id="node1" title="Schreiben von Daten auf den Speicher des LCDs." alt="" coords="596,23,701,49"/>
-<area shape="rect" id="node2" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title=" " alt="" coords="457,23,548,49"/>
+<area shape="rect" id="node2" href="$lcd__gpio_8c.html#a151abba6f7ca2f5cd5060fbaa26697e8" title="Gibt einen String an der aktuellen Position im Display aus." alt="" coords="457,23,548,49"/>
 <area shape="rect" id="node3" href="$main_8c.html#add65c2bbc4a328fc893abeded917bc66" title=" " alt="" coords="104,23,235,49"/>
 <area shape="rect" id="node4" href="$main_8c.html#aec570f4ab450e8224be63b7dcfa62b35" title=" " alt="" coords="5,48,56,75"/>
 <area shape="rect" id="node5" href="$main_8c.html#a394ee1d3ce36d2ac7f571753a6a99a9d" title=" " alt="" coords="283,23,409,49"/>

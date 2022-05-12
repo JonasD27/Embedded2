@@ -1,11 +1,10 @@
 <map id="lcd_gpio.h" name="lcd_gpio.h">
-<area shape="rect" id="node1" title=" " alt="" coords="268,5,349,32"/>
-<area shape="rect" id="node2" href="$user_8h.html" title=" " alt="" coords="246,80,305,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,71,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="95,155,170,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="195,155,260,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="285,155,346,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="370,155,434,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="459,155,505,181"/>
-<area shape="rect" id="node9" title=" " alt="" coords="481,80,558,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="275,5,356,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="95,80,170,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="195,80,260,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="285,80,346,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="370,80,434,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="459,80,505,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="530,80,607,107"/>
 </map>

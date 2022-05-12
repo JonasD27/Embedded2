@@ -90,8 +90,7 @@ $(document).ready(function(){initNavTree('lcd__gpio_8h.html',''); initResizable(
   <div class="headertitle"><div class="title">lcd_gpio.h-Dateireferenz</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="user_8h_source.html">user.h</a>&quot;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -103,15 +102,14 @@ Include-Abhängigkeitsdiagramm für lcd_gpio.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="lcd__gpio_8h__incl.png" border="0" usemap="#alcd__gpio_8h" alt=""/></div>
 <map name="alcd__gpio_8h" id="alcd__gpio_8h">
-<area shape="rect" title=" " alt="" coords="268,5,349,32"/>
-<area shape="rect" href="user_8h.html" title=" " alt="" coords="246,80,305,107"/>
-<area shape="rect" title=" " alt="" coords="5,155,71,181"/>
-<area shape="rect" title=" " alt="" coords="95,155,170,181"/>
-<area shape="rect" title=" " alt="" coords="195,155,260,181"/>
-<area shape="rect" title=" " alt="" coords="285,155,346,181"/>
-<area shape="rect" title=" " alt="" coords="370,155,434,181"/>
-<area shape="rect" title=" " alt="" coords="459,155,505,181"/>
-<area shape="rect" title=" " alt="" coords="481,80,558,107"/>
+<area shape="rect" title=" " alt="" coords="275,5,356,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
+<area shape="rect" title=" " alt="" coords="95,80,170,107"/>
+<area shape="rect" title=" " alt="" coords="195,80,260,107"/>
+<area shape="rect" title=" " alt="" coords="285,80,346,107"/>
+<area shape="rect" title=" " alt="" coords="370,80,434,107"/>
+<area shape="rect" title=" " alt="" coords="459,80,505,107"/>
+<area shape="rect" title=" " alt="" coords="530,80,607,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -157,8 +155,6 @@ Makrodefinitionen</h2></td></tr>
 <tr class="separator:ab89a4168a44c82d86ceda9801c3a1bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15da8436a10120ffbbb20b0bb2d91efa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8h.html#a15da8436a10120ffbbb20b0bb2d91efa">CURSOR_OR_DISPLAY</a>&#160;&#160;&#160;0b0000000000010100</td></tr>
 <tr class="separator:a15da8436a10120ffbbb20b0bb2d91efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7af1708bcce2284cff78811194fcc8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8h.html#add7af1708bcce2284cff78811194fcc8">LCD_ZEICHEN</a></td></tr>
-<tr class="separator:add7af1708bcce2284cff78811194fcc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
@@ -169,6 +165,7 @@ Funktionen</h2></td></tr>
 <tr class="memdesc:a9958d5441d79af42a23a03f6229de09d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreiben von Daten auf den Speicher des LCDs.  <a href="lcd__gpio_8h.html#a9958d5441d79af42a23a03f6229de09d">Mehr ...</a><br /></td></tr>
 <tr class="separator:a9958d5441d79af42a23a03f6229de09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a151abba6f7ca2f5cd5060fbaa26697e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8h.html#a151abba6f7ca2f5cd5060fbaa26697e8">writeStrLCD</a> (const char *str)</td></tr>
+<tr class="memdesc:a151abba6f7ca2f5cd5060fbaa26697e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt einen String an der aktuellen Position im Display aus.  <a href="lcd__gpio_8h.html#a151abba6f7ca2f5cd5060fbaa26697e8">Mehr ...</a><br /></td></tr>
 <tr class="separator:a151abba6f7ca2f5cd5060fbaa26697e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad235a86241458b1e7b8771688bfdaf9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd__gpio_8h.html#ad235a86241458b1e7b8771688bfdaf9a">lcd_clear</a> (void)</td></tr>
 <tr class="memdesc:ad235a86241458b1e7b8771688bfdaf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen.  <a href="lcd__gpio_8h.html#ad235a86241458b1e7b8771688bfdaf9a">Mehr ...</a><br /></td></tr>
@@ -200,7 +197,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00023">23</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00021">21</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +213,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00063">63</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00061">61</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -232,7 +229,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00030">30</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00028">28</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -252,7 +249,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00025">25</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00023">23</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +265,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00040">40</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00038">38</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +281,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00044">44</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00042">42</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -300,7 +297,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00037">37</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00035">35</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +313,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00053">53</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00051">51</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +329,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00028">28</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00026">26</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -348,7 +345,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00047">47</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00045">45</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -364,7 +361,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00034">34</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00032">32</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -380,7 +377,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00027">27</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00025">25</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -396,23 +393,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00026">26</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
-
-</div>
-</div>
-<a id="add7af1708bcce2284cff78811194fcc8" name="add7af1708bcce2284cff78811194fcc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7af1708bcce2284cff78811194fcc8">&#9670;&nbsp;</a></span>LCD_ZEICHEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LCD_ZEICHEN</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00066">66</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00024">24</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +409,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00057">57</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8h_source.html#l00055">55</a> der Datei <a class="el" href="lcd__gpio_8h_source.html">lcd_gpio.h</a>.</p>
 
 </div>
 </div>
@@ -450,8 +431,9 @@ Funktionen</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sendet den Befehl, das LCD zurückzusetzten und den Inhalt zu löschen. </p>
+<p >Vor dem Zugriff wird Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> solange blockieren, bis Busy Flag nicht gesetzt. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00124">124</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00135">135</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>
@@ -472,9 +454,11 @@ Funktionen</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Liest den akutellen Status des LCDs aus. </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>8bit breiter Status, Bit 7 ist Busy Flag </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>8bit breiter Status, Bit 7 ist Busy Flag</dd>
+<dd>
+PMDIN1 wird zum Puffer eingehender Daten verwendet </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00227">227</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00230">230</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>
@@ -495,9 +479,9 @@ Funktionen</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initilisierung des LCDs. </p>
-<p >Drei Function Sets und anschließend die Konfiguartion des LCDs. </p>
+<p >Drei Function Sets und anschließend die Konfiguartion des LCDs. Diese beinhaltet das Funktion Set, Display off, Display clear, Entry mode und Display on. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00017">17</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00022">22</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 <div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div class="dyncontent">
@@ -537,7 +521,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 </div><div class="memdoc">
 
 <p>Setzt die Position des Cursors. </p>
-<dl class="params"><dt>Parameter</dt><dd>
+<p >Vor dem Zugriff wird Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> solange blockieren, bis Busy Flag nicht gesetzt. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>Linie, entweder 1 oder 2 </td></tr>
     <tr><td class="paramname">pos</td><td>Position </td></tr>
@@ -545,7 +529,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
   </dd>
 </dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00177">177</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00175">175</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>
@@ -568,7 +552,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p>Schreiben von Daten auf den Speicher des LCDs. </p>
 <p >Vor dem Zugriff wird Funktion <a class="el" href="lcd__gpio_8c.html#a01b1a4ea4a64b70bfc2f1569bd57bcdc" title="Ruft lcd_get_status() zyklisch auf, bis Busy Flag nicht mehr gesetzt ist.">waitForBusyLCD()</a> solange blockieren, bis Busy Flag nicht gesetzt. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00105">105</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00114">114</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>
@@ -590,7 +574,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 
 <p>Ruft <a class="el" href="lcd__gpio_8c.html#a6bcfd73d519832504e3b8bc7b3f6f408" title="Liest den akutellen Status des LCDs aus.">lcd_get_status()</a> zyklisch auf, bis Busy Flag nicht mehr gesetzt ist. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00253">253</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00251">251</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>
@@ -610,7 +594,15 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00144">144</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
+<p>Gibt einen String an der aktuellen Position im Display aus. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Zeichenkette </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definiert in Zeile <a class="el" href="lcd__gpio_8c_source.html#l00157">157</a> der Datei <a class="el" href="lcd__gpio_8c_source.html">lcd_gpio.c</a>.</p>
 
 </div>
 </div>

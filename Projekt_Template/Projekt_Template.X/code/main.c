@@ -23,6 +23,7 @@
 #include "I2C.h"           
 //#include "lcd_gpio.h"
 #include "PMP.h"
+//#include "gesture9.h"
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -236,6 +237,8 @@ int16_t main(void)
     initI2C();
     //lcd_init();
     initPMP();
+    
+    //gesture_init();
 
     writeStrLCD("Hello World");
     delay_ms(2000);

@@ -13,7 +13,6 @@ var _p_m_p_8h =
     [ "LCD_FUNCTION_SET", "_p_m_p_8h.html#af8ec7e043a3b67ee423b97783d08aeb1", null ],
     [ "LCD_R_W", "_p_m_p_8h.html#a87c24c96c4230435f0c282b1ec352e4e", null ],
     [ "LCD_RS", "_p_m_p_8h.html#a4781e073871c6f27f89b9463ad3a4ed1", null ],
-    [ "LCD_ZEICHEN", "_p_m_p_8h.html#add7af1708bcce2284cff78811194fcc8", null ],
     [ "READ_BUSY_FLAG", "_p_m_p_8h.html#ab89a4168a44c82d86ceda9801c3a1bf6", null ],
     [ "initPMP", "_p_m_p_8h.html#a1c6b9a91f316a3138c0c00014abe108a", null ],
     [ "lcd_clear", "_p_m_p_8h.html#ad235a86241458b1e7b8771688bfdaf9a", null ],

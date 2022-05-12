@@ -1,12 +1,12 @@
 warning: source 'doxyhints\examples' is not a readable file or directory... skipping.
 warning: source 'doxyhints\images' is not a readable file or directory... skipping.
 warning: source 'doxyhints\doku' is not a readable file or directory... skipping.
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:281: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Read(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:214: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Write(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:346: warning: argument 'count' of command @param is not found in the argument list of FSM_RECV_EN(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:186: warning: Found unknown command '@retrun'
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:281: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Read(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:214: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Write(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:346: warning: argument 'count' of command @param is not found in the argument list of FSM_RECV_EN(void)
-C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:186: warning: Found unknown command '@retrun'
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:285: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Read(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:218: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Write(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:350: warning: argument 'count' of command @param is not found in the argument list of FSM_RECV_EN(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:190: warning: Found unknown command '@retrun'
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:285: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Read(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:218: warning: argument 'count' of command @param is not found in the argument list of FSM_Adresse_Write(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:350: warning: argument 'count' of command @param is not found in the argument list of FSM_RECV_EN(void)
+C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/code/I2C.c:190: warning: Found unknown command '@retrun'
 C:/Users/Jonas/Documents/GitHub/Embedded2/Projekt_Template/Projekt_Template.X/doku/Code Style.markdown:7: warning: found subsection command (id: 'em_formatierung') outside of section context!
