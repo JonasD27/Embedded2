@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>53248</length>
+      <used>6196</used>
+      <free>47052</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>524544</length>
+      <used>14484</used>
+      <free>510060</free>
+    </memory>
+  </executable>
+</project>

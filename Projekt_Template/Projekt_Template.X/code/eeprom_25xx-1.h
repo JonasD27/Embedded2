@@ -101,9 +101,9 @@
 //* Initialisierung der SPI Schnittstelle */	
 void     initSPI();
 //* Führt einen Datentransfer von einem Byte auf der SPI Schnittstelle durch */
-void     uint8_t exchangeDataSPI(uint8_t data_out);	
+//void     uint8_t exchangeDataSPI(uint8_t data_out);	
 //* Führt einen Datentransfer für N Daten auf der SPI Schnittstelle durch */
-void     void exchangeDataBufSPI(uint16_t N, uint8_t *data_out, uint8_t *data_in);	
+//void     void exchangeDataBufSPI(uint16_t N, uint8_t *data_out, uint8_t *data_in);	
 ////////////////////////////////////////////////////////////////////////////
 
 

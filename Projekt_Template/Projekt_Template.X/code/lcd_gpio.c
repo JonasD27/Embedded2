@@ -33,7 +33,7 @@ void lcd_init()
    
     LCD_ENABLE = 0;         //LCD Aktivierungssignal
     LCD_RS = 0;             //LCD Registerauswahlsignal
-        LCD_R_W = 0;        //LCD Daten Lesen oder Schreiben
+    LCD_R_W = 0;        //LCD Daten Lesen oder Schreiben
     
     
     //Function Set 1
