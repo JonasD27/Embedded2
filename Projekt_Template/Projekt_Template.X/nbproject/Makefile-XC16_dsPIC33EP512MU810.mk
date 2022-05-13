@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/PMP.c
+SOURCEFILES_QUOTED_IF_SPACED=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/PMP.c code/eeprom_25xx-1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/PMP.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/code/configuration_bits.o.d ${OBJECTDIR}/code/interrupts.o.d ${OBJECTDIR}/code/main.o.d ${OBJECTDIR}/code/system.o.d ${OBJECTDIR}/code/traps.o.d ${OBJECTDIR}/code/user.o.d ${OBJECTDIR}/code/I2C.o.d ${OBJECTDIR}/code/UART.o.d ${OBJECTDIR}/code/PMP.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/PMP.o ${OBJECTDIR}/code/eeprom_25xx-1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/code/configuration_bits.o.d ${OBJECTDIR}/code/interrupts.o.d ${OBJECTDIR}/code/main.o.d ${OBJECTDIR}/code/system.o.d ${OBJECTDIR}/code/traps.o.d ${OBJECTDIR}/code/user.o.d ${OBJECTDIR}/code/I2C.o.d ${OBJECTDIR}/code/UART.o.d ${OBJECTDIR}/code/PMP.o.d ${OBJECTDIR}/code/eeprom_25xx-1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/PMP.o
+OBJECTFILES=${OBJECTDIR}/code/configuration_bits.o ${OBJECTDIR}/code/interrupts.o ${OBJECTDIR}/code/main.o ${OBJECTDIR}/code/system.o ${OBJECTDIR}/code/traps.o ${OBJECTDIR}/code/user.o ${OBJECTDIR}/code/I2C.o ${OBJECTDIR}/code/UART.o ${OBJECTDIR}/code/PMP.o ${OBJECTDIR}/code/eeprom_25xx-1.o
 
 # Source Files
-SOURCEFILES=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/PMP.c
+SOURCEFILES=code/configuration_bits.c code/interrupts.c code/main.c code/system.c code/traps.c code/user.c code/I2C.c code/UART.c code/PMP.c code/eeprom_25xx-1.c
 
 
 
@@ -95,114 +95,126 @@ MP_LINKER_FILE_OPTION=,--script=p33EP512MU810.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/code/configuration_bits.o: code/configuration_bits.c  .generated_files/flags/XC16_dsPIC33EP512MU810/23e2e8965833648c633e321de41ab73df5879b9d .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/configuration_bits.o: code/configuration_bits.c  .generated_files/flags/XC16_dsPIC33EP512MU810/d6506a1e3ee723c0bb9889aad485879f49cdac0 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/code/configuration_bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/configuration_bits.c  -o ${OBJECTDIR}/code/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/configuration_bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/configuration_bits.c  -o ${OBJECTDIR}/code/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/configuration_bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/interrupts.o: code/interrupts.c  .generated_files/flags/XC16_dsPIC33EP512MU810/85853100e7dab9b5ae50aa06f4b5e8f9bf927511 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/interrupts.o: code/interrupts.c  .generated_files/flags/XC16_dsPIC33EP512MU810/f1963837f8be9e19bc2c46031079893584047357 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/interrupts.o.d 
 	@${RM} ${OBJECTDIR}/code/interrupts.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/interrupts.c  -o ${OBJECTDIR}/code/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/interrupts.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/interrupts.c  -o ${OBJECTDIR}/code/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/interrupts.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/main.o: code/main.c  .generated_files/flags/XC16_dsPIC33EP512MU810/7fd87c6978413c0c334b93586591f0bab7c63714 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/main.o: code/main.c  .generated_files/flags/XC16_dsPIC33EP512MU810/491014c37e5e02457ddabfef75d044255a1a4cca .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/main.o.d 
 	@${RM} ${OBJECTDIR}/code/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/main.c  -o ${OBJECTDIR}/code/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/main.c  -o ${OBJECTDIR}/code/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/system.o: code/system.c  .generated_files/flags/XC16_dsPIC33EP512MU810/4427ed15a7b2312583446c8c5093bb37b995a93b .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/system.o: code/system.c  .generated_files/flags/XC16_dsPIC33EP512MU810/cf8ccfd5c3c40dc43e8f28941f271bd5e1585979 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/system.o.d 
 	@${RM} ${OBJECTDIR}/code/system.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/system.c  -o ${OBJECTDIR}/code/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/system.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/system.c  -o ${OBJECTDIR}/code/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/system.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/traps.o: code/traps.c  .generated_files/flags/XC16_dsPIC33EP512MU810/32b93763760c4b7ba0c6c0572002c7f51c4ae9f1 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/traps.o: code/traps.c  .generated_files/flags/XC16_dsPIC33EP512MU810/2814ea2969f51df37882b5359334de2914112578 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/traps.o.d 
 	@${RM} ${OBJECTDIR}/code/traps.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/traps.c  -o ${OBJECTDIR}/code/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/traps.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/traps.c  -o ${OBJECTDIR}/code/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/traps.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/user.o: code/user.c  .generated_files/flags/XC16_dsPIC33EP512MU810/8dc95cf42d01c45a4200e6be45b4045f05285f4c .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/user.o: code/user.c  .generated_files/flags/XC16_dsPIC33EP512MU810/a405169e9be444dc7ab1cb2f9d7b38992203b2e3 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/user.o.d 
 	@${RM} ${OBJECTDIR}/code/user.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/user.c  -o ${OBJECTDIR}/code/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/user.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/user.c  -o ${OBJECTDIR}/code/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/user.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/I2C.o: code/I2C.c  .generated_files/flags/XC16_dsPIC33EP512MU810/649d74daf3713903d1b4de442540bbd2773df0ed .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/I2C.o: code/I2C.c  .generated_files/flags/XC16_dsPIC33EP512MU810/cb81f74c8537ffd7c4ab9f3c2a2965cbac951551 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/I2C.o.d 
 	@${RM} ${OBJECTDIR}/code/I2C.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/I2C.c  -o ${OBJECTDIR}/code/I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/I2C.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/I2C.c  -o ${OBJECTDIR}/code/I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/I2C.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512MU810/d73ea70dad885ad0e077c0c2be726f09068fc19d .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512MU810/d55483b17c3673b5e47a394dfc154c938db8e2db .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/UART.o.d 
 	@${RM} ${OBJECTDIR}/code/UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/PMP.o: code/PMP.c  .generated_files/flags/XC16_dsPIC33EP512MU810/98326064c26892c4d6b5e946b3bdc70cdb9ae2ae .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/PMP.o: code/PMP.c  .generated_files/flags/XC16_dsPIC33EP512MU810/f5d0d21e6ba0598a2e54a14d917eef736d5a7e6 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/PMP.o.d 
 	@${RM} ${OBJECTDIR}/code/PMP.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/PMP.c  -o ${OBJECTDIR}/code/PMP.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/PMP.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/PMP.c  -o ${OBJECTDIR}/code/PMP.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/PMP.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/code/eeprom_25xx-1.o: code/eeprom_25xx-1.c  .generated_files/flags/XC16_dsPIC33EP512MU810/9607f672026ee0a77276d51ba60abf987cd7e9c9 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
+	@${MKDIR} "${OBJECTDIR}/code" 
+	@${RM} ${OBJECTDIR}/code/eeprom_25xx-1.o.d 
+	@${RM} ${OBJECTDIR}/code/eeprom_25xx-1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/eeprom_25xx-1.c  -o ${OBJECTDIR}/code/eeprom_25xx-1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/eeprom_25xx-1.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 else
-${OBJECTDIR}/code/configuration_bits.o: code/configuration_bits.c  .generated_files/flags/XC16_dsPIC33EP512MU810/3fe02131a9fa3121ff1f735fba929361eceddd93 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/configuration_bits.o: code/configuration_bits.c  .generated_files/flags/XC16_dsPIC33EP512MU810/f6900a1b8d9880cfbf696eb65502478336a82fc3 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/code/configuration_bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/configuration_bits.c  -o ${OBJECTDIR}/code/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/configuration_bits.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/configuration_bits.c  -o ${OBJECTDIR}/code/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/configuration_bits.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/interrupts.o: code/interrupts.c  .generated_files/flags/XC16_dsPIC33EP512MU810/da21b7248522d179a66cd004dd021d0c582c952c .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/interrupts.o: code/interrupts.c  .generated_files/flags/XC16_dsPIC33EP512MU810/bd875b5b3b54484c69c6ff1b34108192817ea2e5 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/interrupts.o.d 
 	@${RM} ${OBJECTDIR}/code/interrupts.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/interrupts.c  -o ${OBJECTDIR}/code/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/interrupts.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/interrupts.c  -o ${OBJECTDIR}/code/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/interrupts.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/main.o: code/main.c  .generated_files/flags/XC16_dsPIC33EP512MU810/4c74f4bb0752e9ff87f42f4ad093aa0cbc17a3d3 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/main.o: code/main.c  .generated_files/flags/XC16_dsPIC33EP512MU810/68dc5f90f87bcb82f707829c6a59bb8f60c4d995 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/main.o.d 
 	@${RM} ${OBJECTDIR}/code/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/main.c  -o ${OBJECTDIR}/code/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/main.c  -o ${OBJECTDIR}/code/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/system.o: code/system.c  .generated_files/flags/XC16_dsPIC33EP512MU810/94dd22012a863a99730b98a7895299653279a8c2 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/system.o: code/system.c  .generated_files/flags/XC16_dsPIC33EP512MU810/c9a3aef87c94fe8fc2121ac02ccd4f429bc3784f .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/system.o.d 
 	@${RM} ${OBJECTDIR}/code/system.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/system.c  -o ${OBJECTDIR}/code/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/system.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/system.c  -o ${OBJECTDIR}/code/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/system.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/traps.o: code/traps.c  .generated_files/flags/XC16_dsPIC33EP512MU810/1b9e73e12b2300ccefc015c71e9b196abbdd5cd8 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/traps.o: code/traps.c  .generated_files/flags/XC16_dsPIC33EP512MU810/54d6a0d613319437373e893470d70d5e623a416a .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/traps.o.d 
 	@${RM} ${OBJECTDIR}/code/traps.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/traps.c  -o ${OBJECTDIR}/code/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/traps.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/traps.c  -o ${OBJECTDIR}/code/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/traps.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/user.o: code/user.c  .generated_files/flags/XC16_dsPIC33EP512MU810/a8e9626b866da9a5865a64fc9b026fe8835b8ebe .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/user.o: code/user.c  .generated_files/flags/XC16_dsPIC33EP512MU810/57286c41835274fdbfcd10747cb5e9460a9c22ee .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/user.o.d 
 	@${RM} ${OBJECTDIR}/code/user.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/user.c  -o ${OBJECTDIR}/code/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/user.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/user.c  -o ${OBJECTDIR}/code/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/user.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/I2C.o: code/I2C.c  .generated_files/flags/XC16_dsPIC33EP512MU810/e53e28939f0c5428d0e9eb01684e7f39e94ec625 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/I2C.o: code/I2C.c  .generated_files/flags/XC16_dsPIC33EP512MU810/f3f3c13c8d25102a4a22e047fc2791da9f14163c .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/I2C.o.d 
 	@${RM} ${OBJECTDIR}/code/I2C.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/I2C.c  -o ${OBJECTDIR}/code/I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/I2C.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/I2C.c  -o ${OBJECTDIR}/code/I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/I2C.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512MU810/3a596d5ed5db87252892f25d055a4ad9db045a55 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/UART.o: code/UART.c  .generated_files/flags/XC16_dsPIC33EP512MU810/ff2f602f70ef53901a52388ec4337434a5f90066 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/UART.o.d 
 	@${RM} ${OBJECTDIR}/code/UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/UART.c  -o ${OBJECTDIR}/code/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/UART.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/code/PMP.o: code/PMP.c  .generated_files/flags/XC16_dsPIC33EP512MU810/d0754444e2e0dbf3f2dca3d9b4d7416ebbb1076 .generated_files/flags/XC16_dsPIC33EP512MU810/168b633b52a46c5b8b8a05feadf3c077d6e15a18
+${OBJECTDIR}/code/PMP.o: code/PMP.c  .generated_files/flags/XC16_dsPIC33EP512MU810/1e95a449ff299498d5c6ae0e11753e9879cac184 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
 	@${MKDIR} "${OBJECTDIR}/code" 
 	@${RM} ${OBJECTDIR}/code/PMP.o.d 
 	@${RM} ${OBJECTDIR}/code/PMP.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  code/PMP.c  -o ${OBJECTDIR}/code/PMP.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/PMP.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/PMP.c  -o ${OBJECTDIR}/code/PMP.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/PMP.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/code/eeprom_25xx-1.o: code/eeprom_25xx-1.c  .generated_files/flags/XC16_dsPIC33EP512MU810/7573abe6e6b850c3de5d04ec8541f3a5e80891e5 .generated_files/flags/XC16_dsPIC33EP512MU810/63bb65385b9bcfd57ff63c9d0ae2a7c08640c179
+	@${MKDIR} "${OBJECTDIR}/code" 
+	@${RM} ${OBJECTDIR}/code/eeprom_25xx-1.o.d 
+	@${RM} ${OBJECTDIR}/code/eeprom_25xx-1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  code/eeprom_25xx-1.c  -o ${OBJECTDIR}/code/eeprom_25xx-1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/code/eeprom_25xx-1.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 
@@ -223,12 +235,12 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)   -mreserve=data@0x1000:0x101B -mreserve=data@0x101C:0x101D -mreserve=data@0x101E:0x101F -mreserve=data@0x1020:0x1021 -mreserve=data@0x1022:0x1023 -mreserve=data@0x1024:0x1027 -mreserve=data@0x1028:0x104F   -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--heap=1024,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)   -mreserve=data@0x1000:0x101B -mreserve=data@0x101C:0x101D -mreserve=data@0x101E:0x101F -mreserve=data@0x1020:0x1021 -mreserve=data@0x1022:0x1023 -mreserve=data@0x1024:0x1027 -mreserve=data@0x1028:0x104F   -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--heap=1024,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
 	
 else
 ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--heap=1024,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -DXPRJ_XC16_dsPIC33EP512MU810=$(CND_CONF)    $(COMPARISON_BUILD)  -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--heap=1024,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
 	${MP_CC_DIR}\\xc16-bin2hex ${DISTDIR}/Projekt_Template.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf   -mdfp="${DFP_DIR}/xc16" 
 	
 endif

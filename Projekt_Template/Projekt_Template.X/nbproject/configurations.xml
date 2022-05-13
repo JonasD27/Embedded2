@@ -10,6 +10,7 @@
       <itemPath>code/UART.h</itemPath>
       <itemPath>code/lcd_gpio.h</itemPath>
       <itemPath>code/PMP.h</itemPath>
+      <itemPath>code/eeprom_25xx-1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,6 +30,7 @@
       <itemPath>code/UART.c</itemPath>
       <itemPath>code/lcd_gpio.c</itemPath>
       <itemPath>code/PMP.c</itemPath>
+      <itemPath>code/eeprom_25xx-1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -60,7 +62,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.60</languageToolchainVersion>
+        <languageToolchainVersion>2.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -394,6 +396,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -570,7 +573,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.60</languageToolchainVersion>
+        <languageToolchainVersion>2.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
