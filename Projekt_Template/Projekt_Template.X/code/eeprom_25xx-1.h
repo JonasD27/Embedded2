@@ -27,7 +27,7 @@
 #ifndef EEPROM_25XX_H
 #define	EEPROM_25XX_H
 
-
+#define __delay_cycles(cycles)asm volatile ("repeat #%0 \n nop" : : "i" (cycles-2))
 /// Output Pin for SPI Chip Select 
 #define EEPROM_NCS _LATF8
 

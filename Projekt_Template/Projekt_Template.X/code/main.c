@@ -23,7 +23,7 @@
 #include "I2C.h"           
 //#include "lcd_gpio.h"
 #include "PMP.h"
-//#include "gesture9.h"
+#include "eeprom_25xx-1.h" /* Behinhaltet Konstanten und Prototypen           */
 
 /******************************************************************************/
 /* Konstanten                                                                 */
@@ -237,8 +237,9 @@ int16_t main(void)
     initI2C();
     //lcd_init();
     initPMP();
+    initSPI();
     
-    //gesture_init();
+    readStatusEEPROM();
 
     writeStrLCD("Hello World");
     delay_ms(2000);

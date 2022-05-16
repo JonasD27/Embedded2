@@ -23,16 +23,33 @@
 
 void initSPI()
 {
+    //SPI MISO als Input
+    _TRISA14=1;
+    //SPI Signale als Output
+    _TRISF5=0;
+    _TRISF3=0;
+    _TRISF2=0;
+    _TRISF8=0;
+    _TRISF4=0;
+    
+    //ANSEL??
+
+    
+    
     //STAT
-    /* SPIx-Modul ist aktiviert und konfiguriert die Stifte SCKx, SDOx, SDIx und 
-     * SSx als serielle Anschlussstifte.*/
-    SPI1STATbits.SPIEN = 1;
+    
     
     /* Der Betrieb des SPIx-Moduls wird im Idle-Modus fortgesetzt.*/
     SPI1STATbits.SPISIDL = 0;
+    SPI1STATbits.SPIROV=0;
+    SPI1STATbits.SPITBF=0;
+    SPI1STATbits.SPIRBF=0;
     
     
     //CON1
+    
+     /* Master-Modus.*/
+    SPI1CON1bits.MSTEN = 1;
     /* SPIx-Takt am SCKx-Pin ist aktiviert.*/
     SPI1CON1bits.DISSCK = 0;
     
@@ -53,8 +70,6 @@ void initSPI()
      * ein high Pegel.*/
     SPI1CON1bits.CKP = 0;
     
-    /* Master-Modus.*/
-    SPI1CON1bits.MSTEN = 1;
     
     
     //12.5 MHz
@@ -72,15 +87,22 @@ void initSPI()
     /* Erweiterter Puffer ist deaktiviert (Legacy-Modus).*/
     SPI1CON2bits.SPIBEN = 0;  
     
+    
+    /* SPIx-Modul ist aktiviert und konfiguriert die Stifte SCKx, SDOx, SDIx und 
+     * SSx als serielle Anschlussstifte.*/
+    SPI1STATbits.SPIEN = 1;
+    
 }/*initSPI()*/
 
 
 void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
-    char gesendetStr[100];
-    while(SPI1STATbits.SPITBF);
-    EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     
+    EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
+    
+#if 0
+    char gesendetStr[100];
     //Zum testen Werte in stinrgs gespeichert und an uart gesendet
     sprintf(gesendetStr,"EEPROM_CMD_RDIP: %d",EEPROM_CMD_RDIP);
     putsUART(gesendetStr);
@@ -90,7 +112,13 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     sprintf(gesendetStr,"Prescaler1: %d, 2:%d",SPI1CON1bits.PPRE,SPI1CON1bits.SPRE);
     putsUART(gesendetStr);
     
-    EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select
+#endif
+    
+    SPI1BUF=EEPROM_CMD_WRITE;
+    SPI1BUF=addr;
+    SPI1BUF=*data;
+    
+    EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
     
 }/*writeDataEEPROM()*/
 
@@ -104,3 +132,48 @@ void readDataEEPROM(uint32_t addr, uint8_t *data, int count)
     
 }/*readDataEEPROM()*/
 
+
+uint8_t  readStatusEEPROM(void)
+{
+    uint8_t status;
+    
+    EEPROM_NCS = 0;
+    __delay_cycles(2); //2*40ns=80ns
+    
+    SPI1BUF=EEPROM_CMD_PDSR;
+    status = SPI1BUF;
+    EEPROM_NCS = 1;
+    __delay_cycles(2); //2*40ns=80ns
+    
+    char debug[100];
+    sprintf(debug,"Stauts: %02X",status);
+    putsUART(debug);
+    
+    return status;
+
+}
+
+uint8_t  readSignatureEEPROM(void)
+{
+    uint8_t signature;
+    EEPROM_NCS = 0;
+    __delay_cycles(2); //2*40ns=80ns
+    
+    SPI1BUF=EEPROM_CMD_RDIP;
+    //Dummy Adresse
+    SPI1BUF=0xF;
+    SPI1BUF=0xF;
+    SPI1BUF=0xF;
+   
+    signature=SPI1BUF;
+   
+    EEPROM_NCS = 1;
+    
+    char debug[100];
+    sprintf(debug,"Signatur: %02X",signature);
+    putsUART(debug);
+    
+    
+    return signature;
+
+}
