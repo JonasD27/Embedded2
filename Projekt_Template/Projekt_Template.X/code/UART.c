@@ -15,6 +15,12 @@ Buffer FIFO_RX = {{}, 0, 0}; //FIFO zum Empfangen über UART
 
 void initUART()
 {
+    _TRISE8 = 1;                //Uart RX als Input
+    _ANSE8 = 0;
+    
+    _RP66R = _RPOUT_U1TX;       //UART Pin Mapping
+    RPINR18bits.U1RXR = 0b1011000;
+    
     U1MODEbits.STSEL = 0; // 1-Stop bit
     U1MODEbits.PDSEL = 0; // No Parity, 8-Data bits
     U1MODEbits.ABAUD = 0; // Auto-Baud disabled

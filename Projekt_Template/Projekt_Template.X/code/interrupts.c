@@ -42,7 +42,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
         //Anfrage Temperatur-Sensor
         exchangeI2C(0b1001000, 1, &write_data_buffer_temp, 2, read_data_buffer_temp, &status_temperatur, &I2C_TempSens_Callback ,0);
         //Anfrage Licht-Sensor
-        exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status_licht, &I2C_LightSens_Callback, 1);   
+        //exchangeI2C(0b0100011, 1, &write_data_buffer_light, 2, read_data_buffer_light, &status_licht, &I2C_LightSens_Callback, 1);   
     }
     
     else

@@ -216,6 +216,7 @@ void display_temp_load()
        }
        
        display_UART_RX();
+       readSignatureEEPROM();
    }
    
 }/*display_temp_load()*/
@@ -239,21 +240,14 @@ int16_t main(void)
     initPMP();
     initSPI();
     
-    readStatusEEPROM();
-
     writeStrLCD("Hello World");
     delay_ms(2000);
     lcd_clear();
 
-    _RP66R = _RPOUT_U1TX;       //UART Pin Mapping
-    RPINR18bits.U1RXR = 0b1011000;
-
     _TRISF0 = 0;                //Für Asuslastungsberechnung
     _T2CKR = 96;                //LATF0 auf Gated Timer Input mappen
 
-    _TRISE8 = 1;                //Uart RX als Input
-    _ANSE8 = 0;
-
+    
     while(1)
     {
         _LATF0 = 0;             //Gated Timer stoppen
