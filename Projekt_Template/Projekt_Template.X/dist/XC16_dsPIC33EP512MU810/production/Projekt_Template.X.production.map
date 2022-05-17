@@ -190,12 +190,12 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x17c6          0x23a9  (9129)
 .const                      0x19c6                0xdc           0x14a  (330)
-.text                       0x1aa2               0x962           0xe13  (3603)
-.dinit                      0x2404               0x1a6           0x279  (633)
-.text                       0x25aa               0x2dc           0x44a  (1098)
-.init.delay32               0x2886                0x1c            0x2a  (42)
+.text                       0x1aa2               0x96e           0xe25  (3621)
+.dinit                      0x2410               0x1a6           0x279  (633)
+.text                       0x25b6               0x2dc           0x44a  (1098)
+.init.delay32               0x2892                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):         0x39f3  (14835) 2%
+                 Total "program" memory used (bytes):         0x3a05  (14853) 2%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -379,36 +379,36 @@ External Symbols in Program Memory (by address):
                   0x00200c                  _putcFIFO_RX
                   0x002058                  _getcFIFO_RX
                   0x002094                  _initSPI
-                  0x00211a                  _writeDataEEPROM
-                  0x002144                  _readDataEEPROM
-                  0x002156                  _readStatusEEPROM
-                  0x002184                  _readSignatureEEPROM
-                  0x002252                  _initPMP
-                  0x002314                  _lcd_get_status
-                  0x00233c                  _waitForBusyLCD
-                  0x00234a                  _lcd_write_data
-                  0x002368                  _writeStrLCD
-                  0x00238e                  _lcd_clear
-                  0x0023a8                  _lcd_set_pos
-                  0x0025aa                  _measureProcesstime
-                  0x002610                  _display_UART_RX
-                  0x00263a                  _send_lcd_status
-                  0x002664                  _display_temp_load
-                  0x0026c0                  _main
-                  0x00271a                  _ConfigureOscillator
-                  0x002772                  _init_timer1
-                  0x0027aa                  _init_ms_t4
-                  0x0027c8                  _init_t2_t3
-                  0x0027fc                  _delay_ms
-                  0x002832                  _delay_us
-                  0x00285e                  _InitApp
-                  0x002864                  _setLED
-                  0x002886                  ___delay32
+                  0x002126                  _writeDataEEPROM
+                  0x002150                  _readDataEEPROM
+                  0x002162                  _readStatusEEPROM
+                  0x002190                  _readSignatureEEPROM
+                  0x00225e                  _initPMP
+                  0x002320                  _lcd_get_status
+                  0x002348                  _waitForBusyLCD
+                  0x002356                  _lcd_write_data
+                  0x002374                  _writeStrLCD
+                  0x00239a                  _lcd_clear
+                  0x0023b4                  _lcd_set_pos
+                  0x0025b6                  _measureProcesstime
+                  0x00261c                  _display_UART_RX
+                  0x002646                  _send_lcd_status
+                  0x002670                  _display_temp_load
+                  0x0026cc                  _main
+                  0x002726                  _ConfigureOscillator
+                  0x00277e                  _init_timer1
+                  0x0027b6                  _init_ms_t4
+                  0x0027d4                  _init_t2_t3
+                  0x002808                  _delay_ms
+                  0x00283e                  _delay_us
+                  0x00286a                  _InitApp
+                  0x002870                  _setLED
+                  0x002892                  ___delay32
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x00271a                  _ConfigureOscillator
+                  0x002726                  _ConfigureOscillator
                   0x001cca                  _FSM_Adresse_Read
                   0x001c3e                  _FSM_Adresse_Write
                   0x001bee                  _FSM_Idle
@@ -418,7 +418,7 @@ External Symbols in Program Memory (by name):
                   0x001d8a                  _FSM_Stop
                   0x001e2e                  _I2C_LightSens_Callback
                   0x001d9e                  _I2C_TempSens_Callback
-                  0x00285e                  _InitApp
+                  0x00286a                  _InitApp
                   0x00035e                  __AddressError
                   0x000370                  __DMACError
                   0x000376                  __DefaultInterrupt
@@ -433,7 +433,7 @@ External Symbols in Program Memory (by name):
                   0x000382                  __U1TXInterrupt
                   0x001434                  ___adddf3
                   0x000468                  ___addsf3
-                  0x002886                  ___delay32
+                  0x002892                  ___delay32
                   0x001544                  ___divdf3
                   0x000522                  ___divsf3
                   0x001530                  ___eqdf2
@@ -483,10 +483,10 @@ External Symbols in Program Memory (by name):
                   0x000928                  __vfprintf_cdfFnopuxX
                   0x000928                  __vfprintf_cdnopuxX
                   0x000928                  __vfprintf_fF
-                  0x0027fc                  _delay_ms
-                  0x002832                  _delay_us
-                  0x002610                  _display_UART_RX
-                  0x002664                  _display_temp_load
+                  0x002808                  _delay_ms
+                  0x00283e                  _delay_us
+                  0x00261c                  _display_UART_RX
+                  0x002670                  _display_temp_load
                   0x001b96                  _doI2C
                   0x001b44                  _exchangeI2C
                   0x001730                  _frexp
@@ -495,18 +495,18 @@ External Symbols in Program Memory (by name):
                   0x002058                  _getcFIFO_RX
                   0x001f70                  _getcFIFO_TX
                   0x001ba2                  _initI2C
-                  0x002252                  _initPMP
+                  0x00225e                  _initPMP
                   0x002094                  _initSPI
                   0x001eb6                  _initUART
-                  0x0027aa                  _init_ms_t4
-                  0x0027c8                  _init_t2_t3
-                  0x002772                  _init_timer1
-                  0x00238e                  _lcd_clear
-                  0x002314                  _lcd_get_status
-                  0x0023a8                  _lcd_set_pos
-                  0x00234a                  _lcd_write_data
-                  0x0026c0                  _main
-                  0x0025aa                  _measureProcesstime
+                  0x0027b6                  _init_ms_t4
+                  0x0027d4                  _init_t2_t3
+                  0x00277e                  _init_timer1
+                  0x00239a                  _lcd_clear
+                  0x002320                  _lcd_get_status
+                  0x0023b4                  _lcd_set_pos
+                  0x002356                  _lcd_write_data
+                  0x0026cc                  _main
+                  0x0025b6                  _measureProcesstime
                   0x00138a                  _memcpy
                   0x001398                  _memset
                   0x001aa2                  _put_I2C_struct_FIFO
@@ -514,15 +514,15 @@ External Symbols in Program Memory (by name):
                   0x001f20                  _putcFIFO_TX
                   0x001fac                  _putcUART
                   0x001fc2                  _putsUART
-                  0x002144                  _readDataEEPROM
-                  0x002184                  _readSignatureEEPROM
-                  0x002156                  _readStatusEEPROM
-                  0x00263a                  _send_lcd_status
-                  0x002864                  _setLED
+                  0x002150                  _readDataEEPROM
+                  0x002190                  _readSignatureEEPROM
+                  0x002162                  _readStatusEEPROM
+                  0x002646                  _send_lcd_status
+                  0x002870                  _setLED
                   0x0013a6                  _strlen
-                  0x00233c                  _waitForBusyLCD
-                  0x00211a                  _writeDataEEPROM
-                  0x002368                  _writeStrLCD
+                  0x002348                  _waitForBusyLCD
+                  0x002126                  _writeDataEEPROM
+                  0x002374                  _writeStrLCD
 
 Memory Configuration
 
@@ -740,7 +740,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS°¾•
+ __FGS.sec        0xf80004          0x2 /CW/_FGSÐÞ‘
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -794,7 +794,7 @@ __FUID0
  .debug_abbrev    0x000852        0x123 build/XC16_dsPIC33EP512MU810/production/code/PMP.o
  .debug_abbrev    0x000975        0x12c build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
 
-.debug_line       0x000000        0xc93
+.debug_line       0x000000        0xc94
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_line      0x00001a        0x123 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -805,7 +805,7 @@ __FUID0
  .debug_line      0x000642        0x1d9 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_line      0x00081b        0x197 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_line      0x0009b2        0x16f build/XC16_dsPIC33EP512MU810/production/code/PMP.o
- .debug_line      0x000b21        0x172 build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
+ .debug_line      0x000b21        0x173 build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
 
 .debug_frame      0x000000        0x73a
  *(.debug_frame)
@@ -3577,7 +3577,7 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGS°¾•
+LOAD /CW/_FGSÐÞ‘
 LOAD jump_table
 LOAD heap
 LOAD data_init
@@ -3860,7 +3860,7 @@ __c30_signature
  .const             0x9a34         0x4e build/XC16_dsPIC33EP512MU810/production/code/main.o
  .const             0x9a82         0x20 build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
 
-.text             0x001aa2        0x962
+.text             0x001aa2        0x96e
  .text            0x001aa2        0x414 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
                   0x001aa2                  _put_I2C_struct_FIFO
                   0x001b04                  _get_I2C_struct_FIFO
@@ -3884,42 +3884,42 @@ __c30_signature
                   0x001fc2                  _putsUART
                   0x00200c                  _putcFIFO_RX
                   0x002058                  _getcFIFO_RX
- .text            0x002094        0x1be build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
+ .text            0x002094        0x1ca build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
                   0x002094                  _initSPI
-                  0x00211a                  _writeDataEEPROM
-                  0x002144                  _readDataEEPROM
-                  0x002156                  _readStatusEEPROM
-                  0x002184                  _readSignatureEEPROM
- .text            0x002252        0x1b2 build/XC16_dsPIC33EP512MU810/production/code/PMP.o
-                  0x002252                  _initPMP
-                  0x002314                  _lcd_get_status
-                  0x00233c                  _waitForBusyLCD
-                  0x00234a                  _lcd_write_data
-                  0x002368                  _writeStrLCD
-                  0x00238e                  _lcd_clear
-                  0x0023a8                  _lcd_set_pos
+                  0x002126                  _writeDataEEPROM
+                  0x002150                  _readDataEEPROM
+                  0x002162                  _readStatusEEPROM
+                  0x002190                  _readSignatureEEPROM
+ .text            0x00225e        0x1b2 build/XC16_dsPIC33EP512MU810/production/code/PMP.o
+                  0x00225e                  _initPMP
+                  0x002320                  _lcd_get_status
+                  0x002348                  _waitForBusyLCD
+                  0x002356                  _lcd_write_data
+                  0x002374                  _writeStrLCD
+                  0x00239a                  _lcd_clear
+                  0x0023b4                  _lcd_set_pos
 
-.dinit            0x002404        0x1a6
- .dinit           0x002404        0x1a6 data_init
+.dinit            0x002410        0x1a6
+ .dinit           0x002410        0x1a6 data_init
 
-.text             0x0025aa        0x2dc
- .text            0x0025aa        0x170 build/XC16_dsPIC33EP512MU810/production/code/main.o
-                  0x0025aa                  _measureProcesstime
-                  0x002610                  _display_UART_RX
-                  0x00263a                  _send_lcd_status
-                  0x002664                  _display_temp_load
-                  0x0026c0                  _main
- .text            0x00271a        0x144 build/XC16_dsPIC33EP512MU810/production/code/system.o
-                  0x00271a                  _ConfigureOscillator
-                  0x002772                  _init_timer1
-                  0x0027aa                  _init_ms_t4
-                  0x0027c8                  _init_t2_t3
-                  0x0027fc                  _delay_ms
-                  0x002832                  _delay_us
- .text            0x00285e         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
-                  0x00285e                  _InitApp
-                  0x002864                  _setLED
+.text             0x0025b6        0x2dc
+ .text            0x0025b6        0x170 build/XC16_dsPIC33EP512MU810/production/code/main.o
+                  0x0025b6                  _measureProcesstime
+                  0x00261c                  _display_UART_RX
+                  0x002646                  _send_lcd_status
+                  0x002670                  _display_temp_load
+                  0x0026cc                  _main
+ .text            0x002726        0x144 build/XC16_dsPIC33EP512MU810/production/code/system.o
+                  0x002726                  _ConfigureOscillator
+                  0x00277e                  _init_timer1
+                  0x0027b6                  _init_ms_t4
+                  0x0027d4                  _init_t2_t3
+                  0x002808                  _delay_ms
+                  0x00283e                  _delay_us
+ .text            0x00286a         0x28 build/XC16_dsPIC33EP512MU810/production/code/user.o
+                  0x00286a                  _InitApp
+                  0x002870                  _setLED
 
-.init.delay32     0x002886         0x1c
- .init.delay32    0x002886         0x1c c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x002886                  ___delay32
+.init.delay32     0x002892         0x1c
+ .init.delay32    0x002892         0x1c c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x002892                  ___delay32

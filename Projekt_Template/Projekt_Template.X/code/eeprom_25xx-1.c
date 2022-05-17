@@ -38,7 +38,7 @@ void initSPI()
     _RP100R = _RPOUT_SCK1;
     _RP101R = _RPOUT_SDO1;
     
-    //RPINR29bits.SCK3R=100; //SCK3 als Input
+    RPINR20bits.SCK1R=100;
     //RPINR29bits.SDI3R=30;
     RPINR20bits.SDI1R = 30;
     
