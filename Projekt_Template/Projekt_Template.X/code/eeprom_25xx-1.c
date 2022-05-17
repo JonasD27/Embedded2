@@ -159,10 +159,14 @@ uint8_t  readSignatureEEPROM(void)
     EEPROM_NCS = 0;
     __delay_cycles(2); //2*40ns=80ns
     
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=EEPROM_CMD_RDIP;
     //Dummy Adresse
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
    
     signature=SPI1BUF;
