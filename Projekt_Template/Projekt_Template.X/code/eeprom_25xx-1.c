@@ -14,8 +14,8 @@
 #include "user.h"          /* Benutzer - Funktion/Parameter                   */
 
 #include "libpic30.h"      /* Beinhaltet Delay-Funktionen                     */
-#include "eeprom_25xx-1.h" /* Behinhaltet Konstanten und Prototypen           */
-#include "UART.h"          /* Behinhaltet Konstanten und Prototypen           */
+#include "eeprom_25xx-1.h" /* Beinhaltet Konstanten und Prototypen            */
+#include "UART.h"          /* Beinhaltet Konstanten und Prototypen            */
 
 /******************************************************************************/
 /* Funktionen                                                                 */
@@ -23,7 +23,6 @@
 
 void initSPI()
 {
-
     //SPI MISO als Input
     _TRISA14=1;
     //SPI Signale als Output
@@ -43,26 +42,31 @@ void initSPI()
     RPINR20bits.SDI1R = 30;
     
     __builtin_write_OSCCONL(OSCCON | 0x40);        // to set IOLOCK
-    //STAT
     
+    /*******************Interrupt Controller Settings**************************/
+    
+    /* Löschen des Interrupt-Flags */
+    IFS0bits.SPI1EIF = 0;
+
+    /* Interrupt wird deaktiviert */
+    IEC0bits.SPI1IE = 0;
+
+    /*************SPIxSTAT: SPIx Status and Control Register*******************/
     
     /* Der Betrieb des SPIx-Moduls wird im Idle-Modus fortgesetzt.*/
     SPI1STATbits.SPISIDL = 0;
     
-
-    _SPI1IF = 0; // Clear the Interrupt flag
-    _SPI1IE = 0; // Disable the interrupt
-    
+    /* Es ist kein Überlauf aufgetreten */
+    SPI1STATbits.SPIROV=0;
+       
+    /* Übertragung hat begonnen, SPIxTXB-Puffer ist leer */
     SPI1STATbits.SPITBF=0;
+    
+    /* Empfang ist unvollständig, SPIxRXB ist leer */
     SPI1STATbits.SPIRBF=0;
     
     
-    //CON1
-    
-     /* Master-Modus.*/
-    SPI1CON1bits.MSTEN = 1;
-    
-    SPI1STATbits.SPIROV=0;
+    /*****************SPI XCON1: SPIx Control Register 1***********************/
     
     /* SPIx-Takt am SCKx-Pin ist aktiviert.*/
     SPI1CON1bits.DISSCK = 0;
@@ -86,23 +90,27 @@ void initSPI()
      * ein high Pegel.*/
     SPI1CON1bits.CKP = 0;
     
+    /* Master-Modus.*/
+    SPI1CON1bits.MSTEN = 1;
     
+    /***********************12,5 MHz eingestellt*******************************/
     
-    //12.5 MHz
-    /* Sekundäre Vorskalierung 8:1*/
+    /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung)) */
+    
+    /* Sekundäre Vorskalierung 8:1*/    //????
     SPI1CON1bits.SPRE = 0b000;
     
     /* Primäre Vorskalierung 1:1*/
     SPI1CON1bits.PPRE = 0b11;   
     
     
-    //CON2
+    /*****************SPI XCON1: SPIx Control Register 2***********************/
+    
     /* Framed SPIx-Unterstützung ist deaktiviert.*/
     SPI1CON2bits.FRMEN = 0;
     
     /* Erweiterter Puffer ist deaktiviert (Legacy-Modus).*/
     SPI1CON2bits.SPIBEN = 0;  
-    
     
     /* SPIx-Modul ist aktiviert und konfiguriert die Stifte SCKx, SDOx, SDIx und 
      * SSx als serielle Anschlussstifte.*/
@@ -116,24 +124,11 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     
     EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
-    
-#if 0
-    char gesendetStr[100];
-    //Zum testen Werte in stinrgs gespeichert und an uart gesendet
-    sprintf(gesendetStr,"EEPROM_CMD_RDIP: %d",EEPROM_CMD_RDIP);
-    putsUART(gesendetStr);
-    while(!SPI1STATbits.SPIRBF);
-    sprintf(gesendetStr,"Nach wh: %d",EEPROM_CMD_RDIP);
-    putsUART(gesendetStr);
-    sprintf(gesendetStr,"Prescaler1: %d, 2:%d",SPI1CON1bits.PPRE,SPI1CON1bits.SPRE);
-    putsUART(gesendetStr);
-    
-#endif
-    
-    SPI1BUF=EEPROM_CMD_WRITE;
-    SPI1BUF=addr;
-    SPI1BUF=*data;
-    
+        
+    SPI1BUF = EEPROM_CMD_WRITE;
+    SPI1BUF = addr;
+    SPI1BUF = *data;
+   
     EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
     
 }/*writeDataEEPROM()*/
