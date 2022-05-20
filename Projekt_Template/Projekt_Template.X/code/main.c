@@ -216,8 +216,9 @@ void display_temp_load()
        }
        
        display_UART_RX();
-       setWriteEnableEEPROM();
-       setWriteDisableEEPROM();
+       uint8_t data = 0b11001001;
+       uint32_t addr = 0xABF0FF00;
+       writeDataEEPROM(addr,&data,1);
    }
    
 }/*display_temp_load()*/
