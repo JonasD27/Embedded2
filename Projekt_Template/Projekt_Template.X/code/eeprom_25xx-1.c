@@ -24,14 +24,14 @@
 void initSPI()
 {
     /***********************SPI MISO als Input*********************************/
-    _TRISA14=1;
+    _TRISA14 = 1;
     
     /*********************SPI Signale als Output*******************************/
-    _TRISF5=0; //MOSI
-    _TRISF3=0; //CS3
-    _TRISF2=0; //CS2
-    _TRISF8=0; //CS1
-    _TRISF4=0; //SCK
+    _TRISF5 = 0; //MOSI
+    _TRISF3 = 0; //CS3
+    _TRISF2 = 0; //CS2
+    _TRISF8 = 0; //CS1
+    _TRISF4 = 0; //SCK
   
     /**************************************************************************/
     
@@ -61,13 +61,13 @@ void initSPI()
     SPI1STATbits.SPISIDL = 0;
     
     /* Es ist kein Überlauf aufgetreten */
-    SPI1STATbits.SPIROV=0;
+    SPI1STATbits.SPIROV = 0;
        
     /* Übertragung hat begonnen, SPIxTXB-Puffer ist leer */
-    SPI1STATbits.SPITBF=0;
+    SPI1STATbits.SPITBF = 0;
     
     /* Empfang ist unvollständig, SPIxRXB ist leer */
-    SPI1STATbits.SPIRBF=0;
+    SPI1STATbits.SPIRBF = 0;
     
     /*****************SPI XCON1: SPIx Control Register 1***********************/
     
@@ -87,7 +87,9 @@ void initSPI()
      * Taktzustand zum Idle-Taktzustand.*/
     SPI1CON1bits.CKE = 1;
     
-    SPI1CON1bits.SSEN=0;
+    /* SSx-Pin wird vom Modul nicht verwendet; 
+     * Pin wird von der Portfunktion gesteuert*/
+    SPI1CON1bits.SSEN = 0;
     
     /* Der Ruhezustand für die clock ist ein low Pegel; der aktive Zustand ist 
      * ein high Pegel.*/
@@ -96,14 +98,14 @@ void initSPI()
     /* Master-Modus.*/
     SPI1CON1bits.MSTEN = 1;
     
-    /***********************12,5 MHz eingestellt*******************************/
+    /***********************3,125 MHz eingestellt******************************/
     
-    /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung)) */
+    /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung))  */
     
-    /* Primäre Vorskalierung 16:1*/     // 50 Mhz / 16 = 3,125 MHz
+    /* Primäre Vorskalierung 8:1*/     // 50 Mhz / 16 = 3,125 MHz
     SPI1CON1bits.PPRE = 0b01;   
     
-    /* Sekundäre Vorskalierung 8:1*/    // 3,125 MHz / 1 = 3,125 MHz
+    /* Sekundäre Vorskalierung 1:1*/    // 3,125 MHz / 1 = 3,125 MHz
     SPI1CON1bits.SPRE = 0b111;
      
     /*****************SPI XCON1: SPIx Control Register 2***********************/
@@ -121,23 +123,88 @@ void initSPI()
 }/*initSPI()*/
 
 
+
 void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    /* Schreiben*/
+    setWriteEnableEEPROM();
     
-    EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
-        
+    while(busyEEPROM());
+    
+    volatile uint8_t dummy;
+    
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0; 
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    /* Ausgangspin für SPI Chip Select auf 0.*/
+    EEPROM_NCS = 0;
+    
+    
+    //Write instruction
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    /* Schreiben von Daten in das Speicherfeld ab der ausgewählten Adresse.*/
     SPI1BUF = EEPROM_CMD_WRITE;
-    SPI1BUF = addr;
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    // 2. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF = (addr >> 16 );
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    // 3. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    SPI1BUF = (addr >> 8 );
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    // 4. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    SPI1BUF=(addr >> 0 );
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    //Daten schreiben
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF); 
     SPI1BUF = *data;
-   
-    EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
+    EEPROM_NCS = 1;
     
 }/*writeDataEEPROM()*/
 
 
 
-void readDataEEPROM(uint32_t addr, uint8_t *data, int count)
+uint8_t readDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
     uint8_t readDataBuffer = SPI1BUF;
     
@@ -151,74 +218,120 @@ uint8_t  readStatusEEPROM(void)
     uint8_t status;
     volatile uint8_t dummy;
     
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0;
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
     
-    EEPROM_NCS = 0;
+    /* Ausgangspin für SPI Chip Select auf 0.*/
+    EEPROM_NCS = 0;              
     
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=EEPROM_CMD_PDSR;
-    while(!SPI1STATbits.SPIRBF); //Solange warten, bis Eingelese ist
-    dummy = SPI1BUF; //leeren
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    /* STATUS-Register lesen. */
+    SPI1BUF = EEPROM_CMD_PDSR;
     
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=0x0;
-    //Warten bis Recieve Buffer voll ist
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;  
+    
+    
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF = 0x0;
+    
+    /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     status = SPI1BUF;
     
-    EEPROM_NCS = 1;
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
+    EEPROM_NCS = 1;              
     
     return status;
 
-}
+}/* readStatusEEPROM()*/
+
 
 uint8_t  readSignatureEEPROM(void)
 {
     uint8_t signature;
     volatile uint8_t dummy;
     
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
-    //Dummy read um Buffer zu leeren
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0;
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
     
-    EEPROM_NCS = 0;
+    /* Ausgangspin für SPI Chip Select auf 0.*/
+    EEPROM_NCS = 0;             
+ 
+    /********************Read Signatur Befehl senden***************************/
     
-    //Read Signatur Befehl senden
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    
+    /* Freigabe aus Deep Power Down und Lesen der elektronischen Signatur.*/
     SPI1BUF=EEPROM_CMD_RDIP;
+    
+    /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;             
+    
+    /************************Dummy Adresse senden******************************/
+    
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF);
+    SPI1BUF=0xF;
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;    
+    
+    
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF=0xF;
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
     
-    //Dummy Adresse senden
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=0xF;
-    while(!SPI1STATbits.SPIRBF);
-    dummy = SPI1BUF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=0xF;
-    while(!SPI1STATbits.SPIRBF);
-    dummy = SPI1BUF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=0xF;
-    while(!SPI1STATbits.SPIRBF);
-    dummy = SPI1BUF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-
     
-    SPI1BUF=0x0;
-    //Warten bis Recieve Buffer voll ist
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF=0xF;
+    
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF); 
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF; 
+    
+    
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF = 0x0;
+    
+    /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
-    signature=SPI1BUF;
+    signature = SPI1BUF;
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;
     
      return signature;
 
-}
+}/*readSignatureEEPROM()*/
+
 
 uint8_t  busyEEPROM(void)
 {
-    if (readStatusEEPROM() & EEPROM_STATUS_WIP) //Überprüfen ob WIP gesetzt ist
+    /* Status - Schreiben in Arbeit gesetzt?*/
+    if (readStatusEEPROM() & EEPROM_STATUS_WIP)
     {
         return 1;
     }
@@ -227,45 +340,66 @@ uint8_t  busyEEPROM(void)
         return 0;
     }
     
-}
+}/*busyEEPROM()*/
 
 
 void setWriteEnableEEPROM(void)
 {
-    while(busyEEPROM());
+    /* Wird geschrieben?*/
+    while(busyEEPROM());        
     
     volatile uint8_t dummy;
     
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0;
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
     
+    /* Ausgangspin für SPI Chip Select auf 0.*/
     EEPROM_NCS = 0;
     
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=EEPROM_CMD_WREN;
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF); 
+    /* Freigabe von Schreibvorgängen.*/
+    SPI1BUF = EEPROM_CMD_WREN;
+    
+    /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
-      
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;
 
-}
+}/*setWriteEnableEEPROM()*/
+
 
 void setWriteDisableEEPROM(void)
 {
-    while(busyEEPROM());
+    /* Wird nicht mehr geschrieben?*/
+    while(busyEEPROM());        
     
     volatile uint8_t dummy;
     
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0; 
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
     
+    /* Ausgangspin für SPI Chip Select auf 0.*/
     EEPROM_NCS = 0;
     
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    SPI1BUF=EEPROM_CMD_WRDI;
+    /* Solange gestzt, bis Transmit Buffer leer ist.*/
+    while(SPI1STATbits.SPITBF);
+    /* Schreibvorgänge deaktivieren.*/
+    SPI1BUF = EEPROM_CMD_WRDI;
+    
+    /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
-      
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;
 
-}
+}/* setWriteDisableEEPROM()*/

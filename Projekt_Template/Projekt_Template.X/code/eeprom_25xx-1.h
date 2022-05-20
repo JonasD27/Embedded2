@@ -109,7 +109,7 @@ void     initSPI();
 
 
 // Mögliche EEPROM Zugriffsfunktionen	
-void     readDataEEPROM(uint32_t addr, uint8_t *data, int count);
+uint8_t     readDataEEPROM(uint32_t addr, uint8_t *data, int count);
 void     writeDataEEPROM(uint32_t addr, uint8_t *data, int count);
 uint16_t writeBigDataEEPROM(uint32_t *addr, uint8_t *data, uint16_t *count);
 void     setWriteEnableEEPROM(void); //Fertig
