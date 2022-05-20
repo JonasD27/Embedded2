@@ -178,34 +178,38 @@ uint8_t  readSignatureEEPROM(void)
     uint8_t signature;
     volatile uint8_t dummy;
     
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    //Dummy read um Buffer zu leeren
+    dummy = SPI1BUF;
+    
     EEPROM_NCS = 0;
-    __delay_us(1);
     
     //Read Signatur Befehl senden
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=EEPROM_CMD_RDIP;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
     
     //Dummy Adresse senden
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0xF;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
 
-    //Warten bis Alle Daten rausgetaktet
-    __delay_us(10);
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
-    //Dummy read um Buffer zu leeren
-    dummy = SPI1BUF;
     
     SPI1BUF=0x0;
     //Warten bis Recieve Buffer voll ist
     while(!SPI1STATbits.SPIRBF);
     signature=SPI1BUF;
-    
-    __delay_us(5);
     EEPROM_NCS = 1;
     
      return signature;
