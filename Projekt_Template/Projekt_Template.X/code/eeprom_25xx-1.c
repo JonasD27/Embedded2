@@ -148,8 +148,7 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF);
     /* Schreiben von Daten in das Speicherfeld ab der ausgewählten Adresse.*/
-    SPI1BUF = EEPROM_CMD_WRITE;
-    
+    SPI1BUF = EEPROM_CMD_WRITE;  
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -159,8 +158,7 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     // 2. Wort
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF); 
-    SPI1BUF = (addr >> 16 );
-    
+    SPI1BUF = (addr >> 16 ); 
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -171,7 +169,6 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF);
     SPI1BUF = (addr >> 8 );
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -181,8 +178,7 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     // 4. Wort
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF);
-    SPI1BUF=(addr >> 0 );
-    
+    SPI1BUF = (addr >> 0 ); 
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -193,7 +189,6 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF); 
     SPI1BUF = *data;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -231,8 +226,7 @@ uint8_t  readStatusEEPROM(void)
     /* Solange gestzt, bis Transmit Buffer leer ist*/
     while(SPI1STATbits.SPITBF);
     /* STATUS-Register lesen. */
-    SPI1BUF = EEPROM_CMD_PDSR;
-    
+    SPI1BUF = EEPROM_CMD_PDSR; 
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -242,7 +236,6 @@ uint8_t  readStatusEEPROM(void)
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
     SPI1BUF = 0x0;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     status = SPI1BUF;
@@ -273,10 +266,8 @@ uint8_t  readSignatureEEPROM(void)
     
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
-    
     /* Freigabe aus Deep Power Down und Lesen der elektronischen Signatur.*/
     SPI1BUF=EEPROM_CMD_RDIP;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -286,8 +277,7 @@ uint8_t  readSignatureEEPROM(void)
     
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF);
-    SPI1BUF=0xF;
-    
+    SPI1BUF = 0xF;
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -296,8 +286,7 @@ uint8_t  readSignatureEEPROM(void)
     
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
-    SPI1BUF=0xF;
-    
+    SPI1BUF = 0xF;
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
@@ -306,8 +295,7 @@ uint8_t  readSignatureEEPROM(void)
     
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
-    SPI1BUF=0xF;
-    
+    SPI1BUF = 0xF;
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF); 
     /* Dummy read um Buffer zu leeren.*/
@@ -317,7 +305,6 @@ uint8_t  readSignatureEEPROM(void)
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
     SPI1BUF = 0x0;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     signature = SPI1BUF;
@@ -360,15 +347,16 @@ void setWriteEnableEEPROM(void)
     /* Ausgangspin für SPI Chip Select auf 0.*/
     EEPROM_NCS = 0;
     
+    
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF); 
     /* Freigabe von Schreibvorgängen.*/
     SPI1BUF = EEPROM_CMD_WREN;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
+    
     
     /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;
@@ -391,15 +379,16 @@ void setWriteDisableEEPROM(void)
     /* Ausgangspin für SPI Chip Select auf 0.*/
     EEPROM_NCS = 0;
     
+    
     /* Solange gestzt, bis Transmit Buffer leer ist.*/
     while(SPI1STATbits.SPITBF);
     /* Schreibvorgänge deaktivieren.*/
     SPI1BUF = EEPROM_CMD_WRDI;
-    
     /* Warten bis Recieve Buffer voll ist. */
     while(!SPI1STATbits.SPIRBF);
     /* Dummy read um Buffer zu leeren.*/
     dummy = SPI1BUF;
+    
     
     /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;

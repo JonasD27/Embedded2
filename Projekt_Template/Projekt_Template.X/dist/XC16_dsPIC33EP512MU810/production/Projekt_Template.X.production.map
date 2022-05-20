@@ -743,7 +743,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSÈ‡
+ __FGS.sec        0xf80004          0x2 /CW/_FGS@ø•
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -770,7 +770,7 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x6871
+.debug_info       0x000000       0x686e
  *(.debug_info)
  .debug_info      0x000000        0x146 build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_info      0x000146        0x3e1 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -781,10 +781,10 @@ __FUID0
  .debug_info      0x002823       0x119a build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_info      0x0039bd       0x1345 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_info      0x004d02        0x973 build/XC16_dsPIC33EP512MU810/production/code/PMP.o
- .debug_info      0x005675       0x11fc build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
+ .debug_info      0x005675       0x11f9 build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xb03
+.debug_abbrev     0x000000        0xadb
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x1f build/XC16_dsPIC33EP512MU810/production/code/configuration_bits.o
  .debug_abbrev    0x00001f         0xd4 build/XC16_dsPIC33EP512MU810/production/code/interrupts.o
@@ -795,7 +795,7 @@ __FUID0
  .debug_abbrev    0x00049c        0x232 build/XC16_dsPIC33EP512MU810/production/code/I2C.o
  .debug_abbrev    0x0006ce        0x184 build/XC16_dsPIC33EP512MU810/production/code/UART.o
  .debug_abbrev    0x000852        0x123 build/XC16_dsPIC33EP512MU810/production/code/PMP.o
- .debug_abbrev    0x000975        0x18e build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
+ .debug_abbrev    0x000975        0x166 build/XC16_dsPIC33EP512MU810/production/code/eeprom_25xx-1.o
 
 .debug_line       0x000000        0xafb
  *(.debug_line)
@@ -3580,7 +3580,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGSÈ‡
+LOAD /CW/_FGS@ø•
 LOAD jump_table
 LOAD heap
 LOAD data_init
