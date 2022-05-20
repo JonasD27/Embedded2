@@ -24,14 +24,14 @@
 void initSPI()
 {
     /***********************SPI MISO als Input*********************************/
-    _TRISA14=1;
+    _TRISA14 = 1;
     
     /*********************SPI Signale als Output*******************************/
-    _TRISF5=0; //MOSI
-    _TRISF3=0; //CS3
-    _TRISF2=0; //CS2
-    _TRISF8=0; //CS1
-    _TRISF4=0; //SCK
+    _TRISF5 = 0; //MOSI
+    _TRISF3 = 0; //CS3
+    _TRISF2 = 0; //CS2
+    _TRISF8 = 0; //CS1
+    _TRISF4 = 0; //SCK
   
     /**************************************************************************/
     
@@ -61,13 +61,13 @@ void initSPI()
     SPI1STATbits.SPISIDL = 0;
     
     /* Es ist kein Überlauf aufgetreten */
-    SPI1STATbits.SPIROV=0;
+    SPI1STATbits.SPIROV = 0;
        
     /* Übertragung hat begonnen, SPIxTXB-Puffer ist leer */
-    SPI1STATbits.SPITBF=0;
+    SPI1STATbits.SPITBF = 0;
     
     /* Empfang ist unvollständig, SPIxRXB ist leer */
-    SPI1STATbits.SPIRBF=0;
+    SPI1STATbits.SPIRBF = 0;
     
     /*****************SPI XCON1: SPIx Control Register 1***********************/
     
@@ -87,9 +87,9 @@ void initSPI()
      * Taktzustand zum Idle-Taktzustand.*/
     SPI1CON1bits.CKE = 1;
     
-    /* 0 = SSx-Pin wird vom Modul nicht verwendet; 
+    /* SSx-Pin wird vom Modul nicht verwendet; 
      * Pin wird von der Portfunktion gesteuert*/
-    SPI1CON1bits.SSEN=0;
+    SPI1CON1bits.SSEN = 0;
     
     /* Der Ruhezustand für die clock ist ein low Pegel; der aktive Zustand ist 
      * ein high Pegel.*/
@@ -98,14 +98,14 @@ void initSPI()
     /* Master-Modus.*/
     SPI1CON1bits.MSTEN = 1;
     
-    /***********************12,5 MHz eingestellt*******************************/
+    /***********************3,125 MHz eingestellt******************************/
     
-    /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung)) */
+    /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung))  */
     
-    /* Primäre Vorskalierung 16:1*/     // 50 Mhz / 16 = 3,125 MHz
+    /* Primäre Vorskalierung 16:1*/     // 50 MHz / 16 = 3,125 MHz
     SPI1CON1bits.PPRE = 0b01;   
     
-    /* Sekundäre Vorskalierung 8:1*/    // 3,125 MHz / 1 = 3,125 MHz
+    /* Sekundäre Vorskalierung 1:1*/    // 3,125 MHz / 1 = 3,125 MHz
     SPI1CON1bits.SPRE = 0b111;
      
     /*****************SPI XCON1: SPIx Control Register 2***********************/
@@ -127,13 +127,15 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     
-    EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
+    _LATF8 = 0;
+    //EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
         
     SPI1BUF = EEPROM_CMD_WRITE;
     SPI1BUF = addr;
     SPI1BUF = *data;
    
-    EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
+    _LATF8 = 1;
+    //EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
     
 }/*writeDataEEPROM()*/
 
@@ -152,12 +154,15 @@ uint8_t  readStatusEEPROM(void)
 {
     uint8_t status;
     
-    EEPROM_NCS = 0;
+    _LATF8 = 0;
+    //EEPROM_NCS = 0;
     __delay_cycles(2); //2*40ns=80ns
     
     SPI1BUF=EEPROM_CMD_PDSR;
     status = SPI1BUF;
-    EEPROM_NCS = 1;
+    
+    _LATF8 = 1;
+    //EEPROM_NCS = 1;
     __delay_cycles(2); //2*40ns=80ns
     
     char debug[100];
@@ -173,13 +178,14 @@ uint8_t  readSignatureEEPROM(void)
     uint8_t signature;
     volatile uint8_t dummy;
     
-    EEPROM_NCS = 0;
+    _LATF8 = 0;
+    //EEPROM_NCS = 0;
     __delay_us(1);
     
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     dummy = SPI1BUF;
     dummy = SPI1BUF;
-    SPI1BUF=EEPROM_CMD_RDIP;
+    SPI1BUF = EEPROM_CMD_RDIP;
     
     //Dummy Adresse
 
@@ -187,15 +193,18 @@ uint8_t  readSignatureEEPROM(void)
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     dummy = SPI1BUF;
     dummy = SPI1BUF;
-    SPI1BUF=0xF;
+    SPI1BUF = 0xF;
+    
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     dummy = SPI1BUF;
     dummy = SPI1BUF;
-    SPI1BUF=0xF;
+    SPI1BUF = 0xF;
+    
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     dummy = SPI1BUF;
     dummy = SPI1BUF;
-    SPI1BUF=0xF;
+    SPI1BUF = 0xF;
+    
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     dummy = SPI1BUF;
     dummy = SPI1BUF;
@@ -211,7 +220,9 @@ uint8_t  readSignatureEEPROM(void)
     //while(!SPI1STATbits.SPIRBF);
     signature=SPI1BUF;
     __delay_us(6);
-    EEPROM_NCS = 1;
+    
+    _LATF8 = 0;
+    //EEPROM_NCS = 1;
 
      
     
