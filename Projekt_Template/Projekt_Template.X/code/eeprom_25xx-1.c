@@ -141,18 +141,18 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     
     //Adressse senden
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    // 2. Halb-Byte
+    // 2. Wort
     SPI1BUF=(addr >> 16 );
     while(!SPI1STATbits.SPIRBF);
     dummy = SPI1BUF;
     
-    // 3. Halb-Byte
+    // 3. Wort
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=(addr >> 8 );
     while(!SPI1STATbits.SPIRBF);
     dummy = SPI1BUF;
     
-    // 4. Halb-Byte
+    // 4. Wort
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=(addr >> 0 );
     while(!SPI1STATbits.SPIRBF);
