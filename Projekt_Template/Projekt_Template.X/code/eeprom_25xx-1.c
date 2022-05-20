@@ -149,18 +149,26 @@ void readDataEEPROM(uint32_t addr, uint8_t *data, int count)
 uint8_t  readStatusEEPROM(void)
 {
     uint8_t status;
+    volatile uint8_t dummy;
     
     EEPROM_NCS = 0;
-    __delay_cycles(2); //2*40ns=80ns
+    __delay_us(1);
     
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=EEPROM_CMD_PDSR;
-    status = SPI1BUF;
-    EEPROM_NCS = 1;
-    __delay_cycles(2); //2*40ns=80ns
     
-    char debug[100];
-    sprintf(debug,"Stauts: %02X",status);
-    putsUART(debug);
+    __delay_us(5);
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    //Dummy read um Buffer zu leeren
+    dummy = SPI1BUF;
+    
+    SPI1BUF=0x0;
+    //Warten bis Recieve Buffer voll ist
+    while(!SPI1STATbits.SPIRBF);
+    status = SPI1BUF;
+    
+    __delay_us(5);
+    EEPROM_NCS = 1;
     
     return status;
 
@@ -203,4 +211,17 @@ uint8_t  readSignatureEEPROM(void)
     
      return signature;
 
+}
+
+uint8_t  busyEEPROM(void)
+{
+    if (readStatusEEPROM() & EEPROM_STATUS_WIP) //Überprüfen ob WIP gesetzt ist
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
 }

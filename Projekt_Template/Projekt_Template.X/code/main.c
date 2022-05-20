@@ -216,6 +216,7 @@ void display_temp_load()
        }
        
        display_UART_RX();
+       readStatusEEPROM();
    }
    
 }/*display_temp_load()*/
