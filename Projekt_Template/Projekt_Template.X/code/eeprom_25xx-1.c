@@ -174,54 +174,33 @@ uint8_t  readSignatureEEPROM(void)
     EEPROM_NCS = 0;
     __delay_us(1);
     
+    //Read Signatur Befehl senden
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    dummy = SPI1BUF;
-    dummy = SPI1BUF;
     SPI1BUF=EEPROM_CMD_RDIP;
     
-    //Dummy Adresse
+    //Dummy Adresse senden
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    SPI1BUF=0xF;
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    SPI1BUF=0xF;
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    SPI1BUF=0xF;
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
 
-    
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    //Warten bis Alle Daten rausgetaktet
+    __delay_us(10);
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    //Dummy read um Buffer zu leeren
     dummy = SPI1BUF;
-    dummy = SPI1BUF;
-    SPI1BUF=0xF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    dummy = SPI1BUF;
-    dummy = SPI1BUF;
-    SPI1BUF=0xF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    dummy = SPI1BUF;
-    dummy = SPI1BUF;
-    SPI1BUF=0xF;
-    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
-    dummy = SPI1BUF;
-    dummy = SPI1BUF;
-    
-    delay_ms(1);
-    dummy = SPI1BUF;
-    dummy = SPI1BUF;
-    
-    
-    
     
     SPI1BUF=0x0;
-    //while(!SPI1STATbits.SPIRBF);
+    //Warten bis Recieve Buffer voll ist
+    while(!SPI1STATbits.SPIRBF);
     signature=SPI1BUF;
-    __delay_us(6);
+    
+    __delay_us(5);
     EEPROM_NCS = 1;
-
-     
     
-    
-    char debug[100];
-    sprintf(debug,"Signatur: 0x%02X",signature);
-    putsUART(debug);
-    char lf[2];
-    sprintf(lf, "\n"); 
-    putsUART(lf);
-    
-    
-    return signature;
+     return signature;
 
 }

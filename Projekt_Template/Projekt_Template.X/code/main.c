@@ -216,7 +216,6 @@ void display_temp_load()
        }
        
        display_UART_RX();
-       readSignatureEEPROM();
    }
    
 }/*display_temp_load()*/
@@ -243,6 +242,14 @@ int16_t main(void)
     writeStrLCD("Hello World");
     delay_ms(2000);
     lcd_clear();
+    
+    char str[32];
+    sprintf(str,"Signatur: 0x%02X",readSignatureEEPROM());
+    putsUART(str);
+    char lf[2];
+    sprintf(lf, "\n"); 
+    putsUART(lf);
+    
 
     _TRISF0 = 0;                //Für Asuslastungsberechnung
     _T2CKR = 96;                //LATF0 auf Gated Timer Input mappen
