@@ -23,25 +23,29 @@
 
 void initSPI()
 {
-    //SPI MISO als Input
+    /***********************SPI MISO als Input*********************************/
     _TRISA14=1;
-    //SPI Signale als Output
+    
+    /*********************SPI Signale als Output*******************************/
     _TRISF5=0; //MOSI
     _TRISF3=0; //CS3
     _TRISF2=0; //CS2
     _TRISF8=0; //CS1
     _TRISF4=0; //SCK
   
-    __builtin_write_OSCCONL(OSCCON & 0xDF);        // to clear IOLOCK
+    /**************************************************************************/
     
-    _RP100R = _RPOUT_SCK1;
-    _RP101R = _RPOUT_SDO1;
+    __builtin_write_OSCCONL(OSCCON & 0xDF);         // lösche IOLOCK
     
-    RPINR20bits.SCK1R=100;
-    //RPINR29bits.SDI3R=30;
-    RPINR20bits.SDI1R = 30;
+    /*****************************Input Pins***********************************/
+    RPINR20bits.SCK1R = 100;                        // Takteingang an RP100
+    RPINR20bits.SDI1R = 30;                         // SDI an RP30
     
-    __builtin_write_OSCCONL(OSCCON | 0x40);        // to set IOLOCK
+    /****************************Output Pins***********************************/
+    RPOR9bits.RP101R = _RPOUT_SDO1;                 // SPO
+    RPOR9bits.RP100R = _RPOUT_SCK1;                 // SPCLK
+
+    __builtin_write_OSCCONL(OSCCON | 0x40);         // setze IOLOCK
     
     /*******************Interrupt Controller Settings**************************/
     
@@ -64,7 +68,6 @@ void initSPI()
     
     /* Empfang ist unvollständig, SPIxRXB ist leer */
     SPI1STATbits.SPIRBF=0;
-    
     
     /*****************SPI XCON1: SPIx Control Register 1***********************/
     
@@ -102,7 +105,6 @@ void initSPI()
     
     /* Primäre Vorskalierung 1:1*/
     SPI1CON1bits.PPRE = 0b11;   
-    
     
     /*****************SPI XCON1: SPIx Control Register 2***********************/
     
