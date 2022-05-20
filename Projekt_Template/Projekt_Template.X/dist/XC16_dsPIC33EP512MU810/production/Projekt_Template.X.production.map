@@ -737,7 +737,7 @@ usercode
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSê¥ô
+ __FGS.sec        0xf80004          0x2 /CW/_FGSÄ§ë
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -3574,7 +3574,7 @@ LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.50/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/XC16_dsPIC33EP512MU810/production/Projekt_Template.X.production.elf elf32-pic30)
-LOAD /CW/_FGSê¥ô
+LOAD /CW/_FGSÄ§ë
 LOAD jump_table
 LOAD heap
 LOAD data_init

@@ -127,15 +127,15 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     
-    _LATF8 = 0;
-    //EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
+    //_LATF8 = 0;
+    EEPROM_NCS = 0;             //Ausgangspin für SPI Chip Select auf 0
         
     SPI1BUF = EEPROM_CMD_WRITE;
     SPI1BUF = addr;
     SPI1BUF = *data;
    
-    _LATF8 = 1;
-    //EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
+    //_LATF8 = 1;
+    EEPROM_NCS = 1;             //Ausgangspin für SPI Chip Select auf 1
     
 }/*writeDataEEPROM()*/
 
@@ -154,15 +154,15 @@ uint8_t  readStatusEEPROM(void)
 {
     uint8_t status;
     
-    _LATF8 = 0;
-    //EEPROM_NCS = 0;
+    //_LATF8 = 0;
+    EEPROM_NCS = 0;
     __delay_cycles(2); //2*40ns=80ns
     
     SPI1BUF=EEPROM_CMD_PDSR;
     status = SPI1BUF;
     
-    _LATF8 = 1;
-    //EEPROM_NCS = 1;
+    //_LATF8 = 1;
+    EEPROM_NCS = 1;
     __delay_cycles(2); //2*40ns=80ns
     
     char debug[100];
@@ -178,8 +178,8 @@ uint8_t  readSignatureEEPROM(void)
     uint8_t signature;
     volatile uint8_t dummy;
     
-    _LATF8 = 0;
-    //EEPROM_NCS = 0;
+    //_LATF8 = 0;
+    EEPROM_NCS = 0;
     __delay_us(1);
     
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
@@ -212,17 +212,14 @@ uint8_t  readSignatureEEPROM(void)
     delay_ms(1);
     dummy = SPI1BUF;
     dummy = SPI1BUF;
-    
-    
-    
-    
+       
     SPI1BUF=0x0;
     //while(!SPI1STATbits.SPIRBF);
     signature=SPI1BUF;
     __delay_us(6);
     
-    _LATF8 = 0;
-    //EEPROM_NCS = 1;
+    //_LATF8 = 1;
+    EEPROM_NCS = 1;
 
      
     
