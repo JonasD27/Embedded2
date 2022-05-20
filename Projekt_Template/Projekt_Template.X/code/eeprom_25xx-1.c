@@ -87,6 +87,8 @@ void initSPI()
      * Taktzustand zum Idle-Taktzustand.*/
     SPI1CON1bits.CKE = 1;
     
+    /* 0 = SSx-Pin wird vom Modul nicht verwendet; 
+     * Pin wird von der Portfunktion gesteuert*/
     SPI1CON1bits.SSEN=0;
     
     /* Der Ruhezustand für die clock ist ein low Pegel; der aktive Zustand ist 
