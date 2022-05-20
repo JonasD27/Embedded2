@@ -113,7 +113,7 @@ void     readDataEEPROM(uint32_t addr, uint8_t *data, int count);
 void     writeDataEEPROM(uint32_t addr, uint8_t *data, int count);
 uint16_t writeBigDataEEPROM(uint32_t *addr, uint8_t *data, uint16_t *count);
 void     setWriteEnableEEPROM(void); //Fertig
-void     setWriteDisableEEPROM(void);
+void     setWriteDisableEEPROM(void); //Fertig
 uint8_t  readStatusEEPROM(void); //Fertig
 void     writeStatusEEPPROM(uint8_t status);
 void     erasePageEEPROM(uint32_t addr);
