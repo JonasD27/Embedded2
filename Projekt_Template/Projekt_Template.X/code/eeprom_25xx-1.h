@@ -112,17 +112,17 @@ void     initSPI();
 void     readDataEEPROM(uint32_t addr, uint8_t *data, int count);
 void     writeDataEEPROM(uint32_t addr, uint8_t *data, int count);
 uint16_t writeBigDataEEPROM(uint32_t *addr, uint8_t *data, uint16_t *count);
-void     setWriteEnableEEPROM(void);
+void     setWriteEnableEEPROM(void); //Fertig
 void     setWriteDisableEEPROM(void);
-uint8_t  readStatusEEPROM(void);
+uint8_t  readStatusEEPROM(void); //Fertig
 void     writeStatusEEPPROM(uint8_t status);
 void     erasePageEEPROM(uint32_t addr);
 void     eraseSectorEEPROM(uint32_t addr);
 void     eraseChipEEPROM(void);
 void     gotoDeepPowerDownEEPROM(void);
 void     relaseDeepPowerDownEEPROM(void);
-uint8_t  readSignatureEEPROM(void);
-uint8_t  busyEEPROM(void);
+uint8_t  readSignatureEEPROM(void); //Fertig
+uint8_t  busyEEPROM(void); //Fertig
 
 
 #endif	/* EEPROM_25XX_H */

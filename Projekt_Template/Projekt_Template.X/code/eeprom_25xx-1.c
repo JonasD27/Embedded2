@@ -151,23 +151,22 @@ uint8_t  readStatusEEPROM(void)
     uint8_t status;
     volatile uint8_t dummy;
     
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    dummy = SPI1BUF;
+    
     EEPROM_NCS = 0;
-    __delay_us(1);
     
     while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=EEPROM_CMD_PDSR;
+    while(!SPI1STATbits.SPIRBF); //Solange warten, bis Eingelese ist
+    dummy = SPI1BUF; //leeren
     
-    __delay_us(5);
-    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
-    //Dummy read um Buffer zu leeren
-    dummy = SPI1BUF;
-    
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
     SPI1BUF=0x0;
     //Warten bis Recieve Buffer voll ist
     while(!SPI1STATbits.SPIRBF);
     status = SPI1BUF;
     
-    __delay_us(5);
     EEPROM_NCS = 1;
     
     return status;
@@ -224,4 +223,45 @@ uint8_t  busyEEPROM(void)
         return 0;
     }
     
+}
+
+
+void setWriteEnableEEPROM(void)
+{
+    while(busyEEPROM());
+    
+    volatile uint8_t dummy;
+    
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    dummy = SPI1BUF;
+    
+    EEPROM_NCS = 0;
+    
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    SPI1BUF=EEPROM_CMD_WREN;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
+      
+    EEPROM_NCS = 1;
+
+}
+
+void setWriteDisableEEPROM(void)
+{
+    while(busyEEPROM());
+    
+    volatile uint8_t dummy;
+    
+    SPI1STATbits.SPIROV=0; //Overflow Flag clearen
+    dummy = SPI1BUF;
+    
+    EEPROM_NCS = 0;
+    
+    while(SPI1STATbits.SPITBF); //Solange gestzt, bis Transmit Buffer leer ist
+    SPI1BUF=EEPROM_CMD_WRDI;
+    while(!SPI1STATbits.SPIRBF);
+    dummy = SPI1BUF;
+      
+    EEPROM_NCS = 1;
+
 }

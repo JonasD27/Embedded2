@@ -216,7 +216,8 @@ void display_temp_load()
        }
        
        display_UART_RX();
-       readStatusEEPROM();
+       setWriteEnableEEPROM();
+       setWriteDisableEEPROM();
    }
    
 }/*display_temp_load()*/
