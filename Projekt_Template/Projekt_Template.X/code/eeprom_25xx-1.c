@@ -100,12 +100,12 @@ void initSPI()
     
     /* Taktfrequenz = (Systemfrequenz / (Primäre * Sekundäre Vorskalierung)) */
     
-    /* Sekundäre Vorskalierung 8:1*/    //????
-    SPI1CON1bits.SPRE = 0b000;
+    /* Primäre Vorskalierung 16:1*/     // 50 Mhz / 16 = 3,125 MHz
+    SPI1CON1bits.PPRE = 0b01;   
     
-    /* Primäre Vorskalierung 1:1*/
-    SPI1CON1bits.PPRE = 0b11;   
-    
+    /* Sekundäre Vorskalierung 8:1*/    // 3,125 MHz / 1 = 3,125 MHz
+    SPI1CON1bits.SPRE = 0b111;
+     
     /*****************SPI XCON1: SPIx Control Register 2***********************/
     
     /* Framed SPIx-Unterstützung ist deaktiviert.*/
