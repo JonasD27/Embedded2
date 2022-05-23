@@ -216,9 +216,19 @@ void display_temp_load()
        }
        
        display_UART_RX();
-       uint8_t data = 0b11001001;
+       
+       uint8_t data[3] = {0xAB, 0x3D, 0x5E};
        uint32_t addr = 0xABF0FF00;
-       writeDataEEPROM(addr,&data,1);
+       writeDataEEPROM(addr,data,3);
+       
+       delay_ms(10);
+       
+       uint8_t recv_data[3];
+       readDataEEPROM(addr, recv_data, 3);
+       char str[64]; 
+       sprintf(str, "0x%02X 0x%02X 0x%02X",recv_data[0], recv_data[1], recv_data[2]);
+       lcd_set_pos(2,1);
+       writeStrLCD(str);
    }
    
 }/*display_temp_load()*/

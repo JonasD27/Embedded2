@@ -186,13 +186,18 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
     
     
     //Daten schreiben
-    /* Solange gestzt, bis Transmit Buffer leer ist*/
-    while(SPI1STATbits.SPITBF); 
-    SPI1BUF = *data;
-    /* Warten bis Recieve Buffer voll ist. */
-    while(!SPI1STATbits.SPIRBF);
-    /* Dummy read um Buffer zu leeren.*/
-    dummy = SPI1BUF;
+    int i;
+    for (i=0; i<count; i++)
+    {
+        /* Solange gestzt, bis Transmit Buffer leer ist*/
+        while(SPI1STATbits.SPITBF); 
+        SPI1BUF = data[i];
+        
+        /* Warten bis Recieve Buffer voll ist. */
+        while(!SPI1STATbits.SPIRBF);
+        /* Dummy read um Buffer zu leeren.*/
+        dummy = SPI1BUF;
+    }
     
     /* Ausgangspin für SPI Chip Select auf 1.*/
     EEPROM_NCS = 1;
@@ -203,9 +208,80 @@ void writeDataEEPROM(uint32_t addr, uint8_t *data, int count)
 
 uint8_t readDataEEPROM(uint32_t addr, uint8_t *data, int count)
 {
-    uint8_t readDataBuffer = SPI1BUF;
+    while(busyEEPROM());
     
-    return readDataBuffer;
+    volatile uint8_t dummy;
+    
+
+    /* Es ist kein Überlauf aufgetreten.*/
+    SPI1STATbits.SPIROV = 0; 
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    /* Ausgangspin für SPI Chip Select auf 0.*/
+    EEPROM_NCS = 0;
+    
+    
+    //Read Instrucion
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    /* Schreiben von Daten in das Speicherfeld ab der ausgewählten Adresse.*/
+    SPI1BUF = EEPROM_CMD_READ;  
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    //Adresse
+     // 2. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF); 
+    SPI1BUF = (addr >> 16 ); 
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    // 3. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    SPI1BUF = (addr >> 8 );
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    // 4. Wort
+    /* Solange gestzt, bis Transmit Buffer leer ist*/
+    while(SPI1STATbits.SPITBF);
+    SPI1BUF = (addr >> 0 ); 
+    /* Warten bis Recieve Buffer voll ist. */
+    while(!SPI1STATbits.SPIRBF);
+    /* Dummy read um Buffer zu leeren.*/
+    dummy = SPI1BUF;
+    
+    
+    //Lesen
+    int i;
+    for (i=0; i<count; i++)
+    {
+        /* Solange gestzt, bis Transmit Buffer leer ist*/
+        while(SPI1STATbits.SPITBF); 
+        SPI1BUF = 0x0;
+        
+        /* Warten bis Recieve Buffer voll ist. */
+        while(!SPI1STATbits.SPIRBF);
+        /* Dummy read um Buffer zu leeren.*/
+        data[i] = SPI1BUF;
+    }
+    
+    /* Ausgangspin für SPI Chip Select auf 1.*/
+    EEPROM_NCS = 1;
+    
+    return 1;
     
 }/*readDataEEPROM()*/
 
