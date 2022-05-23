@@ -217,16 +217,26 @@ void display_temp_load()
        
        display_UART_RX();
        
-       uint8_t data[3] = {0xAB, 0x3D, 0x5E};
-       uint32_t addr = 0xABF0FF00;
-       writeDataEEPROM(addr,data,3);
+#if 0
+       uint8_t data1[3] = {128, 0, 30};
+       uint8_t data2[3] = {254, 13, 76};
+       uint8_t data3[3] = {255, 255, 255};
+       
+       writeDataEEPROM(0x00000000,data1,3); //Pro Adresse ein Byte möglich
+       writeDataEEPROM(0x00000003,data2,3);
+       writeDataEEPROM(0x00000006,data3,3);
        
        delay_ms(10);
+#endif    
+       uint8_t recv_data1[3];
+       uint8_t recv_data2[3];
+       uint8_t recv_data3[3];
        
-       uint8_t recv_data[3];
-       readDataEEPROM(addr, recv_data, 3);
+       readDataEEPROM(0x00000000, recv_data1, 3);
+       readDataEEPROM(0x00000003, recv_data2, 3);
+       readDataEEPROM(0x00000006, recv_data3, 3);
        char str[64]; 
-       sprintf(str, "0x%02X 0x%02X 0x%02X",recv_data[0], recv_data[1], recv_data[2]);
+       sprintf(str, "%i %i %i",recv_data1[0], recv_data2[1], recv_data3[2]);
        lcd_set_pos(2,1);
        writeStrLCD(str);
    }
