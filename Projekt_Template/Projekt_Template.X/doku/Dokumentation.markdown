@@ -86,6 +86,14 @@ Anschließend wurde darauf geachtet, dass dieselben Funktionen verwendet wurden w
 Funktionen verwendet haben, kann man jederzeit problemlos in der Hauptschleife zwischen der Ansteuerung über PMP oder GPIO wechseln.
   
   
+@page em_aufgabe4 Aufgabe EEPROM SPI
+In dieser Aufgabe wurde ein EEPROM-Speicher mit Hilfe der SPI Schnittstelle angesteuert.
+Dafür wird die Schnittstelle in der Funktion initSPI() initialisiert.
+Mit readSignatureEEPROM() wird die Signatur ausgelesen. Liefert diese Funktion 0x29 zurück, so war die Kommunikation erfolgreich.
+Mit readStatusEEPROM() wird der akutelle Status ausgelesen. Dieser liefert unter Anderem Informationen über das Write-Enable Latch und das Write in Progress Bit.
+In der Funktion busyEEPROM() wird der Status auf das Write-In-Progress Bit hin untersucht. Diese Funktion kann dann zyklisch in einer While-Schleife aufgerufen werden um solange zu warten, bis geschrieben werden kann.
+Mit Hilfe von setWriteEnableEEPROM() wird das Write-Enable Latch gesetzt.
+Schreib- und Lese-Zugriff erfolgt über writeDataEEPROM() und readDataEEPROM().
 
   
 
