@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/XC16_dsPIC33EP512MU810/production/blink.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>53248</length>
+      <used>38</used>
+      <free>53210</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>524544</length>
+      <used>3273</used>
+      <free>521271</free>
+    </memory>
+  </executable>
+</project>
